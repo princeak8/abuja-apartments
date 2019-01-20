@@ -1,0 +1,20 @@
+.lik_un{margin-bottom:5px;}
+.lik_un a{display:inline; font-size: 1.9em;margin-right: 10px; padding:.4% 2%;text-decoration: none; color:rgba(251,251,251,1.00);}
+.lik_un a span{font-size:.9em;margin-right: 3px;}
+.lik_un a:hover{text-decoration: none;}
+a.soc_fb{background:rgba(11,58,139,1.00);}
+a.soc_tw{background-color: rgba(5,175,203,1.00);}
+a.soc_wh{background-color: rgba(3,132,90,1.00);}
+a.soc_g{background-color: rgba(188,70,9,1.00);}
+
+/* the share for the realtor */
+.share_realtor{padding-top:5px;}
+.share_realtor a{font-size:1.5em;padding:.4% 2%; margin-right: 5px; color:white;}
+.share_realtor a:hover{text-decoration: none;}
+
+@media only screen and (max-width:767px){
+	.lik_un a{display:inline; font-size: 1.7em;margin-right: 5px; padding:.4% 2%; }
+	a.soc_wh{display:inline !important;}
+	.share_realtor{padding-bottom: 5px;}
+	.share_realtor a{font-size:1.1em;}
+}

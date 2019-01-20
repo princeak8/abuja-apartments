@@ -1,0 +1,1025 @@
+
+/*@font-face{
+	font-family: 'oswald_regular';
+   src: url('../fonts/oswald/Oswald-Regular.TTF')format('truetype');	
+}
+@font-face {
+    font-family: 'gladifilthefte';
+    src: url('../fonts/Gladifilthefte/Gladifilthefte-webfont.eot');
+    src: url('../fonts/Gladifilthefte/Gladifilthefte-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Gladifilthefte/Gladifilthefte-webfont.woff') format('woff'),
+         url('../fonts/Gladifilthefte/Gladifilthefte-webfont.ttf') format('truetype'),
+         url('../fonts/Gladifilthefte/Gladifilthefte-webfont.svg#gladifiltheftegladifilthefte') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+	font-family: 'AkzidenzGrotesk';
+   src: url('../fonts/AkzidenzGrotesk R/AkzidenzGrotesk BQ Condensed Regular.TTF')format('truetype');	
+}
+@font-face {
+    font-family: 'dobkinplain';
+    src: url('../fonts/dobkin_plain/DobkinPlain-webfont.eot');
+    src: url('../fonts/dobkin_plain/DobkinPlain-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dobkin_plain/DobkinPlain-webfont.woff') format('woff'),
+         url('../fonts/dobkin_plain/DobkinPlain-webfont.ttf') format('truetype'),
+         url('../fonts/dobkin_plain/DobkinPlain-webfont.svg#dobkinplain') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'typoupright_btregular';
+    src: url('../fonts/typoupright/tt0939m_-webfont.woff2') format('woff2'),
+         url('../fonts/typoupright/tt0939m_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'argosgeorgeregular';
+    src: url('../fonts/argosgeorge/argosgeorge-webfont.woff2') format('woff2'),
+         url('../fonts/argosgeorgeargosgeorge-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'OratorStd';
+  src: url('../fonts/OratorStd/OratorStd.eot?#iefix') format('embedded-opentype'),  url('../fonts/OratorStd/OratorStd.otf')  format('opentype'),
+	     url('../fonts/OratorStd/OratorStd.woff') format('woff'), url('../fonts/OratorStd/OratorStd.ttf')  format('truetype'), url('../fonts/OratorStd/OratorStd.svg#OratorStd') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'kingthings_foundationregular';
+    src: url('../fonts/Kingthings-Foundation-fontfacekit/Kingthings_Foundation-webfont.eot');
+    src: url('../fonts/Kingthings-Foundation-fontfacekit/Kingthings_Foundation-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Kingthings-Foundation-fontfacekit/Kingthings_Foundation-webfont.woff') format('woff'),
+         url('../fonts/Kingthings-Foundation-fontfacekit/Kingthings_Foundation-webfont.ttf') format('truetype'),
+         url('../fonts/Kingthings-Foundation-fontfacekit/Kingthings_Foundation-webfont.svg#kingthings_foundationregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+   font-family: 'agency';
+   src: url('../fonts/AGENCYR.TTF')format('truetype');
+}
+@font-face {
+  font-family: 'HoboStd';
+  src: url('../fonts/HoboStd/HoboStd.eot?#iefix') format('embedded-opentype'),  url('../fonts/HoboStd/HoboStd.otf')  format('opentype'),
+	     url('../fonts/HoboStd/HoboStd.woff') format('woff'), url('../fonts/HoboStd/HoboStd.ttf')  format('truetype'), url('../fonts/HoboStd/HoboStd.svg#HoboStd') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cambria';
+  src: url('../fonts/Cambria/Cambria.eot?#iefix') format('embedded-opentype'),  url('../fonts/Cambria/Cambria.woff') format('woff'), url('../fonts/Cambria/Cambria.ttf')  format('truetype'), url('../fonts/Cambria/Cambria.svg#Cambria') format('svg');
+  font-style: normal;
+  font-weight:lighter;
+}*/
+
+.no-margin{
+	margin: 0px;	
+}
+.no-padding{
+	padding: 0px;	
+}
+.clear{
+	clear:both;	
+}
+.red {
+	color: red;	
+}
+.white{
+	color: white;	
+}
+.blue{
+	color: blue;	
+}
+.bg_white{
+	background: white;	
+}
+
+.bg_blue{
+	background: blue;	
+}
+.black{
+	color: black;	
+}
+.green {
+	color: green;
+}
+.shadow1{
+	box-shadow: 0px 0px 2px 0px black;	
+}
+.oswald{font-family: oswald_regular;}
+.orator{
+	font-family: OratorStd, Cambria, "OCR A Std";
+}
+.agency{font-family: agency, "Agency FB", Arial, "Arial Narrow";
+}
+body {
+	background-image: url(../images/bk.png);
+	background-repeat: repeat;
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+}
+
+.text {
+	font-size: 1.4em;
+}
+/* The HEADER containing the Logo  starts here */
+#header{
+	background: white;
+	font-size: 1.4em;
+	padding: 1% 4% .5% 4%;
+	_background: -ms-linear-gradient(bottom,rgba(255,255,255,1) 60%, rgba(0,102,153,0.9) 190%);
+	_background: -moz-linear-gradient(bottom,rgba(255,255,255,1) 60%, rgba(0,102,153,0.9) 190%);
+	_background: -webkit-linear-gradient(bottom,rgba(255,255,255,1) 60%, rgba(0,102,153,0.9) 190%);
+	_background: linear-gradient(bottom,rgba(255,255,255,1) 60%, rgba(0,102,153,0.9) 190%);
+	position: relative; 
+	margin-bottom: 6px;
+	font-family: oswald_regular, Cambria, "OCR A Std";
+}
+#header img{
+	width: 100%;
+	height: 100%;
+}
+#header a{
+	text-decoration: none;
+}
+#header a:hover{
+	text-decoration: none;
+	text-shadow: 0px 0px 1px rgba(21,136,229,1.00);
+}
+.wel{
+	font-size: 1.2em;
+	font-family: oswald_regular, Cambria, "OCR A Std";
+}
+.wel span{
+	font-weight: 100;
+	color: rgba(0,102,153,1);
+	font-size: 1.3em;	
+}
+ul.dropdown-menu{		
+}
+/* CSS for the Search */
+.search{padding: 2.3% 12px 1% 12px;}
+.search input{border-radius: 0px;}
+.search button{border-radius: 0px;}
+/* CSS for login and Register */
+.log{padding: 1% 10px 1% 10px; font-size: 1.3em; letter-spacing: 2px; margin-top: 11%; border-radius: 5px; text-align:center;
+box-shadow: 0px 0px 2px 1px rgba(127,127,127,.4);}
+.head2 p{margin: 0px;}
+.out{font-size: 1.2em;}
+.log.dropdown-toggle{
+	z-index: 100;	
+}
+.log .dropdown-menu{margin-left: 75px;}
+/* The MENU containing the menu headings starts here */
+
+nav.navbar{min-height: 20px; z-index: 1;}
+#menu {border-radius: 5px;}
+.menu{
+	background-color: rgba(0,102,153,0.9);
+	height: 40px;
+	border-radius: 5px;
+}
+.list ul{
+	width: 100%;
+	height: 40px;	
+}
+.list ul li{
+	margin-left: 8%;	
+}
+#menu a {
+	font-family: "Bauhaus 93";
+	font-size: 1.3em;
+	height: 40px;
+	line-height: 10px;
+	color:#FFF;
+	text-decoration: none;
+}
+#menu a:hover {
+	color:#3399CC;
+	text-decoration: none;
+}
+/* CSS for Login Page */
+.login_page{margin-top: 10px; padding-top: 10px; font-family:oswald_regular;}
+.login_page .panel-heading{text-align: center;padding: .5% 0px;  letter-spacing: 2px; color:rgba(0,102,153,1);}
+.login_page .panel-title{font-size: 2.3em;}
+.login_page .panel-body{ font-size: 1.7em;}
+.login_page .panel-body i{font-style: normal; font-size: 1em;}
+
+/* the BODY starts here */
+#wrapper{
+	box-shadow: 0px 0px 2px rgba(19,17,207,.5);
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: .5%;	
+}
+.h_e{font-size: 1.6em; padding: 0% 0% .4% 2%; font-family:oswald_regular;}
+.h_e a{color: rgba(0,23,59,1.00);}
+.h_e a:hover{text-decoration: none; color: rgba(72,150,213,1.00);}
+
+/*the Left side for selecting house type FILTER */
+#left-side{	
+	font-family: oswald_regular, Cambria, "OCR A Std";
+	font-size: 1.2em;
+	line-height: 20px;
+}
+#left-side .panel{
+	border: none;
+	border-radius: 0px;
+	background: none;
+	box-shadow: 0px 0px 2px rgba(3,10,87,.3);	
+}
+#left-side .panel-heading{
+	background-color: rgba(0,102,153,1);
+	height: 30px;
+	padding: 0px;
+	border-radius: 0px;	
+}
+#left-side .panel-body{background: white; padding: 1% 2%;}
+#left-side h3{
+	color: rgba(255,255,255,1.00);
+	font-size: 1.3em;
+	line-height: 30px;
+}
+#left-side h4{
+	color: white;
+	margin: 4px 0px;
+	font-size: 1.1em;
+	padding: 2%;
+	border-radius: 4px 4px 0px 0px;
+	background: rgba(0,102,153,1);
+}
+
+#left-side h3,#left-side h4{
+	font-family: oswald_regular, OratorStd, Cambria, "OCR A Std";
+	text-align: center;
+}
+/* the stylesheet for the FILTER ON */
+.sub{
+	min-height: 20px;
+}
+#content .sub h4{color: rgba(81,79,79,1.00);}
+#content .sub h4 b{font-weight: 100; font-family:oswald_regular, OratorStd, Cambria, "OCR A Std"; font-size: .75em;color: #006699;}
+.sub p{
+	line-height: 30px;
+	margin-top: 0px;
+}
+#price-ranges .hi, #house-types .hi, .left_details .hi{display:none;}
+/* the Content Section containing the houses */
+#content {
+	background: rgba(255,255,255,1.00);
+	box-shadow: 0px 0px 2px rgba(19,17,207,.3);	
+	padding-top: 1.2%;
+}
+#content h4{font-family: agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; font-size: 2.2em; padding-left: 1%; margin: 0px 0px 5px 0px; color:rgba(0,102,153,1);}
+#content button{border-radius: 4px; font-size: .8em;}
+/* CSS for estates */
+.est{border-radius: 8px; padding-bottom: 10px;}
+.est h5{margin: 0px 0px 5px 0px; font-family: agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; font-size: 2.2em; font-weight:bold; color:rgba(0,102,153,1);}
+.est_cont{font-size: 1.4em; padding: .8% .8%; box-shadow: 0px 0px 2px rgba(19,17,207,.3); border-radius: 8px;}
+.est_img{height: 180px;}
+.est_img:hover{border:2px solid #006699; border-radius: 6px;}
+.est_img img{width:100%; height: 100%;}
+.est_cont .cont_lik{color:#006699;}
+.shadow{
+	box-shadow: 0px 0px 2px rgba(19,17,207,1.00);	
+}
+/* CSS for Realtor page details */
+.cont_real{margin-bottom: 5px; font-family:oswald_regular, OratorStd, Cambria; background: #006699; padding: 1%;}
+.realtor_pag h4{font-size: 2.4em; color: white;}
+.fol button{margin-right: 10px; font-size: 1.3em; border-radius: 5px; font-weight: 100;}
+.fol b{color: white; font-weight: 100; font-size: 1.2em; letter-spacing: 1px;}
+/* CSS for Realtor info on the right side */
+#realtor-details{font-family: agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; font-size: 1.8em; background: #006699; color:white;}
+#realtor-details b{font-weight: 100; font-family:oswald_regular, OratorStd, Cambria; font-size: .9em;}
+#realtor-details .container-fluid{padding: 8px 5px 10px 8px; border-bottom: 1px dotted rgba(146,177,200,1.00);}
+/* CSS for the Wall Page */
+.cont_wall{margin-bottom: 5px; font-family:oswald_regular, OratorStd, Cambria; background: white; padding: .5%; color: white;}
+.cont_wall h4{font-size: 2.4em; padding:5px 2%;}
+.wall{padding-right: 10px; font-size: 1.6em; margin-top: 7px;}
+.wall a{padding: 10px 20px; margin: 0px; color: white;}
+.wall a:hover{text-decoration: none;}
+.wall_bk{background:#006699; border-radius: 5px; }
+.anch{background: white; color: black;}
+/* CSS for Container of pix below */
+.pix_wall{padding-right: 0px;}
+
+/* CSS for the includes Mylikes page */
+.my_likes{font-family:oswald_regular, OratorStd, Cambria;}
+.my_likes .nav li{font-size: 1.4em;letter-spacing: 2px;}
+.my_likes h3{margin: 0px 0px 10px 0px; letter-spacing: 2px; color:#006699;}
+.likes h3{margin: 6px 0px; padding-left: .6%;}
+.likes{padding-bottom: 8px;}
+/* CSS for includes for following page */
+#content .following{}
+#content .following h4{font-size: 2.5em;}
+#content .following table{font-family: agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; }
+#content .following thead{font-size: 1.9em; background:#006699; color: white;}
+#content .following thead th{font-weight: 100; letter-spacing: 2px;}
+#content .following tr td{font-size: 1.8em; color:#006699;}
+#content .following .td_img{height: 120px;}
+.td_img img{width: 100%; height: 100%;}
+
+.house_cont{
+	box-shadow: 0px 0px 2px rgba(0,0,0,.5);
+	background: rgba(255,255,255,1.00);
+	color: #006699;
+	width: 100%;
+	font-size: 1.2em;
+	margin-bottom: 10px;	
+}
+
+/* style for the Images in d index page */
+.img{
+	height: 180px;	
+}
+.img:hover{box-shadow: 0px 0px 2px 0px rgba(70,111,175,.3);
+border: 2px solid #006699;}
+.img img{
+	width: 100%;
+	height: 100%;
+ }
+ /* the Price of the house styles */
+.price {
+	 background-color:#006699;
+	 padding: 2%;
+	 position: absolute;
+	 top: 5px;
+	 left: 4px;
+	 box-shadow: 0px 0px 2px 0px #000000;
+	 color: #FFFFFF;
+	 font-weight:bold;
+}
+
+/* the description of the house below styles */
+ .descript{
+	padding-top: 4px;
+	min-height: 130px;
+	font-family:oswald_regular, OratorStd, Cambria, "OCR A Std";
+	color: rgba(122,119,119,1.00);
+ }
+ .descript ul{}
+ .descript li{
+	list-style: none; 
+ }
+ .descript a{
+	color: rgba(95,98,228,1.00); 
+ }
+ .descript a:hover{
+	color: rgba(2,17,104,1.00);
+	text-decoration: none; 
+ }
+ .cont_lik hr{margin: 5px 0px;}
+ .cont_lik{padding: 2px 0px 0px 0px; font-family:agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; font-size: 1.3em;}
+ .cont_lik p{padding: .2% 4%; background: #006699; color: white; border-radius: 2px;}
+ .cont_lik i{ font-style: normal;}
+ #left-side input {
+	 margin-left: 10px;
+ }
+ 
+ /* the footer starts here */
+ footer{
+	background-color:rgba(0,102,153,0.4);
+	margin-top: 10px; 
+ }
+ .footer_top{
+	font-family: HoboStd; 
+	line-height: 20px;
+ }
+ .footer_top h4{
+	font-weight: 1.4em; 
+	color:white;
+	text-shadow: 0px 1px 4px rgba(5,42,107,1.00);
+ }
+ .footer_top p{
+	font-size: 1.3em; 
+ }
+ .footer_top li{
+	list-style: none; 
+	line-height: 20px;
+	font-size: 1.3em; 
+ }
+ .image{
+	margin-right: 1%; 
+ }
+ .image img{
+	width: 100%;
+	height: 100%; 
+ }
+ .foot{
+	padding: 1%; 
+	border-top: 2px solid white; 
+ }
+ .foot a{
+ 	color: rgba(17,89,130,1.00);
+	text-shadow: 0px 1px 1px rgba(209,216,233,1.00);
+ }
+ .foot a:hover{
+	text-decoration: none;
+	color: white; 
+ }
+ .foot li{
+ 	float: left;
+	font-size: 1.8em;
+	border-right: 2px solid white;
+	font-family: OCRAbyBT-Regular;
+	list-style: none;
+	padding: 0% 4%;
+ }
+ .foot li:last-child{
+	border-right: none; 
+ }
+ .bottom_footer{
+	 background-color:rgba(0,102,153,.8);
+	 color: rgba(240,242,252,1.00);
+	 font-family: "Exotc350 DmBd BT", "Exotc350 Bd BT";
+ }
+ .bottom_footer p{
+	padding: .5%;
+	font-size: 1.6em; 
+ }
+ 
+ /* House Details CSS starts here */
+ 
+ /* the Left Side CSS starts here */
+ .left_details .panel-heading{
+	 padding: 2%;
+	 background: rgba(255,255,255,1);
+ }
+ .left_details h3{
+	margin-left: 5%;
+	font-size: 2em; font-weight: bold; letter-spacing: 3px;
+	color: rgba(36,105,155,1.00);
+	font-family:agency, "Agency FB", Arial, "Arial Narrow", "Bell MT";
+ }
+ .left_details .panel-body{
+	background: rgba(36,105,155,1.00); 
+ }
+ .left_details p{
+	font-size: 1.6em; 
+	font-family:oswald_regular, OratorStd, Cambria, "OCR A Std";
+	line-height: 25px;
+	color: white;
+ }
+ .left_details p b{font-weight: 100;}
+ .left_details a{color: rgba(204,204,204,1.00);}
+ .left_details a:hover{
+	text-decoration: none;
+	color: rgba(3,14,45,1.00); 
+ }
+ /* the Heading Of the realtor house */
+ .h_cont{border-radius: 8px; margin-bottom: 8px; padding-bottom: 8px;}
+ .head_real{
+	 font-family: agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; 
+	 padding:0px;
+ }
+ .head_real h3{
+	font-size: 2.6em; font-weight: bold; margin-bottom: 0px; margin-top: 10px; line-height: 22px;
+ }
+ .head_real h4{
+	font-size: 2.5em;font-weight: bold;color: rgba(36,105,155,1.00); margin-bottom: 0px;
+ }
+ .head_real button{border-radius: 5px; font-size: 1.3em; margin: 0px 0px 5px 0px;}
+ /* the Image Container starts here */
+ .img_cont{
+	margin-top: 0px;
+	padding: 0px; 
+ }
+ .img_cont img{ 
+ }
+ #full-images {
+	position:relative; 
+	min-height:250px;
+}
+#full-images img {
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+/* List images under main image */
+.thumb_cont{margin-top: 5px;}
+.thumb{	
+	height: 120px;
+}
+
+.thumb img{
+	width: 100%;
+	height: 100%;	
+}
+#thumbnails{
+	_margin-left:0px; 
+	padding-left:0px; 
+	_position:relative;	
+}
+#thumbnails li {
+	list-style: none;
+}
+.house-timthumb {
+	
+}
+#thumbnails li input {
+	margin-left: 25%;
+}
+ /* the price by the right */
+ .price1{
+	 margin-top: 10px;
+	 background-color:#006699;
+	 padding: 1.2% 4%;
+	 border-radius: 5px;
+	 font-family:oswald_regular, OratorStd, Cambria;
+	 box-shadow: 0px 0px 2px 0px rgba(144,144,144,1.00);
+	 color: #FFFFFF;
+	 font-size: 1.7em;
+	 letter-spacing: 3px;
+ }
+ /* the house information CSS starts here */
+ #house-info{
+	font-size: 2em; padding:0% 1%; margin-top: 5px;
+	font-family: agency, "Agency FB", Arial, "Arial Narrow", "Bell MT"; box-shadow: 0px 0px 2px 0px rgba(144,144,144,1.00);
+	border-radius: 5px;
+ }
+ #house-info h4{ 
+	margin-top:-5px; margin-bottom: 2px;padding: 0% 2%; font-size: 1.2em;letter-spacing: 2px;
+	color: white; background:rgba(36,105,155,1.00);width: 45%;
+	border-radius: 5px;
+ }
+ #house-info p{line-height: 20px; padding-left: 1%;}
+ /* CSS for Comment below house info */
+ .comm{font-family:oswald_regular, OratorStd, Cambria; margin-top: 5px;box-shadow: 0px 0px 2px 0px rgba(144,144,144,1.00);
+	border-radius: 5px;padding: 0px 1%;}
+ .comm h5{font-size: 1.6em; margin-bottom:0px; padding: 0px;}
+ section{margin-top: 0px;}
+ section.sect{_border: 1px solid red;}
+ section.sect h3{font-size: 1.7em; background:rgba(36,105,155,1.00); color: white; padding: .8% 1.5%; margin: 0px 0px;margin-top: 5px; border-radius: 5px 5px 0px 0px;}
+  .comment{padding-bottom: 5px;padding-top: 5px; margin-bottom: 5px;border-radius: 0px 0px 5px 5px; border: 1px solid rgba(175,179,184,.5);}
+ section.sect1 h3{font-size: 1.7em; background:rgba(36,105,155,1.00); color: white; padding: .8% 1.5%; margin: 5px 0px;}
+
+ .comment h4{margin-top: 0px; color:rgba(36,105,155,1.00); }
+ .comment p{font-size: 1.5em;}
+ .comment i{font-style: normal; font-size: 1.3em;}
+ .comment hr{margin: 8px 0px;}
+ .comment a{font-size: 1.3em; letter-spacing: 1px; padding: .5% 1.5%; border-radius: 4px; margin-bottom: 10px;}
+ .comment a:hover{text-decoration: none;}
+ /* View House Styles */
+
+#houses-box {
+	height: 150px;
+	background-color: #FF6633;
+	color: #FFFFFF;
+	padding-top: 40px;
+}
+#houses-box span {
+	margin-left: 0%;
+}
+#houses-box b {
+	font-size:36px;
+}
+#house-comments {
+	_margin-top: 20px;
+}
+
+.house {
+	margin-right: 15px;
+}
+.house img {
+	margin-right: 10px;
+}
+.house a {
+	text-decoration: underline;
+	margin-right: 5px;
+}
+
+
+
+
+
+@media only screen and (max-width:767px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		padding-bottom: 8px;
+	}
+	#header img{margin-bottom: 8px;	
+	}
+	/* CSS for the Search */
+	.search{padding: 10px 20px;}
+	.search input, .search button{height: 25px;}
+	.search button{padding: 0px;}
+	/* CSS for login and Register */
+	.log{padding: 1% 0px 1% 0px; font-size: 1em; margin-top: 8px; border-radius: 3px;
+}
+.head2 p{margin: 0px;}
+	.out{font-size: 1em;}
+.log .dropdown-menu{margin-left: 50px; _margin-top: 5px;}
+	.wel{
+		font-size: 1em;
+	}
+	.wel span{
+		font-size: 1.2em;	
+	}
+	/* The MENU containing the menu headings starts here */
+
+nav.navbar{min-height: 10px; z-index: 1;padding:0px; margin: 0px; height: auto;}
+nav.navbar .container{}
+#menu {border-radius: 5px;}
+.menu{height: auto;border-radius: 0px; }
+.menu .navbar-default{background-color: rgba(0,102,153,0.7); padding: 0px 1%;width: 100%;}
+.menu .navbar-header{margin: 0px;}
+.menu .navbar-default p{font-size: 2.1em; font-family: agency, "Agency FB", Arial, "Arial Narrow"; margin-top: 5px;padding-bottom: 0px; color: white;}
+
+.menu .navbar-default button{padding: 5px;}
+.list ul{
+	margin: 0px;	
+	height: auto;text-align: center;	
+}
+.list ul li{
+	margin-left: 0%;
+}
+#menu a {font-size: 1.2em;height: auto;
+	line-height: 10px;
+}
+	
+	/* CSS for Login Page */
+.login_page{margin-top: 5px; padding: 10px 0px;}
+.login_page .panel-heading{text-align: center;padding: .5% 0px;  letter-spacing: 2px; color:rgba(0,102,153,1);}
+.login_page .panel-title{font-size: 1.6em;}
+.login_page .panel-body{ font-size: 1.1em; padding: 0px;}
+.login_page .panel-body i{font-style: normal; font-size: 1em;}
+.login_page .h4{font-size: 1.3em;}
+
+	
+	/* the BODY starts here */
+	#wrapper{padding: 0px;}
+	.h_e{font-size: 1.3em; padding: 0% 0% .4% 5%;}
+	/* CSS for the Filter */
+	#left-side{padding: 0px;}
+	#left-side h4{
+		font-size: 1.2em;text-align: justify;padding-bottom: 8px;
+	}
+	#left-side{font-size: 1.1em;line-height: 15px; margin-bottom: 6px;}
+	#left-side .panel{margin-bottom: 0px;}
+	/* the stylesheet for the FILTER ON */
+.sub{
+	min-height: 15px;
+}
+#content .sub h4{font-size: 1.5em;}
+#content .sub h4 b{font-weight: 100; font-size: .7em;}
+#content b.h4-xs{font-size: .7em;}
+.sub p{
+	line-height: 30px;
+	margin-top: 0px;
+}
+	/* CSS for the price range dropdown */
+	#price-ranges button{color: white; padding: 0px; margin:0px; border-radius: 0px; box-shadow: 0px 0px 2px 0px rgba(233,230,230,1.00);margin-right: 10px;}
+	#price-ranges button:hover{background: rgba(9,67,122,1.00);}
+	#price-ranges button .icon-bar{color: black; background:white; padding: 0px; margin: 4px;}
+	#price-ranges .hi{display:inline;}
+	/* CSS for the House types dropdown */
+	#house-types button{color: white; padding: 0px; margin:0px; border-radius: 0px; box-shadow: 0px 0px 2px 0px rgba(233,230,230,1.00);margin-right: 10px;}
+	#house-types button:hover{background: rgba(9,67,122,1.00);}
+	#house-types button .icon-bar{background:white; padding: 0px; margin: 4px;}
+	#house-types .hi{display:inline;}
+	/* the Content Section containing the houses */
+	#content {	
+		padding: 1.2% 0px;
+	}
+	.cont_xs1{padding: 0px;}
+	.cont_xs2{padding: 0px 5px;}
+	.cont_xs3{padding: 0px 8px;}
+	#content .cont_xs{_padding: 0px 5px;}
+	 /* the Price of the house styles */
+	.price {left: 1px; }
+	/* style for the Images */
+.img{
+	width: 100%;margin-left: 0px;
+	height: 130px;	
+}
+/* CSS for Realtor page details */
+.cont_real{margin-bottom: 5px; padding: 1%;}
+.realtor_pag h4{font-size: 1.4em;}
+.fol button{margin-right: 10px; font-size: 1.3em; border-radius: 5px; font-weight: 100;}
+.fol b{ font-weight: 100; font-size: 1.2em; letter-spacing: 1px;}
+/* CSS for Realtor info on the right side */
+.sm_xs{padding: 0px;}
+#realtor-details{font-size: 1.4em;}
+#realtor-details b{font-weight: 100; font-size: .9em;}
+#realtor-details .container-fluid{padding: 8px 5px 10px 8px;}
+/* CSS for the Wall Page */
+.cont_wall{margin-bottom: 5px; padding: .9%;}
+.cont_wall h4{font-size: 1.5em; padding:5px 2%; text-align: center;}
+.wall{font-size: 1.2em; margin-top: 7px; padding: 0px; margin-bottom: 6px;}
+.wall a{padding: 2px 10px; margin: 0px;}
+.wall .xs_left{float:left; margin-right: 12%;}
+.wall_bk{border-radius: 5px; }
+.anch{}
+.pix_wall{padding: 0px;}
+/* CSS for the includes Mylikes page */
+.my_likes{}
+.my_likes .nav li{font-size: 1.4em;letter-spacing: 2px;}
+.my_likes .nav li a{padding: 2px 10px;}
+.my_likes h3{margin: 0px 0px 10px 0px; letter-spacing: 1px; font-size: 1.6em;}
+.likes h3{margin: 6px 0px; padding-left: .6%;}
+.likes{padding-bottom: 8px;}
+/* CSS for includes for following page */
+#content .following{padding: 0px;}
+#content .following h4{font-size: 2em;}
+#content .following thead{font-size: 1.3em;}
+#content .following thead th{letter-spacing: 0px;padding: 0px 5px;}
+#content .following tr td{font-size: 1.4em; }
+#content .following .td_img{height: 100px;}
+/* the description of the house below styles */
+	.descript{
+		line-height: 14px;min-height: 100px; padding-left: 5px;padding-right: 5px;
+	}
+	/* CSS for the conatiner for like and rent/sale */
+	.cont_lik hr{margin: 5px 0px;}
+ .cont_lik{padding: 0px 5px; font-size: 1em;}
+ .cont_lik p{padding: .2% 4%; border-radius: 2px;}
+ .cont_lik i{}
+	.sub p{
+		font-size: 1.4em;	
+	}
+	
+	/* House Details CSS starts here */
+ 
+ /* the Left Side CSS starts here */
+ .left_details{}
+ .left_details .panel{margin-bottom:0px;}
+ .left_details .hi{display: inline;}
+ .left_details h3{font-size: 1.7em; }
+ .left_details .panel-body{padding: 0px 4%;}
+ #view_hs{padding-top: 6px;}
+ .left_details p{font-size: 1.3em; line-height: 20px;}
+ /* CSS for the Realtor details dropdown */
+	.left_details button{color: white; padding: 0px; margin:0px; border-radius: 0px; box-shadow: 0px 0px 2px 0px rgba(4,77,175,1.00);margin-right: 12px;}
+	.left_details button:hover{background: rgba(9,67,122,1.00);}
+	.left_details button .icon-bar{background:rgba(4,77,175,1.00); padding: 0px; margin: 4px;}
+	
+	/* the Heading Of the realtor house */
+	.xs_nopad{padding: 0px; _border: 1px solid red; }
+ .h_cont{border-radius: 5px; margin-bottom: 8px;padding-top: 8px; padding-bottom: 8px;}
+ .head_real{  }
+ .head_real h3{
+	font-size: 2.1em; margin-top: 0px; line-height: 20px;
+ }
+ .head_real h4{
+	font-size: 1.8em; margin-bottom: 0px;margin-top: 5px;
+ }
+ .head_real button{border-radius: 5px; font-size: 1.3em; margin: 0px 0px 5px 0px;}
+ /* the price by the right */
+ .price1{margin-top: 0px;padding: 1.2% 4%;
+	 border-radius: 5px;font-size: 1.3em;letter-spacing: 2px;}
+	 /* the Image Container starts here */
+ .img_cont{margin-top: 0px;padding: 0px; }
+ #full-images { min-height:220px;}
+/* List images under main image */
+.thumb_cont{margin-top: 2px;}
+.thumb{	height: 100px;}
+/* the house information CSS starts here */
+ #house-info{
+	font-size: 1.4em; padding:1%; _margin-top: 0px;
+	padding-top: 0.5px;
+ }
+ #house-info h4{ 
+	margin:0px; margin-bottom: 3px;padding: .5% 2%; font-size: 1.2em;width: 100%;margin-top: -5px;border-radius: 2px;
+ }
+ #house-info p{line-height: 12px; }
+ /* CSS for Comment below house info */
+ .comm{border-radius: 5px; padding: 1%;_padding-top:0px;}
+ .comm h5{font-size: 1.3em; margin-bottom:0px; padding-top: 5px;}
+ section{margin-top: 0px;}
+ section.sect h3{font-size: 1.2em;margin: 0px 0px;}
+ section.sect1 h3{font-size: 1.2em; margin: 5px 0px;}
+ .comment{padding: 5px 5px; margin-bottom: 5px;border-radius: 0px;}
+ .comment h4{margin-top: 0px; font-size: 1.4em;margin-bottom: 4px;}
+ .comment p{font-size: 1.2em;}
+ .comment i{font-size: 1.1em;}
+ .comment hr{margin: 8px 0px;}
+ .comment a{font-size: 1.3em;padding: .5% 1.5%; border-radius: 4px; margin-bottom: 10px;}
+ 
+ 
+}
+@media only screen and (min-width:767px) and (max-width:991px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+	}
+	/* CSS for the Search */
+.search{padding: 0% 12px 1% 12px;}
+	/* CSS for login and Register */
+.log{padding: 1% 10px 1% 10px;margin-top: 0px;}
+.log .dropdown-menu{margin-left: 49%;}
+.out{font-size: 1.2em;}
+/* CSS for the Navbar */
+nav.navbar{min-height: 10px; height: auto;}
+.menu .navbar-header{margin: 0px;}
+.list ul{margin: 0px;}
+#menu a {font-size: 1.2em;line-height: 10px;}
+/* CSS for Login Page */
+.login_page .panel-title{font-size: 1.8em;}
+.login_page .panel-body{ font-size: 1.2em; }
+.login_page .panel-body i{font-size: 1.1em;}
+.login_page .h4{font-size: 1.3em;}
+
+	/* the BODY starts here */
+	#wrapper{
+		margin-top: 5px;padding: 0px;
+		margin-bottom: 10px;		
+	}
+	/* the BODY starts here */
+	.h_e{font-size: 1.5em;}
+	/* CSS for the Filter */
+	#left-side{padding-left: 2px;padding-right: 3px;line-height: 12px;margin-bottom: 6px;font-size: 1.1em; margin-top: 5px;}
+	#left-side h4{font-size: 1.2em;}
+	#left-side .panel{margin-bottom: 0px;}
+	#left-side .panel-body{padding: 0px 1px;}
+
+	/* the Content section CSS */
+	#content{
+		margin-top: 0px;
+	}
+	.co_sm1{_padding: 0px 9%;}
+	.cont_xs1{padding: 0px 15px;}
+	.cont_xs2{padding: 0px 6px;}
+	.cont_xs3{_padding: 0px 8px;}
+	/* style for the Images */
+	.img{
+		height: 160px;	
+	}
+	/* CSS for Realtor info on the right side */
+.sm_xs{padding: 0px;}
+#realtor-details{font-size: 1.4em;}
+#realtor-details b{font-weight: 100; font-size: .8em;}
+#realtor-details .container-fluid{padding: 8px 5px 10px 8px;}
+	/* House Details CSS starts here */
+ 
+ /* the Left Side CSS starts here */
+ .left_details{margin-top: 8px;padding-left: 5px;}
+ .left_details h3{font-size: 1.8em;}
+ .left_details .panel-body{padding: 0px 5px;}
+ .left_details p{font-size: 1.4em; }
+ .left_details b{font-size: .9em; }
+ /* the Heading Of the realtor house */
+ .h_cont{border-radius: 5px; margin-bottom: 8px; padding-bottom: 8px;}
+ .head_real{}
+ .head_real h3{ margin-bottom: 0px; margin-top: 8px; padding-top: 8px;}
+ .head_real h4{font-size: 2.3em;}
+ .head_real button{border-radius: 5px; font-size: 1.2em; margin: 0px 0px 5px 0px;}
+ /* the price by the right */
+ .price1{margin-top: 8px;font-size: 1.5em;}
+ /* the house information CSS starts here */
+ #house-info{
+	font-size: 1.6em; padding:1%; _margin-top: 0px;
+	padding-top: 0.1px;
+ }
+ #house-info h4{ 
+	margin:5px 0px; padding: .5% 2%; font-size: 1.2em;width: 100%;margin-top: -5px;
+ }
+ #house-info p{line-height: 15px; }
+ /* CSS for Comment below house info */
+ .comm{border-radius: 5px; padding: 1%;padding-top: 0%;}
+ .comm h5{font-size: 1.3em; margin-bottom:0px; padding-top: 5px;}
+ section{margin-top: 0px;}
+ section.sect h3{font-size: 1.2em;}
+ section.sect1 h3{font-size: 1.2em; margin: 5px 0px;}
+ .comment{padding: 5px 5px; margin-bottom: 5px;border-radius: 0px;}
+ .comment h4{margin-top: 0px; font-size: 1.4em;margin-bottom: 4px;}
+ .comment p{font-size: 1.2em;}
+ .comment i{font-size: 1.1em;}
+ .comment hr{margin: 8px 0px;}
+ .comment a{font-size: 1.3em;padding: .5% 1.5%; border-radius: 4px; margin-bottom: 10px;}
+ /* CSS for Realtor page details */
+.cont_real{_padding: 1%; margin-top: 5px;}
+.realtor_pag h4{font-size: 1.5em;}
+ /* CSS for the Wall Page */
+ .sm_xs{padding: 5px 5px;}
+.cont_wall{margin-bottom: 5px; padding: .6%;}
+.cont_wall h4{font-size: 2em; _padding:5px 2%; margin-top: 0px;}
+.wall{font-size: 1.4em; padding: 0px; margin-bottom: 6px;}
+.wall a{padding: 7px 10px; margin: 0px;}
+.wall .xs_left{}
+.wall_bk{border-radius: 0px; }
+.anch{}
+.pix_wall{padding: 0px;}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	
+	/* the Price of the house styles */
+	.price {
+		 padding: 4%;
+		 top: 5px;
+		 left: 2px;
+		 }
+	/* the description of the house below styles */
+	 .descript{
+		padding-top: 8px;
+		height: 140px;
+	}
+}
+@media only screen and (min-width:992px) and (max-width:1199px) {
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		_margin-bottom: 10px;
+	}
+	#header img{
+		_width: 60%;	
+	}
+	/* the BODY starts here */
+	#wrapper{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#left-side{
+		_margin-left: 4%;
+		_font-size: 1.4em;
+	}
+	.wall{font-size: 1.4em; padding: 0px; margin-bottom: 6px;}
+	/* the Content section CSS */
+	#content{
+		margin-top: 0px;
+	}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	/* style for the Images */
+	.img{
+		height: 200px;	
+	}
+	/* the Price of the house styles */
+	.price {
+		 padding: 4%;
+		 top: 5px;
+		 left: 2px;
+	}
+	#house-info{
+	font-size: 1.6em;
+ }
+ #house-info h4{ 
+ 	font-size: 1.2em;width: 100%;
+ }
+	/* the description of the house below styles */
+	 .descript{
+		padding-top: 8px;
+		height: 140px;
+	}
+
+
+}
+@media only screen and (min-width: 1200px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		_margin-bottom: 10px;
+	}
+	#header img{
+		_width: 60%;	
+	}
+	/* the BODY starts here */
+	#wrapper{	
+		_margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#left-side{
+		_margin-left: 4%;
+		_font-size: 1.4em;
+	}
+	/* the Content section CSS */
+	#content{
+		_margin-top: 0px;
+	}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	/* style for the Images */
+	.img{
+		_height: 250px;	
+	}
+	/* the Price of the house styles */
+	.price {
+		 padding: 3%;
+		 top: 5px;
+		 _left: 2px;
+	}
+	/* the description of the house below styles */
+	 .descript{
+		padding-top: 8px;
+		_height: 140px;
+	}
+
+
+
+}
+
+

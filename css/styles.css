@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+@import url('https://fonts.googleapis.com/css?family=Economica:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400');
+/*@font-face{
+	font-family: 'Oswald1';
+   src: url('../fonts/oswald/Oswald-Regular.TTF')format('truetype');	
+}*/
+
+
+.no-margin{
+	margin: 0px;	
+}
+.no-padding{
+	padding: 0px;	
+}
+.clear{
+	clear:both;	
+}
+.red {
+	color: red;	
+}
+.white{
+	color: white;	
+}
+.blue{
+	color: blue;	
+}
+.bg_white{
+	background: white;	
+}
+
+.bg_blue{
+	background: blue;	
+}
+.black{
+	color: black;	
+}
+.green {
+	color: green;
+}
+.text {
+	font-size: 1.5em;
+}
+.size {
+	font-size: 1.6em;
+}
+.shadow1{
+	box-shadow: 0px 0px 2px 0px black;	
+}
+.oswald{font-family: 'Oswald', sans-serif;}
+.orator{
+	font-family: OratorStd, Cambria, "OCR A Std";
+}
+body {
+	background-image: url(../images/bk.png);
+	background-repeat: repeat;
+	height: 100%;
+	width: 100%;
+	font-size: 90%;
+}
+/* The contact header */
+.top_header{
+	background: rgba(0,18,30,1.00); font-size: 1.4em;color: rgba(119,187,243,1.00);
+	font-family: 'Oswald', Cambria,sans-serif;font-weight: 100;letter-spacing: 1px;padding: 4px 0px;
+}
+.top_header span{color: rgba(165,165,166,1.00); font-size: 1.2em;}
+
+.top_header .sh span{padding-right: 8%;}
+.top_header .sh span:hover{color:rgba(123,148,171,1.00);}
+
+/* The HEADER containing the Logo  starts here */
+/* The HEADER containing the Logo  starts here */
+#header{
+	background: white;
+	font-size: 1.4em;
+	padding: 1% 4% .5% 4%;
+	position: relative; 
+	margin-bottom: 6px;
+	font-family: 'Oswald', sans-serif, Cambria;
+}
+#header img{
+	width: 100%;
+	height: 100%;
+}
+#header a{
+	text-decoration: none;
+}
+#header a:hover{
+	text-decoration: none;
+	text-shadow: 0px 0px 1px rgba(21,136,229,1.00);	
+}
+.wel{
+	font-size: 1.2em;
+	font-family: 'Oswald', sans-serif, Cambria, "OCR A Std";
+}
+.wel span{
+	font-weight: bold;
+	color: rgba(0,102,153,1);
+	font-size: 1.3em;	
+}
+ul.dropdown-menu{
+		
+}
+.dropdown-toggle{
+}
+/* CSS for login and Register */
+.log{padding: 1% 10px 1.2% 10px; font-size: 1.2em; letter-spacing: 2px; margin-top: 10.5%; border-radius: 3px; text-align:center;background: rgba(2,52,85,1.00);
+_box-shadow: 0px 0px 2px 0px rgba(127,127,127,1);}
+
+.log a{color:rgba(189,220,245,1.00);font-weight:100;}
+.log a:hover{_background:rgba(189,220,245,1.00);color:rgba(255,255,255,1.00);}
+.out{font-size: 1.2em;}
+.log.dropdown-toggle{
+	z-index: 100;	
+}
+.log .dropdown-menu{margin-left: 75px;}
+/* The MENU containing the menu headings starts here */
+
+nav.navbar{min-height: 20px; z-index: 1;}
+#menu {border-radius: 0px;border-bottom: 4px solid rgba(0,7,30,1.00);}
+
+.menu{
+	background: rgba(2,52,85,1.00);
+	z-index: -2000;
+	position: relative;
+	height: 40px;
+	border-radius: 0px;
+}
+.list ul{
+	width: 100%;
+	height: 40px;	
+}
+.list ul li{
+	margin-left: 12%;	
+}
+#menu a {
+	font-family: "Bauhaus 93";font-family:'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif, Cambria;
+	font-size: 1.3em;
+	height: 40px;
+	line-height: 10px;
+	color:#FFF;
+	text-decoration: none;
+}
+#menu a:hover {
+	color:#3399CC;
+	text-decoration: none;transition:all 0.5s ease-in;
+	-webkit-transition: all 0.5s ease-in;
+}
+#menu {
+	_background-color:#006699;
+}
+
+/* CSS for Login Page */
+.login_page{margin-top: 5px; padding-top: 10px; font-family:'Oswald', sans-serif;}
+.login_page .panel-heading{text-align: center;padding: .5% 0px;  letter-spacing: 2px; color:rgba(0,102,153,1);}
+.login_page .panel-title{font-size: 2.0em;}
+.login_page .panel-body{ font-size: 1.7em; color: rgba(0,0,0,1); font-weight: 400;}
+.login_page .panel-body i{font-style: normal; font-size: 1em;}
+.login_page .panel-body label{font-weight: 400; color: rgba(1,68,116,1.00);font-family:'Yanone Kaffeesatz','Oswald', sans-serif;}
+.login_page .panel-body .form-control{color:rgba(33,33,33,1.00);font_weight: 200;}
+.login_page .info_mes{color: rgba(158,3,5,1.00);font-family:'Yanone Kaffeesatz','Oswald', sans-serif;}
+.login_page .info_mes span{color:rgba(1,68,116,1.00); }
+/* the BODY starts here */
+#wrapper{
+	box-shadow: 0px 0px 2px rgba(19,17,207,.5);
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 1%;	
+}
+
+#content {
+	background-color: #D0C6B1;
+	min-height: 800px;
+	min-width: 850px;
+	border-top-left-radius: 10px 10px;
+	border-bottom-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+}
+.text {
+	font-size: 14px;
+}
+
+
+
+.price {
+	 background-color:#006699;
+	 width: 90px;
+	 height: 20px;
+	 position: absolute;
+	 top: 5px;
+	 left: 252px;
+	 box-shadow: 2px 2px 5px 2px #000000;
+	 color: #FFFFFF;
+	 font-weight:bold;
+}
+
+.img {
+	margin-right: 5px;
+ 	width: 270px;
+ 	height: 170px;
+ 	float: left;
+ 	margin-left: 5px;
+ 	padding: 5px;
+	border: thin solid #999;
+	background-color: #FFF;
+	box-shadow: 2px 2px 10px 3px #333333;
+ }
+ 
+ #left-side input {
+	 margin-left: 10px;
+ }
+ 
+ /* View House Styles */
+
+#houses-box {
+	height: 150px;
+	background-color: #FF6633;
+	color: #FFFFFF;
+	padding-top: 40px;
+}
+#houses-box span {
+	margin-left: 0%;
+}
+#houses-box b {
+	font-size:36px;
+}
+
+.house {
+	margin-right: 15px;
+}
+.house img {
+	margin-right: 10px;
+}
+.house a {
+	text-decoration: none;
+	margin-right: 5px;
+}
+#full-images {
+	position:relative; 
+	min-height:220px;
+}
+#full-images img {
+	z-index: 0;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#thumbnails li {
+	display: inline-block;
+}
+.house-timthumb {
+	position: relative;
+	margin-right: 10px;
+}
+#thumbnails li input {
+	margin-left: 25%;
+}
+/* CSS for Company Registration Page */
+.comp_reg{
+	box-shadow: 0px 0px 2px 0px rgba(12,47,128,1.00);	
+}
+.comp_reg h4{
+	font-family: 'Oswald', sans-serif,OratorStd, Cambria;
+	font-size: 2.2em;
+}
+.comp_reg p{
+	font-size: 1.4em;
+	font-family: 'Oswald', sans-serif, Cambria, "OCR A Std";	
+}
+.comp_reg label{
+	font-family: 'Oswald', sans-serif, Cambria, "OCR A Std";
+	font-size: 1.6em; font-weight: 100;
+}
+#terms h4{font-weight: 400;font-family:'Yanone Kaffeesatz','Oswald', sans-serif; }
+ /* the footer starts here */
+ footer{
+	background: rgba(0,31,55,1.00);
+	margin-top: 0px; 
+ }
+ .footer_top{
+	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial, san-serif; 
+	line-height: 20px;
+ }
+ .footer_top h4{
+	font-weight: 1.3em; 
+	font-weight:100;color: rgba(243,243,243,.8);
+ }
+ .footer_top p{
+	font-size: 1.4em; color: rgba(119,187,243,1.00);font-weight: 100;
+ }
+ .footer_top li{
+	list-style: none; font-weight: 100;
+	line-height: 20px;
+	font-size: 1.5em;color: rgba(119,187,243,1.00); 
+ }
+ .footer_top li a{color: rgba(119,187,243,1.00); }
+ .footer_top li a:hover{color: white; text-decoration:none;}
+ .image{ 
+ }
+ .contact_info{padding-left: 0px;}
+ .ffg_ic{padding-left: 0px;padding-right: 0px;}
+ .ffg_ic div{padding:1% 10% 1% 0px; }
+ .image img{
+	width: 100%;
+	height: 100%; 
+ }
+ .foot{
+	padding: 1%; 
+	border-top: 1px solid rgba(228,228,228,.1); 
+ }
+ .foot a{
+ 	color: rgba(17,89,130,1.00);
+ }
+ .foot a:hover{
+	text-decoration: none;
+	color: white; 
+ }
+ .foot li{
+ 	float: left;
+	font-size: 1.8em;
+	border-right: 1px solid rgba(228,228,228,.1);
+	font-family:  'Oswald',"Arial Narrow","Times New Roman", Arial, san-serif;
+	list-style: none;
+	padding: 0% 8%;
+ }
+ .foot li:last-child{
+	border-right: none; 
+ }
+ .bottom_footer{
+	 color: rgba(240,242,252,1.00);border-top: 1px solid rgba(118,119,119,.3);
+	 font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,san-serif, "Exotc350 DmBd BT", "Exotc350 Bd BT";
+ }
+ .bottom_footer p{
+	padding: .5%;
+	font-size: 1.6em; 
+ }
+ .bottom_footer a:hover{text-decoration: none;}
+
+@media only screen and (max-width:767px){
+	.nopad-xs{padding: 0px;}
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		padding-bottom: 8px;
+	}
+	#header img{
+		_width: 70%;	
+	}
+	.wel{
+		font-size: 1em;
+	}
+	.wel span{
+		font-size: 1.2em;	
+	}
+	/* CSS for login and Register */
+	.log{padding: 1% 0px 1% 0px; font-size: 1em; margin-top: 8px; border-radius: 3px;
+}
+	/* The MENU containing the menu headings starts here */
+
+nav.navbar{min-height: 10px; z-index: 1;padding:0px; margin: 0px; height: auto;}
+nav.navbar .container{}
+#menu {border-radius: 5px;}
+.menu{height: auto;border-radius: 0px; }
+.menu .navbar-default{background-color: rgba(0,102,153,0.7); padding: 0px 1%;width: 100%;}
+.menu .navbar-header{margin: 0px;}
+.menu .navbar-default p{font-size: 2.1em; font-family: agency, "Agency FB", Arial, "Arial Narrow"; margin-top: 5px;padding-bottom: 0px; color: white;}
+
+.menu .navbar-default button{padding: 5px;}
+.list ul{
+	margin: 0px;	
+	height: auto;text-align: center;	
+}
+.list ul li{
+	margin-left: 0%;
+}
+#menu a {font-size: 1.2em;height: auto;
+	line-height: 10px;
+}
+	
+	/* CSS for Login Page */
+	.cont_xs{padding: 0px 1px;}
+.login_page{margin-top: 5px; padding: 10px 0px;}
+.login_page .panel-heading{text-align: center;padding: .5% 0px;  letter-spacing: 2px; color:rgba(0,102,153,1);}
+.login_page .panel-title{font-size: 1.5em;}
+.login_page .panel-body{ font-size: 1.6em; padding: 0px 5px; padding-top: 4px;}
+.login_page .panel-body input{border-radius:0px; _height: 25px;}
+.login_page .panel-body .btn-info{height: auto;}
+.login_page .h4{font-size: 1.3em;}
+.login_page .panel-body .up-xs input{padding: 0px;}
+	.dropdown-menu{
+		
+	}
+	#left-side h4{
+		font-size: 1.4em;
+		text-align: justify;	
+	}
+	/* the BODY starts here */
+	#wrapper{
+		
+		}
+#terms h4{font-size: 1.2em;}
+		/* theFOOTER starts here */
+ footer{
+		margin-top: -10px;
+	}
+ .footer_top{
+	line-height: 20px;
+ }
+ .footer_top h4{
+	font-weight: 1em; padding-top:5px;
+ }
+ .footer_top p{
+	font-size: 1.1em; 
+ }
+ .footer_top li{ 
+	line-height: 20px;
+	font-size: 1.1em; 
+ }
+ .contact_info{padding-left:5%;}
+ .ffg_ic{padding-left: 5%;}
+ .ffg_ic div{padding:1% 12% 3% 0px; }
+ 
+ .foot{
+	padding: 1%; margin: 5px 0px; 
+ }
+ .foot a{
+ }
+ .foot li{
+	font-size: 1.2em;
+	padding: 0% 4%;
+ }
+ 
+ .bottom_footer{ 
+ }
+ .bottom_footer p{
+	padding: .5%;
+	font-size: 1.3em; 
+ }
+	
+}
+@media only screen and (min-width:767px) and (max-width:991px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		margin-bottom: 10px;
+	}
+	.log{padding: 1% 10px 1% 10px;margin-top: 0px;}
+	.log .dropdown-menu{margin-left: 49%;}
+	/* CSS for the Navbar */
+nav.navbar{min-height: 10px; height: auto;}
+.menu .navbar-header{margin: 0px;}
+.list ul{margin: 0px;}
+#menu a {font-size: 1.2em;line-height: 10px;}
+	/* the BODY starts here */
+	#wrapper{
+		margin-top: 10px;
+		margin-bottom: 10px;		
+	}
+	/* CSS for Login Page */
+.login_page{margin-top: 5px; padding: 10px 0px;}
+.login_page .panel-heading{text-align: center;padding: .5% 0px;  letter-spacing: 2px;}
+.login_page .panel-title{font-size: 1.5em;}
+.login_page .panel-body{ font-size: 1.2em; padding: 0px 5px; padding-top: 4px;}
+.login_page .panel-body input{border-radius:0px; _height: 25px;}
+.login_page .panel-body .btn-info{height: auto;}
+.login_page .h4{font-size: 1.3em;}
+.login_page .panel-body .up-xs input{padding: 0px;}
+	/* the Filter starts here */
+	#left-side{
+		margin-left: 4%;
+		font-size: 1.4em;
+	}
+	/* the Content section CSS */
+	#content{
+		margin-top: 0px;
+	}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	/* style for the Images */
+	.img{
+		height: 200px;	
+	}
+	
+}
+@media only screen and (min-width:992px) and (max-width:1199px) {
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		margin-bottom: 10px;
+	}
+	#header img{
+		width: 60%;	
+	}
+	/* the BODY starts here */
+	#wrapper{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#left-side{
+		margin-left: 4%;
+		font-size: 1.4em;
+	}
+	/* the Content section CSS */
+	#content{
+		margin-top: 0px;
+	}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	/* style for the Images */
+	.img{
+		height: 200px;	
+	}
+	
+}
+@media only screen and (min-width: 1200px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		_margin-bottom: 10px;
+	}
+	#header img{
+		_width: 60%;	
+	}
+	/* the BODY starts here */
+	#wrapper{	
+		_margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#left-side{
+		margin-left: 4%;
+		font-size: 1.4em;
+	}
+	/* the Content section CSS */
+	#content{
+		margin-top: 0px;
+	}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+
+}

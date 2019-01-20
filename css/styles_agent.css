@@ -1,0 +1,1083 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+@import url('https://fonts.googleapis.com/css?family=Economica:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400');
+/*@font-face{
+	font-family: 'Oswald1';
+   src: url('../../../fonts/oswald/Oswald-Regular.TTF')format('truetype');	
+}
+
+@font-face{
+	font-family: 'Nova Square1';
+   src: url('../../../fonts/Nova_Square/NovaSquare.TTF')format('truetype');	
+}
+
+@font-face{
+	font-family: 'Economica1';
+   src: url('../../../fonts/Economica/Economica-Regular.TTF')format('truetype');	
+}*/
+
+
+
+
+.no-margin{
+	margin: 0px;	
+}
+.no-padding{
+	padding: 0px;	
+}
+.clear{
+	clear:both;	
+}
+.red {
+	color: red;
+}
+.burgundy{
+	_color: rgba(151,17,3,1.00);color: rgba(156,4,7,1.00);	
+	}
+.green {
+	color: green;
+}
+.blue{
+	color: blue;	
+}
+.black{
+	color: black;	
+}
+.white{
+	color: white;	
+}
+.bg_white{
+	background: white;	
+}
+.bg_blue{
+	background: blue;	
+}
+.cap_1st{text-transform:capitalize;}
+.shadow1{
+	box-shadow: 0px 0px 2px 0px black;	
+}
+.oswald{font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;}
+.orator{
+	font-family: OratorStd, Cambria, "OCR A Std";
+}
+.agency{font-family: agency, "Agency FB", Arial, "Arial Narrow";
+}
+.text {
+	font-size: 1.4em;
+}
+.size {
+	font-size: 1.6em;
+}
+.kul{
+	color: rgba(225,180,181,.8);	
+}
+body {
+	background-image: url(../../../images/bk.png);
+	background-repeat: repeat;
+	_height: 100%;
+	_width: 100%;
+	font-size: 100%;
+}
+body a{-webkit-transition: all 0.2s ease-in;
+  -moz-transition:all 0.2s ease;
+  -ms-transition:all 0.2s ease;
+  -o-transition:all 0.2s ease;
+  transition:all 0.2s ease-in;}
+
+/* The HEADER containing the Logo  starts here */
+#header{
+	background: rgba(181,220,243,.9);
+	background: rgba(6,54,86,1.00);
+	font-size: 1.4em;
+	margin-bottom: 5px;
+	padding: 1% 2% .5% 3%;
+	position: relative;
+	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;
+}
+#header img{
+	width: 100%;
+	height: 100%;	
+}
+#header a{
+	text-decoration: none;
+	font-size: 1.1em;
+}
+#header a:hover{
+	text-decoration: none;
+	text-shadow: 0px 0px 1px rgba(21,136,229,1.00);
+}
+.wel_cont{padding: 0px;border: 1px solid rgba(176,209,236,1.00); border-radius: 5px;background: white;}
+.wel{
+	font-size: 1.2em;color: rgba(6,82,124,.9);font-weight:400;
+	padding: 1% 3%;padding-bottom: 0px;font-family: 'Nova Square','Oswald', sans-serif,"Agency FB";
+}
+.wel a{color: rgba(6,54,86,1.00);}
+.wel2{padding: 1% 3%;padding-top: 0px;font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;}
+.wel2 a{color:rgba(6,54,86,1.00);}
+.biz_head{background:rgba(6,54,86,1.00);font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;border-radius: 0px 0px 5px 5px;}
+.biz_head a{color: white;}
+
+/* CSS for the Search */
+.search{padding: 2.3% 12px 1% 12px;}
+.search{padding: 2.3% 12px 1% 12px;}
+.search input{border-radius: 3px 0px 0px 3px;}
+.search button{border-radius: 0px 3px 3px 0px; background: rgba(2,52,85,1.00);border-color:rgba(176,209,236,1.00);border-left: 0px;}
+/* The MENU containing the menu headings starts here */
+nav{
+	
+	}
+nav.nav1{
+	background: rgba(6,54,86,1.00);
+	padding: 0px;
+	border: none;
+	min-height: 33px;
+	margin-bottom: 10px;
+}
+.he{
+	
+}
+#menu {
+}
+#menu a {
+	font-family: 'Nova Square', sans-serif,"Agency FB";
+	font-size: 1.6em;
+	color:#FFF;
+	padding: 6.5px 25px;
+	text-decoration: none;
+}
+#menu li:last-child{border-right: none;}
+#menu a:hover {
+	color:#3399CC;
+	text-decoration: none;
+}
+#menu ul{
+	width: 100%;
+	height: 31px;
+}
+#menu ul li{
+	border-right: 2px solid rgba(156,176,191,1.00);	
+}
+#menu ul li:first-child{
+	margin-left: 0%;	
+}
+
+#settings li {
+	
+}
+/* the Left-side of the content */
+#left-side {
+	_box-shadow: 0px 0px 1px 0px rgba(39,150,220,1.00);padding-left: 0px;padding-right: 8px;
+}
+#left-side img{
+	_width: 96%;width: 100%;	
+}
+#left-side li {
+	list-style: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: #333333 thin solid;
+	font-size:16px;
+	font-weight: bold;
+}
+.left_prof_cont{padding: 5px;border-radius: 5px;box-shadow: 0px 0px 2px 0px rgba(1,37,54,1.00);overflow: hidden;}
+.left_prof_cont img{border-radius: 5px;height: 140px;width: 100%;-webkit-transition: all 1.2s;
+  -moz-transition:all 1.2s;
+  -ms-transition:all 1.2s;
+  -o-transition:all 1.2s;
+  transition:all 1.2s;overflow: hidden;}
+.left_prof_cont img:hover{transform:scale(1.2);}
+.left_prof{background: rgba(1,88,143,1.00);border-radius: 0px 0px 5px 5px;}
+.left_prof a{font-family: 'Economica', "Agency FB", Arial, "Arial Narrow"; font-size: 1.8em;color:white;padding: 1% 10px;}
+.left_prof a:hover{text-decoration: none;color: rgba(1,15,27,1.00);background: rgba(247,247,247,1.00);width: 100%;}
+.shadow{
+	box-shadow: 0px 0px 1px 0px rgba(39,150,220,1.00);
+}
+/* the styles for the Main Content starts here */
+#main-content{
+	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;
+}
+#main-content .panel-heading h3{
+	font-family:'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;	
+	font-size: 2.5em;letter-spacing: 2px;
+	text-align: center;font-weight: 500;
+	padding: 0px;
+	color: rgba(1,43,70,1.00);
+}
+#main-content .panel-heading{
+	background: white;
+	padding: .5%;	
+}
+
+
+#main-content .panel-body{	
+	background-color: none;
+}
+/* color for the Main content */
+.color{
+	background: rgba(0,102,153,.8);background: rgba(1,43,70,1.00);
+}
+p .success{
+	padding-top: 1%;
+	font-size: 1.4em;
+	color: rgba(0,102,153,1);
+}
+#main-content .panel-body h4{
+	color: white; font-weight: 100;
+	font-size: 2em;
+	margin-top: 0px;	
+}
+#main-content .panel-body small{
+	color: rgba(109,165,201,1.00);
+	font-size: 1em;	
+	_border-radius: 7px;
+}
+#main-content .panel-body small.smll{
+	border:2px solid rgba(1,68,116,1.00);padding:0px .8%;
+}
+#main-content .panel-body a small{background: white;color: rgba(1,68,116,1.00);}
+#main-content .panel-body a small:hover{background: rgba(0,26,46,1.00);transition:all 0.5s ease-in;color:white;}
+#main-content .kul{color: white;}
+#main-content .panel-body h4 a:hover{
+	color: rgba(172,170,170,1.00);
+	text-decoration: none;	
+}
+#main-content p{
+	font-size: 1.5em;
+	color: 	rgba(212,226,233,1.00);
+}
+#main-content p.information{background: rgba(1,43,70,1.00);margin:5px 0px 0px 0px;color:white; font-family: 'Yanone Kaffeesatz','Oswald',"Arial Narrow",sans-serif;padding:3px 0px 1px 0px;font-size:1.6em;}
+#main-content p.information span{color: rgba(249,114,117,1.00);font-weight: 400;}
+#main-content p.information i{color: rgba(249,114,117,1.00);font-style: normal;}
+/* CSS for the Nav-tabs */
+.nav-tabs li{
+	font-size: 1.5em;	
+}
+.nav-tabs li a{
+	color: rgba(212,226,233,1.00);	
+}
+.nav-tabs li a:hover{
+	color: rgba(12,46,155,1.00);	
+}
+.nav-tabs li a:focus{
+	color: rgba(12,46,155,1.00);
+	background: white;	
+}
+/* the CSS for the nav pills in Houses */
+.nav-pills{
+	font-size: 1.5em;
+	background: rgba(4,14,39,1.00);
+	
+}
+.nav-pills a{
+	color: rgba(255,255,255,1.00);	
+}
+.nav-pills a:hover, .nav-pills a:focus{
+	color: rgba(12,46,155,1.00);
+}
+
+div.alrt{padding: 1%; font-size:1.3em;}
+
+/* the CSS for Available houses starts here */
+.houses{
+	padding: 1%;	
+	background: rgba(255,255,255,1);
+	font-family: 'Economica', "Agency FB", Arial, "Arial Narrow";
+}
+.houses b{font-weight: 400;color: rgba(1,0,10,1); font-size: 1.1em;}
+.houses b .re{background:rgba(1,43,70,1.00);padding: 0px 5px 0px 5px;color: white;border-radius:5px 5px 0px 0px;}
+.cont_height{min-height: 300px; padding: 0px 5px;}
+.cont_height i{font-style:normal;}
+.house_container{padding: 8px 8px;box-shadow: 0px 0px 2px 0px rgba(31,38,50,.8); border-radius: 8px;}
+.house_container i{color:rgba(49,127,220,1.00);font-weight: bold;}
+.house_container .lvd{background: rgba(1,43,70,1.00);color:rgba(217,228,244,1.00);border-radius: 0px 0px 5px 5px;}
+
+.house_container .lvd span{color:rgba(217,228,244,1.00);}
+.house_container .lvd i{color:rgba(156,205,245,1.00);font-weight: 100;}
+#unavailable p, #shared p, #available p{
+	color: rgba(7,77,127,1.00); font-size: 1.9em; margin-top: 0px;	
+}#shared p{color: rgba(7,77,127,1.00); font-size: 1.9em; margin-top: 0px;}
+.panel-body #unavailable h4, .panel-body #shared h4, .panel-body #available h4{
+	color: rgba(10,19,95,1.00);	
+}
+#unavailable h4{
+	margin-left: 1%;	
+}
+.houses p{
+	padding-top: 1%;
+	font-size: 1.5em;
+	color: rgba(212,226,233,1.00);
+}
+.houses ul{margin: 0px;
+}
+.houses ul li{
+	list-style: none;padding: 0px;
+	font-size: 1.5em;	
+}
+.houses li a{
+	color: rgba(156,205,245,1.00);
+}
+.houses li a:hover{
+	text-decoration: none;
+	color: rgba(6,21,70,1.00);
+	background: white;
+	padding: 0px 2% 0px 2%;	
+}
+.houses li img{
+	width: 100%;
+	-webkit-transition: all 1.2s;
+  -moz-transition:all 1.2s;
+  -ms-transition:all 1.2s;
+  -o-transition:all 1.2s;
+  transition:all 1.2s;
+	height: 100%;	
+}
+.img1{
+	height: 150px;overflow: hidden;	
+	margin-bottom: 5px;position: relative;
+}
+.incomplete{background: black; color: white;position:absolute; top: 0px;padding: 1%; }
+
+.img1 a:hover{padding: 0px !important;}
+.img1 img:hover{transform:scale(1.2);}
+/* CSS for Shared houses */
+.table1{box-shadow: 0px 0px 2px 0px rgba(31,38,50,.5); border-radius: 5px;}
+.table1 th{background: rgba(0,102,153,.9); color: white;}
+.table1 th:first-child{border-radius: 5px 0px 0px 0px;}
+.table1 th:last-child{border-radius: 0px 5px 0px 0px;}
+.shared_img{height: 150px;}
+.shared_img img{width: 100%; height: 100%;}
+#shared .share_p{padding: 0px 20px;}
+.shared_imgs{height: 100px; padding-left: 0px;}
+.shared_imgs img{width: 100%; height: 100%;}
+.sh_img_sm .re h5{padding: 25px 0px; font-size: 1.8em;}
+/* CSS for Add house form */
+#main-content label{
+	font-size: 1.6em;
+	color: rgba(212,226,233,1.00);
+	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;
+	font-weight: lighter;	
+}
+#main-content .form-group span{
+	margin-left: 2%;
+	font-size: 1.4em;
+	color: rgba(212,226,233,1.00);	
+}
+/* CSS for Full Agent's House View */
+.v_cont{padding:.5% 1%; border-radius: 8px; box-shadow: 0px 0px 3px 0px rgba(212,233,245,1.00); }
+#thumbnails li {
+	list-style: none;
+}
+#thumbnails a{
+	font-size: 1.2em;
+	color: white;font-weight: 100;	
+}
+#thumbnails li p{margin-top: 5px; font-size: .9em; margin-bottom:0px;}
+#thumbnails li button{border-radius: 0px;margin-left: 2px;border: 0px;margin-bottom: 5px; padding: 3% 5%;}
+#thumbnails li span{font-size: 1.5em;margin-left: 2%; color: white;font-weight: 100; font-family: 'Nova Square', sans-serif;}
+.ad_photo .btn-warning, .ad_photo input{border: 0px;font-family: nova, sans-serif;}
+.ad_photo input{margin: 0px; width: 100%;}
+.in1 input{border-radius: 4px 0px 0px 4px;padding: 1% 5%;}
+.in2 input{border-radius: 0px 4px 4px 0px;padding: 2% 0%;}
+.view_img{
+	_width: 100%;
+	height: 100px;	
+}
+.view_img img{
+	width: 100%;
+	height: 100%;	
+}
+.ad_photo{
+	padding: 2% 0%;	
+}
+/* CSS for Edit Image */
+.ed_img{height: 200px; padding: 0px; margin-bottom: 5px; }
+.ed_img img{width: 100%; height: 100%;border-radius: 5px;}
+/* CSS for the Full Images */
+#full-images {
+	position:relative; 
+	min-height:240px;
+}
+#full-images img {
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	left: 0px;
+	top: 0px;
+}
+#full-images .house-img{height: 235px;position: absolute;}
+/* CSS for House Information for the Full House */
+#house-info{padding: 0px 0px 0px 1%;}
+#house-info p.succ{
+	padding: 0% 5px;font-size: .8em;background: white;
+}
+#main-content #house-info h4{padding:1% 4%;margin-top: -10px;margin-bottom: 0px; border-radius: 5px 5px 0px 0px;color: white; text-align: center;background: rgba(43,43,43,.8);}
+#house-info h5, #house-info b{
+	font-family: 'Economica',"Agency FB", Arial, "Arial Narrow";
+	color: rgba(1,18,34,1.00);
+}
+#house-info b{font-weight: 400; color: black; font-size: 2.2em;}
+#house-info h5{color: black; background: white; width: 30%; padding: .5%; border-radius: 0px; text-align: center; font-size: 2em; margin-bottom: 0px;}
+#house-info span{
+	font-size: 1.6em;font-weight: 100;
+	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;
+	color: white;
+}
+#house-info .navbar-collapse{max-height:none;}
+#house-info .collapse{width: 100%;}
+/* div inside #house-info */
+
+.house_informatn{border-radius: 5px 5px 5px 5px; background: rgba(176,182,185,1.00);}
+.house_informatn ul li{list-style: none; font-size: 1.5em;font-family:'Oswald',"Arial Narrow", "Times New Roman", sans-serif, Cambria;}
+.house_informatn ul li i{display: block; text-align: center;}
+.house_informatn ul{padding: 0px;}
+/* First div inside ul in house_informatn */
+.li_1st{background: rgba(75,83,88,1.0);padding:0px; line-height: 30px;color: rgba(222,234,244,1.00);text-align: center;}
+.li_1st li:first-child{
+	background-color: rgba(87,96,102,1.00);text-align: left;padding-left: 10px;
+}
+/* Second div inside ul in house_informatn */
+.li_2nd li{line-height: 30px;border-bottom: 1px solid rgba(100,128,143,.6);padding-left: 10px; color:rgba(3,67,120,1.00);}
+.li_2nd li:first-child{background: rgba(75,83,88,.8);color:rgba(232,245,255,1.00);text-align: center;}
+/* Remaining div inside ul in house_informatn */
+.li_3rd li{padding: 5px 0px;text-align: center;border-bottom: 1px solid rgba(100,128,143,.6);color:rgba(3,67,120,1.00);}
+/* Description div inside ul in house_informatn */
+.desc_realtor{background: rgba(75,83,88,1.0); margin: 0px;border: 1px solid transparent;}
+.desc_hd{text-align: center;font-family: 'Economica',"Agency FB", Arial, "Arial Narrow";font-size: 1.6em;color: white;}
+.desc_body{color: white;font-family:'Yanone Kaffeesatz',"Arial Narrow";font-size: 1.4em;padding: 0px 2%;font-weight:400;}
+.desc_body ul{padding-left:5%;}
+.desc_body ul li{list-style: square;font-size:1.1em;font-family:'Yanone Kaffeesatz','Oswald',"Arial Narrow";font-weight: 400;}
+
+.info_edit .btn-default{border-radius: 0px 0px 5px 5px;font-family:'Oswald',"Arial Narrow", sans-serif;}
+
+/*CSS for the form container */
+.form_cont{padding: 8px 10px; border-radius: 0px; background: rgba(82,82,82,.7);background-color: rgba(255,255,255,1.00);}
+.form_cont .form-control{border-radius: 0px;font-size:1.4em;
+	font-weight:400;padding-top:2px;}
+.form_cont .no_pad_left{padding-left: 0px;}
+.form_cont .no_pad_right{padding-right: 0px;}
+.form_cont .eg{_border: 1px solid red;}
+.form_cont .eg i{font-size: 1.2em; color: rgba(0,0,0,1.00);}
+#main-content .form_cont h4{color:rgba(1,12,67,1.00);font-family: 'Yanone Kaffeesatz','Oswald',"Arial Narrow",sans-serif;font-weight: 400;font-size:2.5em;}
+#main-content .form_cont p{color:rgba(1,43,70,1.00);}
+#main-content .form_cont label{color:rgba(1,43,70,1.00); font-weight: 400;}
+#main-content .form_cont .form-group span{color:rgba(1,43,70,1.00);}
+/* CSS for Share house */
+.share1{padding: .5% 1%; border-radius: 5px; box-shadow: 0px 0px 2px 0px rgba(229,232,235,1.00);}
+#main-content .share1 h4{font-size: 1.8em;}
+.share1 .img_sh{height: 200px; margin-bottom: 5px;}
+.share1 .img_sh img{width: 100%; height: 100%; border-radius: 5px;}
+.share2{padding: 0% 2%; padding-right: 0px;}
+.share2 h5{background: white; padding: .5%; border-radius: 3px; margin-bottom: 4px;}
+#main-content .share2 p{color: white; margin-bottom: 0px; font-size: 1.6em; padding: .5%;}
+#main-content .share2 table{box-shadow: 0px 0px 2px 0px rgba(229,232,235,1.00); margin-bottom: 5px;}
+#main-content .share2 td{font-size: 1.4em;}
+#main-content .share2 table th{font-size: 1.5em; color: white;font-weight:100;}
+
+/* CSS for Circles and Following including Messages */
+#main-content .circle_cont{background:rgba(30,59,83,1.00);border-radius: 6px;}
+#main-content .circle_cont h3{background: rgba(6,23,38,1.00);text-align: center;margin: 0px;padding:.4%;border-radius: 6px 6px 0px 0px;color:rgba(236,236,236,1.00);}
+
+#main-content .circle h4{box-shadow: 0px 0px 2px 0px rgba(229,232,235,1.00); border-radius:3px;background: white; color: black; width: auto; padding: .2% 2%;
+font-family:'Economica', "Agency FB", Arial, "Arial Narrow";}
+#main-content .circle h5{font-size: 1.6em; margin-bottom: 5px;padding-left: 4px; color:rgba(55,22,22,1.00);}
+#main-content .circle p{ margin-left: 0px;}
+.circle1 h5{background: white; padding: .5%; border-radius: 3px; margin-bottom: 4px;}
+#main-content .circle1 p{color: white; margin-bottom: 0px; font-size: 1.6em; padding: .5%;}
+#main-content .circle1 table{_box-shadow: 0px 0px 2px 0px rgba(229,232,235,1.00); margin-bottom: 5px;background: rgba(186,187,188,.8);border-radius: 0px 0px 6px 6px;}
+#main-content .circle1 td{font-size: 1.4em;}
+#main-content .circle1 table th{font-size: 1.5em; color: white;font-weight:100;}
+#main-content .circle1 table .no_bor{border: 0px;}
+.circle_cont .message_open{background:rgba(217,219,220,.6); font-size: 1.1em;border-radius: 0px 0px 6px 6px;padding-top: 5px;}
+.circle_cont .bk_mes{padding:5px 2% 0px 0px;margin: 0px;}
+#main-content .a_bk a h4:hover{color: rgba(139,139,139,1.00);}
+/* CSS for Ticket */
+
+#main-content .ticket{font-family:'Oswald',"Arial Narrow", "Times New Roman", sans-serif, Cambria;padding: .5% 1%; border-radius: 6px;background:rgba(30,59,83,1.00);}
+#main-content .ticket h2{margin: 0px;padding: 0px;color: rgba(239,239,239,1.00);font-size:2.4em;}
+#main-content .ticket h2 small{font-size:.8em;}
+#main-content .ticket h2 small a{color: rgba(143,194,241,1.00);text-decoration: none;}
+#main-content .ticket h2 small a:hover{text-decoration: none; color: rgba(69,117,183,1.00);}
+#main-content .ticket .alert{margin-top:5px;font-size: 1.2em;padding:.3%;}
+#main-content .ticket .alert p{color:green;margin: 0px;}
+#main-content .ticket .form-control{border-radius:0px;}
+#main-content .ticket p{margin: 1% 0px;}
+#tickets h5{color: rgba(163,206,241,1.00);font-size:1.7em;}
+.ticket_table{background: rgba(170,170,171,1.00); font-size: 1.4em;}
+.ticket_table .table{}
+.ticket_table thead{background: rgba(15,34,54,1);color: rgba(235,238,241,1.00);}
+.ticket_table a{text-decoration: none;color: rgba(39,59,79,1.00);}
+.ticket_table td a:hover{color: rgba(11,114,188,1.00);}
+/* Ticket view */
+.ticket_message{font-size: 1.2em;}
+.ticket_message h3{font-size: 1.8em; color: rgba(202,205,207,1.00);padding:.3% 0px;}
+.ticket_message .sta{padding: 0px; background: rgba(7,25,42,1.00);}
+.ticket_message .sta p{margin: 0px;padding: 0px 4px;}
+.ticket_message p span{text-transform: capitalize;color:rgba(215,179,180,1.00);}
+.ticket_message .tic_mes{border: 1px solid rgba(1,114,207,.4);padding:.3% 1%;border-radius: 5px;background: rgba(44,62,71,1.00);}
+.tic_bk{font-size:1.2em;color: rgba(177,177,177,1.00);}
+.tic_bk:hover{text-decoration: none;}
+/* CSS for Messages */
+#main-content .test li a{padding:5px 10px;}
+
+/* CSS for Requests */
+.request_cont{background:rgba(30,59,83,1.00);border-radius: 6px;}
+.request_cont h3{background: rgba(6,23,38,1.00);text-align: center;margin: 0px;padding:.4%;border-radius: 6px 6px 0px 0px;color:rgba(236,236,236,1.00);margin-bottom:8px;}
+#main-content .request1{border: 2px solid rgba(8,88,139,1.00);margin-bottom: 8px;border-radius: 0px 0px 6px 6px;border-top:none;}
+
+#main-content .request1 h4{background: white; color: black; width: auto; padding: .2% 2%;margin: 0px;
+font-family:'Economica', "Agency FB", Arial, "Arial Narrow";}
+#main-content .requests{_border: 1px solid red;}
+#main-content .requests h5{margin: 0px;margin-top: 5px; color: rgba(181,183,185,1.00); text-decoration:underline;line-height:20px;}
+#main-content .requests p{color: white; margin-bottom: 0px; font-size: 1.6em; padding: .5% 0px;}
+
+#main-content .requests table{background: rgba(125,126,127,1.00); margin: 5px 0px;}
+#main-content .requests td{font-size: 1.4em;}
+#main-content .requests table th{font-size: 1.5em; color: white;font-weight:100;}
+#main-content .requests table .no_bor{border: 0px;}
+
+
+/* CSS for Availability/unavailability of House */
+.aval1{
+	padding: 20px 0px;	
+}
+.aval1 a:hover{
+	text-decoration: none;	
+}
+.aval, .unaval{
+	font-size: 1.8em; font-weight: 100;
+	font-family:'Economica', "Agency FB", Arial, "Arial Narrow"; text-transform: uppercase; letter-spacing: 1px;
+	color: white;
+}
+.aval1 .unaval{
+	color: rgba(160,1,4,1.00);
+}
+.bt a{color: white;}
+.bt a:hover{text-decoration: none;}
+.house-timthumb {
+	_position: relative;
+	_margin-right: 10px;
+}
+#thumbnails li input {
+	_margin-left: 25%;
+}
+
+#estate-box {
+	height: 150px;
+	background-color: #333300;
+	color: #FFFFFF;
+	padding-top: 40px;
+}
+#estate-box span {
+	margin-left: 0%;
+}
+#estate-box b {
+	font-size:36px;
+}
+#houses-box {
+	height: 150px;
+	background-color: #FF6633;
+	color: #FFFFFF;
+	padding-top: 40px;
+}
+#houses-box span {
+	margin-left: 0%;
+}
+#houses-box b {
+	font-size:36px;
+}
+/* CSS for My Likes page */
+#main-content .lik{}
+#main-content .lik h3{}
+ /* the footer starts here */
+ footer{
+	background: rgba(0,31,55,1.00);
+	margin-top: 0px; 
+ }
+ .footer_top{
+	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial, san-serif; 
+	line-height: 20px;
+ }
+ .footer_top h4{
+	font-weight: 1.3em; 
+	font-weight:100;color: rgba(243,243,243,.8);
+ }
+ .footer_top p{
+	font-size: 1.4em; color: rgba(119,187,243,1.00);font-weight: 100;
+ }
+ .footer_top li{
+	list-style: none; font-weight: 100;
+	line-height: 20px;
+	font-size: 1.5em;color: rgba(119,187,243,1.00); 
+ }
+ .footer_top li a{color: rgba(119,187,243,1.00); }
+ .footer_top li a:hover{color: white; text-decoration:none;}
+ .image{ 
+ }
+ .contact_info{padding-left: 0px;}
+ .ffg_ic{padding-left: 0px;padding-right: 0px;}
+ .ffg_ic div{padding:1% 10% 1% 0px; }
+ .image img{
+	width: 100%;
+	height: 100%; 
+ }
+ .foot{
+	padding: 1%; 
+	border-top: 1px solid rgba(228,228,228,.1); 
+ }
+ .foot a{
+ 	color: rgba(17,89,130,1.00);
+ }
+ .foot a:hover{
+	text-decoration: none;
+	color: white; 
+ }
+ .foot li{
+ 	float: left;
+	font-size: 1.8em;
+	border-right: 1px solid rgba(228,228,228,.1);
+	font-family:  'Oswald',"Arial Narrow","Times New Roman", Arial, san-serif;
+	list-style: none;
+	padding: 0% 8%;
+ }
+ .foot li:last-child{
+	border-right: none; 
+ }
+ .bottom_footer{
+	 color: rgba(240,242,252,1.00);border-top: 1px solid rgba(118,119,119,.3);
+	 font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,san-serif, "Exotc350 DmBd BT", "Exotc350 Bd BT";
+ }
+ .bottom_footer p{
+	padding: .5%;
+	font-size: 1.6em; 
+ }
+ .bottom_footer a:hover{text-decoration: none;}
+
+ /* CSS for Search */
+#main-content .circle_search h4{
+font-family:'Economica', "Agency FB", Arial;}
+#main-content .circle_search p{color: white; margin-bottom: 0px; font-size: 1.7em; padding: .5%; font-weight: 100;}
+#main-content .circle_search table{box-shadow: 0px 0px 2px 0px rgba(229,232,235,1.00); background: white; margin-bottom: 5px;}
+#main-content .circle_search td{font-size: 1.4em; font-weight: 100;}
+#main-content .circle_search table th{font-size: 1.5em; color: black;font-weight:100;padding: 0px 5px;}
+#main-content .circle_search table button{border: 0px;}
+
+.arrow_up{
+	background: rgba(3,56,95,.7); width:4%;text-align: center;
+	font-size: 3em; margin: 1%;height: 45px;border-radius: 2px;
+	display: block;position: fixed; bottom: 30px; right: 10px;color:white;transition: 0.5s all ease;
+-webkit-transition: 0.5s all ease;
+-moz-transition: 0.5s all ease;
+-o-transition: 0.5s all ease;
+-ms-transition: 0.5s all ease;z-index: 100;
+}
+.arrow_up:hover{cursor:pointer; background: white; color:rgba(2,4,83,.7);box-shadow: 0px 0px 2px 0px rgba(37,61,77,1.00);}
+@media only screen and (max-width:767px){
+	/* The HEADER containing the Logo  starts here */
+	.text{
+		font-size: 1.1em;	
+	}
+	#header{padding-bottom: 8px; margin-bottom: 0px;}
+	.logo{height: 60px;}
+	#header img{margin-bottom: 8px;	}
+	/* CSS for the Search */
+	.search{padding: 10px 20px;}
+	.search input, .search button{height: 25px;}
+	.search button{padding: 0px;}
+	.wel_cont{margin-top: 5px; padding: 0px 0%; padding-top:5px;_width:96%;margin-left: 0px;}
+	.p_1st p{padding-left: 12px;}
+	.xs_hd_img{height: 50px;margin-bottom: 6px;padding:0px 1% 0px 12%;}
+	.wel{font-size: 1.2em;margin: 0px;}
+	.wel span{font-size: 1em;	}
+	#header .wel_cont a{font-size: 1em;}
+	
+/* The MENU containing the menu headings starts here */
+
+nav.nav1{min-height: 10px; z-index: 1;padding:0px; margin: 0px; height: auto; 
+	border: none;
+	margin-bottom: 5px;}
+nav.navbar .container{}
+.menu{height: auto;border-radius: 0px; }
+.menu .navbar-default{background-color: rgba(0,102,153,0.7); padding: 0px; }
+.menu .navbar-header{margin: 0px;}
+.menu .navbar-default p{font-size: 2.1em; font-family:'Economica',"Agency FB", Arial, "Arial Narrow"; margin-top: 3px;padding-bottom: 0px; color: white;}
+
+.menu .navbar-default button{padding: 5px; margin-top: 12px;}
+.list ul{
+	margin: 0px;	
+	height: auto;text-align: justify;	
+}
+#menu{}
+.list ul li{
+	margin-left: 0%;
+}
+#menu a {font-size: 1.2em;height: auto;
+	line-height: 10px;
+	padding: 6px 30px;
+}
+#menu ul li:first-child{margin-left: 0%;}
+	
+/* the left_side with the profile pix */
+	.left_img{padding: 2px;}
+	.left_img img{
+		width: 100%;box-shadow: 0px 0px 2px 0px rgba(5,16,45,1.00);	
+		margin-left: 0%;
+	}
+/* the styles for the Main Content starts here */
+#main-content{}
+#main-content .panel-heading h3{
+	font-size: 1.8em;
+}
+#main-content .panel-heading{
+	padding: .5%;	
+}
+#main-content .panel-body h4{
+	font-size: 2em;	
+}	
+	/* CSS for the Nav-tabs */
+	.nav-tabs li{
+		font-size: 1.1em;	
+	}
+	.nav-tabs li a{padding: 5px; }
+	
+	/* the CSS for the nav pills in Houses */
+	.nav-pills{
+		font-size: 1.2em;
+	}
+	/* CSS for Houses */
+	
+	/* Panel body for the main content starts here */
+	.sub p{
+		font-size: 1.4em;	
+	}
+	#main-content .panel-body{padding: 2% 1px;}
+	#main-content .panel-body h4{
+		font-size: 1.5em;margin-top: 0px;	
+	}
+	#main-content .panel-body small{
+		font-size: .9em;	
+	}
+	/* CSS for Add house form */
+#main-content label{
+	font-size: 1.4em;
+}
+#main-content .form-group{margin: 0px; }
+#main-content .form-group span{
+	margin-left: 2%;
+	font-size: 1.2em;
+}
+	/* CSS for Shared houses */
+.table1{ border-radius: 2px;}
+.table1 thead th{padding: 0px;}
+.table1 thead th.h4{font-size: 1.5em;padding: 0px; text-align: center;}
+.table1 thead th.h4:last-child{text-align: justify;}
+.table1 th{}
+.table1 td.xs_small{padding-left: 0px;}
+.table1 th:first-child{border-radius: 2px 0px 0px 0px;}
+.table1 th:last-child{border-radius: 0px 2px 0px 0px;}
+.shared_img{height: 100px; margin-bottom: 4px;}.shared_img img{width: 95%;}
+#shared .share_p{padding: 0px 0px; font-size: 1.3em;}
+.shared_imgs{height: 70px; padding-left: 0px;}
+.sh_img_sm .re h5{padding: 0px 0px; font-size: 1.2em;}
+/* CSS for Share house */
+.share1{padding: .5% 1%; border-radius: 3px;padding-bottom: 0px;}
+.share1 h4, .share1 p{text-align: center;}
+.share1 .img_sh{height: 150px; margin-bottom: 5px;}
+.share1 .img_sh img{margin-left: 10%; width: 80%; height: 100%; border-radius: 5px;}
+.share2{padding: 0%;}
+.share2 h5{padding: .5%; border-radius: 0px; margin-bottom: 4px;}
+#main-content .share2 p{margin-bottom: 0px; font-size: 1.1em; padding: .5%;}
+#main-content .share2 h4{font-size: 1.2em; margin-top: 1%;}
+#main-content .share2 table{box-shadow: 0px 0px 1px 0px rgba(229,232,235,1.00); margin-bottom: 5px;}
+#main-content .share2 td{font-size: 1.2em;}
+#main-content .share2 table th{font-size: 1.2em;padding: 0px;font-weight:100;}
+/* CSS for the Ticket */
+#main-content .ticket h2{font-size:1.7em;border-bottom: 2px solid rgba(57,87,115,1.00);text-align:center;padding-bottom: 2px;}
+#tickets h5{text-align:center;font-size:1.4em;}
+/* Ticket view */
+.ticket_message{font-size: .9em;}
+.ticket_message h3{font-size: 1.9em; padding:.3% 0px;}
+.ticket_message .sta{padding: 0px; }
+.ticket_message .sta p{margin: 0px;padding: 0px 4px;}
+.ticket_message p span{}
+.ticket_message .tic_mes{border: 1px solid rgba(1,114,207,.4);padding:.3% 1%;border-radius: 5px;}
+#main-content .ticket_table{border: none;font-size:1.1em;}
+#main-content .ticket_table a{font-size:.8em;}
+#main-content .ticket_table thead{font-size: .7em;}
+.tic_bk{font-size:1.2em;}
+.tic_bk:hover{text-decoration: none !important;}
+/* CSS for Circles and Following */
+#main-content .circle_cont h3{padding:.5%;font-size: 1.6em;}
+#main-content .circle h4{ border-radius:3px; width: auto; padding: .2% 2%;}
+#main-content .circle h5{font-size: 1.4em; margin-bottom: 5px;padding-left: 4px; }
+#main-content .circle p{ margin-left: 0px;}
+.circle1 h5{padding: .5%; border-radius: 3px; margin-bottom: 4px;}
+#main-content .circle1 p{color: white; margin-bottom: 0px; font-size: 1.6em; padding: .5%;}
+#main-content .circle1 table{ margin-bottom: 5px; border: none;}
+#main-content .circle1 table th{padding: 0px 4px;}
+#main-content .circle1 td{font-size: 1em;}
+#main-content .circle1 table th{font-size: 1.2em;font-weight:100;}
+
+/* CSS for Requests */
+.request_cont{}
+.request_cont h3{font-size: 1.7em;}
+#main-content .request1{}
+#main-content .request1 h4{}
+#main-content .requests{}
+#main-content .requests h5{font-size: 1.2em;}
+#main-content .requests p{font-size: 1.2em; }
+#main-content .requests table{border:none;}
+#main-content .requests td{font-size: 1em; font-weight:100;}
+#main-content .requests table th{font-size: 1em;}
+
+/* CSS for Messages */
+#main-content .test li a{padding:5px 10px;}
+	/* the CSS for Available houses starts here */
+.houses{
+	padding: 1% 0%;	
+}
+.cont_height{min-height: 220px; padding: 0px 1%;}
+	/* CSS for the avialable, unavailable houses */
+	.houses ul li{
+		font-size: 1.2em;
+		margin-bottom: 8px;
+	}
+	.img1{height: 120px;margin-bottom: 5px;}
+	.houses li a:hover{
+		padding: 1.5%;	
+	}
+	/* CSS for Full Agent's House View */
+.v_cont{padding:.5% 1%; border-radius: 4px; box-shadow: 0px 0px 2px 0px rgba(176,193,213,1.00); padding-bottom: 4px;}
+#thumbnails {margin: 0px;}
+#thumbnails a{font-size: 1.3em;}
+#thumbnails li p{margin-top: 5px; font-size: .9em; margin-bottom:0px;}
+#thumbnails li button{border-radius: 2px;margin-left: 4px;margin-bottom: 4px; margin-right: 10px;padding: 1%;}
+#thumbnails li span{font-size: 1.5em;margin-left: 2%;}
+.in1 input{padding: 1.5% 5%;}
+.in2 input{padding: 2% 0%;}
+/* CSS for the Full Images */
+#full-images {min-height:205px;}
+#full-images .house-img{height: 200px;}
+.view_img{height: 120px;}
+	/* CSS for House Information for the Full House */
+	#house-info{padding: 0px;}
+	#hz_informatn{width: 100%;}
+	#drop_des button{color: white; padding: 0px; margin:0px; border-radius: 0px; _box-shadow: 0px 0px 2px 0px rgba(233,230,230,1.00);margin-right: 10px;background: rgba(0,102,153,1);}
+	#hz_informatn .navbar-collapse{max-height:none;}
+	#drop_des button:hover{background: rgba(9,67,122,1.00);}
+	#drop_des button .icon-bar{color: black; background:white; padding: 0px; margin: 4px;} 
+	
+	#house-info span{font-size: 1.4em;	}
+#main-content #house-info h4{border-radius: 5px 5px 0px 0px;margin-bottom: -5px;}
+	#house-info b{font-weight: 400; font-size: 1.6em;}
+#house-info h5{width: 25%; padding: .5%; border-radius: 2px; text-align: center; font-size: 1.5em; margin-bottom: 0px;}
+/* First div inside ul in house_informatn */
+.li_1st{padding:0px; line-height: 30px;text-align: center;}
+.li_1st li:first-child{text-align: center;}
+/* Second div inside ul in house_informatn */
+.li_2nd li{line-height: 30px;text-align: center;}
+/*CSS for the form container */
+.hr_xs{margin: 8px 0px;}
+.form_cont .form-group{margin-bottom: 8px !important;}
+#main-content .form_cont h4{font-size: 2em;}
+.form_cont .no_pad_r{padding-right: 0px;}
+.form_cont .no_pad_l{padding-left: 0px;}
+.form_cont .eg{padding-bottom:5px;}
+	/* CSS for the house Information */
+.cont_un{padding: 0px 4px;}
+	.aval1{
+		padding: 10px 0px;	
+	}
+	.aval1 a:hover{
+		text-decoration: none;	
+	}
+	.aval{
+		font-size: 1.4em;
+	}
+	.unaval{
+		font-size: 1.4em;
+	}
+	
+	/* theFOOTER starts here */
+ footer{
+		margin-top: -10px;
+	}
+ .footer_top{
+	line-height: 20px;
+ }
+ .footer_top h4{
+	font-weight: 1em; padding-top:5px;
+ }
+ .footer_top p{
+	font-size: 1.1em; 
+ }
+ .footer_top li{ 
+	line-height: 20px;
+	font-size: 1.1em; 
+ }
+ .contact_info{padding-left:5%;}
+ .ffg_ic{padding-left: 5%;}
+ .ffg_ic div{padding:1% 12% 3% 0px; }
+ .image{
+	
+ }
+ .foot{
+	padding: 1%; margin: 5px 0px; 
+ }
+ .foot a{
+ }
+ .foot li{
+	font-size: 1.2em;
+	padding: 0% 4%;
+ }
+ 
+ .bottom_footer{ 
+ }
+ .bottom_footer p{
+	padding: .5%;
+	font-size: 1.3em; 
+ }
+ 
+  .arrow_up{
+	width:10%;font-size: 2em; margin: 1%;height: 40px; bottom: 20px; right: 10px;padding-top:1%;
+}
+}
+@media only screen and (min-width:767px) and (max-width:991px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		_margin-bottom: 10px;
+	}
+	.wel_cont{text-align: center;font-size: .9em; }
+	.wel_cont p{display:inline;margin-right:20px;}
+	/* The MENU containing the menu headings starts here */
+.cont_sm{width: 96%;}
+/* the Nav bar starts here */
+nav.nav1{
+	min-height: 33px;
+	margin-bottom: 10px;
+}
+#menu a {
+	font-size: 1.3em;
+	padding: 6.5px 10px;
+}
+#menu li:last-child{border-right: none;}
+#menu ul{width: 100%;height: 31px;}
+#menu ul li:first-child{
+	margin-left: 0%;	
+}
+/* the styles for the Main Content starts here */
+#main-content .panel-heading h3{font-size: 2.2em;}
+#main-content .panel-body{padding: 5px;}	
+#main-content .panel-body h4{font-size: 1.6em;}	
+/* CSS for the Nav-tabs */
+	.nav-tabs li{font-size: 1.3em;	}
+	.nav-tabs li a{padding: 5px 15px; }
+	.cont_height{_min-height: 220px; padding: 0px 1%;}
+	.houses ul li{font-size: 1.5em;_margin-bottom: 8px;}
+	/* CSS for Shared houses */
+	#shared .share_p{font-size: 1.8em;}
+	/* CSS for Full Agent's House View */
+.v_cont{padding:1% 1%; border-radius: 4px;}
+/* CSS for House Information for the Full House */
+	#house-info span{font-size: 1.6em;	}
+#main-content #house-info h4{border-radius: 2px;margin-bottom: -5px;}
+	#house-info b{font-size: 1.9em;}
+#house-info h5{border-radius: 2px; font-size: 1.8em;}
+/* CSS for the house Information */
+.cont_un{padding: 5px 4px;}
+.cont_un div{display: inline;}
+	.aval1{
+		padding: 10px 0px;	
+	}
+	.aval{font-size: 1.4em;}
+	.unaval{font-size: 1.4em;}
+	/* CSS for Add house form */
+#main-content label{
+	font-size: 1.4em;
+}
+#main-content .form-group{margin: 0px; }
+#main-content .form-group span{
+	margin-left: 2%;
+	font-size: 1.2em;
+}
+	/* the BODY starts here */
+	#wrapper{		
+	}
+	/* the left_side with the profile pix */
+	#left-side{
+		font-size: 1.4em;
+	}
+	#left-side img{
+		width: 100%;	
+	}
+	/* the Content section CSS */
+	#content{
+		margin-top: 0px;
+	}
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	/* style for the Images */
+	.img{
+		height: 200px;	
+	}
+	
+}
+@media only screen and (min-width:992px) and (max-width:1199px) {
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		margin-bottom: 10px;
+	}
+	#header img{
+			
+	}
+	/* the BODY starts here */
+	#wrapper{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#menu a {
+	font-size: 1.3em;
+	padding: 6.5px 10px;}
+	#left-side{
+		
+	}
+	/* the Content section CSS */
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	/* style for the Images */
+	.img{
+		height: 200px;	
+	}
+	
+}
+@media only screen and (min-width: 1200px){
+	/* The HEADER containing the Logo  starts here */
+	#header{
+		margin-bottom: 10px;
+	}
+	#header img{
+			
+	}
+	/* the BODY starts here */
+
+	#left-side{
+		
+	}
+	/* the Content section CSS */
+	
+	.house_cont{
+		width: 100%;
+		font-size: 1.3em;
+		margin-bottom: 10px;	
+	}
+	
+	
+
+
+}
