@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class House_like extends Model
 {
-    protected $table = 'abj_apartments.house_likes';
+    // protected $table = 'abj_apartments.house_likes';
 
 	public function scopeGetLike($query, $realtor_id, $house_id)
     {

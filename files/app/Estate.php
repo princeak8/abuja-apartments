@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estate extends Model
 {
-    protected $table = 'abj_apartments.estates';
+    // protected $table = 'abj_apartments.estates';
 
 	public function houses()
     {
