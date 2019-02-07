@@ -4,25 +4,12 @@
 <input type="hidden" name="APP_STORAGE" value="{{ env('APP_STORAGE') }}"> 
     @include('inc.analyticstracking')
 
-<header class="top_header container-fluid no-padding">
-    <div class="col-sm-2">
-        <span class="fa fa-clock-o"></span> <?php echo date("D, M d, Y", time()); ?>        
-    </div>
-    
-    <div class="col-sm-4">
-        <span class="fa fa-envelope"></span>  contact@abujaaprtments.com.ng, akalodave@gmail.com
-    </div>
-    <div class="col-sm-4">
-        <span class="fa fa-phone"></span> 07039775298, 08062977023, 08039249293 
-    </div>
-    <div class="col-sm-2 sh">
-        <a target="_blank" href="https://www.facebook.com/abujaapartments/"><span class="fa fa-facebook"></span></a>
-        <a target="_blank" href="https://twitter.com/AbjApartments"><span class="fa fa-twitter"></span></a>
-        <!--<a target="_blank" href="https://www.facebook.com/zerothgroup/"><span class="fa fa-linkedin"></span></a>
-        <a target="_blank" href="https://www.instagram.com/zerothgrp/"><span class="fa fa-instagram"></span></a>-->
-    </div>
-</header>
 	<div id="header" class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <img class="img-responsive" src="{{ asset('images/logo.png') }}" />
+            </div>
+        </div>
         
         <div class="col-xs-12 col-md-6">
            <!--<img class="img-responsive" src="images/logo2.png" />-->

@@ -13,18 +13,21 @@
 
 <link rel="icon" href="{{env('APP_STORAGE')}}images/abuja_apa_log.png" />
 
-<script type="application/javascript" async src="{{env('APP_URL')}}js/jquery.min.js"></script>
-<script type="application/javascript" async src="{{env('APP_URL')}}js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" media="all" href="{{env('APP_URL')}}css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome.min.css')}}"/>
 
-<script type="application/javascript" src="{{env('APP_URL')}}js/tinymce/tinymce.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css')}}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome-all.min.css')}}"/>
 
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/custom_checkbox.css"/>
-<link rel="stylesheet" href="{{env('APP_URL')}}css/lightbox.css" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/styles_frontpage.css"/>
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/share.css"/>
+<script type="application/javascript" async src="{{ asset('js/jquery-3.3.1.js')}}"></script>
+<script type="application/javascript" async src="{{ asset('js/popper.js')}}"></script>
+<script type="application/javascript" async src="{{ asset('js/bootstrap.min.js')}}"></script>
+
+<script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js')}}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/custom_checkbox.css')}}"/>
+<link rel="stylesheet" href="{{ asset('css/lightbox.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/share.css')}}"/>
 
 
 
