@@ -22,6 +22,4 @@ Route::group(['middleware' => ['sessions']], function () {
 Route::post('load_houses', 'HouseController@load_houses');
 Route::post('filter_houses', 'HouseController@filter');
 
-Route::get('houses', 'API\HouseController@houses');
-
 });

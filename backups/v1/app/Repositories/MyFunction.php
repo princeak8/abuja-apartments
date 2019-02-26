@@ -38,33 +38,47 @@ class MyFunction
 		return $integer;
 	}
 
-	public function delete_folder($path)
-		{
-			if (is_dir($path) === true)
-			{
-				$files = array_diff(scandir($path), array('.', '..'));
-		
-				foreach ($files as $file)
-				{
-					self::delete_folder(realpath($path) . '/' . $file);
-				}
-		
-				return rmdir($path);
-			}
-		
-			else if (is_file($path) === true)
-			{
-				return unlink($path);
+	public function get_deposit($order)
+	{
+		$payments = $order->payments;
+		$deposit = 0;
+		if(!empty($payments)) {
+			foreach ($payments as $payment) {
+				$deposit = $deposit + $payment->amount;
 			}
 		}
-		
-	public function del_folder($dir) { 
-		$files = array_diff(scandir($dir), array('.','..')); 
-		foreach ($files as $file) { 
-		  (is_dir("$dir/$file")) ? self::del_folder("$dir/$file") : unlink("$dir/$file"); 
-		} 
-		return rmdir($dir); 
-	} 
+		return $deposit;
+	}
+
+	public function get_balance($order)
+	{
+		$price = '';
+		if(!empty($order->price)) {
+			$price = $order->price;
+		}else{
+			$price = $order->plan->price;
+		}
+		if(is_numeric((int)$price)) {
+			if(empty($payments)) {
+				$balance = $price;
+			}else{
+				$deposit = $this->get_deposit($order);
+				$balance = $price - $deposit;
+			}
+		}else{
+			$balance = "Not Available";
+		}
+		return $balance;
+	}
+
+	public function is_myOrder($order, $client)
+	{
+		if($order->client_id == $client->id) {
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	public function has_role($user, $role)
 	{
@@ -80,7 +94,7 @@ class MyFunction
 	public function sanitize_houses($houses)
 	{
 		foreach($houses as $key=>$h) {
-			if($h->id <= 0 || $h->location_id <= 0 || $h->house_type_id <= 0) {
+			if($h->realtor_id <= 0 || $h->location_id <= 0 || $h->house_type_id <= 0) {
 				unset($houses[$key]);
 			}
 		}
