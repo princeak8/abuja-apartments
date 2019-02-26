@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Realtor_house extends Model
 {
-	protected $table = 'abj_apartments.realtor_houses';
-
     public function house(){
         return $this->belongsTo('App\House', 'house_id');
     }

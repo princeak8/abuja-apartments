@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-	protected $table = 'abj_apartments.messages';
-
     public function sender(){
         return $this->belongsTo('App\Realtor', 'sender_id');
     }

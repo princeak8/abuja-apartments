@@ -9,8 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Realtor extends Authenticatable
 {
-    protected $table = 'abj_apartments.realtors';
-
 	public function scopeGetRealtors($query)
     {
         return $query->where('activated', '1');
