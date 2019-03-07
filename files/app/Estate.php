@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estate extends Model
 {
-    protected $table = 'abj_apartments.estates';
-
 	public function houses()
     {
         return $this->hasMany('App\House')->where('available', '1');

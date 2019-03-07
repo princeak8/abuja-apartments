@@ -157,6 +157,7 @@ class HouseController extends Controller
 					"house_likes"=>count($myhouse->house_likes),
 					"comments"=>count($myhouse->house_comments),
 					"photo"=>$photo
+					
 					);
 			
 			}

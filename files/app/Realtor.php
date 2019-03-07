@@ -9,7 +9,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Realtor extends Authenticatable
 {
-    protected $table = 'abj_apartments.realtors';
+    use Notifiable;
+    
+    protected $fillable = ['firstname', 'lastname', 'profile_name', 'email', 'password'];
 
 	public function scopeGetRealtors($query)
     {
@@ -26,7 +28,7 @@ class Realtor extends Authenticatable
         return $query->where('id', $id)->first();
     }
 
-    public function getFullNameAttribute()
+    public function getNameAttribute()
     {
     	return $this->firstname.' '.$this->lastname;
     }

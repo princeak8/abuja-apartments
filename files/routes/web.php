@@ -35,11 +35,14 @@ Route::post('realtor/login', 'Realtor\LoginController@login');
 
 Route::get('realtor/logout', 'Realtor\LoginController@logout');
 
-Route::get('realtor/register', function() {
-	return view('realtor/register');
-});
+Route::get('realtor/register', 'Realtor\RegisterController@individual');
+Route::get('realtor/register/company', 'Realtor\RegisterController@company');
+Route::post('realtor/reg', 'Realtor\RegisterController@register');
+Route::post('realtor/register/company', 'Realtor\RegisterController@register_company');
 
 Route::post('realtor/register', 'Realtor\RegisterController@create');
+
+Route::get('realtor/send_email', 'Realtor\RegisterController@send_email');
 
 Route::get('realtor/home', 'Realtor\HomeController@index');
 
@@ -76,6 +79,22 @@ Route::post('realtor/change_house_mainPhoto', 'Realtor\PhotoController@change_ho
 Route::post('realtor/change_house_availability', 'Realtor\HouseController@change_house_availability');
 
 Route::get('realtor/requests', 'Realtor\HomeController@requests');
+
+Route::get('realtor/profile', 'Realtor\ProfileController@index');
+Route::post('realtor/edit_profile', 'Realtor\ProfileController@edit_field');
+Route::get('realtor/change_email', 'Realtor\ProfileController@change_email');
+Route::patch('realtor/edit_email', 'Realtor\ProfileController@update_email');
+Route::get('realtor/change_password', 'Realtor\ProfileController@change_password');
+Route::patch('realtor/edit_password', 'Realtor\ProfileController@update_password');
+Route::get('realtor/change_secret_question', 'Realtor\ProfileController@change_secret_question');
+Route::patch('realtor/edit_secret_question', 'Realtor\ProfileController@update_secret_question');
+Route::get('realtor/change_secret_answer', 'Realtor\ProfileController@change_secret_answer');
+Route::patch('realtor/edit_secret_answer', 'Realtor\ProfileController@update_secret_answer');
+Route::get('realtor/change_profile_photo', 'Realtor\ProfileController@change_profile_photo');
+Route::patch('realtor/edit_profile_photo', 'Realtor\ProfileController@update_profile_photo');
+Route::get('realtor/edit_about', 'Realtor\ProfileController@edit_about');
+Route::patch('realtor/edit_about', 'Realtor\ProfileController@update_about');
+
 
 //Realtor routes ends here
 

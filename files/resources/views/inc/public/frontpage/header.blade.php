@@ -48,12 +48,12 @@
                     <span class="cap_1st"><i class="fa fa-user"></i> {{Auth::user()->name}}</span>  
                 </p>
                 @if(Auth::user()->activated==1) 
-                    <p class="out"><a href="profile/"><span class="fa fa-address-card-o"></span> My Profile</a> | <a href="logout.php" class=""><span class="fa fa-sign-out"></span> Log Out</a> </p>
+                    <p class="out"><a href="profile/"><span class="fa fa-address-card-o"></span> My Profile</a> | <a href="{{url('realtor/logout')}}" class=""><span class="fa fa-sign-out"></span> Log Out</a> </p>
                 @endif
                 @if(Auth::user()->activated==0)
                     <p class="out">
                     <a href="realtors/activate_realtor.php">Become a Realtor</a> and Start posting houses
-                    <a href="logout.php"><span class="fa fa-sign-out"></span> Log Out</a>
+                    <a href="{{url('realtor/logout')}}"><span class="fa fa-sign-out"></span> Log Out</a>
                     </p>
                 @endif
                 </div>
@@ -72,7 +72,7 @@
                     @if(Auth::user()->activated==1)
                         <a href="{{Auth::user()->profile_name}}"><span class="fa fa-angle-double-right"></span> Business Page</a> | 
                         @if(Auth::user()->activated==1)
-                            <a href="realtors/" target="_blank"><span class="fa fa-angle-double-right"></span> Admin</a>
+                            <a href="realtor/" target="_blank"><span class="fa fa-angle-double-right"></span> Admin</a>
                         @endif
                 
                     @endif
@@ -84,10 +84,10 @@
         			<div class="log">
                     	<a href="realtor/login"><span class="fa fa-sign-in"></span> Login</a> |
                         
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Register <span class="caret"></span></a> 
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript::void(0)">Register <span class="caret"></span></a> 
                     	<ul class="dropdown-menu">
-                            <li><a href="realtors/register.php">Individual</a></li> 
-                            <li><a href="realtors/company_register.php">Company</a></li> 
+                            <li><a href="{{url('realtor/register')}}">Individual</a></li> 
+                            <li><a href="{{url('realtor/register/company')}}">Company</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -96,3 +96,15 @@
         </div><!-- End of head2 -->
         
     </div>
+
+<script type='application/javascript'>
+    $(document).on('click', '.dropdown-toggle', function() { 
+        var toggle = $(this).data('toggle');
+        
+        if(toggle=='dropdown') { 
+            $(this).siblings('ul .dropdown-menu').css('display', 'block');
+            //alert(toggle);
+        }
+        //return false;
+    })
+</script>
