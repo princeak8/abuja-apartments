@@ -8,7 +8,7 @@ function hideFiltering() {
 $(document).ready(function(e) { 
 	APP_URL = $('input[name=APP_URL]').val();
 	APP_STORAGE = $('input[name=APP_STORAGE]').val();
-    $('#left-side input').change(function(e) {
+    $('#left-side input').change(function(e) { 
 		showFiltering();
 	    var value = $(this).val();
 		var filter = $(this).attr('name');
@@ -157,7 +157,7 @@ $(document).ready(function(e) {
 				}
 						
 				$('#total-houses').val(data.total_houses);
-				alert(data.total_houses);
+				//alert(data.total_houses);
 				$('#displayed-houses').val(data.displayed_houses);
 				$('#db-content').html(output);
 				hideFiltering();

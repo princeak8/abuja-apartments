@@ -198,21 +198,35 @@ class CircleController extends Controller
 		//var_dump($post);
 		$id = $post['id'];
 		$action = $post['action'];
-		$circle_id = $post['circle_id'];
 		$user = array();
-		if($id > Auth::user()->id) {
-			$user['one'] = Auth::user()->id;
-			$user['two'] = $id;
+		if($action == 'send') {
+			if($id > Auth::user()->id) {
+				$user['one'] = Auth::user()->id;
+				$user['two'] = $id;
+			}else{
+				$user['one'] = $id;
+				$user['two'] = Auth::user()->id;
+			}
+			$circle_id = '';
 		}else{
-			$user['one'] = $id;
-			$user['two'] = Auth::user()->id;
+			$circle_id = $post['circle_id'];
 		}
+		
 		if(isset($post['ajax'])) {
 			if($this->sort_requests($user, $action, $circle_id)) {
-				echo 1;
+				$data = array(
+                    "status" => "success",
+                    "code"   => 200,
+                    "message"=> "Request was successfull"
+                );
 			}else{
-				echo 0;
+				$data = array(
+                    "status" => "error",
+                    "code"   => 500,
+                    "message"=> "Request was not successfull"
+                );
 			}
+			return response()->json($data);
 		}else{
 			if($this->sort_requests($user, $action)) {
 				request()->session()->flash('circle_success', 'Circle Request Accepted Successfully');

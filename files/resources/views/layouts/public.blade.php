@@ -6,5 +6,6 @@
         
     @yield('content')
 
-
+    @yield('js')
+    
 @include('inc.public.footer')

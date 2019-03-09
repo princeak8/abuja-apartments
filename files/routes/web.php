@@ -18,6 +18,8 @@ Route::post('/filter_houses2', 'HouseController@filter2');
 Route::get('/{profile_name}', 'RealtorController@realtor');
 Route::get('/house/{id}', 'HouseController@house');
 
+Route::post('/search_realtor', 'RealtorController@search');
+
 Route::post('send_message', 'MessageController@send');
 Route::post('follow', 'RealtorController@follow');
 Route::post('unfollow', 'RealtorController@unfollow');

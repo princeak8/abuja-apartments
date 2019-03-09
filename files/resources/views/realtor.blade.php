@@ -63,18 +63,18 @@
 									if the realtor logged in is activated
 									if the realtor is already in the loggedin realtor page
 							*/?>
-							@if(Auth::user()->id != $realtor->id && Auth::user()->activated==1 && Auth::user()->rship_exists($realtor->id))
-								@if(Auth::user()->request_sent($realtor->id))
-									<b class="green">Circle Request Sent | </b>
-								@endif
-							@else
-								<form action="processes/send_circle_request.php" method="post" style="display:inline-block;">
-					            	<input type="hidden" name="accepter" value="{{$realtor->id}}" />
-					                <input type="hidden" name="requester" value="{{Auth::user()->id}}" />
-					                <button type="submit" name="submit" value="Add to Circle" class="btn-default"><span class="fa fa-rss"></span> Add to Circle</button>
-					                <!--<input type="submit" name="submit" value="Add to Circle" />-->
-					            </form>
-							@endif 
+							<div id="circle-request" style="display:inline-block;">
+								@if(Auth::user()->id != $realtor->id && Auth::user()->activated==1 && Auth::user()->rship_exists($realtor->id))
+									@if(Auth::user()->request_sent($realtor->id))
+										<b class="green">Circle Request Sent | </b>
+									@endif
+								@else
+									<div style="display:inline-block;">
+										<button type="button" id="add-to-circle-btn" class="btn-default" data-loading="0" data-accepter="{{$realtor->id}}"><span class="fa fa-rss"></span> Add to Circle</button>
+										<!--<input type="submit" name="submit" value="Add to Circle" />-->
+									</div>
+								@endif 
+							</div>
 						@endif
 						<b class="">
 					        Followers <span class="label label-info">{{$realtor->followers->count()}}</span>
@@ -430,4 +430,8 @@
 		});
 	</script>
 
+@endsection
+
+@section('js') 
+    @include('inc.public.circle_request_js')
 @endsection

@@ -29,16 +29,19 @@
            <img class="img-responsive" src="{{env('APP_STORAGE')}}images/Abj_logo.png" />
         </div>
         <div class="col-md-3 col-sm-6 col-sm-push-6 col-md-push-0 search">
-            <form action="processes/search_realtor.php" method="post">
-                    <input type="hidden" name="active" value="0" />
-                    <div class="col-md-9 col-xs-9 no-padding">
-                        <input class="form-control input-sm" type="text" name="search_realtor" placeholder="search realtor" required />
-                    </div>
-                    <div class="col-md-3 col-xs-3 no-padding">
-                        <button class="form-control btn-info input-sm" type="submit" name="submit"><span class="fa fa-search"></span></button>
-                        <!--<input class="form-control" type="submit" name="submit" value="Search" />-->
-                    </div>
-                </form>
+            @if(request()->session()->exists('msg'))
+                <span class="@if(session('status')=='success') alert-success @else alert-danger @endif">{{session('msg')}} </span>
+            @endif
+            {!! Form::open(['action' => ['RealtorController@search'], 'method'=>'POST', 'autocomplete'=>'off']) !!}
+                <input type="hidden" name="active" value="0" />
+                <div class="col-md-9 col-xs-9 no-padding">
+                    <input class="form-control input-sm" type="text" name="search_realtor" placeholder="search realtor" required />
+                </div>
+                <div class="col-md-3 col-xs-3 no-padding">
+                    <button class="form-control btn-info input-sm" type="submit" name="submit"><span class="fa fa-search"></span></button>
+                    <!--<input class="form-control" type="submit" name="submit" value="Search" />-->
+                </div>
+            {!! Form::close() !!}
         </div>
         <div class="col-md-3 col-sm-6 col-sm-pull-6 col-md-pull-0 col-xs-12 head2">
         	@if(Auth::user())

@@ -130,17 +130,17 @@ function showLoading() {
             
             //if($(window).scrollTop() == $(document).height() - $(window).height()) {
             if(Math.ceil($(window).scrollTop()) == Math.ceil($(document).height() - $(window).height())) {
-                alert('load');
+                //alert('load');
                 if(loadingDone) {
                     loadingDone = false;
 
                 var total = $('#total-houses').val();
                 var displayed = parseInt($('#displayed-houses').val()); 
-                alert(total);
+                //alert(total);
                 /*if(displayed=='') {
                     displayed = limit;
                 }*/
-                if(displayed < total) { alert('start loading');
+                if(displayed < total) { //alert('start loading');
                     showLoading();
                     var postUrl = "{{env('APP_URL').'/load_houses'}}";
                     var postFields = {displayed: displayed, _token: CSRF_TOKEN};
