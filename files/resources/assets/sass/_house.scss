@@ -1,0 +1,73 @@
+.cont_xs2 {
+    padding: 0px 10px;
+}
+.house {
+    box-shadow: $shadow;
+    position: relative; border-radius: $border-radius-big;margin-bottom: 20px;
+    &__upper {
+        background: rgb(223, 223, 223);
+        border-radius: $border-radius-big;
+        &__location {
+            text-align: center;padding: 1.5% 0;color: $brand-color-lighter;font-weight: 700;
+        }
+        &__img_price {
+            position: relative;
+            &__price {
+                position: absolute;
+                top: 10px;
+                left: -8px;
+                color: $brand-white;
+                padding: 2% 3%; border-radius: $border-radius-small;
+                @include background-color();
+                font-size: .9em; font-weight: 700;
+            }
+            &__img {
+                height: 200px;
+                img {
+                    width: 100%;height: 100%;_border-radius:$border-radius-big;
+                }
+            }
+        }
+        &__bath {
+            font-size: $font-size-li;
+            font-family: $oswald; font-weight: 300;
+            ul {
+                display: flex;flex-direction: row;margin: 0px;padding:1% 0px;justify-content: center;
+                li {
+                    list-style: none; padding: 0px 2%;
+                }
+            }
+        }
+    }
+
+    &__details {
+        opacity: 1;
+        &__upper {
+            height: 85px;
+            ul {
+                padding:2% 4%;margin: 0px;font-family: $yanone;
+                li {
+                   list-style: none;font-size: $font-size-bigger-li;
+                   i {
+                       padding-right: 5px; font-size: .9em;
+                   }
+                }
+            }
+        }
+        &__lower {
+            display: flex; flex-direction: row;padding:0 3% 4% 3%;font-family: $archivo;
+            &__rs {
+                flex: 1;text-align: center;color: white;border-radius:24px;
+                @include background-color();box-shadow: $shadow;
+            }
+            &__cl {
+                flex: 2;font-weight: 100;text-align: right;
+                span {
+                    font-size: .8em;
+                }
+            }
+        }
+
+    }
+    
+}

@@ -1,0 +1,70 @@
+footer {
+    @include background-color();color: white;padding: 2% 4%;
+    .footer__top {
+        h4 {
+            font-size: 1.2em;
+        }
+        ul {
+            li {
+                list-style: none;
+                a {
+                    color: rgb(177, 215, 246);
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+        &__socials {
+            h4 {
+                margin-bottom: 20px;
+            }
+            a {
+                background: white; border-radius: 50%; padding: 3%; margin-right: 4%;
+            }
+        }
+    }
+    .footer__bottom {
+        display: flex; align-items: center;flex-direction: row;flex:1;border-bottom: 1px solid rgba(180,180,180,.7);
+        justify-content: center; margin-bottom: 10px;
+        ul {
+            padding: 10px 0px; margin: 0px;display: flex; flex-direction: row; border-top: 1px solid rgba(180, 180, 180, 0.7);
+            li {
+                flex: 1;list-style: none; text-align: center; border-right: 1px solid rgba(180,180,180,.7);
+                &:last-child{ border-right: 0px;}
+                a {
+                    color: rgb(177, 215, 246);
+                    &:hover{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .footer__bottom__2 {
+        p{
+           a{
+                color:rgb(131, 193, 243);
+                &:hover{
+                    color: white;
+                }
+            } 
+        }
+        
+    }
+}
+
+/* CSS for the Arrow up */
+.arrow_up{
+	background: rgba(4, 80, 134, 0.7); width:3%;text-align: center;
+	font-size: 2.3em; margin: 1%;height: 60px;border-radius: 20px;line-height: 60px;
+    display: block;position: fixed; bottom: 30px; right: 10px;color:white;
+    transition: 0.5s all ease;
+-webkit-transition: 0.5s all ease;
+-moz-transition: 0.5s all ease;
+-o-transition: 0.5s all ease;
+-ms-transition: 0.5s all ease;z-index: 100;
+    &:hover {
+        cursor:pointer; background: white; color:rgba(4, 80, 134, 0.7);box-shadow: 0px 0px 2px 0px rgba(37,61,77,1.00);
+    }
+}

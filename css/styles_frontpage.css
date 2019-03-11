@@ -1,21 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
-@import url('https://fonts.googleapis.com/css?family=Economica:400,400i');
-@import url('https://fonts.googleapis.com/css?family=Nova+Square');
-@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400');
-/*@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');*/
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,700');
-@import url('https://fonts.googleapis.com/css?family=Lobster');
-@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
-
-
-/*@font-face{
-	font-family: 'Oswald1';
-   src: url('../fonts/oswald/Oswald-Regular.TTF')format('truetype');	
-}
-@font-face{
-	font-family: 'Economica1';
-   src: url('../fonts/Economica/Economica-Regular.TTF')format('truetype');	
-}*/
 
 
 .no-margin{
@@ -57,11 +39,7 @@
 }
 .cap_1st{text-transform:capitalize;}
 .oswald{font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,sans-serif;}
-.orator{
-	font-family: OratorStd, Cambria, "OCR A Std";
-}
-.agency{font-family: agency, "Agency FB", Arial, "Arial Narrow";
-}
+
 body {
 	background-image: url(../images/bk.png);
 	background-repeat: repeat;
@@ -395,71 +373,24 @@ nav.navbar{min-height: 20px; z-index: 1;}
  }
  .img img:hover{border: 3px solid #006699;}
  /* CSS for the location on top */
- .locat{background: rgba(213,213,213,.7);font-family:'Oswald',"Arial Narrow","Times New Roman", Arial, sans-serif, Cambria;padding: 1% 3%;font-size: 1.3em; }
  /* the Price of the house styles */
-.price {
-	 background-color:#006699;
-	 padding: 2%;
-	 position: absolute;
-	 top:40px !important;
-	 left: -6px;
-	 box-shadow: 0px 0px 2px 0px #000000;
-	 color: #FFFFFF;
-	 font-weight:bold;
-}
-.bath{background: rgba(213,213,213,.7);font-family:'Oswald',"Arial Narrow","Times New Roman", Arial, sans-serif, Cambria;margin: auto;}
-.bath ul li{list-style: none; float:left; padding:3% 2.5%; border-right:1px solid rgba(159,157,157,.5);}
-.bath ul li:nth-last-child(2){border: none;}
-.bath ul li span{}
-.bath_re ul li{padding:3% 1% !important;}
+
+
 /* the description of the house below styles */
-.cont_descript{padding: 0px 2%; }
- .descript{
-	padding-top: 0px !important;min-height: 115px;
-	font-family:'Oswald', "Arial Narrow","Times New Roman", Arial,sans-serif, Cambria;
-	color: rgba(122,119,119,1.00);
- }
- .descript ul{margin: 0px;}
- .descript li{list-style: none; }
- .descript a{
-	color: rgba(95,98,228,1.00); 
- }
+
+ 
  .descript a:hover{
 	color: rgba(2,17,104,1.00);
 	text-decoration: none; 
  }
- .loc{color:#006699; font-size: 1.2em;}
- .cont_lik hr{margin: 5px 0px;}
- .cont_lik{padding: 2px 0px 0px 0px; font-family:'Economica', "Agency FB", Arial,sans-serif; font-size: 1.1em;}
- .cont_lik p{padding: .2% 4%; background: #006699; color: white; border-radius: 2px;}
- .cont_lik i{ font-style: normal;}
+
  #left-side input {
 	 margin-left: 10px;
  }
  
  /* the footer starts here */
- footer{
-	background: rgba(0,31,55,1.00);
-	margin-top: 0px; 
- }
- .footer_top{
-	font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial, san-serif; 
-	line-height: 20px;
- }
- .footer_top h4{
-	font-weight: 1.3em; 
-	font-weight:100;color: rgba(243,243,243,.8);
- }
- .footer_top p{
-	font-size: 1.4em; color: rgba(119,187,243,1.00);font-weight: 100;
- }
- .footer_top li{
-	list-style: none; font-weight: 100;
-	line-height: 20px;
-	font-size: 1.5em;color: rgba(119,187,243,1.00); 
- }
- .footer_top li a{color: rgba(119,187,243,1.00); }
- .footer_top li a:hover{color: white; text-decoration:none;}
+
+ 
  .image{ 
  }
  .contact_info{padding-left: 0px;}
@@ -469,28 +400,7 @@ nav.navbar{min-height: 20px; z-index: 1;}
 	width: 100%;
 	height: 100%; 
  }
- .foot{
-	padding: 1%; 
-	border-top: 1px solid rgba(228,228,228,.1); 
- }
- .foot a{
- 	color: rgba(17,89,130,1.00);
- }
- .foot a:hover{
-	text-decoration: none;
-	color: white; 
- }
- .foot li{
- 	float: left;
-	font-size: 1.8em;
-	border-right: 1px solid rgba(228,228,228,.1);
-	font-family:  'Oswald',"Arial Narrow","Times New Roman", Arial, san-serif;
-	list-style: none;
-	padding: 0% 8%;
- }
- .foot li:last-child{
-	border-right: none; 
- }
+
  .bottom_footer{
 	 color: rgba(240,242,252,1.00);border-top: 1px solid rgba(118,119,119,.3);
 	 font-family: 'Oswald',"Arial Narrow","Times New Roman", Arial,san-serif, "Exotc350 DmBd BT", "Exotc350 Bd BT";
@@ -766,17 +676,6 @@ nav.navbar{min-height: 20px; z-index: 1;}
 .terms a:hover{text-decoration: none;}
 .terms h2{margin: 0px;padding: 10px 0px; color:rgba(16,72,112,1.00); font-size: 2.2em;}
 .terms h4{color: rgba(11,138,184,1.00); font-size: 1.5em;}
-/* CSS for the Arrow up */
-.arrow_up{
-	background: rgba(3,56,95,.7); width:4%;text-align: center;
-	font-size: 3em; margin: 1%;height: 45px;border-radius: 2px;
-	display: block;position: fixed; bottom: 30px; right: 10px;color:white;transition: 0.5s all ease;
--webkit-transition: 0.5s all ease;
--moz-transition: 0.5s all ease;
--o-transition: 0.5s all ease;
--ms-transition: 0.5s all ease;z-index: 100;
-}
-.arrow_up:hover{cursor:pointer; background: white; color:rgba(2,4,83,.7);box-shadow: 0px 0px 2px 0px rgba(37,61,77,1.00);}
 
 /* media query */
 @media only screen and (max-width:767px){
@@ -1473,11 +1372,11 @@ nav.navbar{min-height: 10px; height: auto;}
   background: #ccc; background: rgba(6,102,171,1.00);
 }
 .control_range input:checked ~ .control__indicator {
-  background: #2aa1c0;background: rgba(6,102,171,1.00);
+  background: rgba(6,102,171,1.00);
 }
 .control_range:hover input:not([disabled]):checked ~ .control__indicator,
 .control_range input:checked:focus ~ .control__indicator {
-  background: #0e647d; background: rgba(6,102,171,1.00);
+  background: rgba(6,102,171,1.00);
 }
 .control_range input:checked ~ .control__indicator:after {
   display: block;

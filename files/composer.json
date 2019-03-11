@@ -17,6 +17,7 @@
         "phpunit/phpunit": "~5.0"
     },
     "autoload": {
+        "files": ["app/helpers.php"],
         "classmap": [
             "database"
         ],
@@ -24,6 +25,7 @@
             "App\\": "app/",
             "Tests\\": "tests/"
         }
+        
     },
     "scripts": {
         "post-root-package-install": [

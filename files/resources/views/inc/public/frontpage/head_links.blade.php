@@ -26,20 +26,22 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/custom_checkbox.css')}}"/>
 <link rel="stylesheet" href="{{ asset('css/lightbox.css')}}" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}"/>
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/> --}}
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/share.css')}}"/>
 
 
 
 <style type="text/css">
-.content {
+/* .content {
 	background-color: #FFFFFF;
 	min-height: 800px;
 	border-top-left-radius: 10px 10px;
 	border-bottom-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	border-bottom-right-radius: 10px 10px;
-}
+} */
 #realtor-details table td {
 	padding-bottom: 1em;
 }

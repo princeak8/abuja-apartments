@@ -5,35 +5,69 @@
     @include('inc.analyticstracking')
 
 	<div id="header" class="container-fluid">
-        <div class="row">
+        <div class="row pt-2 header">
             
-            <div class="col-lg-3">
+            <div class="col-lg-3 header__img">
                 <img class="img-responsive" src="{{ asset('images/logo.png') }}" /> 
             </div>
-            <div class="col-lg-9 border border-danger">
-                <ul class="">
-                    <li><a href="{{ url('')}}">HOME</a></li>
-                    <li><a href="{{ url('about')}}">ABOUT US</a></li>
-                    <li><a href="{{ url('partner')}}">PARTNER WITH US</a></li>
-                    <li><a href="{{ url('contact')}}">CONTACT US</a></li>
-                </ul>
+            <div class="col-lg-9 header__content">
+                <div class="col-lg-12 p-0">
+                    <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-1">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse header__content__navbar__list mb-2" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('partner') }}">Partner us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('about') }}">About us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Register
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
+                                        <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
+                                <input type="hidden" name="active" value="0" />
+                                <input class="form-control mr-sm-2" type="search" name="search_realtor" required placeholder="Search Realtor" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit"><span class="fa fa-search"></span></button>
+                            </form> --}}
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-lg-12 header__content__search">
+                    <form action="processes/search_realtor.php" method="post" class="form-inline col-7 my-2 my-lg-0">
+                        <input type="hidden" name="active" value="0" />
+                        <input class="form-control col-10" type="search" name="search_realtor" required placeholder="Search Realtor" aria-label="Search">
+                        <button class="btn btn-primary my-sm-0 col-2" type="submit" name="submit">
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </form>
+                </div>
+
             </div>
             
         </div>
 
-        <div class="col-md-3 col-sm-6 col-sm-push-6 col-md-push-0 search">
-            <form action="processes/search_realtor.php" method="post">
-                    <input type="hidden" name="active" value="0" />
-                    <div class="col-md-9 col-xs-9 no-padding">
-                        <input class="form-control input-sm" type="text" name="search_realtor" placeholder="search realtor" required />
-                    </div>
-                    <div class="col-md-3 col-xs-3 no-padding">
-                        <button class="form-control btn-info input-sm" type="submit" name="submit"><span class="fa fa-search"></span></button>
-                        <!--<input class="form-control" type="submit" name="submit" value="Search" />-->
-                    </div>
-                </form>
-        </div>
-        <div class="col-md-3 col-sm-6 col-sm-pull-6 col-md-pull-0 col-xs-12 head2">
+        
+        {{-- <div class="col-md-3 col-sm-6 col-sm-pull-6 col-md-pull-0 col-xs-12 head2">
         	@if(Auth::user())
             <div class="col-sm-12 col-xs-12 head3">
                 <div class="col-sm-9 col-xs-10 prof_hd">
@@ -60,7 +94,7 @@
 
                 <div class="col-sm-12 col-xs-12 head_biz">
                     @if(Auth::user()->type != 'company')
-                        <!--<a href="index.php?page=wall"><span class="fa fa-angle-double-right"></span> My Wall</a> | -->
+                        <a href="index.php?page=wall"><span class="fa fa-angle-double-right"></span> My Wall</a> |
                     @endif
                     @if(Auth::user()->activated==1)
                         <a href="{{Auth::user()->profile_name}}"><span class="fa fa-angle-double-right"></span> Business Page</a> | 
@@ -69,23 +103,13 @@
                         @endif
                 
                     @endif
-                </div><!-- end of head_biz -->
+                </div>
 
             </div>
             @else
-                <div class="col-sm-12">
-        			<div class="log">
-                    	<a href="realtor/login"><span class="fa fa-sign-in"></span> Login</a> |
-                        
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Register <span class="caret"></span></a> 
-                    	<ul class="dropdown-menu">
-                            <li><a href="realtors/register.php">Individual</a></li> 
-                            <li><a href="realtors/company_register.php">Company</a></li> 
-                        </ul>
-                    </div>
-                </div>
+                
             @endif
             
-        </div><!-- End of head2 -->
+        </div> --}}
         
     </div>

@@ -1,0 +1,130 @@
+
+%control__indicator {
+    position: absolute;top: 3px;left: 0;height: 18px;
+    width: 18px;background: rgba(166,179,184,1);
+}
+%filter__padding {
+    padding: 1% 8px 1% 8px;
+}
+
+@mixin radio() {
+    position: relative;padding-right: 9px;padding-left:20px;cursor: pointer;
+    font-size:1.1em;font-weight:300; 
+    .control__indicator {
+        @extend %control__indicator;
+        border-radius: 50%;
+        &:after {
+            left: 6px; top: 6px; height: 6px; width: 6px;background: #ffff;border-radius: 50%;content: '';
+        }
+    }
+    input {
+        position: absolute;z-index: -1;opacity: 0;
+    }
+    input:checked ~ .control__indicator {
+        background: $brand-color-lighter;
+        &:after {
+            position: absolute;
+        }
+    }
+}
+
+@mixin checkbox() {
+    position: relative;padding-right: 5px;padding-left:22px;cursor: pointer;
+    font-size:1.1em;font-weight:300;
+    .control__indicator {
+        @extend %control__indicator;top: 1px;border-radius: 0px;
+        &:after {
+            left: 6px; top: 3px; height: 10px; width: 6px;content: '';border: solid #fff;border-width: 0 2px 2px 0;
+            transform: rotate(45deg); 
+        }
+    }
+    input {
+        position: absolute;z-index: -1;opacity: 0;
+    }
+    input:checked ~ .control__indicator {
+        background: $brand-color-lighter;
+        &:after {
+            position: absolute;
+        }
+    }
+}
+
+.filter-header {
+    @include background-color();border-radius: 8px 8px 0px 0px;
+    h4 {
+        color: white; font-size: 1em; text-align: center; line-height: 25px;
+    }
+}
+
+.filter {
+    box-shadow: $shadow;font-size: $font-size-li;border-radius: $border-radius-big;
+    overflow: hidden;font-family: $oswald; font-weight: 300;
+    &__header {
+        @include background-color();
+        &__title {
+            text-align: center;color: white;font-size: 1.3em;line-height: 30px;
+        }
+    }
+
+    &__body {
+        // The first radio buttons for RENT OR SALE
+        &__radio {
+            // display: flex; justify-content: center;
+        }
+        &__control__radio {
+           @include radio();
+            
+        }
+        // FOR the HOUSE TYPES
+        &__house-types {
+            @extend %filter__padding;
+            &__body {
+                .control__radio {
+                    @include radio();
+                }
+                .control__range {
+                    @include checkbox();
+                }
+            }
+        }
+
+        // FOR the HOUSE LOCATION
+        &__location-types {
+            @extend %filter__padding;
+            &__body {
+                .control__radio {
+                    @include radio();
+                }
+                .control__range {
+                    @include checkbox();
+                }
+            }
+        }
+        // FOR the BEDROOMS
+        &__bedrooms {
+           @extend %filter__padding;
+           &__body {
+                .control__radio {
+                    @include radio();
+                }
+                .control__range {
+                    @include checkbox();
+                }
+            }
+        }
+
+        // FOR Price RANGES
+        &__price-ranges {
+            @extend %filter__padding;
+            &__body {
+                .control__radio {
+                    @include radio();
+                }
+                .control__range {
+                    @include checkbox();
+                }
+            }
+        }
+        
+    }
+}

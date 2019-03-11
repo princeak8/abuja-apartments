@@ -1,0 +1,38 @@
+.header {
+    box-shadow: 0px 0px 5px 1px rgba(175, 174, 174, 0.2);padding-bottom: 1.5%;
+    &__content {
+        padding: 0px;
+        &__navbar {
+            &__list {
+                ul {
+                    display: flex;flex: 1;padding-left: 18%;padding-right: 5%;
+                    li.nav-item {
+                        flex: 1;text-align: center;
+                        a.nav-link {
+                            font-weight: 300;color: $brand-color-darker;
+                        }
+                        .make_active {
+                            // border-bottom-width: 3px; border-bottom-style: solid;border-bottom-color: blue;
+                        }
+                    }
+                }
+            }
+        }
+        &__search {
+            display: flex;justify-content: flex-end;padding-right: 7%;
+            input {
+                border-radius: 30px 0px 0px 30px;
+            }
+            button.btn-primary {
+                border-radius: 0px 30px 30px 0px;@include background-color();border-color:$brand-color-darker;
+            }
+        }
+    }
+    
+    &__img {
+        padding: .7% 1.2%;height: 90px;
+        img {
+            width: 100%; height: 100%;
+        }
+    }
+}

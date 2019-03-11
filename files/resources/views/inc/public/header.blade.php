@@ -73,7 +73,7 @@
                         
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Register <span class="caret"></span></a> 
                     	<ul class="dropdown-menu">
-                            <li><a href="{{url('realtor/register')}}'">Individual</a></li> 
+                            <li><a href="{{url('realtor/register')}}">Individual</a></li> 
                             <li><a href="{{url('realtor/company_register')}}">Company</a></li> 
                         </ul>
                     </div>

@@ -2,9 +2,15 @@
 
 @include('inc.public.frontpage.header')
 
-@include('inc.public.navbar')
+{{-- @include('inc.public.navbar') --}}
+<div class="container-fluid mt-4">
+    <div class="row">
+        @yield('content')
+    </div>
+    
+</div>
         
-    @yield('content')
+    
 
 
 @include('inc.public.frontpage.footer')

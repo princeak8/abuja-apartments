@@ -1,13 +1,14 @@
-
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+@import url('https://fonts.googleapis.com/css?family=Economica:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
 // Body
 $body-bg: #f5f8fa;
 
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
 
 // Brands
 $brand-primary: #3097D1;
@@ -15,6 +16,12 @@ $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
 $brand-danger: #bf5329;
+$brand-white: #ffff;
+
+$brand-color-darker: rgba(6, 94, 153, 1);
+$brand-color-lighter: rgba(4, 113, 187, 1);
+
+
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
@@ -22,8 +29,19 @@ $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 
-// Navbar
-$navbar-default-bg: #fff;
+$roboto: 'Roboto Condensed';
+$archivo: 'Archivo Narrow';
+$oswald: 'Oswald';
+$yanone: 'Yanone Kaffeesatz';
+
+$base-font-family: $roboto;
+
+$border-radius-big: .6em;
+$border-radius-small: .4em;
+$font-size-li: .8em;
+$font-size-bigger-li: 1em;
+
+$shadow: 2px 3px 10px 0px rgba(0, 0, 0, .2);
 
 // Buttons
 $btn-default-color: $text-color;
