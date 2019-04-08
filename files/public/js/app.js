@@ -1015,11 +1015,7 @@ var defaults = __webpack_require__(2);
  * @param {Object} defaultConfig The default config for the instance
  * @return {Axios} A new instance of Axios
  */
-function createInstance(defaultConfig) {
   var context = new Axios(defaultConfig);
-  var instance = bind(Axios.prototype.request, context);
-
-  // Copy axios.prototype to instance
   utils.extend(instance, Axios.prototype, context);
 
   // Copy context to instance
@@ -1755,11 +1751,9 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 28 */
+
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 
 var utils = __webpack_require__(0);
 
