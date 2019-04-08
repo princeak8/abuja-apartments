@@ -1,3 +1,5 @@
 {
-    "editor.fontSize": 12
+    "editor.fontSize": 13,
+    "terminal.integrated.fontSize": 15,
+    "rest-client.fontSize": 14
 }
