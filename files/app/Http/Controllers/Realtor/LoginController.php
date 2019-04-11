@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Request;
 use Auth;
 
+use App\Realtor;
+
 class LoginController extends Controller
 {
     /*
@@ -35,13 +37,21 @@ class LoginController extends Controller
             ]); 
 
         }
-
+        $realtor = Realtor::find(Auth::user()->id);
+        $realtor->logged_in = 1;
+        $realtor->toggle_login_at = date('Y-m-d H:i:s');
+        $realtor->save();
         return redirect('realtor/home'); //Redirect to the home page 
    }
 
    public function logout()
    {
+        $realtor = Realtor::find(Auth::user()->id);
         auth()->logout();
+
+        $realtor->logged_in = 0;
+        $realtor->toggle_login_at = date('Y-m-d H:i:s');
+        $realtor->save();
 
         return redirect('/');
    }

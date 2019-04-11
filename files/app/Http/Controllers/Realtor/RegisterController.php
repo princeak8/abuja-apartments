@@ -67,6 +67,11 @@ class RegisterController extends Controller
             //attempt to login
             //dd(Auth::attempt($user));
             if(Auth::attempt($user)) {
+                $realtor = Realtor::find(Auth::user()->id);
+                $realtor->logged_in = 1;
+                $realtor->toggle_login_at = date('Y-m-d H:i:s');
+                $realtor->save();
+                
                 return redirect('/index');
             }else{
                 return redirect('realtor/login');
