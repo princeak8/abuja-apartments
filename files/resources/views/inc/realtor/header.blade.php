@@ -15,20 +15,26 @@
       {{-- <img class="img-responsive" src="{{env('APP_STORAGE')}}images/Abj_logo_realtor.png" /> --}}
     </div>
     
-    <div class="col-lg-6 search header__search">
-        <form action="../../processes/search_realtor.php" method="post" class="form-inline col-7 my-2 my-lg-0">
-            <input type="hidden" name="active" value="1" />
-            <div class="row">
-              <div class="col-9">
-                  <input class="form-control input-sm" type="text" name="search_realtor" placeholder="search realtor" />
+    <div class="col-lg-9 search header__search">
+        <div class="col-12 text-center">
+          <h4>{{$realtor->type == 'agent' ? "Agent's Page" : "Real Estate Firm's Page"}}</h4>
+        </div>
+        <div class="col-12">
+          <form action="../../processes/search_realtor.php" method="post" class="">
+              <input type="hidden" name="active" value="1" />
+              <div class="row">
+                <div class="col-9">
+                    <input class="form-control form-control-sm" type="text" name="search_realtor" placeholder="search realtor" />
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary btn-sm" type="submit" name="submit" value="Search">
+                      <span class="fa fa-search"></span>
+                    </button>
+                </div>
               </div>
-              <div class="col-3">
-                  <button class="form-control input-sm" type="submit" name="submit" value="Search">
-                    <span class="fa fa-search"></span>
-                  </button>
-              </div>
-            </div>
-        </form>
+          </form>
+        </div>
+        
     </div>
 
     {{-- <div class="col-md-3 col-xs-12 wel_cont">

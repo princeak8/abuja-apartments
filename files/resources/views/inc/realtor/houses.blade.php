@@ -4,6 +4,7 @@
     </a>
 </h4>
 
+
 {{-- <ul class="nav nav-tabs">
     <li class="active" data-id="available">
     	<a href="javascript:void(0)"> <span class="fa fa-bookmark"></span> Available Houses</a>
@@ -46,18 +47,19 @@
     </ul>
 @endif
 
-<div class="tab-content border border-danger" id="myTabContent">            
-    <div id="available" class="houses border border-info tab-pane fade show active" role="tabpanel" aria-labelledby="available-tab">
+<div class="tab-content houses__container" id="myTabContent">
+	            
+    <div id="available" class="tab-pane fade show active houses__container__available" role="tabpanel" aria-labelledby="available-tab">
     	@if($realtor->Allhouses->count()==0) 
             <p> No Houses yet under this portfolio </p>
         @else
-            <div class="row border border-danger">
+            <div class="row">
             	@foreach($realtor->Allhouses as $realtorHouse) 
-            		<div class="col-lg-4">
+            		<div class="col-lg-3 ">
                 		
-						<div class="@if($realtorHouse->house->estate_id>0) estate @else non-estate @endif">
-							<div class="col-12 border">
-								<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
+						<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif">
+							<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
+								<div class="houses__container__available__house__img">
 									@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
 										<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
 									@elseif(App\House_photo::GetHousePhotos($realtorHouse->house_id)->count())
@@ -65,10 +67,11 @@
 									@else
 										<img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
 									@endif
-								</a>
-							</div>
-							<div class="col-12"> 
-								<b> <span class="fa fa-bed"></span> 
+								</div>
+							</a>
+							<div class="houses__container__available__house__details">
+								<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}"> 
+									<span class="fa fa-bed"></span> 
 									{{$realtorHouse->house->bedrooms}} Bedroom {{$realtorHouse->house->house_type->type}}
 									@if($realtorHouse->sharer_id > 0) 
 										<i class="">(Shared <span class="fa fa-share-square"></span>) </i>
@@ -76,29 +79,26 @@
 									<br/>
 									<span class="fa fa-map-marker"></span> {{$realtorHouse->house->location->name}}
 									<span class="pull-right cap_1st re">For {{$realtorHouse->house->status}}</span>
-									<br/>
-								</b>
+								</a>
+								
 								<div class="no-margin lvd text-center">
 									<!--<a href="index.php?page=house likes&house_id=<?php //echo $house->house_id; ?>">--> 
-										<span class="fa fa-thumbs-up"></span> Likes [{{$realtorHouse->house->likes}}]&nbsp;&nbsp;
-									<!--</a>-->
-									<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}"> 
-										<i class="fa fa-eye"></i> View
-									</a> &nbsp;&nbsp; 
+										<span class="fa fa-thumbs-up"></span> Likes ({{$realtorHouse->house->likes}})&nbsp;&nbsp;
+									<!--</a>--> 
 									@if($realtorHouse->sharer_id == 0)
 										<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" onClick="return confirm('Are You Sure You Want To Delete This House?')"> <i class="fa fa-trash-o"></i> Delete</a>
 									@endif
 								</div>
 							</div>
+							
 						</div>
                 				
             		</div> 
             	@endforeach
 			</div>
         @endif
-        <div style="clear:both"></div>
-        @if($realtor->Allhouses->count() > 0)
-			<!--<div class="social">Share on:
+        {{-- @if($realtor->Allhouses->count() > 0)
+			<div class="social">Share on:
 				<a class="soc_fb" href="http://www.facebook.com/sharer.php?u=http://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank" title="Click to share">
 			   	<span class="fa fa-facebook"></span>
 				</a>
@@ -111,11 +111,10 @@
 				<a class="soc_g" href="https://plus.google.com/share?url=http://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank">
 					<span class="fa fa-google-plus"></span>
 				</a>
-        	</div>-->
-        @endif
+        	</div>
+        @endif --}}
     </div>
-    <div id="unavailable" class="houses tab-pane fade" role="tabpanel" aria-labelledby="unavailable-tab">
-    	<h4 class="blue"><span class="fa fa-bookmark-o"></span> Unavailable Houses</h4>
+    <div id="unavailable" class="tab-pane fade" role="tabpanel" aria-labelledby="unavailable-tab">
         @if($realtor->Unavailablehouses->count()==0)
     		<p> No Unavailable Houses </p>
     	@else
@@ -163,9 +162,8 @@
         </ul> 
         @endif
     </div>
-	<div id="shared" class="houses tab-pane fade" role="tabpanel" aria-labelledby="shared-tab">
-		<h4><span class="fa fa-share-square"></span> My Shared Houses</h4>
-		@if($realtor->mySharedHouses->count() == 0) {
+	<div id="shared" class="tab-pane fade" role="tabpanel" aria-labelledby="shared-tab">
+		@if($realtor->mySharedHouses->count() == 0)
 			<p> You Have no Shared Houses </p>
 		@else
 		

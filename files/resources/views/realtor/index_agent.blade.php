@@ -7,7 +7,7 @@
 <div id="main-content" class="content__right__main">
 		
 		<div class="content__right__main__head">
-			<h3 class="content__right__main__head__title">Agent's Page</h3>
+			{{-- <h3 class="content__right__main__head__title">Agent's Page</h3> --}}
 			<p class="content__right__main__head__p">
 					<span>IMPORTANT:</span> 
 							Your Personalized Page is 
