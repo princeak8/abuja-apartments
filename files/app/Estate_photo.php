@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estate_photo extends Model
 {
-    protected $table = 'abj_apartments.estate_photos';
+    // protected $table = 'abj_apartments.estate_photos';
 
     public function scopeGetMainPhoto($query,$estate_id)
     {

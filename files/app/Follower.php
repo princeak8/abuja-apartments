@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Follower extends Model
 {
-	protected $table = 'abj_apartments.followers';
+	// protected $table = 'abj_apartments.followers';
 
 	public function scopeGetFollow($query, $realtor_id, $follower_id)
     {
