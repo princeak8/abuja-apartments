@@ -8,25 +8,33 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div id="header" class="container-fluid">
+<div id="header" class="container-fluid ">
   <div class="row header">      
     <div class="col-lg-3 logo header__img px-0">
       <img class="img-responsive" src="{{ asset('images/logo.png') }}" />
       {{-- <img class="img-responsive" src="{{env('APP_STORAGE')}}images/Abj_logo_realtor.png" /> --}}
     </div>
+
+    <div class="col-lg-5 mt-4 p-0">
+      <div class="header__title text-center">
+        <h4 class="m-0">
+          <span>
+          {{$realtor->type == 'agent' ? "Agent's Page" : "Real Estate Firm's Page"}}
+          </span>
+        </h4>
+      </div>
+    </div>
     
-    <div class="col-lg-9 search header__search">
-        <div class="col-12 text-center">
-          <h4>{{$realtor->type == 'agent' ? "Agent's Page" : "Real Estate Firm's Page"}}</h4>
-        </div>
-        <div class="col-12">
-          <form action="../../processes/search_realtor.php" method="post" class="">
+    <div class="col-lg-4 search header__search mt-4">
+        
+        <div class="">
+          <form action="../../processes/search_realtor.php" method="post" >
               <input type="hidden" name="active" value="1" />
               <div class="row">
-                <div class="col-9">
+                <div class="col-9 pr-0">
                     <input class="form-control form-control-sm" type="text" name="search_realtor" placeholder="search realtor" />
                 </div>
-                <div class="col-3">
+                <div class="col-3 pl-0">
                     <button class="btn btn-primary btn-sm" type="submit" name="submit" value="Search">
                       <span class="fa fa-search"></span>
                     </button>
@@ -35,7 +43,9 @@
           </form>
         </div>
         
+        
     </div>
+    
 
     {{-- <div class="col-md-3 col-xs-12 wel_cont">
       <div class="col-xs-8 col-sm-12 no-padding p_1st shadow">

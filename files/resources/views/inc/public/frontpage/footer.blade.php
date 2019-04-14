@@ -5,66 +5,48 @@
 </div>
 
 <footer class="container-fluid pb-0">
-
-    <div class="row footer__top">
-        <div class="col-md-4 offset-lg-2 col-lg-3">
-          <h4>Useful Links</h4>
-          <ul class="p-0">
-            <li><a href="privacy.php"><span class="fa fa-caret-right"></span> Privacy </a></li>
-            <li><a href="terms.php"><span class="fa fa-caret-right"></span> Terms of Use </a></li>
-            <li><a href="contact.php"><span class="fa fa-caret-right"></span> Contact Form</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-4 col-lg-3 contact_info">
-          <h4>Contacts</h4>
-          <ul class="p-0">
-            <li><span class="fa fa-envelope"></span> &nbsp; info@abujaapartments.com.ng</li>
-            <li><span class="fa fa-phone"></span> &nbsp; 07039775298, 08062977023</li>
-          </ul>
-        </div>
-        
-        <div class="col-md-4 col-lg-3 footer__top__socials">
-            <h4><span class="fa fa-rss"></span> Follow Us</h4>
-            
-            <a href="https://www.facebook.com/zerothgroup/" target="_blank">
-              <span class="fab fa-facebook-f"></span>
-            </a>
-          
-            <a href="https://www.twitter.com/zerothweb_group/" target="_blank">
-              <span class="fab fa-twitter"></span>
-            </a>
-          
-            <a href="https://www.facebook.com/zerothgroup/" target="_blank">
-              <span class="fab fa-linkedin-in"></span>
-            </a>
-          
-            <a href="https://www.instagram.com/zerothgrp/" target="_blank">
-              <span class="fab fa-instagram"></span>
-            </a>
-            
-        </div>
-    </div>
-    
-    <div class="row footer__bottom">
-      
-      <div class="col-lg-8">
-          <ul class="footer-nav">
-              <li><a href="index.php">Home</a></li>
-              <li><a href="partner.php">Partner Us</a></li>
-              <li><a href="contact.php">Contact Us</a></li>
-              <li><a href="about.php">About Us</a></li>
-          </ul>
+    <div class="footer">
+      <div class="footer__left">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/about">About</a>
+        <a href="/partner">Partner us</a>
       </div>
-    </div>
-    
-    <div class="row footer__bottom__2">
-        <div class="col-lg-12">
-          <p class="text-center">
-            Copyright <?php echo date("Y", time()); ?> &copy; <a href="www.zerothweb.com.ng">
-              Zizix6</a> All rights reserved
+      <div class="footer__middle">
+        <div class="footer__middle__img">
+          <img class="img-responsive" src="{{ asset('images/symbol.png') }}" /> 
         </div>
-            
+      </div>
+      <div class="footer__right">
+          <a href="https://www.facebook.com/zerothgroup/" target="_blank">
+            <span class="fab fa-facebook-f"></span>
+          </a>
+        
+          <a href="https://www.twitter.com/zerothweb_group/" target="_blank">
+            <span class="fab fa-twitter"></span>
+          </a>
+        
+          <a href="https://www.facebook.com/zerothgroup/" target="_blank">
+            <span class="fab fa-linkedin-in"></span>
+          </a>
+        
+          <a href="https://www.instagram.com/zerothgrp/" target="_blank">
+            <span class="fab fa-instagram"></span>
+          </a>
+      </div>
+
+    </div>
+    <hr>
+    
+    <div class="footer__bottom">
+        <p>
+          Copyright <?php echo date("Y", time()); ?> &copy; <a href="www.zizix6.com">
+            Zizix6 Technologies</a> All rights reserved
+        </p> 
+        <ul>
+          <li><span class="fa fa-envelope"></span> &nbsp; info@abujaapartments.com.ng</li>
+          <li><span class="fa fa-phone"></span> &nbsp; 07039775298, 08062977023</li>
+        </ul>   
     </div>
 
 </footer>   

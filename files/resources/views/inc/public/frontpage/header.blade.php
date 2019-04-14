@@ -8,7 +8,7 @@
         <div class="row pt-2 header">
             
             <div class="col-lg-3 header__img">
-                <img class="img-responsive" src="{{ asset('images/logo.png') }}" /> 
+                <img class="img-responsive" src="{{ asset('images/logo1.png') }}" /> 
             </div>
             <div class="col-lg-9 header__content">
                 <div class="col-lg-12 p-0">

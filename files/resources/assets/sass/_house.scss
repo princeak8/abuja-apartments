@@ -57,7 +57,7 @@
         &__lower {
             display: flex; flex-direction: row;padding:0 3% 4% 3%;font-family: $archivo;
             &__rs {
-                flex: 1;text-align: center;color: white;border-radius:24px;
+                flex: 1;text-align: center;color: white;border-radius:24px;border-radius: 0px 18px 0px 18px;
                 @include background-color();box-shadow: $shadow;
             }
             &__cl {

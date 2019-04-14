@@ -1,6 +1,6 @@
 <h4 class="content__right__main__houses__portfolio">House Portfolio 
 	<a href="{{url('realtor/add_house')}}"> 
-    	Add House <i class="fa fa-plus"></i>
+    	Add House &nbsp;<i class="fa fa-plus"></i>
     </a>
 </h4>
 
@@ -51,52 +51,61 @@
 	            
     <div id="available" class="tab-pane fade show active houses__container__available" role="tabpanel" aria-labelledby="available-tab">
     	@if($realtor->Allhouses->count()==0) 
-            <p> No Houses yet under this portfolio </p>
-        @else
-            <div class="row">
-            	@foreach($realtor->Allhouses as $realtorHouse) 
-            		<div class="col-lg-3 ">
-                		
-						<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif">
-							<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
-								<div class="houses__container__available__house__img">
-									@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
-										<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
-									@elseif(App\House_photo::GetHousePhotos($realtorHouse->house_id)->count())
-										<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetHousePhotos($realtorHouse->house_id)->first()->photo}}" />
-									@else
-										<img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
-									@endif
-								</div>
-							</a>
-							<div class="houses__container__available__house__details">
-								<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}"> 
-									<span class="fa fa-bed"></span> 
-									{{$realtorHouse->house->bedrooms}} Bedroom {{$realtorHouse->house->house_type->type}}
-									@if($realtorHouse->sharer_id > 0) 
-										<i class="">(Shared <span class="fa fa-share-square"></span>) </i>
-									@endif
-									<br/>
-									<span class="fa fa-map-marker"></span> {{$realtorHouse->house->location->name}}
-									<span class="pull-right cap_1st re">For {{$realtorHouse->house->status}}</span>
-								</a>
+					<p> No Houses yet under this portfolio </p>
+			@else
+				<div class="row">
+					@foreach($realtor->Allhouses as $realtorHouse) 
+						<div class="col-lg-3 ">
 								
-								<div class="no-margin lvd text-center">
-									<!--<a href="index.php?page=house likes&house_id=<?php //echo $house->house_id; ?>">--> 
-										<span class="fa fa-thumbs-up"></span> Likes ({{$realtorHouse->house->likes}})&nbsp;&nbsp;
-									<!--</a>--> 
-									@if($realtorHouse->sharer_id == 0)
-										<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" onClick="return confirm('Are You Sure You Want To Delete This House?')"> <i class="fa fa-trash-o"></i> Delete</a>
-									@endif
+							<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif">
+								<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
+									<div class="houses__container__available__house__img">
+										@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
+											<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
+										@elseif(App\House_photo::GetHousePhotos($realtorHouse->house_id)->count())
+											<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetHousePhotos($realtorHouse->house_id)->first()->photo}}" />
+										@else
+											<img src="{{env('APP_STORAGE')}}images/no_image.png" alt="no-image" />
+										@endif
+									</div>
+								</a>
+								<div class="houses__container__available__house__details col-12 border border-danger">
+									<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}"> 
+										<div class="houses__container__available__house__details__type">
+											{{$realtorHouse->house->house_type->type}} &nbsp;&nbsp;
+											@if($realtorHouse->sharer_id > 0) 
+												<small>Shared <i class="fa fa-share"></i></small>
+											@endif
+										</div>
+										<div class="houses__container__available__house__details__bl">
+											<p><i class="fa fa-bed"></i> {{$realtorHouse->house->bedrooms}} Bedroom </p>
+											<p><i class="fa fa-map-marker-alt"></i> {{$realtorHouse->house->location->name}}</p>
+										</div>
+									</a>
+									<div class="houses__container__available__house__details__lower">
+										<span class="rs">{{$realtorHouse->house->status}}</span>
+										<!--<a href="index.php?page=house likes&house_id=<?php //echo $house->house_id; ?>">--> 
+										<span class="like">	
+											<i class="far fa-heart"></i> {{$realtorHouse->house->likes}}
+										</span>
+										<!--</a>--> 
+										@if($realtorHouse->sharer_id == 0)
+										<span>
+											<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" class="delete"
+												onClick="return confirm('Are You Sure You Want To Delete This House?')"> 
+												<i class="fa fa-trash"></i> 
+											</a>
+										</span>
+										@endif
+									</div>
 								</div>
+								
 							</div>
-							
-						</div>
-                				
-            		</div> 
-            	@endforeach
-			</div>
-        @endif
+										
+						</div> 
+					@endforeach
+				</div>
+      @endif
         {{-- @if($realtor->Allhouses->count() > 0)
 			<div class="social">Share on:
 				<a class="soc_fb" href="http://www.facebook.com/sharer.php?u=http://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank" title="Click to share">
@@ -114,52 +123,55 @@
         	</div>
         @endif --}}
     </div>
-    <div id="unavailable" class="tab-pane fade" role="tabpanel" aria-labelledby="unavailable-tab">
+    <div id="unavailable" class="tab-pane fade houses__container__available" role="tabpanel" aria-labelledby="unavailable-tab">
         @if($realtor->Unavailablehouses->count()==0)
     		<p> No Unavailable Houses </p>
     	@else
-        <ul class="thumbnails row no-padding">
+        <div class="row">
             @foreach($realtor->Unavailablehouses as $realtorHouse) 
-    			<div class="col-md-3 col-sm-4 cont_height">
-                    <div class="house_container">
-    					<li class="mix @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif" >
-    						<div class="col-md-12 col-sm-12 img1 no-padding">
-                        		<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
-                        			@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
-	                                    <img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
-	                                @elseif(App\House_photo::GetHousePhotos($realtorHouse->house_id)->count())
-	                                    <img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetHousePhotos($realtorHouse->house_id)->first()->photo}}" />
-	                                @else
-	                                    <img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
-	                                @endif
-                        		</a>
-    						</div>
-
-                     		<div class="col-md-12 col-sm-12 no-padding"> 	
-                        		<b> <span class="fa fa-bed"></span>{{$realtorHouse->house->bedrooms}} Bedroom {{$realtorHouse->house->house_type->type}}
-	                        		@if($realtorHouse->sharer_id > 0) 
-			                    		<i class="">(Shared <span class="fa fa-share-square"></span>) </i>
-			                    	@endif
-			                    	<br/>
-			                    	<span class="fa fa-map-marker"></span> {{$realtorHouse->house->location->name}}
-			                    	<span class="pull-right cap_1st re">For {{$realtorHouse->house->status}}</span>
-			                    	<br/>
-                        		</b>
-                        		<div class="no-margin lvd">
-                        			<a href="{{url('realtor/house'.$realtorHouse->house_id)}}"> 
-                    					<i class="fa fa-eye"></i> View
-                    				</a>
-                    				@if($realtorHouse->sharer_id == 0)
-                       					<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" onClick="return confirm('Are You Sure You Want To Delete This House?')"> <i class="fa fa-trash-o"></i> Delete</a>
-                       				@endif
-                       			</div>
-    						</div>
-                    	</li>
-                    	<div class="clear"></div>
-                    </div>
+    			<div class="col-lg-3">
+					<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif" >
+						<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
+							<div class="houses__container__available__house__img">
+								@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
+									<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
+								@elseif(App\House_photo::GetHousePhotos($realtorHouse->house_id)->count())
+									<img src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetHousePhotos($realtorHouse->house_id)->first()->photo}}" />
+								@else
+									<img src="{{env('APP_STORAGE')}}images/no_image.png" alt="no-image" />
+								@endif
+								
+							</div>
+						</a>
+						<div class="houses__container__available__house__details col-12"> 
+							<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
+								<div class="houses__container__available__house__details__type">
+									{{$realtorHouse->house->house_type->type}}
+									@if($realtorHouse->sharer_id > 0) 
+										<small>Shared <i class="fa fa-share-square"></i></small>
+									@endif
+								</div>
+								<div class="houses__container__available__house__details__bl">
+									<p><i class="fa fa-bed"></i>{{$realtorHouse->house->bedrooms}} Bedroom </p>
+									<p><i class="fa fa-map-marker-alt"></i> {{$realtorHouse->house->location->name}}</p>
+								</div>
+							</a>	
+							<div class="houses__container__available__house__details__lower">
+								<span class="rs">{{$realtorHouse->house->status}}</span>
+								@if($realtorHouse->sharer_id == 0)
+								<span>
+									<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" class="delete"
+										onClick="return confirm('Are You Sure You Want To Delete This House?')"> <i class="fa fa-trash"></i>
+									</a>
+								</span>
+								@endif
+							</div>
+						</div>
+					</div>
+                    	
             	</div>   
     		@endforeach
-        </ul> 
+        </div> 
         @endif
     </div>
 	<div id="shared" class="tab-pane fade" role="tabpanel" aria-labelledby="shared-tab">
@@ -177,9 +189,9 @@
 				<?php $n = 0; ?>
 				@foreach($realtor->sharedHouses as $realtorHouse) <?php $n++; ?>
 					<tbody>
-						<td class="col-sm-1 no-padding size">{{$n}}</td>
+						<td class="col-sm-1 size">{{$n}}</td>
 						<td class="col-sm-7 col-xs-6">
-							<div class="col-sm-6 no-padding shared_img">
+							<div class="col-sm-6 shared_img">
 								@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
 									<img class="img-rounded" src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
 								@elseif(App\House_photo::GetHousePhotos($realtorHouse->house_id)->count())

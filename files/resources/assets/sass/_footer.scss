@@ -1,54 +1,52 @@
 footer {
     @include background-color();color: white;padding: 2% 4%;
-    .footer__top {
-        h4 {
-            font-size: 1.2em;
-        }
-        ul {
-            li {
-                list-style: none;
-                a {
-                    color: rgb(177, 215, 246);
-                    &:hover {
-                        color: white;
-                    }
+    .footer {
+        display: flex; flex-direction: row; align-items: center;
+        div {  display: flex;justify-content: center;}
+        &__left {
+            flex: 1;
+            a{
+                color: white; padding: 0px 10px; 
+                &:hover {
+                    opacity: .6;
                 }
             }
         }
-        &__socials {
-            h4 {
-                margin-bottom: 20px;
+        &__middle{
+            flex: 1;
+            &__img { 
+                width: 50px; padding: 1.5%; height: 50px; box-shadow: $shadow;
+                border-radius: 100px; display: flex; align-items: center; justify-content: center;
+                img { width: 100%; height: 100%;}
             }
+        }
+        &__right {
+            flex: 1;
             a {
-                background: white; border-radius: 50%; padding: 3%; margin-right: 4%;
-            }
-        }
-    }
-    .footer__bottom {
-        display: flex; align-items: center;flex-direction: row;flex:1;border-bottom: 1px solid rgba(180,180,180,.7);
-        justify-content: center; margin-bottom: 10px;
-        ul {
-            padding: 10px 0px; margin: 0px;display: flex; flex-direction: row; border-top: 1px solid rgba(180, 180, 180, 0.7);
-            li {
-                flex: 1;list-style: none; text-align: center; border-right: 1px solid rgba(180,180,180,.7);
-                &:last-child{ border-right: 0px;}
-                a {
-                    color: rgb(177, 215, 246);
-                    &:hover{
-                        color: white;
-                    }
+                background: white; height: 40px; width: 40px; margin-left: 10px; display: flex;
+                align-items: center; justify-content: center; border-radius: 100px;
+                &:hover {
+                    color: white; background: $brand-color-darker;
                 }
             }
         }
     }
-    .footer__bottom__2 {
+    
+    .footer__bottom {
+        display: flex; flex-direction: row;
         p{
+            flex: 1; padding-left: 5%;
            a{
                 color:rgb(131, 193, 243);
                 &:hover{
                     color: white;
                 }
             } 
+        }
+        ul {
+            display: flex; flex-direction: row; flex: 1; justify-content: flex-end;
+            padding-right: 3%;
+            li{ list-style: none; padding: 0px 15px;}
         }
         
     }

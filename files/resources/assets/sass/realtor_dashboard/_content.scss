@@ -23,19 +23,20 @@
     &__right {
         width: 80%;margin-left: 20%;margin-top: 110px;
         &__main {
-            
+            font-family: $archivo;
             &__head {
                 text-align: center; padding: 0 1%;
-                &__title {}
+                &__title { }
                 &__p {
-                    @include background-color(); padding: .5% 1%; border-radius: 60px;color: white;margin-bottom: 0;
-                    a {}
+                    @include background-color(); padding: .5% 1%; color: white;
+                    margin-bottom: 0;border-radius: 0px 60px 0px 60px;
+                    
                 }
             }
             &__houses {
                 padding: 1% 2%;
                 &__portfolio {
-                    _border: 1px solid red; line-height: 10px; margin: 1% 0px;
+                    line-height: 10px; margin: 1% 0px; color: $text-color-1;
                     a {
                         @include background-color();color: white;padding: .5% 2%;border-radius: 20px;
                         font-size: 16px;

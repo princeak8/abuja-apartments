@@ -1,12 +1,52 @@
 .houses__container {
-    margin-top: 10px;
+    margin-top: 20px;
     &__available {
         &__house {
             border-radius: $border-radius-big; box-shadow:$shadow;
             overflow: hidden;
+            a {
+                // &:hover {
+                //     color: green;
+                //     background: red;
+                // }
+            }
+            $de: &__details;
             &__img {
                 height: 200px; width: 100%;
+                &:hover {
+                    color: green;
+                }
                 img{ width: 100%; height: 100%; }
+            }
+            
+            &__details {
+                font-family: $archivo;
+                &:hover {
+                    @include background-color();
+                }
+                a {
+                    color:$text-color;
+                    // &:hover {
+                    //     @include background-color();
+                    // }
+                }
+                &__type {padding: 2% 0;
+                    small { color: white; border-radius: 8px; background: $brand-success; padding: .5% 2%; }
+                }
+                &__bl {
+                    display: flex; flex-direction: row;
+                    p{margin: 0px; flex: 1;}
+                }
+                &__lower {
+                    display: flex; flex-direction: row; padding: 10px 0px;
+                    span{flex: 1; text-align: center;
+                        .delete { color: $brand-danger;}
+                    }
+                    .rs{ text-transform: capitalize;@include background-color(); color: white; border-radius: 0px 20px 0px 20px; }
+                    .like {
+                        color: $brand-success;
+                    }
+                }
             }
         }
     }

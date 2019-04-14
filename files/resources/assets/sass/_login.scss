@@ -1,0 +1,35 @@
+.login{
+    display: flex; justify-content: center;
+    padding: 0% 2% 1.5% 2%;
+    &__container {
+        box-shadow: $shadow; padding: 2%; border-radius: $border-radius-big;
+        &__title{
+            text-align: center; font-size: 1.3em;
+            span {
+                @include background-color(); color: white;padding: .5% 7%;
+                border-radius: 0px 60px 0px 60px;
+            }
+            
+        }
+        &__body {
+            &__form {
+                &__input { 
+                    _border: 1px solid red;padding: 3% 0px;
+                    label{ 
+                        margin-left: 3%; position: absolute; margin-top: -14px;
+                        background: white;_border: 1px solid blue;padding: 0px 2%;
+                        color: $text-color;
+                    }
+                    input {
+                        border-radius: 30px; line-height: 1.5; height: 50px;padding-left: 5.2%;
+                    }
+                }
+                
+                button {
+                    border-radius: 30px;width: 100%; margin: 10px 0px 20px 0px;
+                    @include background-color();
+                }
+            }
+        }
+    }
+}
