@@ -80,9 +80,10 @@ class MyFunction
 	public function sanitize_houses($houses)
 	{
 		foreach($houses as $key=>$h) {
-			if($h->realtor_id <= 0 || $h->location_id <= 0 || $h->house_type_id <= 0) {
+			if($h->location_id <= 0 || $h->house_type_id <= 0) {
 				unset($houses[$key]);
 			}
+			
 		}
 		return $houses;
 	}

@@ -1,9 +1,28 @@
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Base Styles
+@import "base";
+
+@import "header";
+
+
+// The filter by the right
+@import "filter";
+
+// frontpage house
+@import "house";
+
+
+@import "house_details/house_details";
+
+// Realtor details public 
+@import "realtor_public/realtor";
+
+@import "login";
+
+@import "share";
+
+
+@import "footer";

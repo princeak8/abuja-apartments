@@ -1,27 +1,14 @@
-</div>   	
-<div class="clear"></div>
+
 
 <div id="arrow_up" class="arrow_up">
-            <span class="fa fa-angle-up"></span>
-        </div>
+    <span class="fa fa-angle-up"></span>
+</div>
 
 <footer class="shadow1">
 
     <div class="container-fluid">
         <div class="row footer_top">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-6">
-                <h4>Services</h4>
-                
-                <ul class="no-padding">
-                  <li><span class="fa fa-tag"></span> Web Design/Development</li>
-                  <li><span class="fa fa-tag"></span> House Show case</li>
-                  
-                  
-                </ul>
-                
-            </div>
+            
             <div class="col-sm-2 col-xs-6">
               <h4><span class="fa fa-link"></span> Useful Links</h4>
               <ul class="no-padding">

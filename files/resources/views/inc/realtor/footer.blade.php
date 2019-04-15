@@ -57,19 +57,19 @@
         <div class="row">
           <div class="col-md-2">
             </div>
-          <div class="col-md-8 col-sm-12 foot">
+          {{-- <div class="col-md-8 col-sm-12 foot">
               <ul class="footer-nav">
                   <li><a href="index.php">Home</a></li>
                   <li><a href="partner.php">Partner Us</a></li>
                   <li><a href="contact.php">Contact Us</a></li>
                   <li><a href="about.php">About Us</a></li>
               </ul>
-          </div>
+          </div> --}}
         </div>
         
         <div class="row bottom_footer">
             <div class="col-md-12">
-              <p class="text-center">Copyright <?php echo date("Y", time()); ?> &copy; <a href="https://www.zerothweb.com.ng" target="_blank">Zeroth web</a> All rights reserved
+              <p class="text-center">Copyright <?php echo date("Y", time()); ?> &copy; <a href="https://www.zizix6.com" target="_blank">Zeroth web</a> All rights reserved
             </div>
                 
         </div>
