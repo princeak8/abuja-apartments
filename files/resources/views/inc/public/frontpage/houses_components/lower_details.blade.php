@@ -2,12 +2,12 @@
     <div class="house__details__upper">
         <ul>
             
-            <li><i class="fa fa-tag"></i> {!! check_string_length($house->title) !!}</li>
-            <li><i class="fa fa-clone"></i> {{check_string_length($house->house_type->type)}}</li>
+            {{-- <li><i class="fa fa-tag"></i> {!! check_string_length($house->title) !!}</li>
+            <li><i class="fa fa-clone"></i> {{check_string_length($house->house_type->type)}}</li> --}}
             @if($house->estate_id > 0) 
-                <li><i class="fa fa-list-ul"></i> {{check_string_length($house->estate->name)}}
+                {{-- <li><i class="fa fa-list-ul"></i> {{check_string_length($house->estate->name)}}
                     (<span>{{$house->units}} Units</span>)
-                </li>        
+                </li>         --}}
             @endif
         </ul>
         {{-- <a href="house/{{$house->id}}">
