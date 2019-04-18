@@ -55,7 +55,7 @@
 
 			<div class="vhouse_details__img_cont">
 				<div id="full-images">
-					@if($house->house_photos->count()==0) { ?>
+					@if($house->house_photos->count()==0)
 						<img src="images/no_image.png" />
 					@else
 						@foreach($house->house_photos as $housePhoto) 

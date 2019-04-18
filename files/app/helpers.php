@@ -1,6 +1,6 @@
 <?php 
 
-dd('got here');
+
 if (!function_exists('check_string_length')) {
     function check_string_length($string, $estate=false) {
         if ($estate) {

@@ -57,7 +57,8 @@
 					@foreach($realtor->Allhouses as $realtorHouse) 
 						<div class="col-lg-3 ">
 								
-							<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif">
+							<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif mouseoverHouse">
+								
 								<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
 									<div class="houses__container__available__house__img">
 										@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
@@ -69,7 +70,8 @@
 										@endif
 									</div>
 								</a>
-								<div class="houses__container__available__house__details col-12 border border-danger">
+								<div class="cover"></div>
+								<div class="houses__container__available__house__details mouseoverDetails col-12">
 									<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}"> 
 										<div class="houses__container__available__house__details__type">
 											{{$realtorHouse->house->house_type->type}} &nbsp;&nbsp;
@@ -130,7 +132,7 @@
         <div class="row">
             @foreach($realtor->Unavailablehouses as $realtorHouse) 
     			<div class="col-lg-3">
-					<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif" >
+					<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif mouseoverHouse" >
 						<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
 							<div class="houses__container__available__house__img">
 								@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
@@ -143,7 +145,8 @@
 								
 							</div>
 						</a>
-						<div class="houses__container__available__house__details col-12"> 
+						<div class="cover"></div>
+						<div class="houses__container__available__house__details mouseoverDetails col-12"> 
 							<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
 								<div class="houses__container__available__house__details__type">
 									{{$realtorHouse->house->house_type->type}}
@@ -152,7 +155,7 @@
 									@endif
 								</div>
 								<div class="houses__container__available__house__details__bl">
-									<p><i class="fa fa-bed"></i>{{$realtorHouse->house->bedrooms}} Bedroom </p>
+									<p><i class="fa fa-bed"></i> {{$realtorHouse->house->bedrooms}} Bedroom </p>
 									<p><i class="fa fa-map-marker-alt"></i> {{$realtorHouse->house->location->name}}</p>
 								</div>
 							</a>	
@@ -226,3 +229,33 @@
 	</div>
 
 </div>
+
+@section('js')
+
+<script>
+	$(document).ready(function(){ 
+		$('.mouseoverHouse').each(function(){
+			var cover = $(this);
+			$(this).find('a').not('a.delete').mouseover(function() {
+				cover.find('.cover').css({
+					'height': '100%'
+				});
+				cover.find('.mouseoverDetails a').css({
+					'color': 'white'
+				})
+			})
+			$(this).mouseleave(function() {
+				$(this).find('.cover').css('height', '0')
+				$(this).find('.mouseoverDetails a').css({
+					'color': '#636b6f'
+				})
+				$(this).find('.mouseoverDetails a.delete').css({
+					'color': 'rgb(235, 65, 65)'
+				})
+			})
+		})
+		
+	})
+</script>
+		
+@endsection

@@ -1,0 +1,22 @@
+.vhouse {
+    // border: 2px solid yellow;
+    &__left {
+        // border: 1px solid red;
+        &__pic {
+            
+            &__imgcont {
+                border-radius: 10px;overflow: hidden; box-shadow: $shadow;margin-bottom: 10px;
+                #full-images {
+                    position:relative; min-height:340px;
+                }
+                #full-images img {
+                    width: 100%;height: 100%;z-index: 0;position: absolute;left: 0px;top: 0px;
+                }
+            }
+
+            &__thumb {
+
+            }
+        }
+    }
+}
