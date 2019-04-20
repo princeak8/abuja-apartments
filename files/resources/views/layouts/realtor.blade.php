@@ -35,6 +35,9 @@
             
             <div id="search-results" class="col-md-12" style="background-color: #FFF;"></div>
             @yield('content')
+
+            @include('inc.public.frontpage.footer')
+            
         </div>
     </div>
     

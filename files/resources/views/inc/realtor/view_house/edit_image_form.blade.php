@@ -6,6 +6,7 @@
     <div class="form-group"> 
         <input type="hidden" name="photo_id" value="{{$photo->id}}"> 
         <input type="reset" value="reset" style="display: none;">
-        <input class="form-control btn btn-info" type="submit" name="submit" value="Submit" />
+        {{-- <input class="form-control btn btn-primary" type="submit" name="submit" value="Submit" /> --}}
+        <button class="btn btn-outline-primary btn-sm" type="button" name="submit" value="Submit">Submit</button>
     </div>
 {!! Form::close() !!}

@@ -16,33 +16,39 @@
 
 <div id="thumbnails" class="row vhouse__left__pic__thumb" data-id="{{$house->id}}" >
     @foreach($house->house_photos as $photo) 
-        <div class="col-lg-6" id="photo-group-{{$photo->id}}">
-            <div id="photo-{{$photo->id}}" class="thumb_container border border-info">
-                <img id="data{{$photo->id}}" class="house-timthumb" data-id="{{$photo->id}}" 
-                src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{$photo->photo}}" />
-                <span id="info{{$photo->id}}" class="col-sm-6 col-xs-7 border border-danger" style="color: #BBB;"></span>
-            </div>
-            <span id="photo-title-{{$photo->id}}" class="cap_1st pull-left border border-danger" >
-                {{empty($photo->title) ? 'Untitled' : $photo->title}}
-            </span>
-             
-            @if(!$house->is_shared(Auth::user()->id))
-                <p id="control-group-{{$photo->id}}">
-                    <input type="radio" name="main" data-id="{{$photo->id}}" @if($photo->main==1) checked @endif />
+        <div class="col-lg-4" id="photo-group-{{$photo->id}}">
+            <div class="vhouse__left__pic__thumb__container">
+                <div id="photo-{{$photo->id}}" class="thumb_container">
+                    <img id="data{{$photo->id}}" data-id="{{$photo->id}}" class="house-timthumb"
+                    src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{$photo->photo}}" />
+                    {{-- <span id="info{{$photo->id}}" class="col-sm-6 col-xs-7 border border-danger" style="color: #BBB;"></span> --}}
+                </div>
+                <div id="photo-title-{{$photo->id}}" class="house_title" >
+                    @if(!$house->is_shared(Auth::user()->id))
+                        <input type="radio" name="main" data-id="{{$photo->id}}" @if($photo->main==1) checked @endif />
+                    @endif
+                    {{  empty($photo->title) ? ' Untitled' : $photo->title   }}
+                </div>
+                
+                @if(!$house->is_shared(Auth::user()->id))
+                <div id="control-group-{{$photo->id}}" class="house_action">
+                    {{-- <input type="radio" name="main" data-id="{{$photo->id}}" @if($photo->main==1) checked @endif /> --}}
                     <!--<a href="{{url('realtor/edit_photo/'.$photo->id)}}">-->
-                        <button class="btn btn-info btn-sm edit-control" data-id="{{$photo->id}}" data-open="0">
+                        <button class="btn btn-outline-primary btn-sm edit-control" data-id="{{$photo->id}}" data-open="0">
                             <i class="fa fa-edit"></i> Edit
                         </button>
                     <!--</a>-->
-                    <button class="btn btn-danger btn-sm delete-btn" data-id="{{$photo->id}}"> 
+                    <button class="btn btn-outline-danger btn-sm delete-btn" data-id="{{$photo->id}}"> 
                         <i class="fa fa-trash"></i> Delete
                     </button><br class="hidden-xs">
-                </p>
+                </div>
 
-                <div id="edit-form-{{$photo->id}}" style="margin-top: 5px; display: none;" >
+                <div id="edit-form-{{$photo->id}}" class="edit_house_form" style="margin-top: 5px; display: none;" >
+                    <span id="close_{{$photo->id}}" data-id={{$photo->id}}></span>
                     @include('inc.realtor.view_house.edit_image_form')
                 </div>
-            @endif
+                @endif
+            </div>
         </div>
     @endforeach
     

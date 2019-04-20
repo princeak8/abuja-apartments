@@ -9,197 +9,44 @@
 @section('content')
 <div class="container vhouse">
 	<div class="row">
-		<div class="col-lg-9 vhouse__left">
-			<h4 class="">
-				<a class="h3" href="{{url('realtor/houses')}}"><i class="fa fa-arrow-left"></i> Back to Houses</a>
-			</h4>
-			@if($house->estate_id > 0)
-				<h4>
-					<a class="h3" href="{{url('realtor/estate/'.$house->estate_id)}}">{{$house->estate->name}} </a>
-				</h4>
-			@endif
-			<h4> <i class="fa fa-building-o"></i> House - {{$house->title}}</h4>
-			@if($house->is_shared(Auth::user()->id))
-				<p class="green">This House was Shared by {{$realtorHouse->sharer->biz_name}}</p>
-			@endif
-			<div class="row">
-				<div class="col-lg-7 vhouse__left__pic">
-
-					@include('inc.realtor.view_house.image_and_thumb')
-
-					@include('inc.realtor.view_house.add_photo')
-
-				</div>
-				<div id="house-info" class="col-lg-5 vhouse__left__detail">
-					<div class="col-sm-12 house_informatn no-padding">
-						<p class="succ">
-							@if(request()->session()->exists('edit_house'))
-								<p class="alert-success">{{session('edit_house')}} </p>
-							@endif
-						</p>
-						<h4 id="drop_des"> <i class="fa fa-edit"></i> House Information <i class="fa fa-caret-down"></i> 
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hz_informatn">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</h4>
-						<div id="hz_informatn" class="collapse navbar-collapse col-sm-12 no-padding">
-							<ul class="no-margin">
-								<div class="li_1st">
-									<li class="col-sm-9 no-padding"><small class="fa fa-map-marker"></small> Location   <small class="fa fa-angle-double-right"></small> {{$house->location->name}} </li>
-									<li class="col-sm-3 no-padding cap_1st">For {{$house->status}}</li>
-									<div class="clear"></div>
-								</div>
-								<div class="li_2nd">
-									<li class="">Name <small class="fa fa-angle-double-right"></small> {{$house->title}} </li>
-									<li><small class="fa fa-tag"></small> Price <small class="fa fa-angle-double-right"></small> @if(!empty($house->price))
-										₦ {{number_format($house->price)}}
-									@else
-										<i style="color:red">Info Not available</i>
-									@endif
-									</li>
-									<li><small class="fa fa-tag"></small> Agent Fee <small class="fa fa-angle-double-right"></small>@if(!empty($house->agent_fee)) 
-										₦ {{number_format($house->agent_fee)}} 
-									@else
-										<i style="color:red">Info Not available</i>'
-									@endif
-									</li>
-									<li><small class="fa fa-tag"></small> Service Charge <small class="fa fa-angle-double-right"></small> @if(!empty($house->service_charge))
-										₦ {{number_format($house->service_charge)}} 
-									@else
-										<i style="color:red">Info Not available</i> 
-									@endif
-									</li>
-									<div class="clear"></div>
-								</div>
-								<div class="li_3rd">
-									<li class="col-sm-7 no-padding"><i class="fa fa-clone"></i> House Type <small class="fa fa-angle-double-right"></small> {{$house->house_type->type}} </li>
-									<li class="col-sm-5 no-padding"><i class="fa fa-bed"></i> Bedrooms {{$house->bedrooms}} </li>
-									<div class="clear"></div>
-								</div> 
-								<div class="li_3rd">   
-									<li class="col-sm-7 no-padding"><i class="fa fa-list-ul"></i> 
-										Total Rooms: @if(!empty($house->rooms)) 
-														{{$house->rooms}}
-													@else 
-														<i style="color:red">Info Not available</i> 
-													@endif
-									</li>
-									<li class="col-sm-5 no-padding"><i class="fa fa-bath"></i> 
-										Toilets: @if(!empty($house->toilets))
-													{{$house->toilets}} 
-												@else
-													<i style="color:red">Info Not available</i>
-												@endif 
-									</li>
-									<div class="clear"></div>
-								</div>
-								<div class="li_3rd"> 
-									<li class="col-sm-7 no-padding"><i class="fa fa-tint"></i> Water Source <small class="fa fa-angle-double-right"></small> @if(!empty($house->water_source))
-																		{{$house->water_source}}
-																	@else
-																		<i style="color:red">Info Not available</i>
-																	@endif 
-									</li> 
-									<li class="col-sm-5 no-padding"><i class="fa fa-shower"></i> 
-										Bathrooms @if(!empty($house->bathrooms))
-													{{$house->bathrooms}} 
-												@else
-													<i style="color:red">Info Not available</i>
-												@endif 
-									</li>
-									
-									<div class="clear"></div>
-								</div>
-							</ul>
-							
-							@if($house->status=='sale')
-								<div class="desc_realtor" style="margin-bottom: 5px;">
-									<div class="desc_hd">Sale Plan <small class="fa fa-caret-down"></small> </div>
-									<div class="desc_body">
-										<p>
-											@if(!empty($house->sale_plan)) 
-												<?php echo $house->sale_plan; ?>
-											@else
-												<i style="color:pink">Info Not available</i>
-											@endif
-										</p> 
-									</div>
-									<div class="clear"></div>
-								</div>
-							@endif
-
-							<div class="desc_realtor">
-								<div class="desc_hd">Facilities <small class="fa fa-caret-down"></small> </div>
-								<div class="desc_body">
-									<p>
-									@if(!empty($house->facilities))
-										{{$house->facilities}}
-									@else
-										<i style="color:pink">Info Not available</i>
-									@endif
-									</p> 
-								</div>
-								<div class="clear"></div>
-							</div>
-
-							<div class="desc_realtor">
-								<div class="desc_hd">Description <small class="fa fa-caret-down"></small> </div>
-								<div class="desc_body">
-									<p>
-										@if(!empty($house->description))
-											{{$house->description}} 
-										@else
-											<i style="color:pink">Info Not available</i>
-										@endif
-									</p> 
-								</div>
-								<div class="clear"></div>
-							</div>
-
-							@if(!$house->is_shared(Auth::user()->id))
-								<div class="info_edit no-margin">
-									<a class="btn btn-default col-sm-12 col-xs-12" href="{{url('realtor/edit_house/'.$house->id)}}">
-										<i class="fa fa-edit"></i> Edit House Information
-									</a>
-								</div>
-							@endif
-
-							<div class="clear"></div>
-						</div>
+		<div class="col-lg-12 vhouse__left">
+			<div class="">
+				<div class="vhouse__left__title row">
+					<div class="col-12">
+						<h5 class="float-left">
+							{{-- <a class="h3" href="{{url('realtor/houses')}}"><i class="fa fa-caret-left"></i> Back to Houses</a> --}}
+							<a class="btn btn-sm btn-outline-primary" href="{{url('realtor/houses')}}"><i class="fa fa-caret-left"></i> Back </a>
+						</h5>
+						@if($house->estate_id > 0)
+						<h5 class="text-center">
+							<a class="" href="{{url('realtor/estate/'.$house->estate_id)}}">{{$house->estate->name}} </a>
+						</h5>
+						@endif
+						<h5 class="text-center">{{$house->title}}</h5>
+						@if($house->is_shared(Auth::user()->id))
+							<p class="green">This House was Shared by {{$realtorHouse->sharer->biz_name}}</p>
+						@endif
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-lg-8 vhouse__left__pic">
+
+						@include('inc.realtor.view_house.image_and_thumb')
+
+						@include('inc.realtor.view_house.add_photo')
+
+					</div>
+					<div id="house-info" class="col-lg-4 vhouse__left__detail px-2">
+						@include('inc.realtor.view_house.house_information')
+					</div>
+				</div>
+
 			</div>
 		</div>
 
-		<div class="col-lg-3 border vhouse__right">
-			@if(!$house->is_shared(Auth::user()->id)) <?php //If the house is not a shared house, Go ahead and share if you wish ?>
-				<div id="availability" class="aval1" data-id="{{$house->id}}">
-					@if($realtorHouse->available==1)
-						<b class="aval">
-							This House is available
-						</b>
-						<button type="button" data-id="0" class="btn btn-danger"><i class="fa fa-bookmark-o"></i> Make this house unavailable</button>
-					@endif
-					@if($realtorHouse->available==0)
-						<b class="unaval">
-							This House is unavailable
-						</b>
-						<button type="button" data-id="1" class="btn btn-success"> <i class="fa fa-bookmark"></i> Make this house available</button>
-					@endif
-				</div>
-				@if($realtorHouse->available==1)
-					<div class="bt">
-						<a href="{{url('realtor/share_house/'.$house->id)}}" >
-							<button type="button" class="btn btn-warning">
-								<i class="fa fa-share-square-o"></i> Share This House
-							</button> 
-						</a>
-					</div>
-				@endif
-			@endif
-		</div>
+		{{-- <div class="col-lg-3 border vhouse__right">
+			@include('inc.realtor.view_house.house_status')
+		</div> --}}
 	</div>
 </div>
 @endsection
@@ -216,11 +63,13 @@ $(document).ready(function(e) {
     $('#add-photo-btn').click(function(){
     	var open = $(this).data('open');
     	if(open==0) {
-    		$('#add-photo-form').css('display', 'block');
+    		// $('#add-photo-form').css('display', 'block');
+    		$('#add-photo-form').slideToggle();
     		$(this).data('open', '1');
     	}
     	if(open==1) {
-    		$('#add-photo-form').css('display', 'none');
+    		$('#add-photo-form').slideToggle();
+    		// $('#add-photo-form').css('display', 'none');
     		$(this).data('open', '0');
     	}
     })
@@ -229,18 +78,23 @@ $(document).ready(function(e) {
     	var id = $(this).data('id');
     	var open = $(this).data('open');
     	if(open==0) {
-    		var button = '<button id="close-btn" class="edit-control btn btn-primary" data-id="'+id+'" data-open="1">Close</button>'
-    		$('#control-group-'+id).css('display', 'none');
+    		// var button = '<button id="close-btn" class="edit-control btn-sm btn btn-primary" data-id="'+id+'" data-open="1">Close</button>'
+    		var button = '<button id="close-btn" class="edit-control btn-sm btn btn-outline-primary" data-id="'+id+'" data-open="1"><i class="fa fa-times"></i></button>'
+    		
+			$('#control-group-'+id).css('display', 'none');
     		$('#photo_title-'+id).css('display', 'none');
-    		$('#edit-form-'+id).css('display', 'block');
-    		$('#photo-'+id).append(button);
+    		// $('#edit-form-'+id).css('display', 'block');
+			$('#edit-form-'+id).slideToggle();
+    		// $('#photo-'+id).append(button);
+			$('#close_'+id).append(button);
     	}else{
-    		$('#edit-form-'+id).css('display', 'none');
+    		// $('#edit-form-'+id).css('display', 'none');
+    		$('#edit-form-'+id).slideToggle();
     		$('#info'+id).css('display', 'none');
     		$('#close-btn').remove();
     		$('#edit-form-'+id+' form input[type=reset]').trigger('click');
-    		$('#control-group-'+id).css('display', 'block');
-    		$('#photo_title-'+id).css('display', 'block');
+    		$('#control-group-'+id).css('display', 'flex');
+    		// $('#photo_title-'+id).css('display', 'block');
     	}
     })
 
@@ -313,25 +167,31 @@ $(document).ready(function(e) {
 			//alert(data);
 				if(available==0) {
 					//$('#availability b').removeClass('green');
-                    $('#availability b').removeClass('aval');
+                    // $('#availability b').removeClass('aval');
 					//$('#availability b').addClass('red');
-                    $('#availability b').addClass('unaval');
-					$('#availability b').html('This House is unavailable');
+                    // $('#availability b').addClass('unaval');
+					$('p.status').html('This House is unavailable');
+					$('p.status').addClass('unavailable');
+					$('p.status').removeClass('available');
 					$('#availability button').removeClass('btn-danger');
 					$('#availability button').addClass('btn-success');
-					$('#availability button').html('<i class="fa fa-bookmark"></i> Make this house available');
+					$('#availability button').html('Make this house available');
 					$('#availability button').data('id', 1);
+					$('#avail_share').hide();
 				}
 				if(available==1) {
 					//$('#availability b').removeClass('red');
-                    $('#availability b').removeClass('unaval');
+                    // $('#availability b').removeClass('unaval');
 					//$('#availability b').addClass('green');
-                    $('#availability b').addClass('aval');
-					$('#availability b').html('This House is available');
+                    // $('#availability b').addClass('aval');
+					$('p.status').html('This House is available');
+					$('p.status').removeClass('unavailable');
+					$('p.status').addClass('available');
 					$('#availability button').removeClass('btn-success');
 					$('#availability button').addClass('btn-danger');
-					$('#availability button').html('<i class="fa fa-bookmark-o"></i> Make this house unavailable');
+					$('#availability button').html('Make this house unavailable');
 					$('#availability button').data('id', 0);
+					$('#avail_share').show();
 				}
 			}
 		}) 
