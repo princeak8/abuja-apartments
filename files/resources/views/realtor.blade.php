@@ -48,7 +48,7 @@
 							@include('inc.public.frontpage.realtor_page.room_details') 
 						</div>
 
-		                @include('inc.public.frontpage.realtor_page.lower_details')
+		        @include('inc.public.frontpage.realtor_page.lower_details')
 				         
 					</div>
 					

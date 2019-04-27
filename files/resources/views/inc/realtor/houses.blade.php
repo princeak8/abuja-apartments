@@ -1,7 +1,10 @@
 <h4 class="content__right__main__houses__portfolio">House Portfolio 
-	<a href="{{url('realtor/add_house')}}"> 
+		{{-- <a href="{{url('realtor/add_house')}}"> 
     	Add House &nbsp;<i class="fa fa-plus"></i>
-    </a>
+		</a> --}}
+		<a type="button" href="#" data-toggle="modal" data-target="#exampleModal">
+			Add House &nbsp;<i class="fa fa-plus"></i>
+		</a>
 </h4>
 
 
@@ -227,7 +230,7 @@
 		@endif
 
 	</div>
-
+	@include('inc.realtor.add_house_modal')
 </div>
 
 @section('js')
@@ -257,5 +260,7 @@
 		
 	})
 </script>
+
+@yield('modaljs')
 		
 @endsection

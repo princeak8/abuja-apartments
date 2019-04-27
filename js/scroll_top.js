@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	
-	
 		var window_height = $(window).height() - 400;
 		var scroll_top1 = $(window).scrollTop();
 		//var difference = scroll_top1 - window_height;

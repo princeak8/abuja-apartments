@@ -9,11 +9,11 @@
 		<div class="content__right__main__head">
 			{{-- <h3 class="content__right__main__head__title">Agent's Page</h3> --}}
 			<p class="content__right__main__head__p">
-					<span>IMPORTANT:</span> 
-							Your Personalized Page is 
-					<a href="https://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank">
-							https://www.abujaapartments.com.ng/{{$realtor->profile_name}}
-					</a>&nbsp; 
+				<span>IMPORTANT:</span> 
+						Your Personalized Page is 
+				<a href="https://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank">
+						https://www.abujaapartments.com.ng/{{$realtor->profile_name}}
+				</a>&nbsp; 
 							Use this url to advertise your house portfolio to prospective Clients
 			</p>
 		</div> 

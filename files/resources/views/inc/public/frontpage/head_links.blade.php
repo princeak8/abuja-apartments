@@ -17,15 +17,11 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css')}}"/>
 <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome-all.min.css')}}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/ionicon.css')}}"/>
 
-<script type="application/javascript" async src="{{ asset('js/jquery-3.3.1.js')}}"></script>
-<script type="application/javascript" async src="{{ asset('js/popper.js')}}"></script>
-<script type="application/javascript" async src="{{ asset('js/bootstrap.min.js')}}"></script>
-
-<script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js')}}"></script>
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/custom_checkbox.css')}}"/>
-<link rel="stylesheet" href="{{ asset('css/lightbox.css')}}" type="text/css" media="all" />
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}"/>
 {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/> --}}
 

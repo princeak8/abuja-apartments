@@ -11,7 +11,7 @@
 <meta property="og:description" content="Abuja Apartments is an online Real Estate platform that aims to make it easy for anybody within Abuja environs to easily have access to houses either for rent or for sale. " />
 <title>Abuja Apartments</title>
 
-<link rel="icon" href="{{env('APP_STORAGE')}}images/abuja_apa_log.png" />
+<link rel="icon" href="{{ asset('images/symbol.png') }}" />
 
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css')}}"/>
 <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome-all.min.css')}}"/>
@@ -24,7 +24,6 @@
 </head>
 
 <body>
-    
     @include('inc.realtor.header')
     
     <div class="content">
@@ -36,7 +35,7 @@
             <div id="search-results" class="col-md-12" style="background-color: #FFF;"></div>
             @yield('content')
 
-            @include('inc.public.frontpage.footer')
+            @include('inc.realtor.footer')
             
         </div>
     </div>
@@ -61,6 +60,7 @@
     <script type="application/javascript" async src="{{ asset('js/popper.js')}}"></script>
     
     <script type="application/javascript" src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
+    <script type="application/javascript" src="{{asset('js/scroll_top.js')}}"></script>
 
     <script type='text/javascript'>
     tinymce.init({

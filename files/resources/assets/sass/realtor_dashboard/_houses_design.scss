@@ -2,7 +2,7 @@
     margin-top: 20px;
     &__available {
         &__house {
-            border-radius: $border-radius-big; box-shadow:$shadow;
+            border-radius: $border-radius-big; box-shadow:$shadow;margin-bottom: 16px;
             overflow: hidden; position: relative;
             .cover {
                 position: absolute; z-index: -1;top: 0px;

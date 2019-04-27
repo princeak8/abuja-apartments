@@ -22,8 +22,8 @@
                 For {{$house->status}}
             </div>
             <div class="house__details__lower__cl">
-                <span><i class="fa fa-thumbs-up"></i> Likes {{$house->likes}}</span>
-                <span><i class="fa fa-comments"></i> Comments {{$house->house_comments->count()}}</span>
+                <span><i class="far fa-heart"></i> {{$house->likes}}</span>
+                <span><i class="fa fa-comments"></i> {{$house->house_comments->count()}}</span>
             </div>
     </div>
 

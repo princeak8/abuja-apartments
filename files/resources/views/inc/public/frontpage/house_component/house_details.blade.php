@@ -32,7 +32,8 @@
             <!--- Like Button for Registered Users  -->
             <div class="no-padding lik_un">
 
-                @if(Auth::user() && !$realtorHouse->realtor->is_follower(Auth::user()->id))  
+				{{-- @if(Auth::user() && !$realtorHouse->realtor->is_follower(Auth::user()->id))  --}}
+				@if(Auth::user()) 
                     @if($house->liked(Auth::user()->id)) 
                         <form action="processes/unlike.php" name="unlike" method="post">
                             <input type="hidden" name="like_id" value="{{App\House_like::getLike($house->id, Auth::user()->id)->id}}" />

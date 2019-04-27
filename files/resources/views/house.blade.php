@@ -1,4 +1,4 @@
-@extends('layouts.public', ['page'=>'view house'])
+@extends('layouts.frontpage', ['page'=>'view house'])
 
 @section('content') 
 
@@ -22,10 +22,14 @@
 
 	</div>
 
+@endsection
+
+@section('js')
+
 <script type="application/javascript">
 
 $(document).ready(function(e) {
-    //alert('working');
+    // alert('working');
     CSRF_TOKEN = $('input[name=_token]').val();
     $('.house-timthumb').click(function(e) {
         var photo_id = $(this).data('id');

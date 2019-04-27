@@ -8,8 +8,8 @@
                 <!-- The House Pix and description starts here -->
                 <div class="col-md-3 col-sm-6 px-3">
                     {{-- <a href="house/{{$house->id}}"> --}}
-                    <div class="house">  
-                    
+                    <div class="house mouseoverHouse">  
+                        <div class="cover">Cover</div>
                         <div class="house__upper"> 
                             <div class="house__upper__location">
                                 <span class="fa fa-map-marker-alt"></span> {{$house->location->name}}
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="clear"></div>    
+       
 </div>
 
 </div>
@@ -52,6 +52,36 @@
            <input id="displayed-houses" type="hidden" value="{{count($houses)}}" />
            <input id="limit" type="hidden" value="{{$limit}}" />
         <!-- Ajax Control Variables ends here  -->
+
+@section('js')
+
+<script>
+	$(document).ready(function(){ 
+		$('.mouseoverHouse').each(function(){
+			var cover = $(this);
+			$(this).find('a').not('a.delete').mouseover(function() {
+				cover.find('.cover').css({
+					'height': '98%'
+				});
+				cover.find('.mouseoverDetails a').css({
+					'color': 'white'
+				})
+			})
+			$(this).mouseleave(function() {
+				$(this).find('.cover').css('height', '0')
+				$(this).find('.mouseoverDetails a').css({
+					'color': '#636b6f'
+				})
+				$(this).find('.mouseoverDetails a.delete').css({
+					'color': 'rgb(235, 65, 65)'
+				})
+			})
+		})
+		
+	})
+</script>
+		
+
 
 <script type="application/javascript" src="{{asset('js/filter_houses.js')}}"></script>
 
@@ -221,3 +251,4 @@ function showLoading() {
             }
         });
     </script>
+@endsection

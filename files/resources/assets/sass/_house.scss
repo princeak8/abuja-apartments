@@ -2,8 +2,12 @@
     padding: 0px 10px;
 }
 .house {
-    box-shadow: $shadow;
+    box-shadow: $shadow; color: $text-color;
     position: relative; border-radius: $border-radius-big;margin-bottom: 20px;
+    .cover {
+        position: absolute; width: 100%; @include background-color();top: 2%;
+        height: 0;z-index: -1;border-radius: 0px 0px 8px 8px;transition: height .4s ease-in;
+    }
     &__upper {
         background: rgb(223, 223, 223);
         border-radius: $border-radius-big;
@@ -41,7 +45,10 @@
     }
 
     &__details {
-        opacity: 1;
+        opacity: 1;transition: color .6s ease-in;
+        a{
+            color: $text-color;
+        }
         &__upper {
             height: 85px;
             ul {
@@ -63,7 +70,8 @@
             &__cl {
                 flex: 2;font-weight: 100;text-align: right;
                 span {
-                    font-size: .8em;
+                    font-size: 1em;padding: 0px 10px;box-shadow: $shadow;margin-left: 10px;
+                    i{color: $brand-success; padding: 0px 1%;}
                 }
             }
         }

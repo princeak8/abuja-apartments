@@ -67,7 +67,7 @@
 
 </footer>   
 
-<script type="application/javascript" src="js/scroll_top.js"></script>
+
 <script type="application/javascript">
 if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
 window.onmousewheel = document.onmousewheel = wheel;
