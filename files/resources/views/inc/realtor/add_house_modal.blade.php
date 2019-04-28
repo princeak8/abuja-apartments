@@ -126,22 +126,26 @@
             <div class="addhouse_container__addphoto">
 
               <h4 class=""><span class="fa fa-photo"></span> Add House Photos </h4>
-              <h5 class="burgundy">Maximum Photo Size allowed is 10MB</h5>
+              <p class="burgundy">Maximum Photo Size allowed is 10MB</p>
 
               <div id="photo-inputs" class="">  
-                <div class="col-sm-8 col-xs-12">
-                  <img id="data1" class="col-sm-3 col-xs-5 no_pad_left" />
-                  <span id="info1" class="no_pad_left col-sm-6 col-xs-7" ></span>
+                <div class="col-lg-8 col-12">
+                  <div class="row">
+                    <img id="data1" class="col-lg-3 col-5" />
+                    <span id="info1" class="col-lg-6 col-7" ></span>
+                  </div>
                 </div>
                 
                 <div class="form-group">
                   <input class="form-control photo form-control-sm" type="file" id="photo_1" data-id="data1" name="photo[]" required />
+                </div>
+                <div class="form-group">
                   <input class="form-control form-control-sm" type="text" name="photo_title[]" placeholder="Photo Name/Title" />
                 </div> 
               </div>
 
               <div id="add-more" class="form-group" style="margin-bottom: 5px;">
-                <button type="button" class="btn btn-primary">Add More Photos</button>
+                <button type="button" class="btn btn-primary btn-sm">Add More Photos</button>
               </div> 
             </div>
 

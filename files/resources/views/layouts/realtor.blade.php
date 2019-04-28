@@ -64,7 +64,8 @@
 
     <script type='text/javascript'>
     tinymce.init({
-        selector:  '.tinymce',
+        // selector:  '.tinymce',
+        selector: 'textarea',
         content_css : "css/bootstrap.min.css",
         relative_urls: false,
         plugins: [

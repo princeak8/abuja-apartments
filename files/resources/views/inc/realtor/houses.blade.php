@@ -74,7 +74,7 @@
 									</div>
 								</a>
 								<div class="cover"></div>
-								<div class="houses__container__available__house__details mouseoverDetails col-12">
+								<div class="houses__container__available__house__details mouseoverDetails col-12 px-2">
 									<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}"> 
 										<div class="houses__container__available__house__details__type">
 											{{$realtorHouse->house->house_type->type}} &nbsp;&nbsp;
@@ -94,9 +94,14 @@
 											<i class="far fa-heart"></i> {{$realtorHouse->house->likes}}
 										</span>
 										<!--</a>--> 
+										<span>
+											<a href="{{url('realtor/edit_house/'.$realtorHouse->house_id)}}" title="edit house"> 
+												<i class="fa fa-edit"></i> 
+											</a>
+										</span>
 										@if($realtorHouse->sharer_id == 0)
 										<span>
-											<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" class="delete"
+											<a href="{{url('realtor/delete_house/'.$realtorHouse->house_id)}}" class="delete" title="delete house"
 												onClick="return confirm('Are You Sure You Want To Delete This House?')"> 
 												<i class="fa fa-trash"></i> 
 											</a>

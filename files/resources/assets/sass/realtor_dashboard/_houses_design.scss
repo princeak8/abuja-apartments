@@ -42,6 +42,9 @@
                 &__lower {
                     display: flex; flex-direction: row; padding: 10px 0px;
                     span{flex: 1; text-align: center;
+                        &:first-child {
+                            _flex: 2;width: 35%;margin-right: 10px;
+                        }
                         .delete { 
                             color: $brand-danger;
                             &:hover {
@@ -57,4 +60,5 @@
             }
         }
     }
+    @import 'add_house';
 }

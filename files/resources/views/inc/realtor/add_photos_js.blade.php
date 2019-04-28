@@ -19,24 +19,29 @@
 	      i++;
 	      var input = '';
 
-	      input += '<div class="" style="margin-bottom:8px;" id="photo-'+i+'">'
+	      input += '<div class="" style="margin-bottom:5px;" id="photo-'+i+'">'
 
 	        //input += '<div class="col-md-11" style="margin:0px; padding:0px;" id="photo-'+i+'">'; 
-	        input += '<div class="col-sm-8 col-xs-12 no-padding">';
-	          input += '<img id="data'+i+'" class="col-sm-3 col-xs-5 no_pad_left" />';
-	          input += '<span id="info'+i+'" class="no_pad_left col-sm-7 col-xs-6"></span>';
+	        input += '<div class="col-lg-8 col-12">';
+						input += '<div class="row">';
+							input += '<img id="data'+i+'" class="col-lg-3 col-5" />';
+							input += '<span id="info'+i+'" class="col-lg-7 col-6"></span>';
+						input += '</div>';
 	          
 	        input += '</div>'; 
-	        
-	        input += '<div class="clear"></div>';
 
-	        input += '<div class="form-group">'; 
-	          input += '<div class="col-xs-11 no-padding">';
-	            input += '<input class="form-control photo" type="file" id="photo_'+i+'" data-id="data'+i+'" name="photo[]" />';
-	            input += '<input class="form-control" type="text" name="photo_title[]" size="50" placeholder="Photo Name/Title" />';
+	        input += '<div class="form-group row">'; 
+	          input += '<div class="col-11 pr-0">';
+							input += '<div class="form-group">';
+								input += '<input class="form-control photo form-control-sm" type="file" id="photo_'+i+'" data-id="data'+i+'" name="photo[]" />';
+							input += '</div>';
+							input += '<div class="form-group">';	
+								input += '<input class="form-control form-control-sm" type="text" name="photo_title[]" size="50" placeholder="Photo Name/Title" />';
+							input += '</div>';
+
 	          input += '</div>';
-	          input += '<div class="col-xs-1 no-padding">';
-	            input += '<button type="button" class="form-control btn btn-danger" data-id="photo-'+i+'">X</button>';
+	          input += '<div class="col-1 pl-0">';
+	            input += '<button type="button" class="btn btn-danger btn-sm col-12" data-id="photo-'+i+'">X</button>';
 	          input += '</div>'; 
 
 	        input += '</div>';//End of form-group

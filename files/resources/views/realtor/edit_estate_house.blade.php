@@ -1,8 +1,8 @@
-@if(Auth::user()->type=='company')
+{{-- @if(Auth::user()->type=='company')
 	@include('inc.realtor.company_head_links')
 @else
 	@include('inc.realtor.agent_head_links')
-@endif
+@endif --}}
 
 @extends('layouts.realtor')
 

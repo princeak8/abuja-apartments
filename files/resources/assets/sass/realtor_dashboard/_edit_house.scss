@@ -1,0 +1,21 @@
+.edithouse_container {
+    padding: 0px 2%;margin-top: 0px;color: $text-color;
+    &__sub {
+        box-shadow: $shadow; padding: 2%; border-radius: 20px;
+        &__header {
+            display: flex;flex-direction: row;
+            &__title1 {
+                flex: 1;
+            }
+            &__title2 {
+                flex:1; line-height: 40px;text-align: center;color: $brand-color-darker;
+            }
+            &__title3 {
+                flex:1; text-align: right;
+            }
+            a {
+                border-radius: 30px;padding: 4px 16px;
+            }
+        }
+    }
+}

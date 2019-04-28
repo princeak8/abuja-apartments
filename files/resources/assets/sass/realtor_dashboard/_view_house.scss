@@ -62,7 +62,28 @@
 
         &__title {
             color: $text-color;
-            a {border-radius: 20px; padding: 2px 20px; }
+            &__1 {
+
+            }
+            &__2 {
+                display: flex; flex-direction: row;
+                h5{
+                    
+                    &:first-child {
+                        flex:1;
+                    }
+                    &:nth-child(2) {
+                       flex:7;padding: 0px 1%;text-align: center;
+                    }
+                    &:last-child {
+                        display: flex;flex:1;
+                        justify-content: flex-end;
+                    }
+                    a {border-radius: 20px; padding: 2px 16px; }
+                }
+                
+            }
+            
         }
 
         &__detail {

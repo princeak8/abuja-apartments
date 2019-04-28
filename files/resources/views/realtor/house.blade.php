@@ -13,19 +13,32 @@
 			<div class="">
 				<div class="vhouse__left__title row">
 					<div class="col-12">
-						<h5 class="float-left">
-							{{-- <a class="h3" href="{{url('realtor/houses')}}"><i class="fa fa-caret-left"></i> Back to Houses</a> --}}
-							<a class="btn btn-sm btn-outline-primary" href="{{url('realtor/houses')}}"><i class="fa fa-caret-left"></i> Back </a>
-						</h5>
-						@if($house->estate_id > 0)
-						<h5 class="text-center">
-							<a class="" href="{{url('realtor/estate/'.$house->estate_id)}}">{{$house->estate->name}} </a>
-						</h5>
-						@endif
-						<h5 class="text-center">{{$house->title}}</h5>
-						@if($house->is_shared(Auth::user()->id))
-							<p class="green">This House was Shared by {{$realtorHouse->sharer->biz_name}}</p>
-						@endif
+						<div class="vhouse__left__title__1">
+							@if($house->estate_id > 0)
+								<h5 class="text-center">
+									<a class="" href="{{url('realtor/estate/'.$house->estate_id)}}">{{$house->estate->name}} </a>
+								</h5>
+							@endif
+						</div>
+						<div class="vhouse__left__title__2">
+							<h5>
+								{{-- <a class="h3" href="{{url('realtor/houses')}}"><i class="fa fa-caret-left"></i> Back to Houses</a> --}}
+								<a class="btn btn-sm btn-outline-primary" href="{{url('realtor/houses')}}"><i class="fa fa-caret-left"></i> Back </a>
+							</h5>
+							
+							<h5>
+								{{$house->title}} 
+								@if($house->is_shared(Auth::user()->id))
+									<span class="green">This House was Shared by {{$realtorHouse->sharer->biz_name}}</span>
+								@endif
+							</h5>
+							<h5>
+								<a class="btn btn-outline-primary btn-sm" href="{{url('realtor/edit_house/'.$house->id)}}">
+									<i class="fa fa-edit"></i> Edit House 
+								</a>
+							</h5>
+						</div>
+						
 					</div>
 				</div>
 				<div class="row">
