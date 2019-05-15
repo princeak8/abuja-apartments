@@ -15,12 +15,12 @@ Route::get('/index', 'HomeController@index');
 Route::post('/load_houses', 'HouseController@load_houses');
 Route::post('/filter_houses', 'HouseController@filter');
 Route::post('/filter_houses2', 'HouseController@filter2');
-Route::get('/{profile_name}', 'RealtorController@realtor');
+
 Route::get('/house/{id}', 'HouseController@house');
 
 Route::post('/search_realtor', 'RealtorController@search');
 
-Route::post('send_message', 'MessageController@send');
+Route::post('send_message', 'Realtor\MessageController@send');
 Route::post('follow', 'RealtorController@follow');
 Route::post('unfollow', 'RealtorController@unfollow');
 Route::get('/test', function(){
@@ -46,11 +46,16 @@ Route::post('realtor/register', 'Realtor\RegisterController@create');
 
 Route::get('realtor/send_email', 'Realtor\RegisterController@send_email');
 
+Route::get('/realtor', 'Realtor\HomeController@index');
 Route::get('realtor/home', 'Realtor\HomeController@index');
+
+Route::get('realtor/messages', 'Realtor\MessageController@messages');
 
 Route::post('realtor/search_realtor', 'Realtor\HomeController@search_realtors');
 
-Route::post('process_circle_request', 'CircleController@process_request');
+Route::post('process_circle_request', 'Realtor\CircleController@process_request');
+Route::get('realtor/mycircle', 'Realtor\CircleController@show');
+Route::post('realtor/delete_circle', 'Realtor\CircleController@delete');
 
 Route::get('realtor/houses', 'Realtor\HouseController@houses');
 
@@ -100,4 +105,5 @@ Route::patch('realtor/edit_about', 'Realtor\ProfileController@update_about');
 
 //Realtor routes ends here
 
+Route::get('/{profile_name}', 'RealtorController@realtor');
 

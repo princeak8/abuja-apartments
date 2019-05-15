@@ -234,7 +234,7 @@ class Realtor extends Authenticatable
 
     public function unread_messages()
     {
-        return $this->received_messages()->where('read', '0');
+        return $this->received_messages()->where('unread', '1');
     }
 
     public static function boot ()

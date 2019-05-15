@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
+    public function scopeRead($query){
+        return $query->where('unread', 0);
+    }
+    public function scopeUnread($query){
+        return $query->where('unread', 1);
+    }
+    
     public function sender(){
         return $this->belongsTo('App\Realtor', 'sender_id');
     }

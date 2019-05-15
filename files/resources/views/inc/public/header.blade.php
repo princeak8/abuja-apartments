@@ -72,7 +72,7 @@
                     @if(Auth::user()->activated==1)
                        <a href="{{Auth::user()->profile_name}}"><span class="fa fa-angle-double-right"></span> Business Page</a> | 
                         @if(Auth::user()->activated==1)
-                            <a href="realtor/" target="_blank"><span class="fa fa-angle-double-right"></span> Admin</a>
+                            <a href="{{url('realtor/')}}" target="_blank"><span class="fa fa-angle-double-right"></span> Admin</a>
                         @endif
                 
                     @endif

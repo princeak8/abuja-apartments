@@ -26,6 +26,40 @@ class HouseController extends Controller
 	{
 		$this->myFunction = new MyFunction;
 	}
+
+	public function house($id)
+	{
+		$house = House::where('id', $id)->where('available', '1')->first();
+		if($house) {
+			$similar_houses = House::where('bedrooms', $house->bedrooms)->where('status', $house->status)->where('available', '1')->get();
+			if($similar_houses->count() > 0) {
+				foreach($similar_houses as $key=>$similar_house) {
+					if($similar_house->id==$id) {
+						unset($similar_houses[$key]);
+						break;
+					}
+				}
+			} 
+			$link = 'house/'.$id;
+			$encode_link = urlencode($link);
+			$data = [
+				'encode_link' => $encode_link,
+				'house' => $house,
+				'similar_houses' => $similar_houses
+			];
+			$response = [
+				'status_code' => 200,
+				'data'		  => $data
+			];
+			return response()->json($response, 200);
+		}else{
+			$response = [
+				'status_code' => 404,
+				'message'	  => 'House was not found'
+			];
+			return response()->json($response, 404);
+		}
+	}
     
     public function houses()
     {
