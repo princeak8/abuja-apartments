@@ -191,7 +191,7 @@
 		@else
 		
 		<div class="table-responsive no-margin table1">
-			<table class="table table-responsive">
+			<table class="table table-bordered">
 				<thead>
 					<th class="h4 col-sm-1">S/N</th>
 					<th class="h4 col-sm-7 col-xs-6">House(s)</th>
@@ -200,8 +200,8 @@
 				<?php $n = 0; ?>
 				@foreach($realtor->sharedHouses as $realtorHouse) <?php $n++; ?>
 					<tbody>
-						<td class="col-sm-1 size">{{$n}}</td>
-						<td class="col-sm-7 col-xs-6">
+						<td>{{$n}}</td>
+						<td>
 							<div class="col-sm-6 shared_img">
 								@if(App\House_photo::GetMainPhoto($realtorHouse->house_id)->count())
 									<img class="img-rounded" src="{{env('APP_STORAGE')}}images/houses/{{$realtorHouse->house_id}}/thumbnails/{{App\House_photo::GetMainPhoto($realtorHouse->house_id)->first()->photo}}" />
@@ -218,15 +218,15 @@
 							</p>
 						</td>
 						<td class="col-sm-4 col-xs-6 xs_small">
-						<div class="sh_img_sm shadow1">
-							<div class="shared_imgs col-sm-5">
-								<img class="img-responsive" src="{{env('APP_STORAGE')}}images/profile_photos/{{$realtorHouse->realtor->profile_photo}}" />
+							<div class="">
+								<div class="shared_imgs col-sm-5">
+									<img class="img-responsive" src="{{env('APP_STORAGE')}}images/profile_photos/{{$realtorHouse->realtor->profile_photo}}" />
+								</div>
+								<div class="col-sm-7 re">
+									<h5><span class="hidden-xs fa fa-angle-double-right"></span> {{$realtorHouse->realtor->name}}</h5>
+								</div>
+								
 							</div>
-							<div class="col-sm-7 no-padding re">
-								<h5><span class="hidden-xs fa fa-angle-double-right"></span> {{$realtorHouse->realtor->name}}</h5>
-							</div>
-							<div class="clear"></div>
-						</div>
 						</td>
 					</tbody>
 				@endforeach
