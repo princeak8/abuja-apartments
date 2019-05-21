@@ -1,11 +1,13 @@
 <?php 
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 
-use Request;
-use Auth;
+//use Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+//use Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use JWTAuth; 
 
@@ -26,67 +28,94 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('auth:api', ['except' => ['login']]);
+    }
+
+     /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->guard()->refresh());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->guard()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard('api');
     }
 
    public function login(Request $request)
    {
         $credentials = $request->only('email', 'password');
-       // Attempt to authenticate the user
-        if( !auth()->attempt(request(['email', 'password']))) {
-            // If not, redirect back
-            return back()->withErrors([
-                'message' => 'Please chek your credentials and try again.'
-            ]); 
-
-        }
-        $realtor = Realtor::find(Auth::user()->id);
-        $realtor->logged_in = 1;
-        $realtor->toggle_login_at = date('Y-m-d H:i:s');
-        $realtor->save();
-        return redirect('realtor/home'); //Redirect to the home page 
-
-        try {
-            if($token = JWTAuth::attempt($credentials)) {
-                $user = JWTAuth::parseToken()->authenticate();
+    
+            if ($token = $this->guard()->attempt($credentials)) {
+                //return $this->respondWithToken($token);
+                //return response()->json($this->guard()->user());
+                $user = $this->guard()->user();
                 $code = 200;
                 $data = [
                     'token'     => $token,
-                    'realtor'   => $user
+                    'realtor'   => $user,
+                    'redirect'  => 'api/v1/realtor/index'
                 ];
                 $realtor = Realtor::find($user->id);
                 $realtor->logged_in = 1;
                 $realtor->toggle_login_at = date('Y-m-d H:i:s');
                 $realtor->save();
+                $response = [
+                    'status_code' => $code,
+                    'data'		  => $data
+                ];
             }else{
-                $code = 404;
+                $code = 500;
                 $response = [
                     'status_code' => $code,
                     'message'     => 'Invalid Credentials'
                 ];
             }
-
-        } catch (JWTException $e) {
-            $code = 500;
-            $response = [
-                'status_code' => $code,
-                'message'     => 'Could not create token'
-            ];
-        }
-
         return response()->json($response, $code);
    }
 
    public function logout()
    {
-        $realtor = Realtor::find(Auth::user()->id);
-        auth()->logout();
+        $realtor = Realtor::find($this->guard()->user()->id);
+        $this->guard()->logout();
 
         $realtor->logged_in = 0;
         $realtor->toggle_login_at = date('Y-m-d H:i:s');
         $realtor->save();
 
-        return redirect('/');
+        $data = [
+            'redirect' => 'api/v1/realtor/login'
+        ];
+        $response = [
+            'status_code' => 200,
+            'data'     => $data
+        ];
+        return response()->json($response, 200);
    }
 }
 

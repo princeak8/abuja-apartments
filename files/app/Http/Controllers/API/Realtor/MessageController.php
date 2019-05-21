@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
 
 use Illuminate\Http\Request;
 use Storage;
@@ -24,6 +25,9 @@ class MessageController extends Controller
 	{
 		$this->middleware('realtorAuth');
 		$this->myFunction = new MyFunction;
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
 	}
     
 	public function send(Request $request)

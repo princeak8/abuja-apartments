@@ -42,7 +42,7 @@ Route::get('realtor/register/company', 'Realtor\RegisterController@company');
 Route::post('realtor/reg', 'Realtor\RegisterController@register');
 Route::post('realtor/register/company', 'Realtor\RegisterController@register_company');
 
-Route::post('realtor/register', 'Realtor\RegisterController@create');
+//Route::post('realtor/register', 'Realtor\RegisterController@create');
 
 Route::get('realtor/send_email', 'Realtor\RegisterController@send_email');
 

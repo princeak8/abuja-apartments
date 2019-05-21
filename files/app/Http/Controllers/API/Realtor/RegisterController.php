@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+//use Illuminate\Support\Facades\Validator;
 use App\Notifications\Registered;
 use App\Repositories\MyFunction;
 
 use Illuminate\Http\Request;
 use Storage;
+use Validator;
 //use Auth;
 
 use App\Realtor;
@@ -27,27 +28,122 @@ class RegisterController extends Controller
     public function individual()
     {
         $type = 'individual';
-        return view('register', compact('type'));
+        $data = [
+            'type'     => $type
+        ];
+        $code = 200;
+        $response = [
+            'status_code' => $code,
+            'data'		  => $data
+        ];
+        return response()->json($response, $code);
     }
 
     public function company()
     {
         $type = 'company';
-        return view('register', compact('type'));
+        $data = [
+            'type'     => $type
+        ];
+        $code = 200;
+        $response = [
+            'status_code' => $code,
+            'data'		  => $data
+        ];
+        return response()->json($response, $code);
     }
 
-    public function register(Request $request)
+
+     /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->guard()->refresh());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->guard()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard('api');
+    }
+
+    public function attempt_login($user)
+    {
+        if ($token = $this->guard()->attempt($user)) {
+            //return $this->respondWithToken($token);
+            //return response()->json($this->guard()->user());
+            $user = $this->guard()->user();
+            $data = [
+                'token'         => $token,
+                'logged_in'     => false,
+                'realtor'       => $user,
+                'redirect'      => 'api/v1/realtor/index'
+            ];
+            $realtor = Realtor::find($user->id);
+            $realtor->logged_in = 1;
+            $realtor->toggle_login_at = date('Y-m-d H:i:s');
+            $realtor->save();
+        }else{
+            $data = [
+                'logged_in'     => false,
+                'redirect'      => 'api/v1/realtor/login'
+            ];
+        }
+        return $data;
+    }
+
+    public function validateInput($request)
     {
         //Validate the form inputs
-        $validatedData = $request->validate([
+        $rules = [
             'firstname' => 'required|min:2',
             'lastname' => 'string',
             'profile_name' => 'required|min:3',
             'email' => 'required|string|email|max:255|unique:realtors',
             'password' => 'required|min:3',
-            'phone' => 'string|min:10|max:13',
-        ]);
-            // Create the realtor
+            'phone' => 'string|required|min:10|max:13',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if($validator->fails()) {
+            $code = 500;
+            $response = [
+                'status_code' => $code,
+                'message'     => $validator->errors()
+            ];
+            return response()->json($response, $code);
+        }
+    }
+
+    public function register(Request $request)
+    {
+        $validateResponse = $this->validateInput($request);
+        if($validateResponse) {
+            return $this->validateInput($request);
+        }
+        // Create the realtor
         $realtor = Realtor::create([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -63,36 +159,33 @@ class RegisterController extends Controller
                 'phone' => $request->input('phone'),
                 'realtor_id' => $realtor->id
             ]);
+            $code = 200;
 
             //attempt to login
-            //dd(Auth::attempt($user));
-            if(Auth::attempt($user)) {
-                $realtor = Realtor::find(Auth::user()->id);
-                $realtor->logged_in = 1;
-                $realtor->toggle_login_at = date('Y-m-d H:i:s');
-                $realtor->save();
-                
-                return redirect('/index');
-            }else{
-                return redirect('realtor/login');
-            }
+            $data = $this->attempt_login($user);
+
+            $response = [
+                'status_code' => $code,
+                'data'		  => $data
+            ];
         }else{
-            return back()->withErrors([
-                'message' => 'sorry! Registeration was not successfull. Please try again later'
-            ]); 
+            $code = 500;
+            $response = [
+                'status_code' => $code,
+                'message'     => 'sorry! Registeration was not successfull. Please try again later'
+            ];
         }
+        return response()->json($response, $code);
     }
 
     public function register_company(Request $request)
     {
         //Validate the form inputs
-        $validatedData = $request->validate([
-            'firstname' => 'required|min:2',
-            'profile_name' => 'required|min:3',
-            'email' => 'required|string|email|max:255|unique:realtors',
-            'password' => 'required|min:3',
-            'phone' => 'string|min:10|max:13',
-        ]);
+        $validateResponse = $this->validateInput($request);
+        if($validateResponse) {
+            return $this->validateInput($request);
+        }
+
             // Create the realtor
         $realtor = Realtor::create([
             'firstname' => $request->input('firstname'),
@@ -109,19 +202,22 @@ class RegisterController extends Controller
                 'phone' => $request->input('phone'),
                 'realtor_id' => $realtor->id
             ]);
+            $code = 200;
 
             //attempt to login
-            //dd(Auth::attempt($user));
-            if(Auth::attempt($user)) {
-                return redirect('/realtor/home');
-            }else{
-                return redirect('realtor/login');
-            }
+            $data = $this->attempt_login($user);
+            $response = [
+                'status_code' => $code,
+                'data'		  => $data
+            ];
         }else{
-            return back()->withErrors([
-                'message' => 'sorry! Registeration was not successfull. Please try again later'
-            ]); 
+            $code = 500;
+            $response = [
+                'status_code' => $code,
+                'message'     => 'sorry! Registeration was not successfull. Please try again later'
+            ]; 
         }
+        return response()->json($response, $code);
     }
 
     public function send_email()

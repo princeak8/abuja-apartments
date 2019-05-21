@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
 
 use Illuminate\Http\Request;
 use Storage;
@@ -21,25 +22,39 @@ use App\Circle;
 
 class HomeController extends Controller
 {
+	public $user;
+
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
 	}
+
+	
     
 	public function index()
 	{
-		$realtor = Realtor::find(Auth::user()->id);
+		//$realtor = Realtor::find($this->user->id);
 		//$availableHouses = House::with([$realtor->AllMyhouses])->where('available', '1');
 		//var_dump($availableHouses)
-		$requests = $realtor->sent_share_requests->count() + $realtor->share_requests->count() + \App\Circle::SentRequests(Auth::user()->id)->count() + \App\Circle::CircleRequests(Auth::user()->id)->count();
-		$houses = Realtor_house::where('realtor_houses.realtor_id', Auth::user()->id)->where('realtor_houses.available', '1')->leftJoin('houses', 'realtor_houses.house_id', '=', 'houses.id')->get();
+		$messages = $this->user->unread_messages;
+		
+		$circleMembers = $this->realtorBootstrap->circle_members;
+		$requestsCount = $this->realtorBootstrap->all_requests_count;
+		$houses = Realtor_house::where('realtor_houses.realtor_id', $this->user->id)->where('realtor_houses.available', '1')->leftJoin('houses', 'realtor_houses.house_id', '=', 'houses.id')->get();
+		var_dump($requestsCount);
+		/*
 		if(Auth::user()->type=='company') {
 			return view('realtor/index_company', compact('realtor', 'houses'));
 		}else{
 			return view('realtor/index_agent', compact('realtor', 'houses'));
 		}
-		
+		*/
 	}
 
 	public function houses()
