@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class House_comment extends Model
 {
-    // protected $table = 'abj_apartments.house_comments';
-
     public function scopeGetHouseComments($query,$house_id)
     {
          return $query->where('house_id', $house_id);

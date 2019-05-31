@@ -42,5 +42,6 @@ tinymce.init({
 </body>
 
 
+    @yield('js')
 
 </html>

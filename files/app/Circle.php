@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Circle extends Model
 {
@@ -12,7 +13,16 @@ class Circle extends Model
         1  = Friend Request Accepted
         -1 = Friend Request Rejected
     */
-    // public $table = 'abj_apartments.circles';
+
+    public function getCreatedAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('D, jS M Y');
+    }
+
+    public function getUpdatedAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('D, jS M Y');
+    }
 
     public function userOne()
     {

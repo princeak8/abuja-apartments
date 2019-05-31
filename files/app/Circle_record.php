@@ -12,8 +12,6 @@ class Circle_record extends Model
         1  = Friend Request Accepted
         -1 = Friend Request Rejected
     */
-    // public $table = 'abj_apartments.circle_records';
-
     public function userOne()
     {
     	return $this->belongsTo('App\Realtor', 'user_one', 'id');

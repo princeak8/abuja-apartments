@@ -47,10 +47,10 @@
 							<div class="col-md-3 col-sm-3 col-xs-6 no-padding est_xs">
 								<div class="est_img">
 									<a href="{{url('realtor/estate/'.$estate->id)}}">
-										@if(App\Estate_photo::GetMainPhoto($estate->id)->count())
-	                                    	<img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\Estate_photo::GetMainPhoto($estate->id)->first()->photo}}" />
+										@if(App\Estate_photo::GetMainPhotos($estate->id)->count())
+	                                    	<img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\Estate_photo::GetMainPhotos($estate->id)->first()->photo}}" />
 		                                @elseif(App\Estate_photo::GetEstatePhotos($estate->id)->count())
-		                                    <img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\House_photo::GetEstatePhotos($estate->id)->first()->photo}}" />
+		                                    <img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\Estate_photo::GetEstatePhotos($estate->id)->first()->photo}}" />
 		                                @else
 		                                    <img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
 		                                @endif

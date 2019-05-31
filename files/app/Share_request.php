@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Share_request extends Model
 {
-	// protected $table = 'abj_apartments.share_requests';
-
     public function house(){
         return $this->belongsTo('App\House', 'house_id');
     }

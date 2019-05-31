@@ -33,16 +33,16 @@ class RealtorController extends Controller
     	$house_types = House_type::all();
 		$locations = Location::all();
 		$price_ranges = Price_range::all();
-    	$realtor = Realtor::where('profile_name', $profile_name)->where('activated', '1')->first();
-    	$realtor_houses = Realtor_house::where('realtor_id', $realtor->id)->limit($limit)->get();
-    	$allRealtor_houses = Realtor_house::where('realtor_id', $realtor->id)->get();
-    	if($realtor) { //If the realtor is found
-    		$link = $profile_name;
+		$realtor = Realtor::where('profile_name', $profile_name)->where('activated', '1')->first();
+		if($realtor) { //If the realtor is found
+			$realtor_houses = Realtor_house::where('realtor_id', $realtor->id)->limit($limit)->get();
+			$allRealtor_houses = Realtor_house::where('realtor_id', $realtor->id)->get();
+			$link = $profile_name;
 			$encode_link = urlencode($link);
 			return view('realtor', compact('realtor', 'encode_link', 'house_types', 'locations', 'price_ranges', 'limit', 'realtor_houses', 'allRealtor_houses'));
-    	}else{
-    		abort(404, 'House Not found');
-    	}
+		}else{
+			abort(404, 'House Not found');
+		}
     }
 
     public function follow(Request $request)
@@ -74,6 +74,36 @@ class RealtorController extends Controller
 			$redirect = 'index';
 		}
 		return redirect($redirect);
-    }
+	}
+	
+	public function search(Request $request)
+	{
+		$post = $request->all();
+		$searchValue = $post['search_realtor'];
+		$result = Realtor::where('firstname', 'LIKE', $searchValue)
+					->orWhere('lastname', 'LIKE', $searchValue)
+					->orWhere('profile_name', 'LIKE', $searchValue)
+					->where('activated', 1)->where('visible', 1)
+					->get();
+		//dd($result->count());
+		if($result->count() == 1)
+		if($result->count() > 0) {
+			if($result->count() == 1 && Auth::user()) {
+				foreach($result as $realtor) {
+					if($realtor->id == Auth::user()->id){
+						request()->session()->flash('status', 'error');
+						request()->session()->flash('msg', 'Search for a realtor other than the logged in Realtor');
+						return back();
+						exit();
+					}
+				}
+			}
+			return view('realtor_search_result', compact('result', 'searchValue'));
+		}else{
+			request()->session()->flash('status', 'error');
+			request()->session()->flash('msg', 'No realtor with the name or profile name of '.$searchValue.' was found');
+			return back();
+		}
+	}
 	
 }

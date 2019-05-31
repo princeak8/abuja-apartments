@@ -251,3 +251,7 @@
 	</script>
 
 @endsection
+
+@section('js') 
+    @include('inc.public.circle_request_js')
+@endsection

@@ -48,7 +48,7 @@
 	                        <td>{{\App\Realtor::find($requester)->full_name}}</td>
 	                        <td>{{$request->created_at}}</td>
 	                        <td>
-	                            {!! Form::open(['action' => ['CircleController@process_request'], 'method'=>'POST', 'style'=>"display:inline-block"]) !!}
+	                            {!! Form::open(['action' => ['Realtor\CircleController@process_request'], 'method'=>'POST', 'style'=>"display:inline-block"]) !!}
 	                                <input type="hidden" name="circle_id" value="{{$request->id}}" />
 	                                <input type="hidden" name="id" value="{{$request->action_user}}" />
 	                                <input type="hidden" name="action" value="accept" />
@@ -87,35 +87,34 @@
 	                    <th>Action</th>
 	                </thead>
 	                <tbody class="bg_white">
-	                {{-- $n = 0 --}}
-	                    @foreach(Auth::user()->sent_requests() as $request) {{-- $n++ --}}
+	                <?php $n = 0; ?>
+	                    @foreach(Auth::user()->sent_requests() as $request) <?php $n++; ?>
 	                        @if($request->user_one==Auth::user()->id)
-	                    		{{-- $accepter = $request->user_two --}}
+	                    		@php $accepter = $request->userTwo; @endphp
 	                    	@else
-	                    		{{-- $accepter = $request->user_one --}}
+	                    		@php $accepter = $request->userOne; @endphp
 	                    	@endif
 	                ?>
 		                    <tr>
 		                        <td>{{$n}}</td>
 		                        <td>{{$accepter->full_name}}</td>
-		                        <td>{{date('jS M Y', $request->created_at)}}</td>
+		                        <td>{{$request->created_at}}</td>
 		                        <td>
 		    						@if($request->action==0) 
 		    							Pending 
 		    						@elseif($request->action==-1) 
 		    							Declined 
 		    						@endif
-		    						?>
 		                        </td>
 		                        <td>
 		                        	@if($request->action==-1) 
-		                              {!! Form::open(['action' => ['CircleController@process_request'], 'method'=>'POST',  'style'=>"display:inline-block"]) !!}
+		                              {!! Form::open(['action' => ['Realtor\CircleController@process_request'], 'method'=>'POST',  'style'=>"display:inline-block"]) !!}
 		                                    <input type="hidden" name="circle_id" value="{{$request->id}}" />
 		                                    <input class="no_bor btn-warning" type="submit" name="submit" value="Resend Request" />
 		                                {!! Form::close() !!}
 		                            @endif
 		                        	
-		                            {!! Form::open(['action' => ['CircleController@process_request'], 'method'=>'POST',  'style'=>"display:inline-block"]) !!}
+		                            {!! Form::open(['action' => ['Realtor\CircleController@process_request'], 'method'=>'POST',  'style'=>"display:inline-block"]) !!}
 		                                <input type="hidden" name="circle_id" value="{{$request->id}}" />
 		                                <input type="hidden" name="request_type" value="circle" />
 		                                <input class="no_bor btn-danger" type="submit" name="submit" value="Cancel" />

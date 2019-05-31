@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    // protected $table = 'abj_apartments.houses';
-
     public function realtors(){
         return $this->hasMany('App\Realtor_house', 'house_id');
     }

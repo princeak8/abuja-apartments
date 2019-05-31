@@ -164,6 +164,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
+        //Laravel\Socialite\SocialiteServiceProvider::class,
+        
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
@@ -235,7 +239,9 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         
-        
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
+        //'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

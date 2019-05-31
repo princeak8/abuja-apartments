@@ -16,9 +16,9 @@ class Circle_request extends Notification
      *
      * @return void
      */
-    public function __construct($realtor, $circle)
+    public function __construct($user, $circle)
     {
-        $this->realtor = $realtor;
+        $this->user = $user;
         $this->circle = $circle;
     }
 
@@ -42,7 +42,7 @@ class Circle_request extends Notification
     public function toMail($notifiable)
     {
        // return (new MailMessage)->markdown('emails.vendor_reg');
-        return (new MailMessage)->subject('NEW CIRCLE REQUEST')->markdown('emails.circle_request', ['realtor'=>$this->realtor, 'circle'=>$this->circle]);
+        return (new MailMessage)->subject('NEW CIRCLE REQUEST')->markdown('emails.new_circle_request',['user'=>$this->user, 'circle'=>$this->circle]);
     }
 
     /**

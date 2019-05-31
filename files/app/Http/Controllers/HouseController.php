@@ -157,6 +157,7 @@ class HouseController extends Controller
 					"house_likes"=>count($myhouse->house_likes),
 					"comments"=>count($myhouse->house_comments),
 					"photo"=>$photo
+					
 					);
 			
 			}
@@ -250,7 +251,7 @@ class HouseController extends Controller
 		if(empty($filters)) {
 			// If there are no filters set, retrieve all the houses
 			$houses = House::limit($limit)->orderBy('created_at', 'desc')->get();
-			$houses_count = count(House::all()->get());
+			$houses_count = count(House::all());
 			$request->session()->put('filter_title', array());
 		}else{
 			$filters['available'][] = 1;
