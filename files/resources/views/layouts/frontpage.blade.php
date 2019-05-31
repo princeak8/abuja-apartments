@@ -14,9 +14,6 @@
     
 </div>
         
-    
-
-
 @include('inc.public.frontpage.footer')
 <script type="application/javascript" async src="{{asset('js/jquery.js') }}"></script>
 <script type="application/javascript" async src="{{ asset('js/bootstrap.js') }}"></script>
@@ -26,6 +23,7 @@
 
 <script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 <script type="application/javascript" src="{{asset('js/scroll_top.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/toggle_filters.js')}}"></script>
 <script type='text/javascript'>
 tinymce.init({
     selector:  '.tinymce',
@@ -40,9 +38,9 @@ tinymce.init({
     toolbar: 'insertfile undo redo | styleselect | bold italic | forecolor backcolor emoticons | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image |  jbimages |print preview media',    
 });
 </script>
-
-</body>
 @yield('js')
+</body>
+
 
 
 </html>

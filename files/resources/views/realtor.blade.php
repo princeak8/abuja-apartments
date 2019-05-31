@@ -1,4 +1,6 @@
-@extends('layouts.public', ['page'=>'view house'])
+{{-- @extends('layouts.public', ['page'=>'view house']) --}}
+
+@extends('layouts.frontpage')
 
 @section('content')
 
@@ -73,10 +75,10 @@
 </div>
 
 <!-- Ajax Control Variables -->
-           <input id="total-houses" type="hidden" value="{{$allRealtor_houses->count()}}" />
-           <input id="displayed-houses" type="hidden" value="{{$realtor_houses->count()}}" />
-           <input id="limit" type="hidden" value="{{$limit}}" />
-		<!-- Ajax Control Variables ends here  -->
+				<input id="total-houses" type="hidden" value="{{$allRealtor_houses->count()}}" />
+				<input id="displayed-houses" type="hidden" value="{{$realtor_houses->count()}}" />
+				<input id="limit" type="hidden" value="{{$limit}}" />
+<!-- Ajax Control Variables ends here  -->
 
 
 

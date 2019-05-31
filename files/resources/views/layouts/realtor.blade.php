@@ -25,7 +25,6 @@
 
 <body>
     @include('inc.realtor.header')
-    
     <div class="content">
         <div class="content__left">
             @include('inc.realtor.top_menu')

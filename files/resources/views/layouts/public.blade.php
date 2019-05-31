@@ -17,3 +17,5 @@
 
 {{-- @include('inc.public.footer') --}}
 @include('inc.public.frontpage.footer')
+
+</html>

@@ -35,5 +35,3 @@
 
         
 </div>
-
-<script type="application/javascript" src="{{asset('js/toggle_filters.js')}}"></script>
