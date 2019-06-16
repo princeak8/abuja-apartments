@@ -237,6 +237,27 @@ $(document).ready(function(e) {
     });
 	
 });
+
+$(document).ready(function(){ 
+	$('.mouseoverHouse').each(function(){
+		var cover = $(this);
+		$(this).mouseover(function() {
+			cover.find('.cover').css({
+				'width': '100%'
+			});
+			cover.find('.mouseoverDetails li').not('notli').css({
+				'color': 'white'
+			})
+		})
+		$(this).mouseleave(function() {
+			$(this).find('.cover').css('width', '0')
+			$(this).find('.mouseoverDetails li').not('.notli').css({
+				'color': 'rgb(83, 83, 83)'
+			})
+		})
+	})
+	
+})
 </script>
 
 @endsection

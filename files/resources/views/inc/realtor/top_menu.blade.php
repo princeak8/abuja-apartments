@@ -19,7 +19,7 @@
         <ul class="" id="settings">
             <li><a href="{{url('realtor/home')}}"> <i class="fa fa-home"></i> Home</a></li>
             <li>
-                <a href="{{url('realtor/messages')}}"> <i class="fa fa-envelope"></i> Messages <span class="label label-success">{{Auth::user()->unread_messages}}</span></a>
+                <a href="{{url('realtor/messages')}}"> <i class="fa fa-envelope"></i> Messages <span class="label label-success">{{count(Auth::user()->unread_messages)}}</span></a>
             </li>
             <li>
                 <a href="{{url('realtor/mycircle')}}"><i class="fa fa-bullseye"></i> My Circles</a>

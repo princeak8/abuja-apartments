@@ -34,15 +34,24 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                {{-- <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Register
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
                                         <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
                                         <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
                                     </div>
-                                </li>
+                                </li> --}}
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-primary py-1 px-4 dropdown-toggle" style="border-radius: 20px;" data-toggle="dropdown">
+                                        Register
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
+                                        <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                                    </div>
+                                </div>
                             </ul>
                             {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
                                 <input type="hidden" name="active" value="0" />
@@ -114,7 +123,7 @@
         
     </div>
 
-<script type='application/javascript'>
+{{-- <script type='application/javascript'>
     $(document).on('click', '.dropdown-toggle', function() { 
         var toggle = $(this).data('toggle');
         
@@ -124,4 +133,4 @@
         }
         //return false;
     })
-</script>
+</script> --}}

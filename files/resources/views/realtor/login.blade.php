@@ -19,8 +19,9 @@
                 {{ csrf_field() }}
                 
                 <div class="login__container__body__form__input">
+                    
+                    <input id="email" class="form-control form-control-sm" type="text" name="email" value="{{ old('email') }}" required />
                     <label for="email">Email/Profile Name</label>
-                    <input id="email" class="form-control" type="text" name="email" placeholder="Email/Profile Name" value="{{ old('email') }}" required />
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -28,8 +29,9 @@
                     @endif
                 </div>
                 <div class="login__container__body__form__input">
+                    
+                    <input id="password" class="form-control form-control-sm" type="password" name="password" required />
                     <label for="password">Password</label>
-                    <input id="password" class="form-control" type="password" name="password" placeholder="password" required />
                     @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>

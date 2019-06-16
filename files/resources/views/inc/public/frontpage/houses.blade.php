@@ -9,7 +9,7 @@
                 <div class="col-md-3 col-sm-6 px-3">
                     {{-- <a href="house/{{$house->id}}"> --}}
                     <div class="house mouseoverHouse">  
-                        <div class="cover">Cover</div>
+                        <div class="cover"></div>
                         <div class="house__upper"> 
                             <div class="house__upper__location">
                                 <span class="fa fa-map-marker-alt"></span> {{$house->location->name}}

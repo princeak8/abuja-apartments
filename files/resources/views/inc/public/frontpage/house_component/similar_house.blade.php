@@ -9,7 +9,8 @@
 	    	@else
 	    	  	@foreach($similar_houses as $house) 
 		        	<div id="similar-house" class="">
-						<a href="{{url('house/'.$house->id)}}" class="row similar__body__house">
+						<a href="{{url('house/'.$house->id)}}" class="row similar__body__house mouseoverHouse">
+							<div class="cover"></div>
 							<div class="col-4 pl-0 pr-0">
 								
 									<div class="similar__body__house__img">
@@ -24,17 +25,16 @@
 								
 							</div>
 							<div class="col-8 pr-0">
-								<ul class="similar__body__house__details m-0 pl-0 pr-2">
-									<li>{{$house->title}}</li>
-									<li><i class="fa fa-home"></i> {{$house->house_type->type}}</li>
-									<li><i class="fa fa-map-marker-alt"></i> 
-										{{$house->location->name}}</li>
-									<li>₦ {{number_format($house->price)}}
+								<ul class="similar__body__house__details m-0 pl-0 pr-2 mouseoverDetails">
+									<li> - {{$house->title}}</li>
+									<li> - {{$house->house_type->type}}</li>
+									<li> - {{$house->location->name}}</li>
+									<li class="notli">₦ {{number_format($house->price)}}
 										<span>
 										@if($house->status=='rent')
 											Per Annum
 										@else
-											For Sale
+											For sale
 										@endif
 										</span>
 									</li>

@@ -15,10 +15,10 @@
 </div>
         
 @include('inc.public.frontpage.footer')
-<script type="application/javascript" async src="{{asset('js/jquery.js') }}"></script>
-<script type="application/javascript" async src="{{ asset('js/bootstrap.js') }}"></script>
-<script type="application/javascript" async src="{{ asset('js/popper.js')}}"></script>
-<script type="application/javascript" async src="{{ asset('js/ionicon.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/jquery.js') }}"></script>
+<script type="application/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+<script type="application/javascript" src="{{ asset('js/popper.js')}}"></script>
+<script type="application/javascript" src="{{ asset('js/ionicon.js')}}"></script>
 
 
 <script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
@@ -38,10 +38,9 @@ tinymce.init({
     toolbar: 'insertfile undo redo | styleselect | bold italic | forecolor backcolor emoticons | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image |  jbimages |print preview media',    
 });
 </script>
-@yield('js')
+{{-- @yield('js') --}}
 </body>
 
-
-    @yield('js')
+@yield('js')
 
 </html>

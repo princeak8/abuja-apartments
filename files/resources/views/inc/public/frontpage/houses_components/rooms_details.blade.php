@@ -1,7 +1,7 @@
 <div class="house__upper__bath">
     <ul>
         <li><span class="fa fa-bed"></span> {{$house->bedrooms}} 
-            @if($house->bedrooms <= 1) {
+            @if($house->bedrooms <= 1)
                     bedroom
             @else
                     bedrooms

@@ -1,10 +1,10 @@
-@include('inc.realtor.company_head_links')
+{{-- @include('inc.realtor.company_head_links') --}}
 
 @extends('layouts.realtor')
 
 @section('content')
 
-<div class="container no-padding cont_sm">
+<div id="main-content" class="content__right__main">
 	<div id="left-side" class="col-md-2 col-sm-2">
 		<ul class="no-padding">	
             <li><a href="{{url('realtor/estates')}}"><span class="fa fa-building"></span> Estates <span class="fa fa-angle-double-right"></span></a> </li>

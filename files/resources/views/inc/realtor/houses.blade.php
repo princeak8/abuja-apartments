@@ -2,9 +2,9 @@
 		{{-- <a href="{{url('realtor/add_house')}}"> 
     	Add House &nbsp;<i class="fa fa-plus"></i>
 		</a> --}}
-		<a type="button" href="#" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" href="#" data-toggle="modal" data-target="#exampleModal">
 			Add House &nbsp;<i class="fa fa-plus"></i>
-		</a>
+		</button>
 </h4>
 
 
