@@ -1,18 +1,29 @@
-<div style="overflow-y:scroll; max-height: 600px;">
+<div style="overflow-y:scroll; max-height: 100vh;">
     <div class="content__left__profile">
         <div class="content__left__profile__img">
             @if(!empty(Auth::user()->profile_photo))
-            <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
+                <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
             @else
-            <img src="{{env('APP_STORAGE')}}images/profile_photos/no_img.png" class=" img-responsive" />
+                <img src="{{env('APP_STORAGE')}}images/profile_photos/no_img.png" class=" img-responsive" />
             @endif
         </div>
-        <div>
-            <p>
-                <a href="{{url('realtor/profile')}}">{{Auth::user()->full_name}}</a><br>
-                <a href="{{url('realtor/profile')}}">{{Auth::user()->email}}</a><br>
-                <a href="{{url(Auth::user()->profile_name)}}" class="btn btn-outline-primary btn-sm rounded">Business Page</a>
+        <div class="content__left__profile__details">
+            <p class="my-1">
+                <a href="{{url('realtor/profile')}}">{{Auth::user()->biz_name === null ? Auth::user()->firstname : Auth::user()->biz_name}} 
+                {{Auth::user()->biz_name === null ? Auth::user()->lastname : ''}}</a>
             </p>
+            <p class="my-1">
+                <a href="{{url('realtor/profile')}}">{{Auth::user()->email}}</a>
+            </p>
+            <p class="my-2">
+                <a href="{{url(Auth::user()->profile_name)}}" class="btn btn-success btn-sm">Business Page</a>
+            </p>
+            @if(Auth::user()->type=='company')
+                <p class="hse_est">
+                    <a href="{{url('realtor/houses')}}" class="">Houses</a>
+                    <a href="{{url('realtor/estates')}}" class="">Estates</a>
+                </p>
+            @endif
         </div>
     </div>  
     <div class="content__left__list" role="navigation">

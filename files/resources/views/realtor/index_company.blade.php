@@ -5,7 +5,7 @@
 @section('content')
 
 <div id="main-content" class="content__right__main">
-	<div id="left-side" class="col-md-2 col-sm-2">
+	{{-- <div id="left-side" class="col-md-2 col-sm-2">
 		<ul class="no-padding">	
             <li><a href="{{url('realtor/estates')}}"><span class="fa fa-building"></span> Estates <span class="fa fa-angle-double-right"></span></a> </li>
             <li><a href="{{url('realtor/houses')}}"><span class="fa fa-building-o"></span> Houses <span class="fa fa-angle-double-right"></span></a> </li>
@@ -20,7 +20,7 @@
                 <a href="{{url('realtor/profile')}}" ><span class="fa fa-address-card-o"></span> My Profile</a>
             </div>
         </div>
-	</div>
+	</div> --}}
 
 	 <div id="main-content" class="col-md-10 col-sm-10">
         <div class="panel panel-default">
