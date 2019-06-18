@@ -31,7 +31,7 @@ Route::get('/test', function(){
 
 Route::get('realtor/login', ['middleware' => 'guest', function() {
     return view('realtor/login');
-}]);
+}])->name('login');
 
 Route::post('realtor/login', 'Realtor\LoginController@login');
 

@@ -1,99 +1,38 @@
-<div class="col-md-10 col-sm-10 no-padding">    
+<div class="col-md-10 col-lg-10">    
     <div class="" id="content">
-        <div id="filtering" style="width:100%; height:50px; text-align:center;">
-            <img src="{{env('APP_STORAGE')}}images/ajax-loader.gif" width="32" height="32" />
-            <br/>
-            <b>.....Be Patient While Houses are filtered......</b>
-        </div>
+        @include('inc.public.frontpage.houses_components.filtering')
         
-        <div id="db-content" class="container-fluid no-padding">
+        <div id="db-content" class="row">
             @foreach($houses as $house)  
       
                 <!-- The House Pix and description starts here -->
-                <div class="col-xs-6 col-md-3 col-sm-4 cont_xs2">
-                    <div class="house_cont cont_xs1">   
-                        <div class="locat">
-                            <span class="fa fa-map-marker"></span> {{$house->location->name}}
-                            @if($house->estate_id > 0)
-                                (<span> {{$house->estate->name}} </span>)
-                            @endif
-                        </div>
-                        <div class="col-sm-12 col-xs-12 no-padding">
-                            <a href="house/{{$house->id}}">
-                                <div class="img">
-                                    @if(App\House_photo::GetMainPhoto($house->id)->count())
-                                        <img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetMainPhoto($house->id)->first()->photo}}" />
-                                    @elseif(App\House_photo::GetHousePhotos($house->id)->count())
-                                        <img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetHousePhotos($house->id)->first()->photo}}" />
-                                    @else
-                                        <img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
-                                    @endif
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="price">
-                            N{{number_format($house->price)}} ?>
-                        </div>
-
-                        <div class="no-padding bath">
-                            <ul class="no-margin no-padding">
-                                <li><span class="fa fa-bed"></span> {{$house->bedrooms}} 
-                                    @if($house->bedrooms <= 1) {
-                                         bedroom
-                                    @else
-                                         bedrooms
-                                    @endif
-                                </li>
-                                <li><span class="fa fa-shower"></span> {{$house->bathrooms}} 
-                                    @if($house->bathrooms <= 1) 
-                                         bathroom
-                                    @else
-                                         bathrooms
-                                    @endif
-                                </li>
-                                <li><span class="fa fa-bath"></span> {{$house->toilets}} 
-                                    @if($house->toilets <= 1) 
-                                         toilet
-                                    @else
-                                         toilets
-                                    @endif
-                                </li>
-                                <div class="clear"></div> 
-                            </ul>
-                        </div>
-                        
-                        <div class="col-sm-12 col-xs-12 cont_descript">
-                            <div class="descript">
-                                <ul class="no-padding">
-                                    <li><span class="fa fa-tag"></span> {{$house->title}}</li>
-                                    <li><span class="fa fa-clone"></span> {{$house->house_type->type}}></li>
-                                    @if($house->estate_id > 0) 
-                                        <li><span class="fa fa-list-ul"></span> {{$house->estate->name}}
-                                            (<span>{{$house->units}} Units</span>)
-                                        </li>        
-                                    @endif
-                                    <div class="clear"></div>
-                                </ul>
-                                <a href="house/{{$house->id}}">
-                                    <span class="fa fa-external-link"></span> View details <span class="fa fa-angle-double-right"></span> 
-                                </a>
+                <div class="col-md-3 col-sm-6 px-3">
+                    {{-- <a href="house/{{$house->id}}"> --}}
+                    <div class="house mouseoverHouse">  
+                        <div class="cover"></div>
+                        <div class="house__upper"> 
+                            <div class="house__upper__location">
+                                <span class="fa fa-map-marker-alt"></span> {{$house->location->name}}
+                                @if($house->estate_id > 0)
+                                    (<span> {{$house->estate->name}} </span>)
+                                @endif
                             </div>
 
-                            <div class="cont_lik col-sm-12 col-xs-12">
-                                <hr>
-                                <p class="pull-left">
-                                    For {{$house->status}}
-                                </p>
-                                <div class="pull-right">
-                                    <i><span class="fa fa-thumbs-up"></span> Likes [{{count($house->house_likes)}}]</i>
-                                    <i><span class="fa fa-comments"></span> Comments [{{count($house->house_comments)}}]</i>
+                            <div class="house__upper__img_price">
+                                @include('inc.public.frontpage.houses_components.house_image')
+
+                                <div class="house__upper__img_price__price">
+                                    ₦ {{number_format($house->price)}} 
                                 </div>
                             </div>
-                        </div><!--End of Cont_descript -->
+
+                            @include('inc.public.frontpage.houses_components.rooms_details')
+                        </div>
                         
-                        <div class="clear"></div>   
+                        @include('inc.public.frontpage.houses_components.lower_details')
+                        
                     </div>
+                    {{-- </a> --}}
                 </div>
         @endforeach
                 
@@ -103,7 +42,7 @@
         </div>
     </div>
 
-    <div class="clear"></div>    
+       
 </div>
 
 </div>
@@ -113,6 +52,36 @@
            <input id="displayed-houses" type="hidden" value="{{count($houses)}}" />
            <input id="limit" type="hidden" value="{{$limit}}" />
         <!-- Ajax Control Variables ends here  -->
+
+@section('js')
+
+<script>
+	$(document).ready(function(){ 
+		$('.mouseoverHouse').each(function(){
+			var cover = $(this);
+			$(this).find('a').not('a.delete').mouseover(function() {
+				cover.find('.cover').css({
+					'height': '98%'
+				});
+				cover.find('.mouseoverDetails a').css({
+					'color': 'white'
+				})
+			})
+			$(this).mouseleave(function() {
+				$(this).find('.cover').css('height', '0')
+				$(this).find('.mouseoverDetails a').css({
+					'color': '#636b6f'
+				})
+				$(this).find('.mouseoverDetails a.delete').css({
+					'color': 'rgb(235, 65, 65)'
+				})
+			})
+		})
+		
+	})
+</script>
+		
+
 
 <script type="application/javascript" src="{{asset('js/filter_houses.js')}}"></script>
 
@@ -282,3 +251,4 @@ function showLoading() {
             }
         });
     </script>
+@endsection

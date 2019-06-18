@@ -1,0 +1,64 @@
+.houses__container {
+    margin-top: 20px;
+    &__available {
+        &__house {
+            border-radius: $border-radius-big; box-shadow:$shadow;margin-bottom: 16px;
+            overflow: hidden; position: relative;
+            .cover {
+                position: absolute; z-index: -1;top: 0px;
+                @include background-color();
+                height: 0; width: 100%; 
+                transition: height .7s ease-in;border-radius: 10px;
+            }
+            a {
+                z-index: 2;
+            }
+            $de: &;
+            &__img {
+                z-index: 4;
+                height: 200px; width: 100%;
+                &:hover {
+                    // display: none;
+                    // @include background-color();
+                }
+                img{ width: 100%; height: 100%; }
+            }
+            
+            &__details {
+                font-family: $archivo;
+                a {
+                    color:$text-color; transition: color .6s ease-in;
+                    // &:hover {
+                    //     @include background-color();
+                    // }
+                }
+                &__type {padding: 2% 0;
+                    small { color: white; border-radius: 8px; background: $brand-success; padding: .5% 2%; }
+                }
+                &__bl {
+                    display: flex; flex-direction: row;
+                    p{margin: 0px; flex: 1;}
+                }
+                &__lower {
+                    display: flex; flex-direction: row; padding: 10px 0px;
+                    span{flex: 1; text-align: center;
+                        &:first-child {
+                            _flex: 2;width: 35%;margin-right: 10px;
+                        }
+                        .delete { 
+                            color: $brand-danger;
+                            &:hover {
+                                opacity: .7;
+                            }
+                        }
+                    }
+                    .rs{ text-transform: capitalize;@include background-color(); color: white; border-radius: 0px 20px 0px 20px; }
+                    .like {
+                        color: $brand-success;
+                    }
+                }
+            }
+        }
+    }
+    @import 'add_house';
+}

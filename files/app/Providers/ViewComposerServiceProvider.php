@@ -29,7 +29,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             //$availableHouses = House::with([$realtor->AllMyhouses])->where('available', '1');
             //var_dump($availableHouses)
             $requests = $realtor->sent_share_requests->count() + $realtor->share_requests->count() + Auth::user()->sent_requests()->count() + Auth::user()->circle_requests()->count();
-            $view->with('requests', $requests);
+            $view->with('requests', $requests)->with('realtor', $realtor);
         });
     }
 

@@ -1,5 +1,4 @@
-<!doctype html>
-<html>
+
 <head>
 <meta charset="utf-8">
 <!--<meta http-equiv="refresh" content="60">-->
@@ -13,33 +12,13 @@
 
 <link rel="icon" href="{{env('APP_STORAGE')}}images/abuja_apa_log.png" />
 
-<script type="application/javascript" async src="{{env('APP_URL')}}js/jquery.min.js"></script>
-<script type="application/javascript" async src="{{env('APP_URL')}}js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css') }}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/font-awesome.min.css')}}"/>
 
-<link rel="stylesheet" type="text/css" media="all" href="{{env('APP_URL')}}css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome.min.css')}}"/>
-
-<script type="application/javascript" src="{{env('APP_URL')}}js/tinymce/tinymce.min.js"></script>
-
-<script type='text/javascript'>
-tinymce.init({
-    selector:  '.tinymce',
-	content_css : "css/bootstrap.min.css",
-	relative_urls: false,
-    plugins: [
-        'advlist autolink lists link image charmap print preview anchor hr pagebreak', 
-        'searchreplace visualblocks code fullscreen',
-        'insertdatetime media table contextmenu jbimages',
-		'emoticons template paste textcolor'
-    ],
-    toolbar: 'insertfile undo redo | styleselect | bold italic | forecolor backcolor emoticons | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image |  jbimages |print preview media',    
-});
-</script>
-
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/custom_checkbox.css"/>
-<link rel="stylesheet" href="{{env('APP_URL')}}css/lightbox.css" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/styles_frontpage.css"/>
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/share.css"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/custom_checkbox.css')}}"/>
+<link rel="stylesheet" href="{{ asset('css/lightbox.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/share.css')}}"/>
 
 
 </head>

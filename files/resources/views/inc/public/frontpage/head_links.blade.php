@@ -11,32 +11,33 @@
 <meta property="og:description" content="Abuja Apartments is an online Real Estate platform that aims to make it easy for anybody within Abuja environs to easily have access to houses either for rent or for sale. " />
 <title>Abuja Apartments</title>
 
-<link rel="icon" href="{{env('APP_STORAGE')}}images/abuja_apa_log.png" />
+<link rel="icon" href="{{ asset('images/symbol.png') }}" />
 
-<script type="application/javascript" async src="{{env('APP_URL')}}js/jquery.min.js"></script>
-<script type="application/javascript" async src="{{env('APP_URL')}}js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" media="all" href="{{env('APP_URL')}}css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome.min.css')}}"/>
 
-<script type="application/javascript" src="{{env('APP_URL')}}js/tinymce/tinymce.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css')}}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome-all.min.css')}}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/ionicon.css')}}"/>
 
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/custom_checkbox.css"/>
-<link rel="stylesheet" href="{{env('APP_URL')}}css/lightbox.css" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/styles_frontpage.css"/>
-<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}css/share.css"/>
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/custom_checkbox.css')}}"/>
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}"/>
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/> --}}
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/share.css')}}"/>
 
 
 
 <style type="text/css">
-.content {
+/* .content {
 	background-color: #FFFFFF;
 	min-height: 800px;
 	border-top-left-radius: 10px 10px;
 	border-bottom-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	border-bottom-right-radius: 10px 10px;
-}
+} */
 #realtor-details table td {
 	padding-bottom: 1em;
 }

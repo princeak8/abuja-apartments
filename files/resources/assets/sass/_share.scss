@@ -1,0 +1,27 @@
+.share {
+    display: flex; justify-content: center;margin-bottom: 10px;
+    a {
+        border-radius: 20px;font-family: $archivo;
+        i {
+            font-size: 1.1em;
+        }
+        &:hover {
+            opacity: .7;
+        }
+    }
+    a.soc_fb {
+        background: rgba(11, 58, 139, 1.00);font-size: .8em;padding: 2px 2%;
+    }
+
+    a.soc_tw {
+        background-color: rgba(5, 175, 203, 1.00);font-size: .8em;padding: 2px 2%;
+    }
+
+    a.soc_wh {
+        background-color: rgba(3, 132, 90, 1.00);font-size: .8em;padding: 2px 2%;
+    }
+
+    a.soc_g {
+        background-color: rgba(188, 70, 9, 1.00);font-size: .8em;padding: 2px 2%;
+    }
+}

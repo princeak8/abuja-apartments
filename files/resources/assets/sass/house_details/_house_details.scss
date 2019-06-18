@@ -1,0 +1,187 @@
+.profile {
+    border-radius: $border-radius-big; overflow: hidden;box-shadow: $shadow;font-family:$archivo;
+    // font-family: $oswald; font-weight: 100;
+    &__heading {
+        @include background-color();
+        &__title {
+            color: white; padding: 1%;text-align: center;
+        }
+    }
+    &__body {
+        &__img {
+            width: 100%;height:90px;
+        }
+        &__heading {
+            &__title {
+                font-size: 1em;color: $brand-color-darker;
+            }
+            &__subtitle {
+                font-size: .9em; color: rgb(163, 163, 163);padding-bottom: 10px;_border: 1px solid red;
+                line-height: 14px;
+            }
+            &__verification {
+                font-size: .8em; padding: 6px 0px; font-family: $oswald; font-weight: 100;
+                span { border-radius: 12px; padding: 1px 3%; margin-right: 10px;}
+                span.verify { color: green;border: 1px solid green; }
+                span.not_verify { color: red; border: 1px solid red;}
+                a {
+                    @include background-color(); color: white; border-radius: 12px; padding: 1px 5%;
+                    transition: all 1s ease-out;
+                    &:hover {
+                        color: $brand-color-darker; background: white; border: 1px solid $brand-color-darker;
+                    }
+                }
+            }
+            
+        }
+        &__contact {
+            color: rgb(51, 50, 50); padding: 0px 30px;font-family: $archivo;
+            p {
+                i{ color: $brand-color-lighter; padding-right: 5px; font-size: .9em;}
+                font-size: 1em; 
+            }
+        }
+    }
+}
+
+.vhouse_details {
+    box-shadow: $shadow; border-radius:$border-radius-big;
+    &__estate_title {
+        font-size: 1.5em;margin: 0px;font-family: $oswald;
+        a {
+            color: $brand-color-darker;
+        }
+    }
+    &__house_title {
+        font-family: $oswald; color: rgb(98, 98, 98); font-weight: 300;font-size: 1.3em;
+    }
+    &__second_header {
+        display: flex;@include background-color();color: white; text-align: center;
+        padding: 5px 0px;font-family: $oswald; margin-bottom: 10px;
+    }
+
+    &__img_cont {
+        #full-images {
+            position:relative; min-height:340px;
+        }
+        #full-images img {
+            width: 100%;height: 100%;z-index: 0;position: absolute;left: 0px;top: 0px;
+        }
+    }
+    &__thumb {
+        padding: 10px 6px; 
+        ul {
+            margin: 0px;padding: 0px; width: 100%;display: flex; flex-direction: row; flex-wrap: wrap;
+            li {
+                .thumb {
+                    width: 130px; height: 120px;padding: 5px; cursor: pointer;
+                    img{ width: 100%; height: 100%; border-radius: 5px;}
+                }
+                list-style: none;
+            }
+        }
+    }
+
+    &__info {
+        _border-radius: 12px;font-family: $oswald;@include background-color();color: white;margin-bottom: 10px;
+        &__heading {
+            font-size: 1.2em; text-align: center;_background: white;padding: 5px 0px; color: rgb(97, 97, 97);color: white;
+        }
+        &__location {
+            @include background-color(); display: flex;padding: 5px 0px; flex-direction: row;color: white;
+            div{ flex: 1; text-align: center; }
+        }
+
+        &__description {
+            &__1 {
+                text-align: center; font-weight: 300;border-bottom: 1px solid rgb(167, 167, 167);
+                &:first-child {border-top: 1px solid rgb(167, 167, 167);}
+                .row div{
+                    border-right: 1px solid rgb(167, 167, 167);padding: 10px 0px;
+                    &:last-child{ border-right: none;}
+                    span {display: block;}
+                }
+            }
+            &__facilities {
+                width: 100%;
+                h4 {
+                    @include background-color();font-size: 1.2em; text-align: center;padding: 6px 0px; font-weight: 300;
+                }
+                div {
+                   font-size: .9em; font-weight: 300; padding:0px 2%;
+                   p {
+                       margin: 5px;
+                   }
+                }
+            }
+        }
+        &__fee {
+            padding: 10px 0px;
+            ul {
+                display: flex;font-weight: 300; font-size: 1em;
+                li {
+                    list-style: none; text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.similar {
+    box-shadow: $shadow;border-radius: $border-radius-big;overflow: hidden;font-family:$oswald;
+    font-weight: 300;
+    &__heading {
+        @include background-color();
+        &__title {
+            color: white; padding: 1%;text-align: center;
+        }
+    }
+    &__body {
+        padding: 0px 10%;padding-top: 10px;
+        &__house {
+            position: relative;
+            border-radius: 10px;overflow: hidden; margin-bottom: 16px;box-shadow: $shadow;
+            .cover {
+                position: absolute; width: 0%; @include background-color();top: 0;
+                height: 100%;z-index: -1;border-radius: 0px 0px 8px 8px;transition: width .4s ease-in;
+            }
+            &__img {
+                width: 100%;height: 100%;overflow: hidden;
+                img { width: 100%; height: 100%; border-radius: 10px;}
+            }
+            &__details {
+                padding-top: 8px;padding-bottom: 8px;
+                li {
+                    list-style: none;color:rgb(83, 83, 83); 
+                    &:first-child {
+                        font-size: .95em;
+                    }
+                    &:nth-child(2) {
+                        font-size: .8em;opacity: .7;font-weight: 400;
+                    }
+                    &:nth-child(3) {
+                        font-size: .8em;opacity: .9;
+                    }
+                    &:nth-child(4) {
+                        @include background-color();color: white;font-size: .9em;
+                        border-radius: 12px 0px 12px 0px; padding: 3px 10px;margin-top:5px;
+                        text-align: center;box-shadow: $shadow;
+                    }
+                    span {
+                        padding-left: 5px;font-size: .9em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.disclaimer {
+    padding: 0px 20px; font-family: $archivo;margin-top: 16px;
+    h4 {
+        _color: white;_padding-left: 10px; text-align: center;
+    }
+    p{
+        
+    }
+}

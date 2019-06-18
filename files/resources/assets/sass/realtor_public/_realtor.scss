@@ -1,0 +1,84 @@
+.realtor_top {
+    &__img {
+        a {
+            width: 100%; height: 100%;
+           img{
+                width: 100%; height: 100%;_border-radius: 20px;_box-shadow: $shadow;
+            } 
+        }
+    }
+    &__details {
+        &__title {
+            text-align: center;font-size: 1.4em; font-family: $archivo;line-height: 20px;
+            span {
+                color: grey; font-size: .9em; _padding-left: 5px;
+            }
+        }
+        &__subtitle {
+            padding: 0px;
+            .share {
+                margin-bottom: 0px;
+            }
+            a {color: white; margin:0px 2px;}   
+        }
+        &__follow {
+            display: flex;font-family: $archivo;font-size: .9em;
+            .btn {
+                border-radius: 20px;font-size: .9em;margin-right: 10px;
+            }
+        }
+    }
+}
+.r_estate {
+    &__container {
+        .cover{
+            @include background-color(); color: white; font-family: $yanone;border-radius: 10px;overflow: hidden; font-size: 1em;
+            box-shadow: $shadow;
+        }
+        &__img {
+            width: 100%; height: 150px;
+            img { width: 100%; height: 100%;}
+        }
+        &__description {
+            padding: 10px 10px;
+            p {
+                i{font-size: .7em; padding-right: 4px;}
+            }
+        }
+    }
+}
+.rinfo_public {
+    box-shadow: $shadow;border-radius: 10px;font-family: $archivo;overflow: hidden;
+    &__cover {
+        padding: 2% 5%;
+        &__1st{
+            color:$brand-color-darker;font-size: 1.4em;
+        }
+        &__2nd {
+            font-size: 1.2em;color: grey;padding: 2px 0px 10px 0px;
+        }
+        &__3rd {
+            font-size: .9em;
+            span{ border-radius: 20px; padding: 2px 15px; }
+            span.verified { 
+                color: green; border: 1px solid green;
+            }
+            span.not_verified {
+                color: red; border: 1px solid red;
+            }
+        }
+        &__4th, &__5th, &__6th {
+            font-size: 1em; color: rgb(61, 66, 70); line-height: 25px;
+            i{ font-size: .9em; color: $brand-color-lighter; padding-right: 5px;}
+        }
+    }
+    &__fh {
+        
+        &__f {
+            @include background-color(); color: white;text-align: center;border-right: 1px solid white;
+        }
+        &__h {
+            @include background-color(); color: white;text-align: center; border-left: 1px solid white;
+        }
+    }
+}

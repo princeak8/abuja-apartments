@@ -1,4 +1,4 @@
-const { mix } = require('laravel-mix');
+const { mix } = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,12 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix
+  // .js("resources/assets/js/app.js", "js")
+  .sass("resources/assets/sass/app.scss", "../../css")
+  .sass("resources/assets/sass/realtor.scss", "../../css/realtor");
+
+mix.browserSync({
+   proxy: 'localhost/abuja-apartments',
+   files: ["../css/app.css", "../css/realtor/realtor.css"]
+});

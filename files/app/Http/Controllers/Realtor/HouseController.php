@@ -33,14 +33,17 @@ class HouseController extends Controller
 
 	public function houses()
 	{
+		$locations = Location::all();
+		$house_types = House_type::all();
+
 		$realtor = Realtor::find(Auth::user()->id);
 		//$availableHouses = House::with([$realtor->AllMyhouses])->where('available', '1');
 		//var_dump($availableHouses)
 		$requests = $realtor->sent_share_requests->count() + $realtor->share_requests->count() + $realtor->sent_requests()->count() + $realtor->circle_requests()->count();
 		if(Auth::user()->type=='company') {
-			return view('realtor/index_company', compact('realtor'));
+			return view('realtor/index_company', compact('realtor','locations','house_types'));
 		}else{
-			return view('realtor/index_agent', compact('realtor'));
+			return view('realtor/index_agent', compact('realtor','locations','house_types'));
 		}
 	}
 

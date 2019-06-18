@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 30, 2019 at 11:08 PM
+-- Generation Time: Jun 03, 2019 at 09:53 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.1.16
 
@@ -33,13 +33,17 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(10) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `displayname` varchar(255) NOT NULL,
-  `accesslevel` int(11) NOT NULL,
+  `accesslevel` tinyint(1) NOT NULL DEFAULT '2',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `password_recovery_code` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(255) DEFAULT NULL,
   `blocked` tinyint(1) NOT NULL DEFAULT '0',
   `blocked_reason` varchar(255) DEFAULT NULL,
+  `logged_in` tinyint(1) NOT NULL DEFAULT '0',
+  `toggle_login_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
@@ -47,9 +51,51 @@ CREATE TABLE IF NOT EXISTS `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `username`, `password`, `displayname`, `accesslevel`, `created_at`, `updated_at`, `password_recovery_code`, `blocked`, `blocked_reason`) VALUES
-(5, 'akalo', '$2y$10$566AwmEgSHOegfT21Y11SO6PmqOxzR9AiU4UFwuT1lFSbtg4EL6jm', 'Prince AK', 1, '2017-05-05 02:16:38', '2018-05-17 13:31:06', NULL, 0, ''),
-(6, 'peter', '$2y$10$oez/fmkMrLMfKko/utOzKOT8S7kCNpAP2gvjgw5Y.GQ26wcRLwvXW', 'Peter', 2, '2017-10-06 21:09:29', '2018-05-17 13:31:06', NULL, 0, NULL);
+INSERT INTO `admins` (`id`, `username`, `password`, `email`, `displayname`, `accesslevel`, `created_at`, `updated_at`, `password_recovery_code`, `remember_token`, `blocked`, `blocked_reason`, `logged_in`, `toggle_login_at`) VALUES
+(5, 'akalo', '$2y$10$566AwmEgSHOegfT21Y11SO6PmqOxzR9AiU4UFwuT1lFSbtg4EL6jm', 'akalodave@gmail.com', 'Prince AK', 1, '2017-05-05 02:16:38', '2019-06-03 19:42:04', NULL, 'oscDpxXPP0gk8AHpmwT36yaRunUmRiMcmPrl38QUnaK6BFGanvdOgFD0Zo0c', 0, '', 1, '2019-06-03 19:42:04'),
+(6, 'peter', '$2y$10$oez/fmkMrLMfKko/utOzKOT8S7kCNpAP2gvjgw5Y.GQ26wcRLwvXW', '', 'Peter', 2, '2017-10-06 21:09:29', '2018-05-17 13:31:06', NULL, NULL, 0, NULL, 0, '2019-03-18 13:11:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_accesslevels`
+--
+
+DROP TABLE IF EXISTS `admin_accesslevels`;
+CREATE TABLE IF NOT EXISTS `admin_accesslevels` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `level` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_accesslevels`
+--
+
+INSERT INTO `admin_accesslevels` (`id`, `title`, `level`, `created_at`, `updated_at`) VALUES
+(1, 'Super Admin', 1, '2019-03-09 14:51:08', '2019-03-09 14:51:08'),
+(2, 'Admin', 2, '2019-03-09 14:51:08', '2019-03-09 14:51:08'),
+(3, 'manager', 3, '2019-03-09 14:51:08', '2019-03-09 14:51:08'),
+(4, 'advertiser', 4, '2019-03-09 14:51:08', '2019-03-09 14:51:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_activity_log`
+--
+
+DROP TABLE IF EXISTS `admin_activity_log`;
+CREATE TABLE IF NOT EXISTS `admin_activity_log` (
+  `id` bigint(255) NOT NULL AUTO_INCREMENT,
+  `admin_id` bigint(255) NOT NULL,
+  `action` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -82,14 +128,15 @@ CREATE TABLE IF NOT EXISTS `circles` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `circles`
 --
 
 INSERT INTO `circles` (`id`, `user_one`, `user_two`, `status`, `action_user`, `created_at`, `updated_at`) VALUES
-(8, 5, 29, 1, 29, '2018-12-25 05:04:39', '2019-01-03 07:03:22');
+(8, 5, 29, 1, 29, '2018-12-25 05:04:39', '2019-01-03 07:03:22'),
+(13, 5, 42, 0, 5, '2019-03-08 13:59:46', '2019-03-08 13:59:46');
 
 -- --------------------------------------------------------
 
@@ -106,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `circle_records` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `circle_records`
@@ -114,7 +161,8 @@ CREATE TABLE IF NOT EXISTS `circle_records` (
 
 INSERT INTO `circle_records` (`id`, `user_one`, `user_two`, `action`, `created_at`, `updated_at`) VALUES
 (9, 29, 5, 1, '2019-01-03 07:05:38', '2019-01-03 07:05:38'),
-(8, 5, 29, 0, '2018-12-25 05:04:39', '2018-12-25 05:04:39');
+(8, 5, 29, 0, '2018-12-25 05:04:39', '2018-12-25 05:04:39'),
+(14, 5, 42, 0, '2019-03-08 13:59:46', '2019-03-08 13:59:46');
 
 -- --------------------------------------------------------
 
@@ -755,7 +803,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `related_id` bigint(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `received_at` int(255) DEFAULT NULL,
-  `read` tinyint(1) NOT NULL DEFAULT '0',
+  `unread` tinyint(1) NOT NULL DEFAULT '1',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -764,7 +812,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`id`, `sender_id`, `name`, `phone`, `email`, `receiver_id`, `title`, `message`, `related`, `related_id`, `created_at`, `received_at`, `read`, `updated_at`) VALUES
+INSERT INTO `messages` (`id`, `sender_id`, `name`, `phone`, `email`, `receiver_id`, `title`, `message`, `related`, `related_id`, `created_at`, `received_at`, `unread`, `updated_at`) VALUES
 (1, 5, NULL, NULL, NULL, 53, NULL, 'I like this house', 'house', 100, '2018-11-14 10:58:34', NULL, 0, '2018-11-14 10:58:34');
 
 -- --------------------------------------------------------
@@ -1115,68 +1163,73 @@ CREATE TABLE IF NOT EXISTS `realtors` (
   `biz_name` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
-  `profile_name` varchar(255) DEFAULT NULL,
+  `profile_name` varchar(255) NOT NULL,
   `profile_photo` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `type` varchar(20) DEFAULT NULL,
   `parent_id` int(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `about` text,
   `twitter` varchar(255) DEFAULT NULL,
   `sec_question` varchar(255) DEFAULT NULL,
   `sec_answer` varchar(255) DEFAULT NULL,
   `pin` varchar(10) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
   `created` int(255) DEFAULT NULL,
-  `activated` tinyint(1) NOT NULL DEFAULT '1',
+  `activated` tinyint(1) NOT NULL DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `email_confirmation` varchar(255) NOT NULL DEFAULT '1',
   `visible` int(1) DEFAULT '1',
   `blocked` tinyint(1) DEFAULT '0',
   `blocked_reason` varchar(255) DEFAULT NULL,
+  `logged_in` tinyint(1) NOT NULL DEFAULT '0',
+  `toggle_login_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `remember_token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `realtor_id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `realtors`
 --
 
-INSERT INTO `realtors` (`id`, `biz_name`, `firstname`, `lastname`, `profile_name`, `profile_photo`, `password`, `type`, `parent_id`, `address`, `email`, `twitter`, `sec_question`, `sec_answer`, `pin`, `website`, `created`, `activated`, `verified`, `email_confirmation`, `visible`, `blocked`, `blocked_reason`, `created_at`, `updated_at`, `remember_token`) VALUES
-(5, 'derek', 'Derek', 'Halims', 'derek', '5.jpg', '$2y$10$bpbxe3a4wwRUPeDbvHKf4eolffIvuJlpGO5c4dR7VlSSNAmJ2PvwC', 'agent', 0, NULL, 'derekhalims@gmail.com', NULL, 'Whats your nickname', 'derek', NULL, NULL, 1489787851, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', 'xe7us4FafUX8H2cGv4YeLD9BGkf7u1298SEk4cfujOts7XYYIL2y9LbaelRH'),
-(6, 'Adron homes', 'Ajirotutu', 'Folashade', 'Bidemite', '6.jpg', '', 'agent', 0, NULL, 'Shadebidemi@gmail.com', NULL, 'My name', 'Shade', 'D8C29B5C', NULL, 149150435, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(7, 'ADRON HOMES', 'JOSADE', 'ADEKUNLE', 'Jobanty', '7.jpg', '', 'agent', 0, NULL, 'herdey4u@gmail.com', NULL, 'my pet', 'lion', '', NULL, 1491600129, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(29, NULL, 'Akachukwu', 'Aneke', 'Princeak', '29.jpg', '$2y$10$KRF3JH2qI9VTzDq4PtEtD.KI8PM4LhHsnZhFdVpDpM3aPqZ/.AkI6', 'agent', 0, '8 Charles Street Maitama Abuja', 'akalodave@gmail.com', 'daprinceak', 'My Favorite Color', 'Blue', '', NULL, 1492272068, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(30, 'Emmy', 'Nnaemeka', 'Okoli', 'popsy', '30.jpg', '$2y$10$A7tSM5yTt4yNxHAnAjeEMexCpMM00Hdw2V5ajLFzkX22IlR5EQqja', 'agent', 0, '12 Adikpo Close 313 Road, FHA Kubwa', 'akalojob@gmail.com', NULL, 'my Nickname', 'Popsy', '', NULL, 1492365317, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(34, 'hasadiq', 'abubakar sadiq', 'halilulah', 'abubakarsadiqhalilulah', '34.jpg', '$2y$10$4cadFyLgaz5zaNSivi2Li.hTMzrEE0tHu7hZ986K5hTa2Ws3K8.z6', 'agent', 0, 'NO. 43B 3rd avenue junction, Gwarinpa, Abuja', 'hasadiq42009@yahoo.com', NULL, 'what is my name', 'sadiq', '', NULL, 1493291978, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(35, 'RealestNigeria', 'Emeka', 'Emeghebo', 'RealestNigeria', '35.jpg', '$2y$10$6MfUSQNz3/Pe1bObhcLpxezwq9JA3dw1IhhavfXm/dx9ntangl7Si', 'agent', 0, 'Behind Sabongari Police Station, Bwari Abuja', 'emesonreigns@gmail.com', NULL, 'Mother\'s Name? ', 'Grace', '', NULL, 1493662836, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(36, '', 'Okoli', 'Nnaemeka', 'Hexane', '36.jpg', '$2y$10$jzUbxu1yYdM0uzukf0LPhO4BNJxb4AwyQ.LVkF63E5IOI6q2G66YS', 'agent', 0, '29/11B Abakaliki Road', 'okolinnaemeka227@gmail.com', NULL, 'My nickname', 'Kacey', '', NULL, 1493921388, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(40, 'NATURE PROPERTIES', 'NAATURE PROPERTIES', NULL, 'NATURE', NULL, '$2y$10$hleNHnWPo9Ph7gHyFEmmFebYNs6U0ZoyV11Hema72npRKm8Obnlfu', 'company', 0, 'Abuja', 'naturesystemsnigeria@gmail.com', NULL, NULL, NULL, NULL, NULL, 1496614804, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(41, 'Pirotti Projects Limited', NULL, NULL, 'PALMS', NULL, '$2y$10$IbhcRFUFBy/dJYgQnrz2JuONhoidDgSqAEAp6W898D1OFy/OuKLjS', 'company', 0, NULL, 'femiadebodun@gmail.com', NULL, NULL, NULL, NULL, NULL, 1497443922, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(42, 'A&G Estate Development', NULL, NULL, 'A&G', 'AGLogo.jpg', '$2y$10$aIaeitep2wfT5hJYaB1NsekyDi0kM6aYPNQl1x.Osum4rZtJNlaMS', 'company', 0, NULL, 'agestatedev@gmail.com', NULL, NULL, NULL, NULL, NULL, 1497508093, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(43, 'ajebutter estate ltd', NULL, NULL, 'ajebo', NULL, '$2y$10$YWKS6LSeqEGEOdmqkmyCBOsxAieZW8ovSv8ibtjPTNdv9hsWM19Am', 'company', 0, NULL, 'ajebo@gmail.com', NULL, NULL, NULL, NULL, NULL, 1497631087, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(45, 'Goldspot', 'Goldie', 'Ellanor', 'goldie', NULL, '$2y$10$GTPXeDMfxWoOE01lZwggfeYDOlY7a2xteBVaCkS43W.OdR9VE1q/C', 'agent', 0, NULL, 'goldie@gmail.com', NULL, NULL, NULL, NULL, NULL, 1497633657, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(47, 'Alex Innovations', NULL, NULL, 'Alexinnovate', NULL, '$2y$10$7EtXnxet8jMnD1GTbjWqwuAKeat3TldUR84VDQEZNcEeIPDT03E/W', 'company', 0, NULL, 'emmyalexjnr@gmail.com', NULL, NULL, NULL, NULL, NULL, 1497797509, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(48, '', 'BLESSING', 'EKELEME', 'BLESSING', NULL, '$2y$10$7.n96v6cgfsOHBZ6jzqop.N3bWsIsxfSZb9sS0hRaIt7Hjov8u/6e', 'agent', 0, NULL, 'blessing.obike@yahoo.com', NULL, NULL, NULL, NULL, NULL, 1498129843, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(49, 'CNE Graphics Studio', 'Chuks', 'Ezeilo', 'CNE', 'images.jpg', '$2y$10$lV3ychCusGZHYYWAvkFvu.iSEVIu0mfm249amU3dAQovsTgLeZ2sK', 'agent', 0, NULL, 'chuksezeilo@gmail.com', NULL, NULL, NULL, NULL, NULL, 1498137890, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(50, 'PLACES WITH SPACES PROPERTY CONSULTANCY', NULL, NULL, 'CONCEPT', 'IMG_20161113_083747.jpg', '$2y$10$mMy3f7BEjOOeS4pDsIXvPun4S5awQlifuauoPbRePhYmWQpnFHt8e', 'company', 0, NULL, 'chukzyconcept@gmail.com', NULL, NULL, NULL, NULL, NULL, 1498166073, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(51, 'Larrykes', 'Larrykes', 'LarrykesGB', 'Larrykes', NULL, '$2y$10$wMuomDNM2O2JcMXIFgyLaeFzmF2ksXMBpWEjRPJoEy7MW10o5CrUi', 'agent', 0, NULL, 'ti.ne.d.o.l@artquery.info', NULL, NULL, NULL, NULL, NULL, 1500920893, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(52, 'Chinelo Okeke building service', 'Chinelo', 'Okeke', 'Sweetestchi', NULL, '$2y$10$qIv6eX/jjMeCRwtasxCli.NE7axi3gVRaZRDe0ih4N9cqTsKmmz06', 'agent', 0, NULL, 'lovelyanyanwuchi@yahoo.com', NULL, NULL, NULL, NULL, NULL, 1501748113, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(53, 'Prometheus Solutions', NULL, NULL, 'Abubakar', 'WORK.jpg', '$2y$10$cklwPOd3SsZ5Y1XIV.PNq.I3LYMiFosai1EJHJGr2bvm3jc/aWX.u', 'company', 0, 'Suite D86/90, Efab Shopping Mall, Area 11, Garki-Abuja', 'prometheussolutions1@gmail.com', NULL, NULL, NULL, NULL, NULL, 1502711943, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(54, '', 'Usman', 'Danjuma', 'UsmanA', NULL, '$2y$10$XXmZzxBa65zJTUTHDrl0y.fcUY3jshD5Pd8KuSYEX3oQ2L3If9r2q', 'agent', 0, NULL, 'u.abdanj@gmail.com', NULL, NULL, NULL, NULL, NULL, 1504077903, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(55, '', 'Idiege', 'Titus', 'Honesty', 'IMG_20170705_101652.jpg', '$2y$10$sDz.HGDa7q/cf2xWrhilNe.vCGbE96xhYYrP8mYL5u5Dtxe3tWoZS', 'agent', 0, NULL, 'proftesco931@gmail.com', NULL, NULL, NULL, NULL, NULL, 1504122167, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(56, '', 'Abdussalam ', 'Farouk ', 'Abdussalamf', NULL, '$2y$10$7ep5Y2ZbLoBYkKyg0IXH9OUfIJ5Xk38NqMkeBwKmekwpElPdHUuZ2', 'agent', 0, NULL, 'abdulaminu001@yahoo.com', NULL, NULL, NULL, NULL, NULL, 1504510977, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(58, 'Sylva Property ', 'Sylvanus ', 'Ingwu', 'SylvaRose', NULL, '$2y$10$qK6vkabtMEPv.fhA0C4ufeUWQZk5OSEmQ1qY.AijcoLGBqYMrmVyy', 'agent', 0, NULL, 'sylvarose11@gmail.com', NULL, NULL, NULL, NULL, NULL, 1505385707, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(59, 'John John Estate management/Developer', 'Okere', 'James Onyewuchi ', 'JohnJohnEstateManagement/Developer', NULL, '$2y$10$iW3uwm5uD8SjYkrgjKGFCu4LPuQM3GrlIZ2XRPnW3BZwCvM1Os.Oq', 'agent', 0, NULL, 'jamesonyewuchiokere@gmail.com', NULL, NULL, NULL, NULL, NULL, 1506442902, 1, 1, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(60, 'Manuelgog', 'Manuelgog', 'ManuelgogOR', 'Manuelgog', NULL, '$2y$10$nGgAwbKrJuy8I.wZlNtIOemAQyiWsmoQflD9jp6aL8efiseF379hy', 'agent', 0, NULL, 'manueladova@mail.ru', NULL, NULL, NULL, NULL, NULL, 1506745862, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(61, 'IHM Regency', NULL, NULL, 'IHM', NULL, '$2y$10$0F6OBPw/XWo2pJXYOstqNeJzsMOGktOdZvDoXH4IaYKoy2rFxyEWy', 'company', 0, NULL, 'akaloforex@gmail.com', NULL, NULL, NULL, NULL, NULL, 1506882752, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(62, 'ViboPoope', 'ViboPoope', 'Carter ', 'ViboPoope', NULL, '$2y$10$VdwjV2LkI1WAdoj0HCPPkOkJrPGaoueimxKA7.hdWe5P4bFQ1LhYC', 'agent', 0, NULL, 'qiewo4p@1syn.info', NULL, NULL, NULL, NULL, NULL, 1507288785, 1, 0, '1', 0, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(63, 'Doveland Properties ', 'Isaac ', 'Anthony ', 'DovelandProperties', NULL, '$2y$10$afn7US4pV7J2lrIom/NbtOZuA9yN3igYLLrqgFxn.ddhIHLY2sy7m', 'agent', 0, NULL, 'isaacitodo1@gmail.com', NULL, NULL, NULL, NULL, NULL, 1507810820, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(64, 'MissBee', 'Beauty ', 'Ogar', 'MissBee', NULL, '$2y$10$tzBPhwVCnJpAAmJ8SxS4sO0PXR9rNQHTe3SuwxsSg09NGw.oaCSaq', 'agent', 0, NULL, 'Beautyogar72@gmail.com', NULL, NULL, NULL, NULL, NULL, 1507877758, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
-(72, 'Zizix6', 'Aegon', 'Targaryen', 'PrinceAeg', NULL, '$2y$10$etI/1OnbrcKw5gjIZLFCCeLPb7qzOOVWYRhUQKI0zhWRQwQkkVU4q', 'agent', 0, NULL, 'zizix6@gmail.com', NULL, NULL, NULL, NULL, NULL, 1517235347, 1, 0, '1', 1, 0, NULL, '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL);
+INSERT INTO `realtors` (`id`, `biz_name`, `firstname`, `lastname`, `profile_name`, `profile_photo`, `password`, `type`, `parent_id`, `address`, `email`, `about`, `twitter`, `sec_question`, `sec_answer`, `pin`, `website`, `created`, `activated`, `verified`, `email_confirmation`, `visible`, `blocked`, `blocked_reason`, `logged_in`, `toggle_login_at`, `created_at`, `updated_at`, `remember_token`) VALUES
+(5, 'derek', 'Derek', 'Halims', 'derek', '1551696561-5.jpg', '$2y$10$bpbxe3a4wwRUPeDbvHKf4eolffIvuJlpGO5c4dR7VlSSNAmJ2PvwC', 'agent', 0, NULL, 'derekhalims@gmail.com', 'My name is Derek Halims and I am the best Realtor that you can find in Abuja', NULL, 'Year of Birth', '1990', NULL, NULL, 1489787851, 1, 1, '1', 1, 0, NULL, 1, '2019-05-23 17:47:30', '2018-05-17 13:20:24', '2019-05-23 17:47:30', 'xEhVIv8vt3fMNPVMxFc72X3vp1KQHxhYGYxGC35GldlEaya2GabHf1FNtcYK'),
+(6, 'Adron homes', 'Ajirotutu', 'Folashade', 'Bidemite', '6.jpg', '', 'agent', 0, NULL, 'Shadebidemi@gmail.com', '', NULL, 'My name', 'Shade', 'D8C29B5C', NULL, 149150435, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(7, 'ADRON HOMES', 'JOSADE', 'ADEKUNLE', 'Jobanty', '7.jpg', '', 'agent', 0, NULL, 'herdey4u@gmail.com', '', NULL, 'my pet', 'lion', '', NULL, 1491600129, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(29, NULL, 'Akachukwu', 'Aneke', 'Princeak', '29.jpg', '$2y$10$KRF3JH2qI9VTzDq4PtEtD.KI8PM4LhHsnZhFdVpDpM3aPqZ/.AkI6', 'agent', 0, '8 Charles Street Maitama Abuja', 'akalodave@gmail.com', '', 'daprinceak', 'My Favorite Color', 'Blue', '', NULL, 1492272068, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(34, 'hasadiq', 'abubakar sadiq', 'halilulah', 'abubakarsadiqhalilulah', '34.jpg', '$2y$10$4cadFyLgaz5zaNSivi2Li.hTMzrEE0tHu7hZ986K5hTa2Ws3K8.z6', 'agent', 0, 'NO. 43B 3rd avenue junction, Gwarinpa, Abuja', 'hasadiq42009@yahoo.com', '', NULL, 'what is my name', 'sadiq', '', NULL, 1493291978, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(35, 'RealestNigeria', 'Emeka', 'Emeghebo', 'RealestNigeria', '35.jpg', '$2y$10$6MfUSQNz3/Pe1bObhcLpxezwq9JA3dw1IhhavfXm/dx9ntangl7Si', 'agent', 0, 'Behind Sabongari Police Station, Bwari Abuja', 'emesonreigns@gmail.com', '', NULL, 'Mother\'s Name? ', 'Grace', '', NULL, 1493662836, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(36, '', 'Okoli', 'Nnaemeka', 'Hexane', '36.jpg', '$2y$10$jzUbxu1yYdM0uzukf0LPhO4BNJxb4AwyQ.LVkF63E5IOI6q2G66YS', 'agent', 0, '29/11B Abakaliki Road', 'okolinnaemeka227@gmail.com', '', NULL, 'My nickname', 'Kacey', '', NULL, 1493921388, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(40, 'NATURE PROPERTIES', 'NAATURE PROPERTIES', NULL, 'NATURE', NULL, '$2y$10$hleNHnWPo9Ph7gHyFEmmFebYNs6U0ZoyV11Hema72npRKm8Obnlfu', 'company', 0, 'Abuja', 'naturesystemsnigeria@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1496614804, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(41, 'Pirotti Projects Limited', 'Pirotti Projects Limited', NULL, 'PALMS', NULL, '$2y$10$IbhcRFUFBy/dJYgQnrz2JuONhoidDgSqAEAp6W898D1OFy/OuKLjS', 'company', 0, NULL, 'femiadebodun@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1497443922, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(42, 'A&G Estate Development', 'A&G Estate Development Company Limited', NULL, 'A&G', 'AGLogo.jpg', '$2y$10$V6Gk9YHGHjmtGmWpjhVmMeM41bWotOhxOavrWGf38CSnMXgFCQhZW', 'company', 0, NULL, 'agestatedev@gmail.com', '', NULL, 'Year of incoporation', '2010', NULL, NULL, 1497508093, 1, 1, '1', 1, 0, NULL, 1, '2019-05-23 13:21:27', '2018-05-17 13:20:24', '2019-05-23 13:21:27', 'CGvXl2HGPilTFGrgsO7Id5VfIfvLFlwwNZvEJ0rNdn945xdbmJppdr5NObv1'),
+(43, 'ajebutter estate ltd', 'ajebo', NULL, 'ajebo', NULL, '$2y$10$YWKS6LSeqEGEOdmqkmyCBOsxAieZW8ovSv8ibtjPTNdv9hsWM19Am', 'company', 0, NULL, 'ajebo@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1497631087, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(45, 'Goldspot', 'Goldie', 'Ellanor', 'goldie', NULL, '$2y$10$GTPXeDMfxWoOE01lZwggfeYDOlY7a2xteBVaCkS43W.OdR9VE1q/C', 'agent', 0, NULL, 'goldie@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1497633657, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(47, 'Alex Innovations', 'Alex Innovations', NULL, 'Alexinnovate', NULL, '$2y$10$7EtXnxet8jMnD1GTbjWqwuAKeat3TldUR84VDQEZNcEeIPDT03E/W', 'company', 0, NULL, 'emmyalexjnr@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1497797509, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(48, '', 'BLESSING', 'EKELEME', 'BLESSING', NULL, '$2y$10$7.n96v6cgfsOHBZ6jzqop.N3bWsIsxfSZb9sS0hRaIt7Hjov8u/6e', 'agent', 0, NULL, 'blessing.obike@yahoo.com', '', NULL, NULL, NULL, NULL, NULL, 1498129843, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(49, 'CNE Graphics Studio', 'Chuks', 'Ezeilo', 'CNE', 'images.jpg', '$2y$10$lV3ychCusGZHYYWAvkFvu.iSEVIu0mfm249amU3dAQovsTgLeZ2sK', 'agent', 0, NULL, 'chuksezeilo@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1498137890, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(50, 'PLACES WITH SPACES PROPERTY CONSULTANCY', 'PLACES WITH SPACES PROPERTY CONSULTANCY', NULL, 'CONCEPT', 'IMG_20161113_083747.jpg', '$2y$10$mMy3f7BEjOOeS4pDsIXvPun4S5awQlifuauoPbRePhYmWQpnFHt8e', 'company', 0, NULL, 'chukzyconcept@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1498166073, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(51, 'Larrykes', 'Larrykes', 'LarrykesGB', 'Larrykes', NULL, '$2y$10$wMuomDNM2O2JcMXIFgyLaeFzmF2ksXMBpWEjRPJoEy7MW10o5CrUi', 'agent', 0, NULL, 'ti.ne.d.o.l@artquery.info', '', NULL, NULL, NULL, NULL, NULL, 1500920893, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(52, 'Chinelo Okeke building service', 'Chinelo', 'Okeke', 'Sweetestchi', NULL, '$2y$10$qIv6eX/jjMeCRwtasxCli.NE7axi3gVRaZRDe0ih4N9cqTsKmmz06', 'agent', 0, NULL, 'lovelyanyanwuchi@yahoo.com', '', NULL, NULL, NULL, NULL, NULL, 1501748113, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(53, 'Prometheus Solutions', 'Prometheus Solutions', NULL, 'Abubakar', 'WORK.jpg', '$2y$10$cklwPOd3SsZ5Y1XIV.PNq.I3LYMiFosai1EJHJGr2bvm3jc/aWX.u', 'company', 0, 'Suite D86/90, Efab Shopping Mall, Area 11, Garki-Abuja', 'prometheussolutions1@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1502711943, 1, 1, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(54, '', 'Usman', 'Danjuma', 'UsmanA', NULL, '$2y$10$XXmZzxBa65zJTUTHDrl0y.fcUY3jshD5Pd8KuSYEX3oQ2L3If9r2q', 'agent', 0, NULL, 'u.abdanj@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1504077903, 1, 1, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(55, '', 'Idiege', 'Titus', 'Honesty', 'IMG_20170705_101652.jpg', '$2y$10$sDz.HGDa7q/cf2xWrhilNe.vCGbE96xhYYrP8mYL5u5Dtxe3tWoZS', 'agent', 0, NULL, 'proftesco931@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1504122167, 1, 1, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(56, '', 'Abdussalam ', 'Farouk ', 'Abdussalamf', NULL, '$2y$10$7ep5Y2ZbLoBYkKyg0IXH9OUfIJ5Xk38NqMkeBwKmekwpElPdHUuZ2', 'agent', 0, NULL, 'abdulaminu001@yahoo.com', '', NULL, NULL, NULL, NULL, NULL, 1504510977, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(58, 'Sylva Property ', 'Sylvanus ', 'Ingwu', 'SylvaRose', NULL, '$2y$10$qK6vkabtMEPv.fhA0C4ufeUWQZk5OSEmQ1qY.AijcoLGBqYMrmVyy', 'agent', 0, NULL, 'sylvarose11@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1505385707, 1, 1, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(59, 'John John Estate management/Developer', 'Okere', 'James Onyewuchi ', 'JohnJohnEstateManagement/Developer', NULL, '$2y$10$iW3uwm5uD8SjYkrgjKGFCu4LPuQM3GrlIZ2XRPnW3BZwCvM1Os.Oq', 'agent', 0, NULL, 'jamesonyewuchiokere@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1506442902, 1, 1, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(60, 'Manuelgog', 'Manuelgog', 'ManuelgogOR', 'Manuelgog', NULL, '$2y$10$nGgAwbKrJuy8I.wZlNtIOemAQyiWsmoQflD9jp6aL8efiseF379hy', 'agent', 0, NULL, 'manueladova@mail.ru', '', NULL, NULL, NULL, NULL, NULL, 1506745862, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(61, 'IHM Regency', 'IHM Regency', NULL, 'IHM', NULL, '$2y$10$0F6OBPw/XWo2pJXYOstqNeJzsMOGktOdZvDoXH4IaYKoy2rFxyEWy', 'company', 0, NULL, 'akaloforex@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1506882752, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(62, 'ViboPoope', 'ViboPoope', 'Carter ', 'ViboPoope', NULL, '$2y$10$VdwjV2LkI1WAdoj0HCPPkOkJrPGaoueimxKA7.hdWe5P4bFQ1LhYC', 'agent', 0, NULL, 'qiewo4p@1syn.info', '', NULL, NULL, NULL, NULL, NULL, 1507288785, 1, 0, '1', 0, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(63, 'Doveland Properties ', 'Isaac ', 'Anthony ', 'DovelandProperties', NULL, '$2y$10$afn7US4pV7J2lrIom/NbtOZuA9yN3igYLLrqgFxn.ddhIHLY2sy7m', 'agent', 0, NULL, 'isaacitodo1@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1507810820, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(64, 'MissBee', 'Beauty ', 'Ogar', 'MissBee', NULL, '$2y$10$tzBPhwVCnJpAAmJ8SxS4sO0PXR9rNQHTe3SuwxsSg09NGw.oaCSaq', 'agent', 0, NULL, 'Beautyogar72@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1507877758, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(72, 'Zizix6', 'Aegon', 'Targaryen', 'PrinceAeg', NULL, '$2y$10$etI/1OnbrcKw5gjIZLFCCeLPb7qzOOVWYRhUQKI0zhWRQwQkkVU4q', 'agent', 0, NULL, 'zizix6@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 1517235347, 1, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2018-05-17 13:20:24', '2018-05-17 13:20:24', NULL),
+(80, NULL, 'Chukwuemeka', 'Ude', 'chuboy', NULL, '$2y$10$hDBbGuJZKRYUxINtIefql.CZCb6ne3QEOQN0MMMrCIJySP31AjjJ2', NULL, NULL, NULL, 'ugoemmyalexjnr@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2019-03-04 14:01:10', '2019-03-04 14:01:10', NULL),
+(81, NULL, 'David', 'Aneke', 'akalo', NULL, '$2y$10$Raz6WhQv6Mbqa9JwT9q6dO.kfza3kltXOzohFeLiJMhj8rHtzVRfy', NULL, NULL, NULL, 'akalojob@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '1', 1, 0, NULL, 0, '2019-03-18 12:49:17', '2019-03-04 21:07:07', '2019-03-04 21:07:07', NULL),
+(91, NULL, 'Alex', 'Briggs', 'alexbriggs', NULL, '$2y$10$9medKPa1HATSBx0dzQIcj.PPaCtZZSlEUFz3i28JXLhTk6IHlcUZq', NULL, NULL, NULL, 'alexbriggs@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, '1', 1, 0, NULL, 1, '2019-05-17 23:43:42', '2019-05-17 23:43:42', '2019-05-17 23:43:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -1259,7 +1312,7 @@ CREATE TABLE IF NOT EXISTS `realtor_phones` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `phone_id` (`id`),
   KEY `phone_id_2` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `realtor_phones`
@@ -1306,7 +1359,10 @@ INSERT INTO `realtor_phones` (`id`, `phone`, `realtor_id`, `created_at`, `update
 (62, '08063498777', 69, '2018-05-17 13:26:09', '2018-05-17 13:26:09'),
 (63, '08063498777', 70, '2018-05-17 13:26:09', '2018-05-17 13:26:09'),
 (64, '08063498777', 71, '2018-05-17 13:26:09', '2018-05-17 13:26:09'),
-(65, '08063498777', 72, '2018-05-17 13:26:09', '2018-05-17 13:26:09');
+(65, '08063498777', 72, '2018-05-17 13:26:09', '2018-05-17 13:26:09'),
+(72, '08062885920', 80, '2019-03-04 14:01:10', '2019-03-04 14:01:10'),
+(73, '07039775298', 81, '2019-03-04 21:07:07', '2019-03-04 21:07:07'),
+(79, '08077239855', 91, '2019-05-17 23:43:42', '2019-05-17 23:43:42');
 
 -- --------------------------------------------------------
 

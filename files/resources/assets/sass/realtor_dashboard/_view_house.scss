@@ -1,0 +1,154 @@
+.vhouse {
+    // border: 2px solid yellow;
+    &__left {
+        // border: 1px solid red;
+        font-family: $archivo;
+        &__pic {
+            
+            &__imgcont {
+                border-radius: 10px;overflow: hidden; box-shadow: $shadow;margin-bottom: 15px;
+                #full-images {
+                    position:relative; min-height:340px;
+                }
+                #full-images img {
+                    width: 100%;height: 100%;z-index: 0;position: absolute;left: 0px;top: 0px;
+                }
+            }
+
+            &__thumb {
+                margin-bottom: 15px;
+                &__container {
+                    border-radius: 10px;overflow: hidden;box-shadow: $shadow; padding-bottom: 10px;margin-bottom: 10px;
+                    .thumb_container {
+                        height: 160px;padding: 4% 4% 0px 4%; cursor: pointer;
+                        img{ width: 100%; height: 100%; border-radius: 8px;}
+                    }
+                    .house_title {
+                        display: flex; align-items: center;justify-content: center;padding: 5px 0px;
+                        input{ margin-right: 10px;}
+                    }
+                    .house_action {
+                        display: flex; justify-content: center;
+                        button {
+                            border-radius: 20px;margin: 0px 5px; padding: 1px 10px;font-size: .8em;
+                        }
+                    }
+                    .edit_house_form {
+                        padding: 1% 3% 0px 3%;
+                        span{
+                            justify-content: flex-end; display: flex; align-content: flex-end;
+                            button{ padding: 0px 4px;}
+                        }
+                        input{
+                            margin-bottom: 10px;
+                        }
+                        button[type='button'] {
+                            border-radius: 30px;padding: 2px 15px; margin: 0px;
+                        }
+                    }
+                }
+            }
+            .ad_photo {
+                _border: 1px solid brown;
+                button{
+                    border-radius: 30px;
+                }
+                &__form {
+                    box-shadow: $shadow; margin-top: 10px; border-radius: 10px; padding: 2% 4% 1% 4%;
+                    input{ margin-bottom: 15px; border-radius: 20px;}
+                }
+            }
+        }
+
+        &__title {
+            color: $text-color;
+            &__1 {
+
+            }
+            &__2 {
+                display: flex; flex-direction: row;
+                h5{
+                    
+                    &:first-child {
+                        flex:1;
+                    }
+                    &:nth-child(2) {
+                       flex:7;padding: 0px 1%;text-align: center;
+                    }
+                    &:last-child {
+                        display: flex;flex:1;
+                        justify-content: flex-end;
+                    }
+                    a {border-radius: 20px; padding: 2px 16px; }
+                }
+                
+            }
+            
+        }
+
+        &__detail {
+            .house_information {
+                border-radius: 10px; box-shadow: $shadow; overflow: hidden; 
+                &__title {
+                    font-size: 1.3em;text-align: center;padding: 2% 0px; color: white;@include background-color();
+                }
+                &__body {
+                    color: $text-color;
+                    ul{ 
+                        padding: 0px;margin-bottom: 0px;
+                        li {
+                            list-style: none;text-align: center; align-items: center; justify-content: center;
+                            line-height: 40px;border-top: 1px solid rgb(216, 215, 215);
+                        }
+                    }
+                    &__ls {
+                        display: flex; flex-direction: row;
+                        li{
+                            flex: 1;margin-top: 10px;
+                            span{
+                                @include background-color(); padding: 1% 30px; border-radius: 0px 20px 0px 20px; text-transform: capitalize;
+                                color: white;
+                            }
+                        }
+                    }
+                    
+                    &__fee {
+                        display: flex; flex-direction: row;
+                        li{ flex: 1;}
+                    }
+                    &__ws {
+                        li{ border-bottom: 1px solid rgb(216, 215, 215);margin-bottom: 0px; }
+                    }
+                    &__details {
+                        border-bottom: 1px solid rgb(216, 215, 215);padding: 2% 4%;
+                        &__title{
+                            text-align: center; color: $brand-success;
+                        }
+                        &__body {
+
+                        }
+                        &:last-child{border-bottom-width: 0px;}
+                    }
+                    &__status {
+                        .available{ color: $brand-success; margin: 0px;}
+                        .unavailable{ color: $brand-danger; margin: 0px; }
+                        p { text-align: center; padding: 0% 0px 2% 0px;}
+                        &__availability {
+                            display: flex;flex-direction: row;justify-content: center;
+                            button {
+                                border-radius: 0px 20px 0px 20px;padding: 3px 10px;
+                            }
+                            &__change {
+                                button {margin-right: 10px;}
+                            }
+                        }
+                    }
+                    .info_edit {
+                        a { border-radius: 0px;}
+                    }
+                }
+                
+            }
+        }
+    }
+}

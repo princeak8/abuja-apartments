@@ -81,6 +81,7 @@ class MyFunction
 			if($h->id <= 0 || $h->location_id <= 0 || $h->house_type_id <= 0) {
 				unset($houses[$key]);
 			}
+			
 		}
 		return $houses;
 	}

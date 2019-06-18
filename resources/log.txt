@@ -1,0 +1,3 @@
+Thursday 23/05/2019
+deleted show() method from realtor/photoController because it was meant for estateController
+deleted estates() method from realtor/homecontroller because it is already in estateController and not in use

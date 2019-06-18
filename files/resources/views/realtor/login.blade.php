@@ -1,63 +1,56 @@
 @extends('layouts.public', ['page'=>'view house'])
 
 @section('content')
-<div class="container-fluid bg_white login_page">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">	
-                <h4 class="panel-title"><span class="fa fa-sign-in"></span> LOGIN PAGE</h4>
-            </div>
+<div class="container-fluid login">
+    <div class="login__container col-lg-5 col-12">   	
+        <h4 class="login__container__title">
+            <span><i class="fas fa-signin"></i> LOGIN</span>
+        </h4>
 
-            <div class="panel-body">
-                 @if(request()->session()->exists('register'))
-                    <p class="alert-success">{{session('register')}} </p>
-                @endif
-                <?php //echo $request->session()->token(); ?>
-                    @include('inc.errors')
-               
-                </p>
-            	<form action="{{url('realtor/login')}}" method="POST" accept-charset="utf-8">
-            		{{ csrf_field() }}
+        <div class="login__container__body">
+                @if(request()->session()->exists('register'))
+                <p class="alert-success">{{session('register')}} </p>
+            @endif
+            <?php //echo $request->session()->token(); ?>
+            <p>
+                @include('inc.errors')
+            </p>
+            <form action="{{url('realtor/login')}}" method="POST" accept-charset="utf-8" class="login__container__body__form">
+                {{ csrf_field() }}
+                
+                <div class="login__container__body__form__input">
                     
-                    <div class="form-group col-sm-6">
-
-                        <label for="email" class="h4">Email (or Profile Name for Realtors):</label>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            <input id="email" class="form-control" type="text" name="email" placeholder="EMAIL" value="{{ old('email') }}" required />
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <label for="password" class="h4">Password:</label>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock"></i></span>
-                            <input id="password" class="form-control" type="password" name="password" placeholder="PASSWORD" required />
-                            @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
-                        </div>    
-                    </div>
+                    <input id="email" class="form-control form-control-sm" type="text" name="email" value="{{ old('email') }}" required />
+                    <label for="email">Email/Profile Name</label>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="login__container__body__form__input">
                     
-                        @if(isset($redirect)) 
-                        	<input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-                        @endif
-                    <div class="form-group col-sm-12">    
-                        <input class="form-control btn btn-info" type="submit" name="submit" value="LOGIN" />
-                    </div>
-                </form>
-                <p class="col-sm-12">
-                	<i>Not Registered yet? Register Here <a href="register.php">Individual</a>  | <a href="company_register.php">Company</a> </i>
-                    <i style="margin-left:2%">Lost Password? Get new one <a href="forgot_password.php">Here</a></i>
-                </p>
-            </div>
-
+                    <input id="password" class="form-control form-control-sm" type="password" name="password" required />
+                    <label for="password">Password</label>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif    
+                </div>
+                
+                    @if(isset($redirect)) 
+                        <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
+                    @endif
+                <div class="">    
+                    {{-- <input class="form-control btn btn-info" type="submit" name="submit" value="LOGIN" /> --}}
+                    <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <p class="">
+                <span>Sign Up <a href="register.php">Individual</a>  | <a href="company_register.php">Company</a> </span>
+                <span>Lost Password? Get new one <a href="forgot_password.php">Here</a></span>
+            </p>
         </div>
     </div>
         
