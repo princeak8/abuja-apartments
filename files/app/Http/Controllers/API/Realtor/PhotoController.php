@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
 
 use Illuminate\Http\Request;
 use Storage;
@@ -23,8 +24,17 @@ class PhotoController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
+
+		$this->unreadMessages = $this->user->unread_messages;
+		$this->circleMembers = $this->realtorBootstrap->circle_members;
+		$this->requestsCount = $this->realtorBootstrap->all_requests_count;
 	}
 
 	public function change_house_main_photo(Request $request)
@@ -40,15 +50,18 @@ class PhotoController extends Controller
 		if($housePhotoObj->save() && $housePhotoObj->id != $mainPhoto->id) { 
 			$mainPhoto->main = 0;
 			$mainPhoto->save();
-			echo 1;
+			$code = 200;
+			$message = 'House main photo changed';
+		}else{
+			$code = 500;
+			$message = 'House Photo could not be updated';
 		}
-	}
-
-	public function show($id)
-	{
-		$realtor = Realtor::find(Auth::user()->id);
-		$estate = Estate::find($id);
-		return view('realtor/estate', compact('estate', 'realtor'));
+		$response = [
+			'status_code' => $code,
+			'message'	  => $message,
+			'data'		  => []
+		];
+		return response()->json($response, $code);
 	}
 
 	public function save_house_photo(PhotoRequest $request)
@@ -97,14 +110,23 @@ class PhotoController extends Controller
 				$errors[] = $photoInput->originalName.' Image could not be uploaded';
 			}
 		}
+		$message = 'photo Added Successfully';
+		$code = 200;
 		if(!empty($errors)) {
 			$errorText = '';
 			foreach($errors as $error) {
 				$errorText .= $error.'<br/>';
 			}
 			request()->session()->flash('add-photo-error', $errorText);
+			$code = 500;
+			$message = $errorText;
 		}
-		return back();
+		$response = [
+			'status_code' => $code,
+			'message'	  => $message,
+			'data'		  => []
+		];
+		return response()->json($response, $code);
 	}
 
 	public function update_house_photo(Request $request)
@@ -141,10 +163,19 @@ class PhotoController extends Controller
 				$photoObj->photo = $filename;
 			}
 		}
+		$code = 200;
+		$message = 'Photo updated';
 		$photoObj->title = $post['photo_title'];
-		$photoObj->save();
-
-		return back();
+		if($photoObj->save()) {
+			$code = 500;
+			$message = 'Photo could not be edited';
+		}
+		$response = [
+			'status_code' => $code,
+			'message'	  => $message,
+			'data'		  => []
+		];
+		return response()->json($response, $code);
 	}
 
 	public function delete_house_photo(Request $request)
@@ -157,8 +188,18 @@ class PhotoController extends Controller
 		if($photoObj->delete()) {
 			unlink($filePath.$photo);
 			unlink($filePathThumb.$photo);
+			$code = 200;
+			$message = 'Photo deleted successfully';
+		}else{
+			$code = 500;
+			$message = 'Photo could not be deleted';
 		}
-		echo 1;
+		$response = [
+			'status_code' => $code,
+			'message'	  => $message,
+			'data'		  => []
+		];
+		return response()->json($response, $code);
 	}
 
 }

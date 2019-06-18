@@ -19,7 +19,7 @@
     @endif
     <h4> <i class="fa fa-building-o"></i> House - {{$house->title}}</h4>
     @if($house->is_shared(Auth::user()->id))
-    	<p class="green">This House was Shared by {{$realtorHouse->sharer->biz_name}}</p>
+    	<p class="green">This House was Shared by {{$realtorHouse->sharer->profile_name}}</p>
     @endif
     <div class="col-sm-7 no-padding">
     	<div class="row no-margin"> 

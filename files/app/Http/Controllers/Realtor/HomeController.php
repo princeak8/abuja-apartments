@@ -47,12 +47,6 @@ class HomeController extends Controller
 		return $this->index();
 	}
 
-	public function estates()
-	{
-		$realtor = Realtor::find(Auth::user()->id);
-		return view('realtor/estates', compact('realtor'));
-	}
-
 	public function search_realtors(Request $request)
 	{
 		$loggedInRealtor = Realtor::find(Auth::user()->id);
@@ -78,7 +72,7 @@ class HomeController extends Controller
 				}
 				$realtorArray[] = array(
 						"id" => $realtor->id,
-						"fullname" => $realtor->full_name,
+						"name" => $realtor->name,
 						"photo" => $realtor->profile_photo,
 						"circle" => $circle
 					);

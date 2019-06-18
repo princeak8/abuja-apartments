@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\HouseRequest;
@@ -26,40 +27,89 @@ class HouseController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
+
+		$this->unreadMessages = $this->user->unread_messages;
+		$this->circleMembers = $this->realtorBootstrap->circle_members;
+		$this->requestsCount = $this->realtorBootstrap->all_requests_count;
 	}
 
 	public function houses()
 	{
-		$realtor = Realtor::find(Auth::user()->id);
-		//$availableHouses = House::with([$realtor->AllMyhouses])->where('available', '1');
-		//var_dump($availableHouses)
-		$requests = $realtor->sent_share_requests->count() + $realtor->share_requests->count() + $realtor->sent_requests()->count() + $realtor->circle_requests()->count();
-		if(Auth::user()->type=='company') {
-			return view('realtor/index_company', compact('realtor'));
-		}else{
-			return view('realtor/index_agent', compact('realtor'));
-		}
+		$this->myFunction->expand_realtor_houses($this->user->Allhouses);
+		$this->myFunction->expand_realtor_houses($this->user->Unavailablehouses);
+		$this->myFunction->expand_realtor_houses($this->user->mySharedHouses);
+		$code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'photo_url'			=> env("APP_STORAGE").'images/houses/',
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function show($id)
 	{
-		$realtor = Realtor::find(Auth::user()->id);
 		$house = House::find($id);
 		if($house) {
-			$realtorHouse = Realtor_house::where('realtor_id', $realtor->id)->where('house_id', $house->id)->first();
-			return view('realtor/house', compact('realtor', 'house', 'realtorHouse'));
+			$realtorHouse = Realtor_house::where('realtor_id', $this->user->id)->where('house_id', $house->id)->first();
+			$this->myFunction->expand_house($house);
+			$house->{"is_shared"} = $house->is_shared($this->user->id);
+			$realtorHouse->{"sharer"} = $realtorHouse->sharer;
+			$code = 200;
+			$data = [
+				'user'				=> $this->user,
+				'unreadMessages'    => $this->unreadMessages,
+				'circleMembers'     => $this->circleMembers,
+				'requestsCount'     => $this->requestsCount,
+				'house'     		=> $house,
+				'realtorHouse'		=> $realtorHouse,
+				'photo_url'			=> env("APP_STORAGE").'images/houses/'.$house->id.'/'
+			];
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data
+			];
 		}else{
-			abort(404, 'House Not found');
+			$response = [
+				'status_code' 	=> $code,
+				'message'		=> "House was not found"
+			];
 		}
+		return response()->json($response, $code);
 	}
 
 	public function add()
 	{
 		$locations = Location::all();
 		$house_types = House_type::all();
-		return view('realtor/add_house', compact('locations', 'house_types'));
+		$code = 200;
+		$data = [
+			'user'			=> $this->user,
+			'unreadMessages'=> $this->unreadMessages,
+			'circleMembers' => $this->circleMembers,
+			'requestsCount' => $this->requestsCount,
+			'houseTypes'    => $house_types,
+			'locations'		=> $locations
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function save(HouseRequest $request)
@@ -126,25 +176,50 @@ class HouseController extends Controller
 						$errors[] = $photoInput->originalName.' Image could not be uploaded';
 					}
 				}
+				$code = 200;
+				$data = [
+					'user'			=> $this->user,
+					'unreadMessages'=> $this->unreadMessages,
+					'circleMembers' => $this->circleMembers,
+					'requestsCount' => $this->requestsCount,
+					'redirect'    	=> 'api/v1/realtor/house/'.$houseObj->id
+				];
 				if(!empty($errors)) {
 					$errorText = '';
 					foreach($errors as $error) {
 						$errorText .= $error.'<br/>';
 					}
-					request()->session()->flash('error', $errorText);
+					$data['error'] = $errorText;
 				}
-				return redirect('realtor/house/'.$houseObj->id); //Redirect to view the saved house
+				$response = [
+					'status_code' => $code,
+					'data'		  => $data
+				];
 			}else{ //realtor_house could not be saved
+				$code = 500;
 				$failedHouseObj = House::find($houseObj->id);
 				$failedHouseObj->delete(); // delete the uploaded house information
-				request()->session()->flash('error', 'sorry! Saving house information was not complete, please try again');
-				return back();
+				$data = [];
+				$response = [
+					'status_code' => $code,
+					'data'		  => $data,
+					'message'		=> 'sorry! Saving house information was not complete, please try again'
+				];
 			}
 		}else{
 			//if house information could not be saved
-			request()->session()->flash('error', 'sorry! House information could not be saved');
-			return back();
+			$code = 500;
+			$data = [
+				'redirect' => 'api/v1/realtor/add_house'
+			];
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data,
+				'message'		=> 'sorry! House information could not be saved'
+			];
 		}
+		
+		return response()->json($response, $code);
 	}
 
 	public function share($id)
@@ -157,6 +232,20 @@ class HouseController extends Controller
 			$mainPhoto = House_photo::where('house_id', $id)->first();
 		}
 		return view('realtor/share_house', compact('house', 'mainPhoto', 'realtor'));
+		$code = 200;
+		$data = [
+			'house'			=> $house,
+			'mainPhoto'		=> $mainPhoto,
+			'user'			=> $this->user,
+			'unreadMessages'=> $this->unreadMessages,
+			'circleMembers' => $this->circleMembers,
+			'requestsCount' => $this->requestsCount
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function share_house(ShareRequest $request)
@@ -180,13 +269,24 @@ class HouseController extends Controller
 		}
 		if(empty($errors)) {
 			request()->session()->flash('success', 'House Shared successfully');
+			$message = 'House Shared successfully';
 		}else{
+			$message = '';
 			foreach($errors as $key=>$id) {
-				$errors[$key] = Realtor::find($id)->biz_name;
+				$errors[$key] = $realtor = Realtor::find($id)->profile_name;
+				$message .= "House not shared with ".$realtor;
 			}
-			request()->session()->flash('error', $errors);
 		}
-		return back();
+		$code = 200;
+		$data = [
+			'redirect' => 'api/v1/realtor/share_house/'.$house_id
+		];
+		$response = [
+			'status_code' 	=> $code,
+			'data'			=> $data,
+			'message'		=> $message
+		];
+		return response()->json($response, $code);
 	}
 
 	public function process_share_request(Request $request)
@@ -210,15 +310,25 @@ class HouseController extends Controller
 					$realtorHouse->shared_with = $realtorHouse->shared_with + 1;
 					$realtorHouse->save();
 					$shareRequest->delete();
-					request()->session()->flash('share_success', 'House Share request accepted Successfully'); 
+					$message = 'House Share request accepted Successfully';
+					$code = 200;
 				}else{
-					request()->session()->flash('share_error', 'sorry, there was an error while trying to accept request');
+					$message = 'sorry, there was an error while trying to accept request';
+					$code = 500;
 				}
 			}else{
-				$ShareRequest->status = 0; //if the request was declined, update the status of the request
+				$ShareRequest->status = -1; //if the request was declined, update the status of the request
+				$shareRequest->save();
+				$code = 200;
+				$message = 'House Share request Declined';
 			}
 		}
-		return back();
+		$response = [
+			'status_code' 	=> $code,
+			'data'			=> [],
+			'message'		=> $message
+		];
+		return response()->json($response, $code);
 	}
 
 	public function change_house_availability(Request $request)
@@ -233,7 +343,13 @@ class HouseController extends Controller
 			$house->available = $available;
 			$house->save();
 		}
-		echo 1;
+		$code = 200;
+		$response = [
+			'status_code' 	=> $code,
+			'data'			=> [],
+			'message'		=> $message
+		];
+		return response()->json($response, $code);
 	}
 
 	public function edit($id)
@@ -241,7 +357,21 @@ class HouseController extends Controller
 		$house = House::find($id);
 		$locations = Location::all();
 		$house_types = House_type::all();
-		return view('realtor/edit_house', compact('house', 'locations', 'house_types'));
+		$code = 200;
+		$data = [
+			'house'			=> $house,
+			'houseTypes'    => $house_types,
+			'locations'		=> $locations,
+			'user'			=> $this->user,
+			'unreadMessages'=> $this->unreadMessages,
+			'circleMembers' => $this->circleMembers,
+			'requestsCount' => $this->requestsCount
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function update(HouseRequest $request)
@@ -273,28 +403,46 @@ class HouseController extends Controller
 		}
 
 		if($houseObj->save()) { //if the house information has been saved
-			request()->session()->flash('msg', 'House information saved successfully');
-			request()->session()->flash('status', 1);
+			$message = 'House information saved successfully';
 		}else{
 			//if house information could not be saved
-			request()->session()->flash('msg', 'sorry! House information could not be saved');
-			request()->session()->flash('status', 0);
+			$message = 'sorry! House information could not be saved';
 		}
-		return back();
+		$response = [
+			'status_code' 	=> $code,
+			'message'		=> $message,
+			'data'		  	=> []
+		];
+		return response()->json($response, $code);
 	}
 
 	public function delete($id)
 	{
 		$houseObj = House::find($id);
-		if($houseObj->delete()){
-			$filePath = storage_path('images/houses/'.$id.'/');
-			if(!empty($albumObj)) {
-				if($albumObj->delete()) {
-					$this->myFunction->delete_folder($filePath);
-	            }
+		if(!empty($houseObj)) {
+			if($houseObj->delete()){
+				$filePath = storage_path('images/houses/'.$id.'/');
+				$this->myFunction->delete_folder($filePath);
+				$code = 200;
+				$response = [
+					'status_code' 	=> $code,
+					'data'		  	=> []
+				];
+			}else{
+				$code = 500;
+				$response = [
+					'status_code' 	=> $code,
+					'message'		=> 'House Could not be deleted'
+				];
 			}
+		}else{
+			$code = 404;
+			$response = [
+				'status_code' 	=> $code,
+				'message'		=> 'House was not found'
+			];
 		}
-		return back();	
+		return response()->json($response, $code);
 	}
 
 }

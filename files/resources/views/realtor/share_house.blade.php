@@ -42,7 +42,7 @@
 			@endforeach
 		</p>
 	@endif
-	@if($realtor->circle->count()==0)
+	@if($realtor_circle->count()==0) 
 		<p style="font-size:12px">
 			You have no realtor in your circle<br/> Use the "Search Realtor" input to search and add
 			realtor(s) to your circle to share house with
@@ -58,20 +58,20 @@
 	       	 	</thead>
 	        	<tbody>
 		        	<?php $n = 0; ?>
-		  			@foreach($realtor->circle as $circle) <?php $n++; ?>
-		  				@if($circle->user_one==$realtor->id) 
+					@foreach($realtor_circle as $circle) <?php $n++; ?>
+						@if($circle->user_one==$realtor->id) 
 		  					<?php $friend = $circle->userTwo; ?>
 		  				@else
 		  					<?php $friend = $circle->userOne; ?>
 		  				@endif
 		  				<?php //dd($friend); ?>
-			        	<tr>
-			            	 <td class="col-sm-1">{{$n}}</td>
-			               <td class="col-sm-4">
+						<tr>
+			            	<td class="col-sm-1">{{$n}}</td>
+							<td class="col-sm-4">
 			               	   <img class="img-rounded" src="{{env('APP_STORAGE')}}images/profile_photos/{{$friend->profile_photo}}" width="90" height="80" />
 			               </td>
-			                <td>{{$friend->biz_name}}</td>
-			                <td>
+						   <td>{{$friend->biz_name}}</td>
+						   <td>
 				                @if($realtor->is_shared_with_realtor($friend->id))
 				                    	Shared
 				                @else
@@ -79,16 +79,11 @@
 				                @endif
 			                </td>
 			            </tr>
-		        	@endforeach
-	      		</tbody>
-	      	</table>
-	      	<input type="hidden" name="house_id" value="{{$house->id}}" />
-		    <input type="hidden" name="sharer_id" value="{{Auth::user()->id}}" />
-		    <button class="btn btn-warning" type="submit" name="submit" value="Share"><i class="fa fa-share"></i> Share</button>
-		{!! Form::close() !!}
+					@endforeach
 	@endif
+	
 </div>
-
+<div style="clear:both"></div>
 @endsection
 
 @section('js')

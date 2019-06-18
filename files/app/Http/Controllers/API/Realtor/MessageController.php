@@ -23,11 +23,17 @@ class MessageController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
 
 		$this->realtorBootstrap->get_circle_members();
 		$this->realtorBootstrap->get_all_requests_count();
+
+		$this->unreadMessages = $this->user->unread_messages;
+		$this->circleMembers = $this->realtorBootstrap->circle_members;
+		$this->requestsCount = $this->realtorBootstrap->all_requests_count;
 	}
     
 	public function send(Request $request)
@@ -56,22 +62,49 @@ class MessageController extends Controller
 
 	public function messages()
 	{
-		$messages = Message::orderBy('created_at', 'DESC')->get();
-		$unread_messages = Message::Unread()->get();
-		return view('realtor/messages', compact('messages', 'unread_messages'));
+		$messages = $this->user->received_messages;
+		$code = 200;
+		$data = [
+			'user'						=> $this->user,
+			'unreadMessages'         	=> $this->unreadMessages,
+			'circleMembers'     		=> $this->circleMembers,
+			'requestsCount'       		=> $this->requestsCount,
+			'messages'     				=> $messages
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function message($id)
 	{
 		$message = Message::find($id);
-		if(!empty($message)) {
+		if(!empty($message) && $message->receiver_id == $this->user->id) {
+			//message not empty and loggedIn User is the intended receiver
 			$message->unread = 0;
 			$message->save();
-			return view('admin/message', compact('message'));
+			$code = 200;
+			$data = [
+				'message'     		=> $message,
+				'user'				=> $this->user,
+				'unreadMessages'    => $this->unreadMessages,
+				'circleMembers'     => $this->circleMembers,
+				'requestsCount'     => $this->requestsCount
+			];
 		}else{
-			return redirect('realtor/messages');
+			$code = 404;
+			$data = [
+				'redirect' => 'api/v1/realtor/messages'
+			];
 		}
 		
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function mark_read(Request $request)
@@ -121,13 +154,23 @@ class MessageController extends Controller
 			DB::beginTransaction();
 			try{
 				$deleted = $messageObj->delete();
-	            DB::commit();
+				DB::commit();
+				$code = 200;
+				$data = [];
+				$response = [
+					'status_code' => $code,
+					'data'		  => $data
+				];
 	        } catch (\Exception $e) {
-    			DB::rollback();
+				DB::rollback();
+				$response = [
+					'status_code' 		=> $code,
+					'message'		  	=> "Message could not be deleted"
+				];
 	        }
 		}
-
-		return back();
+		
+		return response()->json($response, $code);
 	}
 
 }

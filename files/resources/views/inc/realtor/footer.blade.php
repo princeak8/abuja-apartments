@@ -101,11 +101,12 @@
             }else{ 
               result += '<table class="col-md-6 col-md-offset-3">';
               $.each(data, function(key, val) {
+               //console.log(val);
                 result += '<tr>';
                 result += '<td>';
                 result += '<img src="{{env('APP_STORAGE')}}images/profile_photos/'+val.photo+'" width="110" height="80" />';
                 result += '</td>';
-                result += '<td><h4>'+val.fullname+'</h4></td>';
+                result += '<td><h4>'+val.name+'</h4></td>';
                 if(val.circle==0) {
                   result += '<td class="add-to-circle" data-id="'+val.id+'"><button class="btn btn-primary">Add to Circle</button></td>';
                 }else if(val.circle==2) {
@@ -138,13 +139,14 @@
           async: false, 
           error: function(xhr, textStatus, errorThrown) {
             console.log(xhr.responseText);
-            alert(xhr.responseText);
+            //alert(xhr.responseText);
           },
           success: function(data) { //alert(data);
-            if(data == 1) {
+          console.log(data);
+            if(data.code == 200) {
               thisTd.html('REQUEST SENT');
             }else{
-              $(this).html('<button class="btn btn-primary" data-id="'+val.id+'">Add to Circle</button>');
+              thisTd.html('<button class="btn btn-primary" data-id="'+id+'">Add to Circle</button>');
             }  
           }
         }) //End of ajax

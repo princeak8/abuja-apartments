@@ -3,11 +3,9 @@
 use Mail;
 use Swift_Mailer;
 
-use App\User;
-use App\UserRole;
-use App\Role;
-use App\Order;
-use App\Payment;
+use App\Realtor;
+use App\House;
+use App\Location;
 
 class MyFunction
 {
@@ -85,5 +83,43 @@ class MyFunction
 			}
 		}
 		return $houses;
+	}
+
+	public function expand_realtor_houses($realtorHouses)
+	{
+		foreach($realtorHouses as $realtorHouse) {
+			$this->expand_realtor_house($realtorHouse);
+		}
+	}
+
+	public function expand_realtor_house($realtorHouse)
+	{
+		$realtorHouse->{"house"} = $realtorHouse->house;
+		$realtorHouse->house->{"location"} = $realtorHouse->house->location->name;
+		$realtorHouse->house->{"house_type"} = $realtorHouse->house->house_type->type;
+		$realtorHouse->house->{"likes"} = $realtorHouse->house->likes;
+		$realtorHouse->{"sharer"} = $realtorHouse->sharer;
+	}
+
+	public function expand_house($house)
+	{
+		$house->{"location"} = $house->location->name;
+		$house->{"house_type"} = $house->house_type->type;
+		$house->{"house_photos"} = $house->house_photos;
+	}
+
+	public function expand_estates($estates)
+	{
+		foreach($estates as $estate) {
+			$this->expand_estate($estate);
+		}
+	}
+
+	public function expand_estate($estate)
+	{
+		$estate->{"location"} = $estate->location->name;
+		$estate->{"estate_photos"} = $estate->estate_photos;
+		$estate->{"houses"} = $estate->houses;
+		$this->expand_house($estate->house);
 	}
 }

@@ -119,7 +119,7 @@ class EstateController extends Controller
 			return redirect('realtor/estate/'.$estateObj->id); //Redirect to view the saved house
 		}else{
 			//if house information could not be saved
-			request()->session()->flash('error', 'sorry! House information could not be saved');
+			request()->session()->flash('error', 'sorry! Estate information could not be saved');
 			return back();
 		}
 	}

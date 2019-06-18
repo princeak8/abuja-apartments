@@ -52,15 +52,16 @@ class MessageController extends Controller
 
 	public function messages()
 	{
-		$messages = Message::orderBy('created_at', 'DESC')->get();
-		$unread_messages = Message::Unread()->get();
+		$messages = Auth::user()->received_messages;
+		$unread_messages = Auth::user()->unread_messages;
 		return view('realtor/messages', compact('messages', 'unread_messages'));
 	}
 
 	public function message($id)
 	{
 		$message = Message::find($id);
-		if(!empty($message)) {
+		if(!empty($message) && $message->receiver_id == Auth::user()->id) {
+			//message not empty and loggedIn User is the intended receiver
 			$message->unread = 0;
 			$message->save();
 			return view('admin/message', compact('message'));

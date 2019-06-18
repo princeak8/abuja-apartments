@@ -42,7 +42,13 @@ Route::get('index', 'API\HomeController@index');
 
 Route::get('/house/{id}', 'API\HouseController@house');
 
+Route::get('/house_types', 'API\ResourceController@house_types');
 
+Route::get('/locations', 'API\ResourceController@locations');
+
+Route::get('/price_ranges', 'API\ResourceController@price_ranges');
+
+Route::post('/search_realtor', 'API\RealtorController@search');
 
 
 // Realtor Routes
@@ -59,8 +65,36 @@ Route::post('realtor/register/company', 'API\Realtor\RegisterController@register
 
 Route::get('realtor', 'API\Realtor\HomeController@index');
 Route::get('realtor/home', 'API\Realtor\HomeController@index');
+Route::post('realtor/search_realtor', 'API\Realtor\HomeController@search_realtors');
+Route::get('realtor/requests', 'API\Realtor\HomeController@requests');
 
-Route::get('realtor/messages', 'Realtor\MessageController@messages');
+Route::get('realtor/messages', 'API\Realtor\MessageController@messages');
+
+Route::post('process_circle_request', 'API\Realtor\CircleController@process_request');
+Route::get('realtor/mycircle', 'API\Realtor\CircleController@show');
+Route::post('realtor/delete_circle', 'API\Realtor\CircleController@delete');
+
+Route::get('realtor/houses', 'API\Realtor\HouseController@houses');
+Route::get('realtor/house/{id}', 'API\Realtor\HouseController@show');
+Route::get('realtor/add_house', 'API\Realtor\HouseController@add');
+Route::get('realtor/edit_house/{id}', 'API\Realtor\HouseController@edit');
+Route::patch('realtor/edit_house', 'API\Realtor\HouseController@update');
+Route::post('realtor/add_house', 'API\Realtor\HouseController@save');
+Route::get('realtor/delete_house/{id}', 'API\Realtor\HouseController@delete');
+Route::get('realtor/share_house/{id}', 'API\Realtor\HouseController@share');
+Route::post('realtor/share_house', 'API\Realtor\HouseController@share_house');
+Route::post('realtor/process_share_request', 'API\Realtor\HouseController@process_share_request');
+
+Route::post('realtor/add_house_photo', 'API\Realtor\PhotoController@save_house_photo');
+Route::post('realtor/edit_house_photo', 'API\Realtor\PhotoController@update_house_photo');
+Route::post('realtor/delete_photo', 'API\Realtor\PhotoController@delete_house_photo');
+
+Route::get('realtor/estates', 'API\Realtor\EstateController@estates');
+Route::get('realtor/add_estate', 'API\Realtor\EstateController@add');
+Route::post('realtor/add_estate', 'API\Realtor\EstateController@save');
+Route::get('realtor/estate/{id}', 'API\Realtor\EstateController@show');
+Route::get('realtor/add_estate_house/{id}', 'API\Realtor\EstateController@add_house');
+Route::post('realtor/add_estate_house', 'API\Realtor\EstateController@save_house');
 
 Route::get('/{profile_name}', 'API\RealtorController@realtor');
 });

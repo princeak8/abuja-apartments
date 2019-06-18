@@ -11,6 +11,9 @@ class Circle_record extends Model
         0  = Friend Request Sent(Pending)
         1  = Friend Request Accepted
         -1 = Friend Request Rejected
+        2  = Friend Request Cancelled
+        3  = Friend Request Blocked
+        4  = Friend Request Deleted
     */
     public function userOne()
     {

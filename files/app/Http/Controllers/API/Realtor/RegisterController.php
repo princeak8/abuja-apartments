@@ -99,7 +99,7 @@ class RegisterController extends Controller
             $data = [
                 'token'         => $token,
                 'logged_in'     => false,
-                'realtor'       => $user,
+                'user'       => $user,
                 'redirect'      => 'api/v1/realtor/index'
             ];
             $realtor = Realtor::find($user->id);

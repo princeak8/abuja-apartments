@@ -44,13 +44,6 @@ class PhotoController extends Controller
 		}
 	}
 
-	public function show($id)
-	{
-		$realtor = Realtor::find(Auth::user()->id);
-		$estate = Estate::find($id);
-		return view('realtor/estate', compact('estate', 'realtor'));
-	}
-
 	public function save_house_photo(PhotoRequest $request)
 	{
 		$post = $request->all(); // Get all the post fields

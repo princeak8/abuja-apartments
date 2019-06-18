@@ -46,6 +46,9 @@ class LoginController extends Controller
 
    public function logout()
    {
+       if(!Auth::user()) {
+            return redirect('realtor/login');
+       }
         $realtor = Realtor::find(Auth::user()->id);
         auth()->logout();
 

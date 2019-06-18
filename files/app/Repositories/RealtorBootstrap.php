@@ -14,7 +14,7 @@ class RealtorBootstrap
 {
 	public $circle_members;
 	public $all_requests_count;
-	public $messages;
+	public $unreadMessages;
 
     public function __construct($user)
     {
@@ -35,7 +35,7 @@ class RealtorBootstrap
 				$members[] = $pal->userOne;
 			}
 		}
-		$this->get_circle_members = $members;
+		$this->circle_members = $members;
 	}
 
 	public function get_all_requests_count()
@@ -48,7 +48,7 @@ class RealtorBootstrap
 
 	public function messages()
 	{
-		$this->messages = $this->user->unread_messages;
+		$this->unreadMessages = $this->user->unread_messages;
 	}
 
 }

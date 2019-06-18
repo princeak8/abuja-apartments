@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
 
 //use Request;
 use Illuminate\Http\Request;
@@ -27,13 +28,35 @@ class ProfileController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
+
+		$this->unreadMessages = $this->user->unread_messages;
+		$this->circleMembers = $this->realtorBootstrap->circle_members;
+		$this->requestsCount = $this->realtorBootstrap->all_requests_count;
 	}
     
 	public function index()
 	{
-		return view('realtor/profile/index');
+        $this->user->{"phones"} = $this->user->phones;
+		$code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
     public function edit_field(Request $request)
@@ -46,32 +69,39 @@ class ProfileController extends Controller
         if(!empty($realtorObj)) {
             $realtorObj->{$title} = $value;
             if($realtorObj->save()) {
-                $data = array(
-                    "status" => "success",
-                    "code"   => 200,
-                    "message"=> "Field edited successfully"
-                );
+                $message = "Field edited successfully";
+                $code = 200;
             }else{
-                $data = array(
-                    "status" => "error",
-                    "code"   => 500,
-                    "message"=> "Field could not be edited"
-                );
+                $message = "Field could not be edited";
+                $code = 500;
             }
         }else{
-            $data = array(
-                "status" => "error",
-                "code"   => 404,
-                "message"=> "Realtor was not found"
-            );
+            $message = "Realtor was not found";
+            $code = 404;
         }
-        return response()->json($data);
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
     public function change_email()
     {
-        $realtor = Auth::user();
-        return view('realtor/profile/change_email', compact('realtor'));
+        $code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
     }
 
     public function update_email(Request $request)
@@ -92,23 +122,39 @@ class ProfileController extends Controller
         if(!empty($realtorObj) && password_verify($password, $realtorObj->password)) {
             $realtorObj->email = $new_email;
             if($realtorObj->save()) {
-                request()->session()->flash('status', 'success');
-                request()->session()->flash('msg', 'Email changed successfully');
+                $message = "Email changed successfully";
+                $code = 200;
             }else{
-                request()->session()->flash('status', 'error');
-                request()->session()->flash('msg', 'Email could not be changed');
+                $message = "Email could not be changed";
+                $code = 500;
             }
         }else{
-            request()->session()->flash('status', 'error');
-            request()->session()->flash('msg', 'Wrong Email or Password');
+            $message = "Wrong Email or Password";
+            $code = 500;
         }
-        return back();
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
     public function change_password()
     {
-        $realtor = Auth::user();
-        return view('realtor/profile/change_password', compact('realtor'));
+        $code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
     }
 
     public function update_password(Request $request)
@@ -131,27 +177,43 @@ class ProfileController extends Controller
             if($realtorObj->sec_answer == $answer){
                 $realtorObj->password = bcrypt($new_password);
                 if($realtorObj->save()) {
-                    request()->session()->flash('status', 'success');
-                    request()->session()->flash('msg', 'Password changed successfully');
+                    $message = "Password changed successfully";
+                    $code = 200;
                 }else{
-                    request()->session()->flash('status', 'error');
-                    request()->session()->flash('msg', 'password could not be changed');
+                    $message = "Password could not be changed";
+                    $code = 500;
                 }
             }else{
-                request()->session()->flash('status', 'error');
-                request()->session()->flash('msg', 'Secret Question Answer is Wrong');
+                $message = "Secret Question Answer is Wrong";
+                $code = 500;
             }
         }else{
-            request()->session()->flash('status', 'error');
-            request()->session()->flash('msg', 'Wrong Email or Password');
+            $message = "Wrong Email or Password";
+            $code = 500;
         }
-        return back();
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
     public function change_secret_question()
     {
-        $realtor = Auth::user();
-        return view('realtor/profile/change_secret_question', compact('realtor'));
+        $code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
     }
 
     public function update_secret_question(Request $request)
@@ -174,23 +236,39 @@ class ProfileController extends Controller
             $realtorObj->sec_question = $secret_question;
             $realtorObj->sec_answer = $secret_answer;
             if($realtorObj->save()) {
-                request()->session()->flash('status', 'success');
-                request()->session()->flash('msg', 'Secret Question and Answer changed successfully');
+                $message = "Secret Question and Answer changed successfully";
+                $code = 200;
             }else{
-                request()->session()->flash('status', 'error');
-                request()->session()->flash('msg', 'Secret Question and answer could not be changed');
+                $message = "Secret Question and answer could not be changed";
+                $code = 500;
             }
         }else{
-            request()->session()->flash('status', 'error');
-            request()->session()->flash('msg', 'Wrong Email or Password');
+            $message = "Wrong Email or Password";
+            $code = 500;
         }
-        return back();
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
     public function change_secret_answer()
     {
-        $realtor = Auth::user();
-        return view('realtor/profile/change_secret_answer', compact('realtor'));
+        $code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
     }
 
     public function update_secret_answer(Request $request)
@@ -213,27 +291,43 @@ class ProfileController extends Controller
             if($realtorObj->sec_answer == $current_answer){
                 $realtorObj->sec_answer = $secret_answer;
                 if($realtorObj->save()) {
-                    request()->session()->flash('status', 'success');
-                    request()->session()->flash('msg', 'Secret Answer changed successfully');
+                    $message = "Secret Answer changed successfully";
+                    $code = 200;
                 }else{
-                    request()->session()->flash('status', 'error');
-                    request()->session()->flash('msg', 'Secret Answer could not be changed');
+                    $message = "Secret Answer could not be changed";
+                    $code = 500;
                 }
             }else{
-                request()->session()->flash('status', 'error');
-                request()->session()->flash('msg', 'Secret Answer is Wrong');
+                $message = "Secret Answer is Wrong";
+                $code = 500;
             }
         }else{
-            request()->session()->flash('status', 'error');
-            request()->session()->flash('msg', 'Wrong Email or Password');
+            $message = "Wrong Email or Password";
+            $code = 500;
         }
-        return back();
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
     public function change_profile_photo()
     {
-        $realtor = Auth::user();
-        return view('realtor/profile/change_profile_photo', compact('realtor'));
+        $code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
     }
 
     public function update_profile_photo(Request $request)
@@ -265,27 +359,43 @@ class ProfileController extends Controller
                 unlink($filePath.$current_photo);
                 $realtorObj->profile_photo = $filename;
                 if($realtorObj->save()) {
-                    request()->session()->flash('status', 'success');
-                    request()->session()->flash('msg', 'Profile Photo changed successfully');
+                    $message = "Profile Photo changed successfully";
+                    $code = 200;
                 }else{
-                    request()->session()->flash('status', 'error');
-                    request()->session()->flash('msg', 'Profile Photo could not be changed');
+                    $message = "Profile Photo could not be changed";
+                    $code = 500;
                 }
             }else{
-                request()->session()->flash('status', 'error');
-                request()->session()->flash('msg', 'New Profile Photo could not be uploaded');
+                $message = "New Profile Photo could not be uploaded";
+                $code = 500;
             }
         }else{
-            request()->session()->flash('status', 'error');
-            request()->session()->flash('msg', 'Wrong Email or Password');
+            $message = "Wrong Email or Password";
+            $code = 500;
         }
-        return back();
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
     public function edit_about()
     {
-        $realtor = Auth::user();
-        return view('realtor/profile/edit_about', compact('realtor'));
+        $code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'profilePhoto_url'	=> env("APP_STORAGE").'images/profile_photos/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
     }
 
     public function update_about(Request $request)
@@ -305,17 +415,22 @@ class ProfileController extends Controller
         if(!empty($realtorObj) && password_verify($password, $realtorObj->password)) {
             $realtorObj->about = $about;
             if($realtorObj->save()) {
-                request()->session()->flash('status', 'success');
-                request()->session()->flash('msg', 'About Me Edited successfully');
+                $message = "About Me Edited successfully";
+                $code = 200;
             }else{
-                request()->session()->flash('status', 'error');
-                request()->session()->flash('msg', 'About Me could not be edited');
+                $message = "About Me could not be edited";
+                $code = 500;
             }
         }else{
-            request()->session()->flash('status', 'error');
-            request()->session()->flash('msg', 'Wrong Email or Password');
+            $message = "Wrong Email or Password";
+            $code = 500;
         }
-        return back();
+        $response = [
+            'status_code'   => $code,
+            'message'       => $message,
+			'data'		    => []
+		];
+		return response()->json($response, $code);
     }
 
 

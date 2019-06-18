@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Email;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
+
 use App\Notifications\Circle_request;
 use App\Notifications\Circle_request_acceptance;
 
@@ -25,13 +27,24 @@ class CircleController extends Controller
 	private $email;
 	private $realtors;
 	private $myFunction;
+	private $user;
+	private $unreadMessages;
+	private $circleMembers;
+	private $requestsCount;
 
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
-		$this->email = new Email;
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
-		$this->realtors = Realtor::where('activated', '1');
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
+
+		$this->unreadMessages = $this->user->unread_messages;
+		$this->circleMembers = $this->realtorBootstrap->circle_members;
+		$this->requestsCount = $this->realtorBootstrap->all_requests_count;
 	}
 
 	/**
@@ -40,10 +53,18 @@ class CircleController extends Controller
      */
 	public function show()
 	{
-		$circle = Circle::where('user_one', Auth::user()->id)
-					->orwhere('user_two', Auth::user()->id)
-					->where('status', '1')->get();
-		return view('realtor/circle', compact('circle'));
+		$code = 200;
+		$data = [
+			'user'						=> $this->user,
+			'unreadMessages'         	=> $this->unreadMessages,
+			'circleMembers'     		=> $this->circleMembers,
+			'requestsCount'       		=> $this->requestsCount
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function send($user)
@@ -209,6 +230,8 @@ class CircleController extends Controller
 	*/
 	public function process_request(Request $request)
 	{
+		//Ajax Request
+
 		$post = $request->all();
 		//var_dump($post);
 		$id = $post['id'];
@@ -227,29 +250,22 @@ class CircleController extends Controller
 			$circle_id = $post['circle_id'];
 		}
 		
-		if(isset($post['ajax'])) {
-			if($this->sort_requests($user, $action, $circle_id)) {
-				$data = array(
-                    "status" => "success",
-                    "code"   => 200,
-                    "message"=> "Request was successfull"
-                );
-			}else{
-				$data = array(
-                    "status" => "error",
-                    "code"   => 500,
-                    "message"=> "Request was not successfull"
-                );
-			}
-			return response()->json($data);
+		if($this->sort_requests($user, $action, $circle_id)) {
+			$code = 200;
+			$data = [];
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data
+			];
 		}else{
-			if($this->sort_requests($user, $action)) {
-				request()->session()->flash('circle_success', 'Circle Request Accepted Successfully');
-			}else{
-				request()->session()->flash('circle_error', 'There was a problem while trying to accept Circle Request');
-			}
-			return back();
+			$code = 500;
+			$response = [
+				'status_code' => $code,
+				'message'     => 'Request was not successfull'
+			];
 		}
+		
+		return response()->json($response, $code);
 	}
 
 	public function delete(Request $request)
@@ -262,6 +278,7 @@ class CircleController extends Controller
 				$circleRecord = new Circle_record;
 
 				if($rship->delete()) {
+					$code = 200;
 					$circleRecord->user_one = $rship->action_user;
 					if($rship->action_user == $rship->user_one) {
 						$circleRecord->user_two = $rship->user_two;
@@ -270,10 +287,22 @@ class CircleController extends Controller
 					}
 					$circleRecord->status = 4;
 					$circleRecord->save();
+					$data = [];
+					$response = [
+						'status_code' => $code,
+						'data'		  => $data
+					];
+				}else{
+					$code = 500;
+					$response = [
+						'status_code' 		=> $code,
+						'message'		  	=> "Record could not be deleted"
+					];
 				}
 			}
 		}
-		return back();
+		
+		return response()->json($response, $code);
 	}
     
 }

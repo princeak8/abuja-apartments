@@ -115,6 +115,6 @@ class HouseController extends Controller
        // $house_array['status'] = 'ok';
 		//echo json_encode($house_array);
 		return response()->json($house_array);
-    }
+	}
 	
 }

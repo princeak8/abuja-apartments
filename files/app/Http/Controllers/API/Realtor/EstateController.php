@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Realtor;
+namespace App\Http\Controllers\API\Realtor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\MyFunction;
+use App\Repositories\RealtorBootstrap;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\EstateRequest;
@@ -28,29 +29,74 @@ class EstateController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('realtorAuth');
+		$this->middleware('auth:api');
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
+		$this->realtorBootstrap = new RealtorBootstrap($this->user);
+
+		$this->realtorBootstrap->get_circle_members();
+		$this->realtorBootstrap->get_all_requests_count();
+
+		$this->unreadMessages = $this->user->unread_messages;
+		$this->circleMembers = $this->realtorBootstrap->circle_members;
+		$this->requestsCount = $this->realtorBootstrap->all_requests_count;
 	}
 
 	public function estates()
 	{
-		$estateObj = new estate;
-
-		$realtor = Realtor::find(Auth::user()->id);
-		return view('realtor/estates', compact('realtor'));
+		$this->myFunction->expand_estates($this->user->estates);
+		$code = 200;
+		$data = [
+			'user'				=> $this->user,
+			'unreadMessages'    => $this->unreadMessages,
+			'circleMembers'     => $this->circleMembers,
+			'requestsCount'     => $this->requestsCount,
+			'photo_url'			=> env("APP_STORAGE").'images/estates/'
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function show($id)
 	{
-		$realtor = Realtor::find(Auth::user()->id);
 		$estate = Estate::find($id);
-		return view('realtor/estate', compact('estate', 'realtor'));
+		if($estate) {
+			$this->myFunction->expand_estate($estate);
+			$code = 200;
+			$data = [
+				'user'				=> $this->user,
+				'unreadMessages'    => $this->unreadMessages,
+				'circleMembers'     => $this->circleMembers,
+				'requestsCount'     => $this->requestsCount,
+				'estate'     		=> $estate,
+				'photo_url'			=> env("APP_STORAGE").'images/houses/'.$estate->house->id.'/'
+			];
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data
+			];
+		}
 	}
 
 	public function add()
 	{
 		$locations = Location::all();
-		return view('realtor/add_estate', compact('locations'));
+		$code = 200;
+		$data = [
+			'user'			=> $this->user,
+			'unreadMessages'=> $this->unreadMessages,
+			'circleMembers' => $this->circleMembers,
+			'requestsCount' => $this->requestsCount,
+			'locations'		=> $locations
+		];
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data
+		];
+		return response()->json($response, $code);
 	}
 
 	public function save(EstateRequest $request)
@@ -109,19 +155,40 @@ class EstateController extends Controller
 					$errors[] = $photoInput->originalName.' Image could not be uploaded';
 				}
 			}
+			$code = 200;
+			$data = [
+				'user'			=> $this->user,
+				'unreadMessages'=> $this->unreadMessages,
+				'circleMembers' => $this->circleMembers,
+				'requestsCount' => $this->requestsCount,
+				'redirect'    	=> 'api/v1/realtor/estate/'.$estateObj->id
+			];
 			if(!empty($errors)) {
 				$errorText = '';
 				foreach($errors as $error) {
 					$errorText .= $error.'<br/>';
 				}
-				request()->session()->flash('error', $errorText);
+				$data['error'] = $errorText;
 			}
-			return redirect('realtor/estate/'.$estateObj->id); //Redirect to view the saved house
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data
+			];
 		}else{
 			//if house information could not be saved
-			request()->session()->flash('error', 'sorry! House information could not be saved');
-			return back();
+			$code = 500;
+			$failedHouseObj = House::find($houseObj->id);
+			$failedHouseObj->delete(); // delete the uploaded house information
+			$data = [
+				'redirect' => 'api/v1/realtor/add_house'
+			];
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data,
+				'message'		=> 'sorry! Saving estate information was not complete, please try again'
+			];
 		}
+		return response()->json($response, $code);
 	}
 
 	public function add_house($id)
@@ -137,7 +204,7 @@ class EstateController extends Controller
 		$houseObj = new House; //instantiate the house class
 		$realtorHouseObj = new Realtor_house; // instantite the realtor_house class
 
-		//Instantiate House properties
+		//Instantiate House properties 
 		$houseObj->title 	  		= $post['title'];
 		$houseObj->location_id 		= $post['location_id'];
 		$houseObj->house_type_id 	= $post['house_type_id'];
@@ -196,25 +263,47 @@ class EstateController extends Controller
 						$errors[] = $photoInput->originalName.' Image could not be uploaded';
 					}
 				}
+				$code = 200;
+				$data = [
+					'user'			=> $this->user,
+					'unreadMessages'=> $this->unreadMessages,
+					'circleMembers' => $this->circleMembers,
+					'requestsCount' => $this->requestsCount,
+					'redirect'    	=> 'api/v1/realtor/house/'.$houseObj->id
+				];
 				if(!empty($errors)) {
 					$errorText = '';
 					foreach($errors as $error) {
 						$errorText .= $error.'<br/>';
 					}
-					request()->session()->flash('error', $errorText);
+					$data['error'] = $errorText;
 				}
-				return redirect('realtor/house/'.$houseObj->id); //Redirect to view the saved house
+				$response = [
+					'status_code' => $code,
+					'data'		  => $data
+				];
 			}else{ //realtor_house could not be saved
+				$code = 500;
 				$failedHouseObj = House::find($houseObj->id);
 				$failedHouseObj->delete(); // delete the uploaded house information
-				request()->session()->flash('error', 'sorry! Saving house information was not complete, please try again');
-				return back();
+				$data = [];
+				$response = [
+					'status_code' => $code,
+					'data'		  => $data,
+					'message'		=> 'sorry! Saving house information was not complete, please try again'
+				];
 			}
 		}else{
 			//if house information could not be saved
-			request()->session()->flash('error', 'sorry! House information could not be saved');
-			return back();
+			$code = 500;
+			$data = [];
+			$response = [
+				'status_code' => $code,
+				'data'		  => $data,
+				'message'		=> 'sorry! House information could not be saved'
+			];
 		}
+		return response()->json($response, $code);
 	}
 
 

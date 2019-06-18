@@ -98,7 +98,7 @@ class Realtor extends Authenticatable implements JWTSubject
     public function is_shared_with_realtor($id)
     {
         $return = False;
-        if($this->shared_by_me->count() > 0) {
+        if($this->shared_with_me->count() > 0) {
             foreach($this->sharedHouses as $shared) {
                 if($shared->realtor_id == $id) {
                     $return = True;

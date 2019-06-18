@@ -22,9 +22,9 @@
 	                <p class="det_sub">
 	            	<i class="fa fa-address-book"></i> : 
 	            	@if($realtorHouse->realtor->type=='company') 
-	            		{{$realtorHouse->realtor->biz_name}} 
+	            		{{$realtorHouse->realtor->name}} 
 	            	@else
-	            		{{$realtorHouse->realtor->full_name}}
+	            		{{$realtorHouse->realtor->name}}
 	            	@endif
 	            	<br/>
 	                

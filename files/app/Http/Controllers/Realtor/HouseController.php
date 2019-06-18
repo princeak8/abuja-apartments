@@ -21,6 +21,7 @@ use App\House_type;
 use App\House_photo;
 use App\Location;
 use App\Price_range;
+use App\Circle;
 
 class HouseController extends Controller
 {
@@ -151,12 +152,17 @@ class HouseController extends Controller
 	{
 		$house = House::find($id);
 		$realtor = Realtor::find(Auth::user()->id);
+		$realtor_circle = Circle::where('user_one', Auth::user()->id)
+							->orWhere('user_two', Auth::user()->id)
+							->where('status', 1)->get();
+		//dd($realtor_circle->count());
+		
 		if(House_photo::GetMainPhoto($id)->count()) {
 			$mainPhoto = House_photo::GetMainPhoto($id)->first();
 		}else{
 			$mainPhoto = House_photo::where('house_id', $id)->first();
 		}
-		return view('realtor/share_house', compact('house', 'mainPhoto', 'realtor'));
+		return view('realtor/share_house', compact('house', 'mainPhoto', 'realtor', 'realtor_circle'));
 	}
 
 	public function share_house(ShareRequest $request)
@@ -182,7 +188,7 @@ class HouseController extends Controller
 			request()->session()->flash('success', 'House Shared successfully');
 		}else{
 			foreach($errors as $key=>$id) {
-				$errors[$key] = Realtor::find($id)->biz_name;
+				$errors[$key] = Realtor::find($id)->profile_name;
 			}
 			request()->session()->flash('error', $errors);
 		}
@@ -215,7 +221,8 @@ class HouseController extends Controller
 					request()->session()->flash('share_error', 'sorry, there was an error while trying to accept request');
 				}
 			}else{
-				$ShareRequest->status = 0; //if the request was declined, update the status of the request
+				$ShareRequest->status = -1; //if the request was declined, update the status of the request
+				$shareRequest->save();
 			}
 		}
 		return back();

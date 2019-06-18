@@ -25,6 +25,7 @@ class RealtorController extends Controller
 	public function __construct()
 	{
 		$this->myFunction = new MyFunction;
+		$this->user = Auth::guard('api')->user();
 	}
     
     public function realtor($profile_name)
@@ -116,8 +117,64 @@ class RealtorController extends Controller
 		}
 		return response()->json($response, $code);
 	}
+
+	private function search_query($loggedIn, $searchValue)
+	{
+		if($loggedIn) {
+			$result = Realtor::where('firstname', 'LIKE', $searchValue)
+						->orWhere('lastname', 'LIKE', $searchValue)
+						->orWhere('profile_name', 'LIKE', $searchValue)
+						->where('id', '!=', $this->user->id)
+						->where('activated', 1)->where('visible', 1)
+						->get();
+		}else{
+			$result = Realtor::where('firstname', 'LIKE', $searchValue)
+						->orWhere('lastname', 'LIKE', $searchValue)
+						->orWhere('profile_name', 'LIKE', $searchValue)
+						->where('activated', 1)->where('visible', 1)
+						->get();
+		}
+		return $result;
+	}
 	
 	public function search(Request $request)
+	{
+		$post = $request->all();
+		$searchValue = $post['search_realtor'];
+		$realtors = array();
+		
+		$result = ($this->user) ? $this->search_query(true, $searchValue) : $this->search_query(false, $searchValue);
+		//dd($result->count());
+		if($result) {
+			$code = 200;
+			if($result->count() > 0) {
+				foreach($result as $realtor) {
+					$realtors[] = [
+						'id' => $realtor->id,
+						'name' => $realtor->name,
+						'photo'	=> $realtor->profile_photo
+					];
+				}
+				$data = $realtors;
+				$message = '';
+			}else{
+				$message = 'No realtor with the name or profile name of '.$searchValue.' was found';
+				$data = [];
+			}
+		}else{
+			$code = 500;
+			$message = 'sorry! A problem occured, contact the administrator';
+			$data = [];
+		}
+		$response = [
+			'status_code' => $code,
+			'data'		  => $data,
+			'message' => $message
+		];
+		return response()->json($response, $code);
+	}
+
+	public function search_mobile(Request $request)
 	{
 		$post = $request->all();
 		$searchValue = $post['search_realtor'];
@@ -130,6 +187,15 @@ class RealtorController extends Controller
 		if($result->count() == 1)
 		if($result->count() > 0) {
 			if($result->count() == 1 && Auth::user()) {
+				if($result[0]->id == Auth::user()->id) {
+					$code = 404;
+					$data = [];
+					$response = [
+						'status_code' => $code,
+						'data'		  => $data,
+						'message'		=> 'Search for a realtor other than the logged in Realtor'
+					];
+				}
 				foreach($result as $realtor) {
 					if($realtor->id == Auth::user()->id){
 						$code = 500;
