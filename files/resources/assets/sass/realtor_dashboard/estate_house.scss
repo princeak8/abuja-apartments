@@ -1,0 +1,31 @@
+.estate__container {
+    // border: 1px solid green;
+    margin-top: 20px;
+    &__single{
+        box-shadow: $shadow; @include background-color();border-radius: 10px; overflow: hidden;
+        &__img {
+            height: 200px;
+            img {
+                width: 100%; height: 100%;
+            }
+        }
+        &__details {
+            padding: 1% 4%;font-size: .9rem;
+            a {
+                color: white;
+                &:hover {
+                    opacity: .7;color: rgb(228, 228, 228);
+                }
+            }
+            p {
+                .delete {
+                    // box-shadow: $shadow; 
+                    border-radius: 20px;color:$brand-danger;padding: 1% 10px; background: white; border: 1px solid $brand-danger;
+                    &:hover {
+                        color: white; background: $brand-danger;opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

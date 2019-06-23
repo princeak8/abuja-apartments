@@ -22,25 +22,20 @@
         </div>
 	</div> --}}
 
-	 <div id="main-content" class="col-md-10 col-sm-10">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Estate Management Firm</h3>
-                <p class="information text-center">
-                    	<span>IMPORTANT:</span> 
-                        Your Personalized Page is 
-                        <a href="https://www.abujaapartments.com.ng/{{$realtor->profile_name}}">
-                        <i>https://www.abujaapartments.com.ng/{{$realtor->profile_name}}</i>
-                        </a>&nbsp; 
-                        Use this url to advertise your house portfolio to prospective Clients
-                    </p>
-            </div>
-            <div class="panel-body color company">
+    @include('inc.realtor.estate.estate_link')
 
-            	@include('inc.realtor.houses')
+    <div class="content__right__main__estates">
+            
+                <div class="content__right__main__estates__hse">
+                    <a href="{{url('realtor/houses')}}">Houses</a>
+                </div>
+            
+                <div class="content__right__main__estates__es">
+                    <a href="{{url('realtor/estates')}}" >Estates</a>
+                </div>
+            
 
-            </div>
-        </div>
+        {{-- @include('inc.realtor.houses') --}}
 
     </div>
 
