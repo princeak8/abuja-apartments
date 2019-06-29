@@ -11,7 +11,7 @@ class Estate_photo extends Model
          return $query->where('estate_id', $estate_id);
     }
 
-    public function scopeGetMainPhotos($query,$estate_id)
+    public function scopeGetMainPhoto($query,$estate_id)
     {
         return $query->where('estate_id', $estate_id)->where('main', '1');
     }
