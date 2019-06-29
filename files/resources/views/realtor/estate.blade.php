@@ -1,4 +1,4 @@
-@include('inc.realtor.company_head_links')
+{{-- @include('inc.realtor.company_head_links') --}}
 
 @extends('layouts.realtor')
 
@@ -332,7 +332,12 @@
         </div>
     
     </div>
+<<<<<<< HEAD
 
+=======
+    
+</div>
+>>>>>>> 9b59d8ce21184b8af09d695a359e62315e805a67
 
 
 

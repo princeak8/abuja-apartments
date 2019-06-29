@@ -67,8 +67,11 @@
                         }
                     }
                 }
+                @import 'estate_house';
                 @import 'houses_design';
+                
             }
+            @import 'estates';
             
         }
         @import 'view_house';
