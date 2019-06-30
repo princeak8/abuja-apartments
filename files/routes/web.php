@@ -74,9 +74,14 @@ Route::post('realtor/delete_photo', 'Realtor\PhotoController@delete_house_photo'
 Route::get('realtor/estates', 'Realtor\EstateController@estates');
 Route::get('realtor/add_estate', 'Realtor\EstateController@add');
 Route::post('realtor/add_estate', 'Realtor\EstateController@save');
+Route::get('realtor/edit_estate/{id}', 'Realtor\EstateController@edit');
 Route::get('realtor/estate/{id}', 'Realtor\EstateController@show');
 Route::get('realtor/add_estate_house/{id}', 'Realtor\EstateController@add_house');
 Route::post('realtor/add_estate_house', 'Realtor\EstateController@save_house');
+Route::post('realtor/add_estate_photo', 'Realtor\PhotoController@save_estate_photo');
+Route::post('realtor/edit_estate_photo', 'Realtor\PhotoController@update_estate_photo');
+Route::post('realtor/change_estate_mainPhoto', 'Realtor\PhotoController@change_estate_main_photo');
+Route::post('realtor/delete_estate_photo', 'Realtor\PhotoController@delete_estate_photo');
 
 Route::get('realtor/share_house/{id}', 'Realtor\HouseController@share');
 Route::post('realtor/share_house', 'Realtor\HouseController@share_house');

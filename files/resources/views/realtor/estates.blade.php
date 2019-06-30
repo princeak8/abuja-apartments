@@ -32,8 +32,8 @@
 								<a href="{{url('realtor/estate/'.$estate->id)}}">
 									<div class="estate__container__single__img">
 										
-										@if(App\Estate_photo::GetMainPhotos($estate->id)->count())
-											<img class="img-responsive" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\Estate_photo::GetMainPhotos($estate->id)->first()->photo}}" />
+										@if(App\Estate_photo::GetMainPhoto($estate->id)->count())
+											<img class="img-responsive" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\Estate_photo::GetMainPhoto($estate->id)->first()->photo}}" />
 										@elseif(App\Estate_photo::GetEstatePhotos($estate->id)->count())
 											<img class="img-responsive" src="{{env('APP_STORAGE')}}images/estates/{{$estate->id}}/thumbnails/{{App\Estate_photo::GetEstatePhotos($estate->id)->first()->photo}}" />
 										@else
