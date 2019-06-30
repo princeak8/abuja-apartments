@@ -1,4 +1,29 @@
-<body>
+<div class="overlay">
+    @if(Auth::user())
+    <div class="overlay__close"> <i class="fas fa-times"></i></div>
+    <div class="overlay__content">
+        <div class="overlay__content__img">
+            @if(!empty(Auth::user()->profile_photo)) 
+                <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
+            @else
+                <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+            @endif
+        </div>
+        <div class="overlay__content__details">
+            <p>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</p>
+            @if(Auth::user()->activated==1) 
+                <p><a href="profile/"><span class="fa fa-address-card-o"></span> My Profile</a></p>
+                <p><a href="realtor/" target="_blank"><span class="fa fa-angle-double-right"></span> Admin</a></p>
+                <p><a href="{{Auth::user()->profile_name}}"><span class="fa fa-angle-double-right"></span> Business Page</a></p>
+           @else
+                <p><a href="realtors/activate_realtor.php">Become a Realtor</a> and Start posting houses</p>
+            @endif
+            <p><a href="{{url('realtor/logout')}}"><span class="fa fa-sign-out"></span> Log Out</a></p>
+        </div>
+    </div>
+    @endif
+</div>
+
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="APP_URL" value="{{ env('APP_URL') }}">
 <input type="hidden" name="APP_STORAGE" value="{{ env('APP_STORAGE') }}"> 
@@ -31,37 +56,53 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
                                 </li>
+                                @if(!Auth::user())
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                    </li>
+                                    {{-- <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Register
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
+                                            <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                                        </div>
+                                    </li> --}}
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-primary py-1 px-4 dropdown-toggle" style="border-radius: 20px;" data-toggle="dropdown">
+                                            Register
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
+                                            <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                                        </div>
+                                    </div>
+                                @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                    <a class="nav-link" style="border-radius: 20px;" href="{{url('realtor/logout')}}">
+                                        <span class="far fa-sign-out"></span> Log Out</a>
                                 </li>
-                                {{-- <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Register
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
-                                        <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
-                                    </div>
-                                </li> --}}
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-primary py-1 px-4 dropdown-toggle" style="border-radius: 20px;" data-toggle="dropdown">
-                                        Register
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
-                                        <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
-                                    </div>
-                                </div>
+                                @endif
                             </ul>
                             {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
                                 <input type="hidden" name="active" value="0" />
                                 <input class="form-control mr-sm-2" type="search" name="search_realtor" required placeholder="Search Realtor" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit"><span class="fa fa-search"></span></button>
                             </form> --}}
+                            @if (Auth::user())
+                                <div class="header__content__navbar__list__img">
+                                    @if(!empty(Auth::user()->profile_photo)) 
+                                        <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
+                                    @else
+                                        <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+                                    @endif
+                                </div>
+                            @endif
                         </div>
                     </nav>
                 </div>
-                <div class="col-lg-12 header__content__search">
+                {{-- <div class="col-lg-12 header__content__search">
                     <form action="processes/search_realtor.php" method="post" class="form-inline col-7 my-2 my-lg-0">
                         <input type="hidden" name="active" value="0" />
                         <input class="form-control col-10" type="search" name="search_realtor" required placeholder="Search Realtor" aria-label="Search">
@@ -69,7 +110,7 @@
                             <span class="fa fa-search"></span>
                         </button>
                     </form>
-                </div>
+                </div> --}}
 
             </div>
             
@@ -84,7 +125,8 @@
                     <span class="cap_1st"><i class="fa fa-user"></i> {{Auth::user()->name}}</span>  
                 </p>
                 @if(Auth::user()->activated==1) 
-                    <p class="out"><a href="profile/"><span class="fa fa-address-card-o"></span> My Profile</a> | <a href="{{url('realtor/logout')}}" class=""><span class="fa fa-sign-out"></span> Log Out</a> </p>
+                    <p class="out"><a href="profile/"><span class="fa fa-address-card-o"></span> My Profile</a> | 
+                        <a href="{{url('realtor/logout')}}" class=""><span class="fa fa-sign-out"></span> Log Out</a> </p>
                 @endif
                 @if(Auth::user()->activated==0)
                     <p class="out">
