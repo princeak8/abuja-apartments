@@ -1,24 +1,43 @@
-<div class="overlay">
+<div class="overlay" id="profileOverlay">
     @if(Auth::user())
-    <div class="overlay__close"> <i class="fas fa-times"></i></div>
-    <div class="overlay__content">
-        <div class="overlay__content__img">
-            @if(!empty(Auth::user()->profile_photo)) 
-                <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
+    <div class="overlay__container">
+        <div class="overlay__container__close" id="profileOverlayClose"> <i class="fas fa-times"></i></div>
+        <div class="overlay__container__content">
+            <div class="overlay__container__content__img">
+                @if(!empty(Auth::user()->profile_photo)) 
+                    <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
+                @else
+                    <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+                @endif
+            </div>
+            <div class="overlay__container__content__details">
+                <div class="overlay__container__content__details__name">
+                    @if(Auth::user()->type == 'company')
+                        {{Auth::user()->biz_name}} 
+                    @else
+                        
+                        {{Auth::user()->firstname}} {{Auth::user()->lastname}}
+                    @endif
+                </div>
+                @if(Auth::user()->activated==1) 
+                    <div class="row overlay__container__content__details__others">
+                        <div class="col-lg-7"><a href="profile/">My Profile</a></div>
+                        <div class="col-lg-5"><a href="realtor/" target="_blank">Admin</a></div>
+                    </div>
+                    <div class="row overlay__container__content__details__others">
+                        <div class="col-lg-7"><a href="{{Auth::user()->profile_name}}">Business Page</a></div>
+                        @if(Auth::user()->type != 'company')
+                        <div class="col-lg-5">
+                            <a href="index.php?page=wall"> My Wall</a>
+                        </div>
+                        @endif
+                    </div>
+                    
             @else
-                <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
-            @endif
-        </div>
-        <div class="overlay__content__details">
-            <p>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</p>
-            @if(Auth::user()->activated==1) 
-                <p><a href="profile/"><span class="fa fa-address-card-o"></span> My Profile</a></p>
-                <p><a href="realtor/" target="_blank"><span class="fa fa-angle-double-right"></span> Admin</a></p>
-                <p><a href="{{Auth::user()->profile_name}}"><span class="fa fa-angle-double-right"></span> Business Page</a></p>
-           @else
-                <p><a href="realtors/activate_realtor.php">Become a Realtor</a> and Start posting houses</p>
-            @endif
-            <p><a href="{{url('realtor/logout')}}"><span class="fa fa-sign-out"></span> Log Out</a></p>
+                    <div class="row overlay__container__content__details__others"><a href="realtors/activate_realtor.php">Become a Realtor</a> and Start posting houses</div>
+                @endif
+                <div class="overlay__container__content__details__logout"><a href="{{url('realtor/logout')}}"><span class="fas fa-sign-out-alt"></span> Log Out</a></div>
+            </div>
         </div>
     </div>
     @endif
@@ -30,7 +49,7 @@
     @include('inc.analyticstracking')
 
 	<div id="header" class="container-fluid">
-        <div class="row pt-2 header">
+        <div class="row header">
             
             <div class="col-lg-3 header__img">
                 <img class="img-responsive" src="{{ asset('images/logo1.png') }}" /> 
@@ -60,7 +79,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                                     </li>
-                                    {{-- <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Register
                                         </a>
@@ -68,8 +87,12 @@
                                             <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
                                             <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
                                         </div>
+                                    </li>
+                                    {{-- <li>
+                                        <button class="btn btn-outline-primary" id="displaySearch">
+                                            <i class="fa fa-search"></i></button>
                                     </li> --}}
-                                    <div class="dropdown">
+                                    {{-- <div class="dropdown">
                                         <button type="button" class="btn btn-primary py-1 px-4 dropdown-toggle" style="border-radius: 20px;" data-toggle="dropdown">
                                             Register
                                         </button>
@@ -77,13 +100,17 @@
                                             <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
                                             <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 @else
                                 <li class="nav-item">
                                     <a class="nav-link" style="border-radius: 20px;" href="{{url('realtor/logout')}}">
                                         <span class="far fa-sign-out"></span> Log Out</a>
                                 </li>
                                 @endif
+                                <li>
+                                    <button class="btn btn-outline-primary roundedSearch" id="displaySearch">
+                                        <i class="fa fa-search"></i></button>
+                                </li>
                             </ul>
                             {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
                                 <input type="hidden" name="active" value="0" />
@@ -91,7 +118,7 @@
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit"><span class="fa fa-search"></span></button>
                             </form> --}}
                             @if (Auth::user())
-                                <div class="header__content__navbar__list__img">
+                                <div class="header__content__navbar__list__img" id="clickOnPhoto">
                                     @if(!empty(Auth::user()->profile_photo)) 
                                         <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
                                     @else
@@ -164,6 +191,7 @@
         </div> --}}
         
     </div>
+
 
 {{-- <script type='application/javascript'>
     $(document).on('click', '.dropdown-toggle', function() { 
