@@ -2,9 +2,10 @@ footer {
     // @include background-color();color: white;
     padding: 2% 4%;
     border-top: 1px solid rgb(211, 211, 211);
-    margin-top: 25px;
+    margin-top: 25px; 
+    // border: 3px solid yellow;
     .footer {
-        display: flex; flex-direction: row; align-items: center;
+        display: flex; flex-direction: row; align-items: center; 
         div {  display: flex;justify-content: center;}
         &__left {
             flex: 1;

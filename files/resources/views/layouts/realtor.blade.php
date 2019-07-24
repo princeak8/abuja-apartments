@@ -31,18 +31,15 @@
         </div>
         <div class="content__right">
             
-            <div id="search-results" class="col-md-12" style="background-color: #FFF;"></div>
-            @yield('content')
-
-            @include('inc.realtor.footer')
+            <div id="search-results" class="" style="background-color: #FFF;"></div>
             
+            @yield('content')
+            
+            @include('inc.realtor.footer')
+                
         </div>
     </div>
     
-    
-    
-    
-
     {{-- <script type="application/javascript" src="{{asset('js/app.js')}}"></script> --}}
     {{-- <script type="application/javascript" src="{{asset('js/jquery.min.js')}}"></script> --}}
     {{-- <script

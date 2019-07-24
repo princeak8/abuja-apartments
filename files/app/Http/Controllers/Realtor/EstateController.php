@@ -35,7 +35,6 @@ class EstateController extends Controller
 	public function estates()
 	{
 		$estateObj = new estate;
-
 		$realtor = Realtor::find(Auth::user()->id);
 		return view('realtor/estates', compact('realtor'));
 	}
