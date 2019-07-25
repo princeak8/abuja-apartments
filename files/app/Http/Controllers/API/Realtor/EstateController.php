@@ -44,7 +44,9 @@ class EstateController extends Controller
 	{
 		$realtor = Realtor::find(Auth::user()->id);
 		$estate = Estate::find($id);
-		return view('realtor/estate', compact('estate', 'realtor'));
+		$locations = Location::all();
+		$house_types = House_type::all();
+		return view('realtor/estate', compact('estate', 'realtor', 'locations', 'house_types'));
 	}
 
 	public function add()

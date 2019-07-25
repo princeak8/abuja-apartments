@@ -75,7 +75,7 @@ Route::get('realtor/estates', 'Realtor\EstateController@estates');
 Route::get('realtor/add_estate', 'Realtor\EstateController@add');
 Route::post('realtor/add_estate', 'Realtor\EstateController@save');
 Route::get('realtor/edit_estate/{id}', 'Realtor\EstateController@edit');
-Route::get('realtor/estate/{id}', 'Realtor\EstateController@show');
+Route::get('realtor/estate/{id}', 'Realtor\EstateController@show')->name('estate.show');
 Route::get('realtor/add_estate_house/{id}', 'Realtor\EstateController@add_house');
 Route::post('realtor/add_estate_house', 'Realtor\EstateController@save_house');
 Route::post('realtor/add_estate_photo', 'Realtor\PhotoController@save_estate_photo');

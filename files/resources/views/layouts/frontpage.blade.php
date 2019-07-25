@@ -7,8 +7,21 @@
 @include('inc.public.frontpage.header')
 
 {{-- @include('inc.public.navbar') --}}
-<div class="container-fluid mt-4">
-    <div class="row">
+<div class="container-fluid" style="position: relative; overflow: hidden;">
+    <div class="search_realtor hideSearch" id="searchRealtor">
+        <form action="processes/search_realtor.php" method="post" class="">
+            <input type="hidden" name="active" value="0" />
+            <div class="search_realtor__container">
+                <div class="search_realtor__container__input">
+                    <input class="form-control mr-sm-2" type="search" name="search_realtor" required placeholder="Search Realtor" aria-label="Search">
+                </div>
+                <div class="search_realtor__container__button">
+                    <button class="btn btn-primary" type="submit" name="submit"><span class="fa fa-search"></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row pt-4">
         @yield('content')
     </div>
     
@@ -40,7 +53,46 @@ tinymce.init({
 </script>
 {{-- @yield('js') --}}
 </body>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('#clickOnPhoto img').click(function(){
+            $('#profileOverlay').css({
+                display: 'flex'
+            })
+            setTimeout(() => {
+              $('.overlay__container').css({
+                    transition: 'all 1s ease-in-out',
+                    transform : 'translateX(2%)',
+                    // marginRight: '0%'
+                })  
+            }, 50);
+            
+        })
+        $('#profileOverlayClose').click(function() {
+            $('.overlay__container').css({
+                transition: 'all 1s ease-in-out',
+                transform : 'translateX(100%)',
+            })
+            setTimeout(() => {
+                $('#profileOverlay').css({
+                    display: 'none'
+                })
+            }, 1000);
+            
+        })
 
+        $('#displaySearch').click(function() {
+            if($('#searchRealtor').hasClass('hideSearch')) {
+                $('#searchRealtor').removeClass('hideSearch')
+                $('#searchRealtor').addClass('showSearch')
+            } else {
+                $('#searchRealtor').removeClass('showSearch')
+                $('#searchRealtor').addClass('hideSearch')
+            }
+        })
+        // alert('got here')
+    })
+</script>
 @yield('js')
 
 </html>

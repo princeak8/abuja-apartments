@@ -29,7 +29,7 @@
 					@foreach($realtor->estates as $estate)
 						<div class="col-lg-3 col-md-4 col-6">
 							<div class="estate__container__single">
-								<a href="{{url('realtor/estate/'.$estate->id)}}">
+								<a href="{{ route('estate.show', $estate->id)}}">
 									<div class="estate__container__single__img">
 										
 										@if(App\Estate_photo::GetMainPhoto($estate->id)->count())
