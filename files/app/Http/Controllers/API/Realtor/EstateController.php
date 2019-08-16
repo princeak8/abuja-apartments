@@ -42,6 +42,7 @@ class EstateController extends Controller
 
 	public function show($id)
 	{
+		dd($id);
 		$realtor = Realtor::find(Auth::user()->id);
 		$estate = Estate::find($id);
 		$locations = Location::all();

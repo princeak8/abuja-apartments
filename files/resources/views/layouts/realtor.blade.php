@@ -20,10 +20,16 @@
 
 {{-- <link rel="stylesheet" type="text/css" href="{{asset('css/styles_agent.css')}}"/> --}}
 <link rel="stylesheet" type="text/css" href="{{ asset('css/realtor/realtor.css')}}"/>
-
+<style type="text/css">
+    [v-cloak] .v-cloak--hidden {
+        display: none !important;
+        margin-top: 20px;
+    }
+</style>
 </head>
 
 <body>
+    <input type="hidden" name="APP_URL" value="{{ env('APP_URL') }}">
     @include('inc.realtor.header')
     <div class="content">
         <div class="content__left">
@@ -57,6 +63,9 @@
     
     <script type="application/javascript" src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
     <script type="application/javascript" src="{{asset('js/scroll_top.js')}}"></script>
+    <script type="application/javascript" src="{{asset('js/vue.js')}}"></script>
+    <script type="application/javascript" src="{{asset('js/axios.min.js')}}"></script>
+    <script type="application/javascript" src="{{asset('js/constants.js')}}"></script>
 
     <script type='text/javascript'>
     tinymce.init({

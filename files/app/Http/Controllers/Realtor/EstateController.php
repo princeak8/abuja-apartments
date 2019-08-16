@@ -43,13 +43,23 @@ class EstateController extends Controller
 	{
 		$realtor = Realtor::find(Auth::user()->id);
 		$estate = Estate::find($id);
-		return view('realtor/estate', compact('estate', 'realtor'));
+		$locations = Location::all();
+		$house_types = House_type::all();
+		//dd($estate);
+		return view('realtor/estate', compact('estate', 'realtor', 'locations', 'house_types'));
 	}
 
 	public function add()
 	{
 		$locations = Location::all();
 		return view('realtor/add_estate', compact('locations'));
+	}
+
+	public function edit($id)
+	{
+		$locations = Location::all();
+		$estate = Estate::find($id);
+		return view('realtor/edit_estate', compact('locations', 'estate'));
 	}
 
 	public function save(EstateRequest $request)
@@ -121,6 +131,28 @@ class EstateController extends Controller
 			request()->session()->flash('error', 'sorry! House information could not be saved');
 			return back();
 		}
+	}
+
+	public function update(Request $request)
+	{
+		$post = $request->all(); // Get all the post fields
+		$estateObj = Estate::find($post['estate_id']); //instantiate the house class
+		//Instantiate House properties
+		$estateObj->name 	  			= $post['name'];
+		$estateObj->location_id 		= $post['location_id'];
+		$estateObj->water_source 		= $post['water_source'];
+		$estateObj->facilities 			= $post['facilities'];
+		$estateObj->description 		= $post['description'];
+
+		if($estateObj->save()) { //if the house information has been saved
+			request()->session()->flash('success', 1);
+			request()->session()->flash('estate_msg', 'Estate Updated successfully');
+		}else{
+			//if house information could not be saved
+			request()->session()->flash('success', 0);
+			request()->session()->flash('estate_msg', 'sorry! Estate information could not be saved');
+		}
+		return back();
 	}
 
 	public function add_house($id)

@@ -1,0 +1,7 @@
+/backups
+/resources
+/.idea
+.htaccess
+package.lock.json
+robots.txt
+.env

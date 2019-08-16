@@ -142,22 +142,41 @@
                             </div>
                         </div>
                     </div>
-                    <div id="estate-info" class="col-lg-3 content__right__main__estate__info">
-                        <div class="estate-info ">
-                            <h4 class="content__right__main__estate__info__title"> Estate Information</h4>
-                            <div class="content__right__main__estate__info__body pb-3">
-                                <ul>
-                                    <li><i class="fa fa-tag"></i> Name <span class="fa fa-angle-double-right"></span> {{$estate->name}}</li>
-                                    <li><i class="fa fa-map-marker"></i> Location <span class="fa fa-angle-double-right"></span> {{$estate->location->name}}</li>
-                                    <li><i class="fa fa-tint"></i>  Water Source <span class="fa fa-angle-double-right"></span> {{$estate->water_source}}</li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <a class="btn btn-outline-primary col-12" href="{{url('realtor/edit_estate/'.$estate->id)}}">
-                                    Edit Estate Information
-                                </a>
+
+                    
+                        <div id="estate-info" class="col-lg-3 content__right__main__estate__info">
+                            <div id="app-estate" class="estate-info ">
+                                <h4 class="content__right__main__estate__info__title"> Estate Information</h4>
+                                <div v-if="!edit" class="content__right__main__estate__info__body pb-3">
+                                    <ul id="estate-info">
+                                        <li><i class="fa fa-tag"></i> Name <span class="fa fa-angle-double-right"></span>
+                                            <span name="name"> {{$estate->name}}</span>
+                                        </li>
+                                        <li><i class="fa fa-map-marker"></i> Location <span class="fa fa-angle-double-right"></span> 
+                                            <span name="location">{{$estate->location->name}}</span>
+                                        </li>
+                                        <li><i class="fa fa-tint"></i>  Water Source <span class="fa fa-angle-double-right"></span> 
+                                            <span name="water_source">{{$estate->water_source}}</span>
+                                        </li>
+                                        <div class="clear"></div>
+                                    </ul>
+                                    <a class="btn btn-outline-primary col-12" href="{{url('realtor/edit_estate/'.$estate->id)}}">
+                                        Edit Estate Information
+                                    </a>
+                                </div>
+                                <!--
+                                <div v-else v-cloak class="v-cloak--hidden">
+                                    <form>
+                                        <input v-model="name" type="text" class="form-control" />
+                                        <input v-model="loc" type="text" class="form-control" />
+                                        <input v-model="water_source" type="text" class="form-control" />
+                                        <button type="submit" @click.prevent="edit_estate()" class="col-12 btn btn-success">EDIT</button>
+                                    </form>
+                                </div>
+                                -->
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
         
         </div>
@@ -318,6 +337,51 @@
 @endsection
 
 @section('js')
+<script>
+/*
+var name = $('#estate-info span[name=name]').html();
+var loc = $('#estate-info span[name=location]').html();
+var water_source = $('#estate-info span[name=water_source]').html();
+var estate_id = $('#estate-info input[name=estate_id]').val();
+var estate_info = new Vue({
+        el: '#app-estate',
+        data: {
+            name: name,
+            loc: loc,
+            water_source: water_source,
+            estate_id: estate_id,
+            edit: false
+        },
+        methods: {
+            edit_estate: function() {
+                if(this.edit) {
+                    var url = APP_URL+'realtor/edit_estate';
+                    var formData =  {
+                                    'estate_id'    : this.estate_id,
+                                    'water_source' : this.water_source,
+                                    'name'    : this.name
+                                };
+                    var self = this;
+                    axios.post(url, formData)
+                    .then(function (res) {
+                        var data = res.data.data;
+                        console.log(res.data);
+                        //self.submitted = true;
+                        if(res.data.status==200) {
+                            console.log('success');
+                        }else{
+                            console.log('failure');
+                        }
+                    })
+                }
+                this.edit = !this.edit;
+            }
+        },
+    })
+*/
+</script>
+
+
 <script type="application/javascript">
 $(document).ready(function(e) {
     //alert('working');
