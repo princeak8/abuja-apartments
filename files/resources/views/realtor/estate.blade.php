@@ -18,7 +18,7 @@
                 @endif
                 <div class="content__right__main__estate__title">
                     @if(isset($_SERVER['HTTP_REFERER'])) 
-                        <h4 class="">
+                        <h4 class="ml-3">
                             <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>"><i class="fa fa-caret-left"></i> Back</a>
                         </h4> 
                     @endif
@@ -108,35 +108,32 @@
                         @endif
                         <div class="col-12 content__right__main__estate__add-photo px-0">
                             <div class="pr-4">
-                                <button class="col-6 btn btn-primary" id="add-photo-btn" data-open="0">Add Photo</button> 
+                                <button class="col-6 btn btn-primary rounded-corner" id="add-photo-btn" data-open="0">Add Photo</button> 
                             </div>
                             <div class="ad_photo" id="add-photo-form"  style="display: none;">     
                                 {!! Form::open(['action' => ['Realtor\PhotoController@save_estate_photo'], 'method'=>'POST', 'enctype'=>"multipart/form-data"]) !!}
-                                    <h5 class="burgundy">Maximum Photo Size allowed is 10MB</h5>
+                                    <h6 class="burgundy">Maximum Photo Size allowed is 10MB</h6>
 
                                     <div id="photo-inputs" class="">  
                                         <div class="col-sm-8 col-xs-12 no-padding">
-                                        <img id="data1" class="col-sm-3 col-xs-5 no_pad_left" />
-                                        <span id="info1" class="no_pad_left col-sm-6 col-xs-7" ></span>
+                                            <img id="data1" class="col-sm-3 col-xs-5 no_pad_left" />
+                                            <span id="info1" class="col-sm-6 col-xs-7" ></span>
                                         </div>
-                                        <div class="clear"></div>
                                         
                                         <div class="form-group">
-                                        <input class="form-control photo" type="file" id="photo_1" data-id="data1" name="photo[]" required />
-                                        <input class="form-control" type="text" name="photo_title[]" placeholder="Photo Name/Title" />
+                                        <input class="form-control photo form-control-sm" type="file" id="photo_1" data-id="data1" name="photo[]" required />
+                                        <input class="form-control form-control-sm" type="text" name="photo_title[]" placeholder="Photo Name/Title" />
                                         </div> 
                                     </div>
                                 
-                                    <div class="clear"></div>
 
                                     <div id="add-more" class="form-group" style="margin-bottom: 5px;">
-                                        <button type="button" class="btn btn-primary">Add More Photos</button>
-                                    </div>
-                                    <div class="clear"></div> 
+                                        <button type="button" class="btn btn-primary btn-sm rounded-corner py-1">Add More Photos</button>
+                                    </div> 
                                 
                                     <div class="form-group"> 
                                         <input type="hidden" name="estate_id" value="{{$estate->id}}"> 
-                                        <input class="form-control btn btn-info" type="submit" name="submit" value="Submit" />
+                                        <input class="col-12 btn btn-outline-primary rounded-corner" type="submit" name="submit" value="Submit" />
                                     </div>
                                 {!! Form::close() !!}    
                             </div>
@@ -152,7 +149,7 @@
                                     <li><i class="fa fa-tint"></i>  Water Source <span class="fa fa-angle-double-right"></span> {{$estate->water_source}}</li>
                                     <div class="clear"></div>
                                 </ul>
-                                <a class="btn btn-outline-primary col-12" href="{{url('realtor/edit_estate/'.$estate->id)}}">
+                                <a class="btn btn-outline-primary col-12 rounded-corner" href="{{url('realtor/edit_estate/'.$estate->id)}}">
                                     Edit Estate Information
                                 </a>
                             </div>
@@ -165,11 +162,11 @@
     <hr />
 
     <div class="container-fluid">
-        <h4>House Portfolio <span class="fa fa-angle-right"></span>
-            {{-- <a href="{{url('realtor/add_house')}}"> 
-                <small class="smll">Add House <span class="fa fa-plus-square"></span></small>
-            </a> --}}
-            <button class="btn btn-info btn-sm" data-target="#addHouseModal" data-toggle="modal" >Add House</button>
+        <h4>House Portfolio 
+            <a href="{{url('realtor/add_house')}}" class="btn gradient px-4 rounded-corner btn-sm btn-default text-white"> 
+                Add House <span class="fa fa-plus-square"></span>
+            </a>
+            {{-- <button class="btn btn-primary rounded-corner btn-sm" data-target="#addHouseModal" data-toggle="modal" >Add House</button> --}}
         </h4>
         
 
@@ -313,7 +310,7 @@
     
 </div>
 
-@include('inc.realtor.estate.add_house_modal')
+{{-- @include('inc.realtor.estate.add_house_modal') --}}
 
 @endsection
 

@@ -7,3 +7,27 @@
 .burgundy {
     color: rgba(156,4,7,1.00);
 }
+.shadow {
+    box-shadow: $shadow;
+}
+.gradient {
+    @include background-color();
+}
+.rounded-corner {
+    border-radius: 30px !important;
+}
+.border-radius-big {
+    border-radius: $border-radius-big;
+}
+.border-radius-small {
+    border-radius: $border-radius-small;
+}
+.brand-color-darker {
+    color: $brand-color-darker;
+}
+.brand-color-lighter {
+    color: $brand-color-lighter;
+}
+.text-color {
+    color: $text-color;
+}

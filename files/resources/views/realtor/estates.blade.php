@@ -4,13 +4,13 @@
 
 @section('content')
 
-<div id="main-content" class="content__right__main">
+<div id="main-content" class="content__right__main ">
 
 	@include('inc.realtor.estate.estate_link')
 	       
 	<div class="content__right__main__houses">
 		<h4 class="content__right__main__houses__portfolio">Estates Portfolio  
-				<a href="{{url('realtor/add_estate')}}"> 
+				<a href="{{url('realtor/add_estate')}}" class="btn btn-sm btn-primary gradient rounded-corner px-4"> 
 				Add Estate &nbsp;<i class="fa fa-plus"></i>
 				</a>
 				{{-- <button type="button" href="#" data-toggle="modal" data-target="#exampleModal">

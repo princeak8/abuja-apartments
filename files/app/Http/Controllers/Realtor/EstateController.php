@@ -41,7 +41,6 @@ class EstateController extends Controller
 
 	public function show($id)
 	{
-		dd('Got here');
 		$realtor = Realtor::find(Auth::user()->id);
 		$estate = Estate::find($id);
 		return view('realtor/estate', compact('estate', 'realtor'));
