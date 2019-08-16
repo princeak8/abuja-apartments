@@ -53,7 +53,13 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-07-25 10:44:37] laravel.ERROR: Undefined variable: locations (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: locations (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\add_house_modal.blade.php) (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:43, ErrorException(code: 0): Undefined variable: locations (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:43, ErrorException(code: 0): Undefined variable: locations at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:43)
+[2019-07-25 10:44:37] laravel.ERROR: Undefined variable: locations (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: locations (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\add_house_modal.blade.php) (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:43, ErrorException(code: 0): Undefined variable: locations (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:43, ErrorException(code: 0): Undefined variable: locations at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:43)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -167,7 +173,13 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-07-25 10:47:16] laravel.ERROR: Undefined variable: house_types (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: house_types (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\add_house_modal.blade.php) (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:60, ErrorException(code: 0): Undefined variable: house_types (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:60, ErrorException(code: 0): Undefined variable: house_types at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:60)
+[2019-07-25 10:47:16] laravel.ERROR: Undefined variable: house_types (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\add_house_modal.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: house_types (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\add_house_modal.blade.php) (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:60, ErrorException(code: 0): Undefined variable: house_types (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\add_house_modal.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:60, ErrorException(code: 0): Undefined variable: house_types at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\aebfa12500335130c163de3a00f54347979e4e33.php:60)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -837,7 +849,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:29:25] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:29:25] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -951,7 +965,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:29:47] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:29:47] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1065,7 +1081,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:30:14] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:30:14] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1179,7 +1197,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:30:32] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:30:32] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1293,7 +1313,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:30:53] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:30:53] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1407,7 +1429,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:31:16] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:31:16] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1521,7 +1545,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:34:15] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:34:15] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1635,7 +1661,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:34:45] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:34:45] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1749,7 +1777,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 18:35:34] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
+[2019-08-14 18:35:34] laravel.ERROR: Trying to get property of non-object (View: C:\wamp\www\abj_dev\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22, ErrorException(code: 0): Trying to get property of non-object at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\4c19e06c35e09488b5bd0419c7e7c82dcfbe92bc.php:22)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1863,7 +1893,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 20:40:49] laravel.ERROR: Undefined variable: house (View: C:\wamp\www\abj_dev\files\resources\views\realtor\edit_estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: house (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\edit_estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:5, ErrorException(code: 0): Undefined variable: house at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:5)
+[2019-08-14 20:40:49] laravel.ERROR: Undefined variable: house (View: C:\wamp\www\abj_dev\files\resources\views\realtor\edit_estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: house (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\edit_estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:5, ErrorException(code: 0): Undefined variable: house at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:5)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -1977,7 +2009,9 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 20:41:22] laravel.ERROR: Undefined variable: house (View: C:\wamp\www\abj_dev\files\resources\views\realtor\edit_estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: house (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\edit_estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:6, ErrorException(code: 0): Undefined variable: house at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:6)
+[2019-08-14 20:41:22] laravel.ERROR: Undefined variable: house (View: C:\wamp\www\abj_dev\files\resources\views\realtor\edit_estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: house (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\edit_estate.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:6, ErrorException(code: 0): Undefined variable: house at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f45eac247fe9ba1228c209491b0ffed42996a39e.php:6)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -2091,7 +2125,13 @@
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-14 20:49:54] laravel.ERROR: Undefined variable: realtor (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\estate_link.blade.php) (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\estate_link.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtor (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\estate_link.blade.php) (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\759fade6ba89135829042d520408708ca3bb2e20.php:5, ErrorException(code: 0): Undefined variable: realtor (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\inc\ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\759fade6ba89135829042d520408708ca3bb2e20.php:5, ErrorException(code: 0): Undefined variable: realtor at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\759fade6ba89135829042d520408708ca3bb2e20.php:5)
+[2019-08-14 20:49:54] laravel.ERROR: Undefined variable: realtor (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\estate_link.blade.php) (View: C:\wamp\www\abj_dev\files\resources\views\inc\realtor\estate\estate_link.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtor (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\estate_link.blade.php) (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\759fade6ba89135829042d520408708ca3bb2e20.php:5, ErrorException(code: 0): Undefined variable: realtor (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\inc\
+ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\759fade6ba89135829042d520408708ca3bb2e20.php:5, ErrorException(code: 0): Undefined variable: realtor at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\759fade6ba89135829042d520408708ca3bb2e20.php:5)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
