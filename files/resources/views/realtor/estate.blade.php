@@ -207,7 +207,7 @@
                         <div class="row">
                             @foreach($estate->houses as $house) 
                                 <div class="col-lg-3">
-                                    <div class="houses__container__available__house"> 
+                                    <div class="houses__container__available__house mouseoverHouse"> 
                                         <a href="{{url('realtor/house/'.$house->id)}}">
                                             <div class="houses__container__available__house__img">
                                                 @if(App\House_photo::GetMainPhoto($house->id)->count())
@@ -280,7 +280,7 @@
                         <div class="row">
                             @foreach($estate->Unavailablehouses as $house) 
                                 <div class="col-lg-3">
-                                    <div class="houses__container__available__house">
+                                    <div class="houses__container__available__house mouseoverHouse">
                                         <a href="{{url('realtor/house/'.$house->id)}}">
                                             <div class="houses__container__available__house__img">
                                                 
@@ -533,7 +533,30 @@ $(document).ready(function(e) {
 		})
         
     })
+
+    $('.mouseoverHouse').each(function(){
+        var cover = $(this);
+        $(this).find('a').not('a.delete').mouseover(function() {
+            cover.find('.cover').css({
+                'height': '100%'
+            });
+            cover.find('.mouseoverDetails a').css({
+                'color': 'white'
+            })
+        })
+        $(this).mouseleave(function() {
+            $(this).find('.cover').css('height', '0')
+            $(this).find('.mouseoverDetails a').css({
+                'color': '#636b6f'
+            })
+            $(this).find('.mouseoverDetails a.delete').css({
+                'color': 'rgb(235, 65, 65)'
+            })
+        })
+    })
 });
+
+
 </script>
 
 @endsection
