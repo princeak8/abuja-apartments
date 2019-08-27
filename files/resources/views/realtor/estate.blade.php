@@ -8,7 +8,7 @@
     <div>
         @include('inc.realtor.estate.estate_link')
 
-        <div class="content__right__main__estate " >
+        <div class="content__right__main__estate" >
                 <p>@include('inc.errors')</p>
             
                 @if(request()->session()->exists('add_estate_msg'))
@@ -139,192 +139,201 @@
                             </div>
                         </div>
                     </div>
-
-                    
-                        <div id="estate-info" class="col-lg-3 content__right__main__estate__info">
-                            <div id="app-estate" class="estate-info ">
-                                <h4 class="content__right__main__estate__info__title"> Estate Information</h4>
-                                <div v-if="!edit" class="content__right__main__estate__info__body pb-3">
-                                    <ul id="estate-info">
-                                        <li><i class="fa fa-tag"></i> Name <span class="fa fa-angle-double-right"></span>
-                                            <span name="name"> {{$estate->name}}</span>
-                                        </li>
-                                        <li><i class="fa fa-map-marker"></i> Location <span class="fa fa-angle-double-right"></span> 
-                                            <span name="location">{{$estate->location->name}}</span>
-                                        </li>
-                                        <li><i class="fa fa-tint"></i>  Water Source <span class="fa fa-angle-double-right"></span> 
-                                            <span name="water_source">{{$estate->water_source}}</span>
-                                        </li>
-                                        <div class="clear"></div>
-                                    </ul>
-                                    <a class="btn btn-outline-primary col-12" href="{{url('realtor/edit_estate/'.$estate->id)}}">
-                                        Edit Estate Information
-                                    </a>
-                                </div>
-                                <!--
-                                <div v-else v-cloak class="v-cloak--hidden">
-                                    <form>
-                                        <input v-model="name" type="text" class="form-control" />
-                                        <input v-model="loc" type="text" class="form-control" />
-                                        <input v-model="water_source" type="text" class="form-control" />
-                                        <button type="submit" @click.prevent="edit_estate()" class="col-12 btn btn-success">EDIT</button>
-                                    </form>
-                                </div>
-                                -->
+                    <div id="estate-info" class="col-lg-3 content__right__main__estate__info">
+                        <div id="app-estate" class="estate-info ">
+                            <h4 class="content__right__main__estate__info__title"> Estate Information</h4>
+                            <div v-if="!edit" class="content__right__main__estate__info__body pb-3">
+                                <ul id="estate-info">
+                                    <li><i class="fa fa-tag"></i> Name <span class="fa fa-angle-double-right"></span>
+                                        <span name="name"> {{$estate->name}}</span>
+                                    </li>
+                                    <li><i class="fa fa-map-marker"></i> Location <span class="fa fa-angle-double-right"></span> 
+                                        <span name="location">{{$estate->location->name}}</span>
+                                    </li>
+                                    <li><i class="fa fa-tint"></i>  Water Source <span class="fa fa-angle-double-right"></span> 
+                                        <span name="water_source">{{$estate->water_source}}</span>
+                                    </li>
+                                    <div class="clear"></div>
+                                </ul>
+                                <a class="btn btn-outline-primary col-12" href="{{url('realtor/edit_estate/'.$estate->id)}}">
+                                    Edit Estate Information
+                                </a>
                             </div>
+                            <!--
+                            <div v-else v-cloak class="v-cloak--hidden">
+                                <form>
+                                    <input v-model="name" type="text" class="form-control" />
+                                    <input v-model="loc" type="text" class="form-control" />
+                                    <input v-model="water_source" type="text" class="form-control" />
+                                    <button type="submit" @click.prevent="edit_estate()" class="col-12 btn btn-success">EDIT</button>
+                                </form>
+                            </div>
+                            -->
                         </div>
-                    
+                    </div>
                 </div>
         
         </div>
     </div>
     <hr />
+    <div class="content__right__main__houses">
+        <div class="container-fluid content__right__main__estatehouses houses__container">
+            <h4>House Portfolio 
+                <a href="{{url('realtor/add_house')}}" class="btn gradient px-4 rounded-corner btn-sm btn-default text-white"> 
+                    Add House <span class="fa fa-plus-square"></span>
+                </a>
+                {{-- <button class="btn btn-primary rounded-corner btn-sm" data-target="#addHouseModal" data-toggle="modal" >Add House</button> --}}
+            </h4>
+            
 
-    <div class="container-fluid">
-        <h4>House Portfolio 
-            <a href="{{url('realtor/add_house')}}" class="btn gradient px-4 rounded-corner btn-sm btn-default text-white"> 
-                Add House <span class="fa fa-plus-square"></span>
-            </a>
-            {{-- <button class="btn btn-primary rounded-corner btn-sm" data-target="#addHouseModal" data-toggle="modal" >Add House</button> --}}
-        </h4>
-        
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" data-id="available">
+                    <a class="nav-link active" id="available-tab" data-toggle="tab" href="#available" role="tab" aria-controls="available" aria-selected="true">Available Houses</a>
+                </li>
+                <li data-id="unavailable">
+                    <a class="nav-link" id="unavailable-tab" data-toggle="tab" href="#unavailable" role="tab" aria-controls="unavailable" aria-selected="false">Unavailable Houses</a>
+                </li>
+            </ul>
 
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item" data-id="available">
-                <a class="nav-link active" id="available-tab" data-toggle="tab" href="#available" role="tab" aria-controls="available" aria-selected="true">Available Houses</a>
-            </li>
-            <li data-id="unavailable">
-                <a class="nav-link" id="unavailable-tab" data-toggle="tab" href="#unavailable" role="tab" aria-controls="unavailable" aria-selected="false">Unavailable Houses</a>
-            </li>
-        </ul>
+            @if(request()->session()->exists('success'))
+                <p class="alert alert-success">{{session('success')}} </p>
+            @endif
 
-        @if(request()->session()->exists('success'))
-            <p class="alert-success">{{session('success')}} </p>
-        @endif
-
-        <div id="portfolio-grid"  class="tab-content">            
-            <div id="available" class="tab-pane fade show active" role="tabpanel" aria-labelledby="available-tab">
-                @if($estate->houses->count()==0) 
-                    <p> No Houses yet under this Estate </p>
-                @else
-                    <ul class="row">
-                        @foreach($estate->houses as $house) 
-                            <div class="col-lg-3">
-                                <div class="house_container">
-                                    <li class="estate">
-                                        <div class="col-md-12 col-sm-12 img1 no-padding">
-                                            <a href="{{url('realtor/house/'.$house->id)}}">
+            <div id="portfolio-grid"  class="tab-content">            
+                <div id="available" class="tab-pane fade show active houses__container__available mt-4" role="tabpanel" aria-labelledby="available-tab">
+                    @if($estate->houses->count()==0) 
+                        <p> No Houses yet under this Estate </p>
+                    @else
+                        <div class="row">
+                            @foreach($estate->houses as $house) 
+                                <div class="col-lg-3">
+                                    <div class="houses__container__available__house"> 
+                                        <a href="{{url('realtor/house/'.$house->id)}}">
+                                            <div class="houses__container__available__house__img">
                                                 @if(App\House_photo::GetMainPhoto($house->id)->count())
                                                     <img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetMainPhoto($house->id)->first()->photo}}" />
                                                 @elseif(App\House_photo::GetHousePhotos($house->id)->count())
                                                     <img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetHousePhotos($house->id)->first()->photo}}" />
                                                 @else
-                                                    <img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
+                                                    <img src="{{env('APP_STORAGE')}}images/no_image.png" />
                                                 @endif
+                                            </div>
+                                        </a>
+                                        <div class="cover"></div> 
+                                        <div class="houses__container__available__house__details mouseoverDetails col-12 px-2"> 
+                                            <a href="{{url('realtor/house/'.$house->id)}}">
+                                                <div class="houses__container__available__house__details__type">
+                                                    {{$house->house_type->type}} &nbsp;&nbsp;
+                                                    {{-- @if($realtorHouse->sharer_id > 0) 
+                                                        <small>Shared <i class="fa fa-share"></i></small>
+                                                    @endif --}}
+                                                </div>
+                                                <div class="houses__container__available__house__details__bl">
+                                                    <p><i class="fa fa-bed"></i> {{$house->bedrooms}} Bedroom </p>
+                                                    <p><i class="fa fa-map-marker-alt"></i> {{$house->location->name}}</p>
+                                                </div>
                                             </a>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 no-padding"> 
-                                            <b> <span class="fa fa-bed"></span> 
-                                                {{$house->bedrooms}} Bedroom {{$house->house_type->type}}
-                                                <br/>
-                                                <span class="fa fa-map-marker"></span> {{$house->location->name}}
-                                                <span class="pull-right cap_1st re">For {{$house->status}}</span>
-                                                <br/>
-                                            </b>
-                                            <div class="no-margin lvd text-center">
+                                            <div class="houses__container__available__house__details__lower">
+                                                <span class="rs">{{$house->status}}</span>
                                                 <!--<a href="index.php?page=house likes&house_id=<?php //echo $house->house_id; ?>">--> 
-                                                    <span class="fa fa-thumbs-up"></span> Likes [{{$house->likes}}]&nbsp;&nbsp;
-                                                <!--</a>-->
-                                                <a href="{{url('realtor/house/'.$house->id)}}"> 
-                                                    <i class="fa fa-eye"></i> View
-                                                </a> &nbsp;&nbsp; 
-                                                <a 
-                                                    href="{{url('realtor/delete_house/'.$house->id)}}" 
-                                                    onClick="return confirm('Are You Sure You Want To Delete This House?')"
-                                                > 
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
-                                            
+                                                <span class="like">	
+                                                    <i class="far fa-heart"></i> {{$house->likes}}
+                                                </span>
+                                                <!--</a>--> 
+                                                <span>
+                                                    <a href="{{url('realtor/delete_house/'.$house->id)}}" class="delete" title="delete house"
+                                                        onClick="return confirm('Are You Sure You Want To Delete This House?')"> 
+                                                        <i class="fa fa-trash"></i> 
+                                                    </a>
+                                                </span>
+                                                
                                             </div>
+                                            
                                         </div>
-                                    </li>
-                                    <div class="clear"></div>
-                                </div>
-                            </div> 
-                        @endforeach
-                    </ul>
-                @endif
-                <div style="clear:both"></div>
-                <div class="social">Share on:
-                    <a class="soc_fb" href="http://www.facebook.com/sharer.php?u=http://www.abujaapartments.com.ng/{{Auth::user()->profile_name}}" target="_blank" title="Click to share">
-                    <span class="fa fa-facebook"></span>
-                    </a>
+                                        
+                                    </div>
+                                </div> 
+                            @endforeach
+                        </div>
+                    @endif
+                    
+                    {{-- <div class="social">Share on:
+                        <a class="soc_fb" href="http://www.facebook.com/sharer.php?u=http://www.abujaapartments.com.ng/{{Auth::user()->profile_name}}" target="_blank" title="Click to share">
+                        <span class="fa fa-facebook"></span>
+                        </a>
 
-                    <a href="https://twitter.com/share" class="soc_tw twitter-share-button"{count} data-text="http://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank" data-via="abujaapartments"><span class="fa fa-twitter"></span>
-                    </a>
+                        <a href="https://twitter.com/share" class="soc_tw twitter-share-button"{count} data-text="http://www.abujaapartments.com.ng/{{$realtor->profile_name}}" target="_blank" data-via="abujaapartments"><span class="fa fa-twitter"></span>
+                        </a>
 
-                    <a class="soc_wh" href="whatsapp://send?text=http://www.abujaapartments.com.ng/{{Auth::user()->profile_name}}" data-action="share/whatsapp/share"><span class="fa fa-whatsapp"></span>
-                    </a>
-                    <a class="soc_g" href="https://plus.google.com/share?url=http://www.abujaapartments.com.ng/{{Auth::user()->profile_name}}" target="_blank">
-                        <span class="fa fa-google-plus"></span>
-                    </a>
+                        <a class="soc_wh" href="whatsapp://send?text=http://www.abujaapartments.com.ng/{{Auth::user()->profile_name}}" data-action="share/whatsapp/share"><span class="fa fa-whatsapp"></span>
+                        </a>
+                        <a class="soc_g" href="https://plus.google.com/share?url=http://www.abujaapartments.com.ng/{{Auth::user()->profile_name}}" target="_blank">
+                            <span class="fa fa-google-plus"></span>
+                        </a>
+                    </div> --}}
                 </div>
-            </div>
 
-            <div id="unavailable" class="tab-pane fade" role="tabpanel" aria-labelledby="unavailable-tab">
-                <h4 class="blue"><span class="fa fa-bookmark-o"></span> Unavailable Houses</h4>
-                @if($estate->Unavailablehouses->count()==0)
-                    <p> No Unavailable Houses </p>
-                @else
-                    <ul class="thumbnails row">
-                        @foreach($estate->Unavailablehouses as $house) 
-                            <div class="col-lg-3">
-                                <div class="house_container">
-                                    <li class="mix estate" >
-                                        <div class="col-md-12 col-sm-12 img1 no-padding">
-                                            <a href="{{url('realtor/house/'.$house->id)}}">
+                <div id="unavailable" class="tab-pane fade houses__container__available mt-4" role="tabpanel" aria-labelledby="unavailable-tab">
+                    @if($estate->Unavailablehouses->count()==0)
+                        <p> No Unavailable Houses </p>
+                    @else
+                        <div class="row">
+                            @foreach($estate->Unavailablehouses as $house) 
+                                <div class="col-lg-3">
+                                    <div class="houses__container__available__house">
+                                        <a href="{{url('realtor/house/'.$house->id)}}">
+                                            <div class="houses__container__available__house__img">
+                                                
                                                 @if(App\House_photo::GetMainPhoto($house->id)->count())
                                                     <img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetMainPhoto($house->id)->first()->photo}}" />
                                                 @elseif(App\House_photo::GetHousePhotos($house->id)->count())
                                                     <img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetHousePhotos($house->id)->first()->photo}}" />
                                                 @else
-                                                    <img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
+                                                    <img src="{{env('APP_STORAGE')}}images/no_image.png" />
                                                 @endif
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-12 col-sm-12 no-padding"> 	
-                                            <b> 
-                                                <span class="fa fa-bed"></span>
-                                                {{$house->bedrooms}} Bedroom {{$house->house_type->type}}
-                                                <br/>
-                                                <span class="fa fa-map-marker"></span> {{$house->location->name}}
-                                                <span class="pull-right cap_1st re">For {{$house->status}}</span>
-                                                <br/>
-                                            </b>
-                                            <div class="no-margin lvd">
-                                                <a href="{{url('realtor/house'.$house->id)}}"> 
-                                                    <i class="fa fa-eye"></i> View
-                                                </a>
-                                                <a 
-                                                href="{{url('realtor/delete_house/'.$house->id)}}" 
-                                                onClick="return confirm('Are You Sure You Want To Delete This House?')"
-                                                > 
-                                                    <i class="fa fa-trash-o"></i> Delete
-                                                </a>
                                             </div>
+                                        </a>
+                                        <div class="cover"></div>
+                                        <div class="houses__container__available__house__details mouseoverDetails col-12 px-2"> 
+                                            <a href="{{url('realtor/house/'.$house->id)}}">
+                                                <div class="houses__container__available__house__details__type">
+                                                    {{$house->house_type->type}} &nbsp;&nbsp;
+                                                    {{-- @if($realtorHouse->sharer_id > 0) 
+                                                        <small>Shared <i class="fa fa-share"></i></small>
+                                                    @endif --}}
+                                                </div>
+                                                <div class="houses__container__available__house__details__bl">
+                                                    <p><i class="fa fa-bed"></i> {{$house->bedrooms}} Bedroom </p>
+                                                    <p><i class="fa fa-map-marker-alt"></i> {{$house->location->name}}</p>
+                                                </div>
+                                            </a>
+                                            <div class="houses__container__available__house__details__lower">
+                                                <span class="rs">{{$house->status}}</span>
+                                                <!--<a href="index.php?page=house likes&house_id=<?php //echo $house->house_id; ?>">--> 
+                                                <span class="like">	
+                                                    <i class="far fa-heart"></i> {{$house->likes}}
+                                                </span>
+                                                <!--</a>--> 
+                                                <span>
+                                                    <a href="{{url('realtor/delete_house/'.$house->id)}}" class="delete" title="delete house"
+                                                        onClick="return confirm('Are You Sure You Want To Delete This House?')"> 
+                                                        <i class="fa fa-trash"></i> 
+                                                    </a>
+                                                </span>
+                                                
+                                            </div>
+                                            
                                         </div>
-                                    </li>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>   
-                        @endforeach
-                    </ul> 
-                @endif
+                                    </div>
+                                </div>   
+                            @endforeach
+                        </div> 
+                    @endif
+                </div>
+            
             </div>
-        
-        </div>
 
+        </div>
     </div>
     
 </div>

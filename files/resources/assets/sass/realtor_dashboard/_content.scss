@@ -52,7 +52,6 @@
                 &__p {
                     @include background-color(); padding: .5% 1%; color: white;
                     margin-bottom: 0;border-radius: 0px 60px 0px 60px;
-                    
                 }
             }
             &__houses {
@@ -76,6 +75,7 @@
             }
             @import 'estates';
             @import 'estate';
+            @import 'estate_houses';
             
         }
         @import 'view_house';
