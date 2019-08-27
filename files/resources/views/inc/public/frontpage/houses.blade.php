@@ -1,4 +1,4 @@
-<div class="col-md-10 col-lg-10">    
+<div class="col-lg-10">    
     <div class="" id="content">
         @include('inc.public.frontpage.houses_components.filtering')
         
@@ -6,7 +6,7 @@
             @foreach($houses as $house)  
       
                 <!-- The House Pix and description starts here -->
-                <div class="col-md-3 col-sm-6 px-3">
+                <div class="col-lg-3 col-6 px-3">
                     {{-- <a href="house/{{$house->id}}"> --}}
                     <div class="house mouseoverHouse">  
                         <div class="cover"></div>
