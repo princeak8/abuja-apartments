@@ -31,7 +31,7 @@
 <script type="application/javascript" src="{{asset('js/jquery.js') }}"></script>
 <script type="application/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 <script type="application/javascript" src="{{ asset('js/popper.js')}}"></script>
-<script type="application/javascript" src="{{ asset('js/ionicon.js')}}"></script>
+{{-- <script type="application/javascript" src="{{ asset('js/ionicon.js')}}"></script> --}}
 
 
 <script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
@@ -82,6 +82,15 @@ tinymce.init({
         })
 
         $('#displaySearch').click(function() {
+            if($('#searchRealtor').hasClass('hideSearch')) {
+                $('#searchRealtor').removeClass('hideSearch')
+                $('#searchRealtor').addClass('showSearch')
+            } else {
+                $('#searchRealtor').removeClass('showSearch')
+                $('#searchRealtor').addClass('hideSearch')
+            }
+        })
+        $('#phoneDisplaySearch').click(function() {
             if($('#searchRealtor').hasClass('hideSearch')) {
                 $('#searchRealtor').removeClass('hideSearch')
                 $('#searchRealtor').addClass('showSearch')

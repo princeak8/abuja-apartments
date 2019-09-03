@@ -51,17 +51,17 @@
 	<div id="header" class="container-fluid">
         <div class="row header">
             
-            <div class="col-lg-3 header__img">
+            <div class="col-8 col-lg-3 header__img">
                 <img class="img-responsive" src="{{ asset('images/logo1.png') }}" /> 
             </div>
-            <div class="col-lg-9 header__content">
+            <div class="col-4 col-lg-9 header__content">
                 <div class="col-lg-12 p-0">
                     <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-1">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <div class="collapse navbar-collapse header__content__navbar__list mb-2" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse header__content__navbar__list mb-2 d-none d-sm-block" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
@@ -88,19 +88,6 @@
                                             <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
                                         </div>
                                     </li>
-                                    {{-- <li>
-                                        <button class="btn btn-outline-primary" id="displaySearch">
-                                            <i class="fa fa-search"></i></button>
-                                    </li> --}}
-                                    {{-- <div class="dropdown">
-                                        <button type="button" class="btn btn-primary py-1 px-4 dropdown-toggle" style="border-radius: 20px;" data-toggle="dropdown">
-                                            Register
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
-                                            <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
-                                        </div>
-                                    </div> --}}
                                 @else
                                 <li class="nav-item">
                                     <a class="nav-link" style="border-radius: 20px;" href="{{url('realtor/logout')}}">
@@ -141,6 +128,61 @@
 
             </div>
             
+        </div>
+
+        <div class="collapse navbar-collapse header__content__navbar__list mb-2 " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto d-block d-sm-none">
+                <li class="nav-item active">
+                    <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('partner') }}">Partner us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('about') }}">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('contact') }}">Contact us</a>
+                </li>
+                @if(!Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" 
+                        aria-expanded="false" aria-controls="collapseExample">
+                            Register <span class="fa fa-caret-down"></span>
+                        </a>
+                    </li>
+                    <div class="collapse border border-danger" id="collapseExample">
+                        <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
+                        <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                    </div>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" style="border-radius: 20px;" href="{{url('realtor/logout')}}">
+                            <span class="far fa-sign-out"></span> Log Out</a>
+                    </li>
+                @endif
+                <li>
+                    <button class="btn btn-outline-primary roundedSearch" id="phoneDisplaySearch">
+                        <i class="fa fa-search"></i></button>
+                </li>
+            </ul>
+            {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
+                <input type="hidden" name="active" value="0" />
+                <input class="form-control mr-sm-2" type="search" name="search_realtor" required placeholder="Search Realtor" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit"><span class="fa fa-search"></span></button>
+            </form> --}}
+            @if (Auth::user())
+                <div class="header__content__navbar__list__img" id="clickOnPhoto">
+                    @if(!empty(Auth::user()->profile_photo)) 
+                        <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
+                    @else
+                        <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+                    @endif
+                </div>
+            @endif
         </div>
 
         
