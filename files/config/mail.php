@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'zizix6.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -112,5 +112,7 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    'sendmail' => '/usr/sbin/sendmail -bs',
 
 ];

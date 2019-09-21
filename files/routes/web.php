@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/email', function() {
+    return view('email');
+});
+
+Route::get('/test_mail', 'TestMailController@index');
+
 Route::get('/', 'HomeController@index');
 Route::get('/index', 'HomeController@index');
 Route::post('/load_houses', 'HouseController@load_houses');

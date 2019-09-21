@@ -29,7 +29,7 @@ $(document).ready(function(e) {
 		}
 
 		CSRF_TOKEN = $('input[name=_token]').val();
-		var postUrl = APP_URL+"api/filter_houses";
+		var postUrl = APP_URL+"api/v1/filter_houses";
 		var postFields = {filter: filter, value: value, title: title, checked: checked};
 		
 		$.ajax({

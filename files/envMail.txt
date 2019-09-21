@@ -1,0 +1,8 @@
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.sendgrid.net
+MAIL_PORT=465
+MAIL_USERNAME=princeak
+MAIL_PASSWORD=roswell88
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_NAME="Abuja Apartments"
+MAIL_FROM_ADDRESS=info@abujaapartments.com.ng
