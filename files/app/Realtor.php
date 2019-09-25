@@ -258,6 +258,10 @@ class Realtor extends Authenticatable implements JWTSubject
         return $this->received_messages()->where('unread', '1');
     }
 
+    public function tickets(){
+        return $this->hasMany('App\Ticket', 'ticket_id');
+    }
+
     public static function boot ()
     {
         parent::boot();
@@ -295,6 +299,10 @@ class Realtor extends Authenticatable implements JWTSubject
             foreach ($realtor->house_comments as $comment)
             {
                 $comment->delete();
+            }
+            foreach ($realtor->tickets as $ticket)
+            {
+                $ticket->delete();
             }
         });
     }

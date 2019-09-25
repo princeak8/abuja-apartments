@@ -55,6 +55,10 @@ Route::get('realtor/send_email', 'Realtor\RegisterController@send_email');
 Route::get('/realtor', 'Realtor\HomeController@index');
 Route::get('realtor/home', 'Realtor\HomeController@index');
 
+Route::get('realtor/tickets', 'Realtor\TicketController@index');
+Route::get('realtor/create_ticket', 'Realtor\TicketController@create_ticket');
+Route::post('realtor/add_ticket', 'Realtor\TicketController@save');
+
 Route::get('realtor/messages', 'Realtor\MessageController@messages');
 
 Route::post('realtor/search_realtor', 'Realtor\HomeController@search_realtors');
