@@ -49,16 +49,26 @@
     @include('inc.analyticstracking')
 
 	<div id="header" class="container-fluid">
+        
         <div class="row header">
-            
-            <div class="col-8 col-lg-3 header__img">
+            <div class="col-3 d-flex d-sm-none justify-content-center align-items-center">
+                <button class="collapseBtn" >
+                    <div class="longBar my-2"></div>
+                    <div class="shortBar"></div>
+                    <div class="longBar my-2"></div>
+                </button>
+            </div>
+            <div class="col-6 col-lg-3 header__img">
                 <img class="img-responsive" src="{{ asset('images/logo1.png') }}" /> 
             </div>
-            <div class="col-4 col-lg-9 header__content">
-                <div class="col-lg-12 p-0">
-                    <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-1">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+            <div class="col-3 col-lg-9 header__content">
+                <div class="col-lg-12 p-0 header__content__sm">
+                    <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-0">
+                        <button class="navbar-toggler collapseBtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            {{-- <span class="navbar-toggler-icon"></span> --}}
+                            <div class="longBar my-2"></div>
+                            <div class="longBar"></div>
+                            <div class="longBar my-2"></div>
                         </button>
 
                         <div class="collapse navbar-collapse header__content__navbar__list mb-2 d-none d-sm-block" id="navbarSupportedContent">
@@ -129,9 +139,11 @@
             </div>
             
         </div>
+        
 
+        <!-- Mobile header drop down -->
         <div class="collapse navbar-collapse header__content__navbar__list mb-2 " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto d-block d-sm-none">
+            <ul class="navbar-nav mr-auto d-flex flex-row d-sm-none">
                 <li class="nav-item active">
                     <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -154,7 +166,7 @@
                             Register <span class="fa fa-caret-down"></span>
                         </a>
                     </li>
-                    <div class="collapse border border-danger" id="collapseExample">
+                    <div class="collapse text-center" id="collapseExample" style="width: 100%;">
                         <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
                         <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
                     </div>

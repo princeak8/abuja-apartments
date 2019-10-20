@@ -7,7 +7,7 @@
 @include('inc.public.frontpage.header')
 
 {{-- @include('inc.public.navbar') --}}
-<div class="container-fluid" style="position: relative; overflow: hidden;">
+<div class="container-fluid contentWrapper" style="position: relative; overflow: hidden;">
     <div class="search_realtor hideSearch" id="searchRealtor">
         <form action="processes/search_realtor.php" method="post" class="">
             <input type="hidden" name="active" value="0" />

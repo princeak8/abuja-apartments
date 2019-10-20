@@ -50,23 +50,45 @@
     }
     
 }
+#header {
+    position: fixed; z-index: 100;background: white;
+}
 .header {
     box-shadow: 0px 0px 5px 1px rgba(175, 174, 174, 0.2);padding-bottom: 0%; 
-    // border: 1px solid red;
+
     &__content {
         padding: 0px; margin-top: 20px;
-        // ;border: 1px solid green;
+        &__sm {
+            @include MQ-MAX(M) {
+                display: flex; justify-content: center; align-items: center;
+            }
+        }
+        @include MQ-MAX(M) {
+            margin-top: 12px; 
+        }
         &__navbar {
             // border: 1px solid yellow;
             &__list {
                 ul {
                     display: flex;flex: 1;padding-right: 1%; 
                     // border: 1px solid blue;
+                    @include MQ-MAX(M) {
+                        flex-wrap: wrap;
+                    }
                     .roundedSearch {
-                            border-radius: 0px;margin-right: 20px;font-size: .8em;padding: 5px 10px;
+                        border-radius: 0px;margin-right: 20px;font-size: .8em;padding: 5px 10px;
+                        @include MQ-MAX(M) {
+                            margin-left: 40px;
                         }
+                    }
                     li.nav-item {
-                        flex: 1;text-align: center;
+                        @include MQ(L) {
+                            flex: 1;
+                        }
+                        text-align: center; 
+                        @include MQ-MAX(M) {
+                            width: 33.2%;
+                        }
                         
                         a.nav-link {
                             font-weight: 300;color: $brand-color-darker;
@@ -97,12 +119,12 @@
         //     }
         // }
     }
-    
     &__img {
         padding: .7% 1.2%;height: 90px;
-        img {
-            width: 100%; height: 100%;
+        @include MQ-MAX(M) {
+            height: 60px;
         }
+        img { width: 100%; height: 100%; }
     }
 }
 .search_realtor {
@@ -132,8 +154,31 @@
 .showSearch {
     transition: all .8s ease-out;
     transform: translateY(0%);
+    @include MQ-MAX(M) {
+        top: 120px;
+    }
 }
 .hideSearch {
     transition: all .5s ease;
-    transform: translateY(-100%);
+    transform: translateY(-100%); 
+}
+
+.contentWrapper {
+    top:90px;
+    @include MQ-MAX(M) {
+        top: 60px;
+    }
+    margin-bottom: 90px;
+}
+.longBar {
+    height: 2px; width: 30px; background: $brand-color-darker;
+}
+.shortBar {
+    height: 2px; width: 20px; background: $brand-color-darker;
+}
+.collapseBtn {
+    background: white;  border-radius: 5px;
+    height: 35px;
+    // border: 1px solid rgba(31, 61, 196, 0.2);
+    border: none;
 }
