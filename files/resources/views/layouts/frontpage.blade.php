@@ -99,6 +99,15 @@ tinymce.init({
                 $('#searchRealtor').addClass('hideSearch')
             }
         })
+        $('#toggleFilter').click(function() {
+            if($('.filter_container').hasClass('hideFilter')) {
+                $('.filter_container').removeClass('hideFilter')
+                $('.filter_container').addClass('showFilter')
+            } else {
+                $('.filter_container').removeClass('showFilter')
+                $('.filter_container').addClass('hideFilter')
+            }
+        })
         // alert('got here')
     })
 </script>

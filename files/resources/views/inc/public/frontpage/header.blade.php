@@ -52,7 +52,7 @@
         
         <div class="row header">
             <div class="col-3 d-flex d-sm-none justify-content-center align-items-center">
-                <button class="collapseBtn" >
+                <button type="button" class="collapseBtn" id="toggleFilter">
                     <div class="longBar my-2"></div>
                     <div class="shortBar"></div>
                     <div class="longBar my-2"></div>
