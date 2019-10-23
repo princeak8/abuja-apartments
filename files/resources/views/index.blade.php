@@ -26,7 +26,7 @@
 
 
     <!-- The Left-side with the FILTERS -->
-    <div class="col-md-2 col-lg-2">     
+    <div class="col-md-2 col-lg-2 filter_container hideFilter">     
         @include('inc.public.filters')
     </div>
     @include('inc.public.frontpage.houses')

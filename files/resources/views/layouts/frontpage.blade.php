@@ -10,7 +10,7 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
 {{-- @include('inc.public.navbar') --}}
-<div class="container-fluid" style="position: relative; overflow: hidden;">
+<div class="container-fluid contentWrapper" style="position: relative; overflow: hidden;">
     <div class="search_realtor hideSearch" id="searchRealtor">
         <form action="processes/search_realtor.php" method="post" class="">
             <input type="hidden" name="active" value="0" />
@@ -103,6 +103,15 @@ tinymce.init({
             } else {
                 $('#searchRealtor').removeClass('showSearch')
                 $('#searchRealtor').addClass('hideSearch')
+            }
+        })
+        $('#toggleFilter').click(function() {
+            if($('.filter_container').hasClass('hideFilter')) {
+                $('.filter_container').removeClass('hideFilter')
+                $('.filter_container').addClass('showFilter')
+            } else {
+                $('.filter_container').removeClass('showFilter')
+                $('.filter_container').addClass('hideFilter')
             }
         })
         // alert('got here')

@@ -2245,7 +2245,9 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #50 C:\\wamp64\\www\\abuja-apartments\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-26 22:16:01] laravel.ERROR: Undefined variable: realtorHouse (View: C:\wamp64\www\abuja-apartments\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtorHouse (View: C:\\wamp64\\www\\abuja-apartments\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:222, ErrorException(code: 0): Undefined variable: realtorHouse at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:222)
+[2019-08-26 22:16:01] laravel.ERROR: Undefined variable: realtorHouse (View: C:\wamp64\www\abuja-apartments\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtorHouse (View: C:\\wamp64\\www\\abuja-apartments\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:222, ErrorException(code: 0): Undefined variable: realtorHouse at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:222)
 [stacktrace]
 #0 C:\\wamp64\\www\\abuja-apartments\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp64\\www\\abuja-apartments\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp64\\\\www\\\\a...', Array)
@@ -2359,7 +2361,9 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #50 C:\\wamp64\\www\\abuja-apartments\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-26 22:22:28] laravel.ERROR: Undefined variable: realtorHouse (View: C:\wamp64\www\abuja-apartments\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtorHouse (View: C:\\wamp64\\www\\abuja-apartments\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:227, ErrorException(code: 0): Undefined variable: realtorHouse at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:227)
+[2019-08-26 22:22:28] laravel.ERROR: Undefined variable: realtorHouse (View: C:\wamp64\www\abuja-apartments\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtorHouse (View: C:\\wamp64\\www\\abuja-apartments\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:227, ErrorException(code: 0): Undefined variable: realtorHouse at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:227)
 [stacktrace]
 #0 C:\\wamp64\\www\\abuja-apartments\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp64\\www\\abuja-apartments\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp64\\\\www\\\\a...', Array)
@@ -2473,7 +2477,9 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #50 C:\\wamp64\\www\\abuja-apartments\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-08-26 22:27:28] laravel.ERROR: Undefined variable: realtorHouse (View: C:\wamp64\www\abuja-apartments\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtorHouse (View: C:\\wamp64\\www\\abuja-apartments\\files\esources\\views\ealtor\\estate.blade.php) at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:242, ErrorException(code: 0): Undefined variable: realtorHouse at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:242)
+[2019-08-26 22:27:28] laravel.ERROR: Undefined variable: realtorHouse (View: C:\wamp64\www\abuja-apartments\files\resources\views\realtor\estate.blade.php) {"userId":42,"email":"agestatedev@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined variable: realtorHouse (View: C:\\wamp64\\www\\abuja-apartments\\files\
+esources\\views\
+ealtor\\estate.blade.php) at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:242, ErrorException(code: 0): Undefined variable: realtorHouse at C:\\wamp64\\www\\abuja-apartments\\files\\storage\\framework\\views\\da67aed2e8ea280dc43d7012f5825b119aa47aaf.php:242)
 [stacktrace]
 #0 C:\\wamp64\\www\\abuja-apartments\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp64\\www\\abuja-apartments\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp64\\\\www\\\\a...', Array)
@@ -2906,7 +2912,8 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-09-11 15:42:22] laravel.ERROR: htmlspecialchars() expects parameter 1 to be string, object given (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578, ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578)
+[2019-09-11 15:42:22] laravel.ERROR: htmlspecialchars() expects parameter 1 to be string, object given (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578, ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -3025,7 +3032,8 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-09-11 15:46:18] laravel.ERROR: Use of undefined constant message - assumed 'message' (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant message - assumed 'message' (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7, ErrorException(code: 0): Use of undefined constant message - assumed 'message' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7)
+[2019-09-11 15:46:18] laravel.ERROR: Use of undefined constant message - assumed 'message' (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant message - assumed 'message' (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7, ErrorException(code: 0): Use of undefined constant message - assumed 'message' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -3144,7 +3152,8 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-09-11 15:46:38] laravel.ERROR: htmlspecialchars() expects parameter 1 to be string, object given (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578, ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578)
+[2019-09-11 15:46:38] laravel.ERROR: htmlspecialchars() expects parameter 1 to be string, object given (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578, ErrorException(code: 0): htmlspecialchars() expects parameter 1 to be string, object given at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php:578)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -3263,7 +3272,8 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-09-11 15:47:02] laravel.ERROR: Cannot use object of type Illuminate\Mail\Message as array (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): Cannot use object of type Illuminate\\Mail\\Message as array (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Cannot use object of type Illuminate\\Mail\\Message as array at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7)
+[2019-09-11 15:47:02] laravel.ERROR: Cannot use object of type Illuminate\Mail\Message as array (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): Cannot use object of type Illuminate\\Mail\\Message as array (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Cannot use object of type Illuminate\\Mail\\Message as array at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:7)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(47): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -3382,7 +3392,8 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-09-11 15:50:47] laravel.ERROR: Undefined property: Illuminate\Mail\Message::$message (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Mail\\Message::$message (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:2, ErrorException(code: 0): Undefined property: Illuminate\\Mail\\Message::$message at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:2)
+[2019-09-11 15:50:47] laravel.ERROR: Undefined property: Illuminate\Mail\Message::$message (View: C:\wamp\www\abj_dev\files\resources\views\emails\test.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Mail\\Message::$message (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\emails\\test.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:2, ErrorException(code: 0): Undefined property: Illuminate\\Mail\\Message::$message at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\b60015d5352b9e37201a15fb38eeed471c5c2ede.php:2)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -3622,9 +3633,11 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 \" at C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php:457)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php(341): Swift_Transport_AbstractSmtpTransport->assertResponseCode('503 TLS not ava...', Array)
-#1 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(305): Swift_Transport_AbstractSmtpTransport->executeCommand('STARTTLS\\
+#1 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(305): Swift_Transport_AbstractSmtpTransport->executeCommand('STARTTLS\
+\
 ', Array, Array, false, NULL)
-#2 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(346): Swift_Transport_EsmtpTransport->executeCommand('STARTTLS\\
+#2 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(346): Swift_Transport_EsmtpTransport->executeCommand('STARTTLS\
+\
 ', Array)
 #3 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php(148): Swift_Transport_EsmtpTransport->doHeloCommand()
 #4 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Mailer.php(65): Swift_Transport_AbstractSmtpTransport->start()
@@ -3744,9 +3757,11 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 \" at C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php:457)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php(341): Swift_Transport_AbstractSmtpTransport->assertResponseCode('503 TLS not ava...', Array)
-#1 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(305): Swift_Transport_AbstractSmtpTransport->executeCommand('STARTTLS\\
+#1 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(305): Swift_Transport_AbstractSmtpTransport->executeCommand('STARTTLS\
+\
 ', Array, Array, false, NULL)
-#2 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(346): Swift_Transport_EsmtpTransport->executeCommand('STARTTLS\\
+#2 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(346): Swift_Transport_EsmtpTransport->executeCommand('STARTTLS\
+\
 ', Array)
 #3 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php(148): Swift_Transport_EsmtpTransport->doHeloCommand()
 #4 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Mailer.php(65): Swift_Transport_AbstractSmtpTransport->start()
@@ -4446,9 +4461,11 @@ ealtor\\estate\\estate_link.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage
 \" at C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php:457)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php(341): Swift_Transport_AbstractSmtpTransport->assertResponseCode('503 TLS not ava...', Array)
-#1 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(305): Swift_Transport_AbstractSmtpTransport->executeCommand('STARTTLS\\
+#1 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(305): Swift_Transport_AbstractSmtpTransport->executeCommand('STARTTLS\
+\
 ', Array, Array, false, NULL)
-#2 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(346): Swift_Transport_EsmtpTransport->executeCommand('STARTTLS\\
+#2 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\EsmtpTransport.php(346): Swift_Transport_EsmtpTransport->executeCommand('STARTTLS\
+\
 ', Array)
 #3 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Transport\\AbstractSmtpTransport.php(148): Swift_Transport_EsmtpTransport->doHeloCommand()
 #4 C:\\wamp\\www\\abj_dev\\files\\vendor\\swiftmailer\\swiftmailer\\lib\\classes\\Swift\\Mailer.php(65): Swift_Transport_AbstractSmtpTransport->start()
@@ -5440,7 +5457,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-09-21 18:18:11] laravel.ERROR: syntax error, unexpected 'endif' (T_ENDIF) (View: C:\wamp\www\abj_dev\files\resources\views\realtor\tickets.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): syntax error, unexpected 'endif' (T_ENDIF) (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\tickets.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\e9855d953197f74fa107edb1e58a65c6d4f720ac.php:46, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected 'endif' (T_ENDIF) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\e9855d953197f74fa107edb1e58a65c6d4f720ac.php:46)
+[2019-09-21 18:18:11] laravel.ERROR: syntax error, unexpected 'endif' (T_ENDIF) (View: C:\wamp\www\abj_dev\files\resources\views\realtor\tickets.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): syntax error, unexpected 'endif' (T_ENDIF) (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\tickets.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\e9855d953197f74fa107edb1e58a65c6d4f720ac.php:46, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected 'endif' (T_ENDIF) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\e9855d953197f74fa107edb1e58a65c6d4f720ac.php:46)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(47): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -5554,7 +5573,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-09-22 08:12:25] laravel.ERROR: Action App\Http\Controllers\Realtor\TicketController@save not defined. (View: C:\wamp\www\abj_dev\files\resources\views\realtor\create_ticket.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): Action App\\Http\\Controllers\\Realtor\\TicketController@save not defined. (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\create_ticket.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405, InvalidArgumentException(code: 0): Action App\\Http\\Controllers\\Realtor\\TicketController@save not defined. at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405)
+[2019-09-22 08:12:25] laravel.ERROR: Action App\Http\Controllers\Realtor\TicketController@save not defined. (View: C:\wamp\www\abj_dev\files\resources\views\realtor\create_ticket.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): Action App\\Http\\Controllers\\Realtor\\TicketController@save not defined. (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\create_ticket.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405, InvalidArgumentException(code: 0): Action App\\Http\\Controllers\\Realtor\\TicketController@save not defined. at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(InvalidArgumentException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -5908,7 +5929,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-09-22 08:45:52] laravel.ERROR: Undefined property: App\Ticket::$status (View: C:\wamp\www\abj_dev\files\resources\views\realtor\tickets.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: App\\Ticket::$status (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\tickets.blade.php) at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12, ErrorException(code: 0): Undefined property: App\\Ticket::$status at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12)
+[2019-09-22 08:45:52] laravel.ERROR: Undefined property: App\Ticket::$status (View: C:\wamp\www\abj_dev\files\resources\views\realtor\tickets.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: App\\Ticket::$status (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\tickets.blade.php) at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12, ErrorException(code: 0): Undefined property: App\\Ticket::$status at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6022,7 +6045,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-09-22 08:49:02] laravel.ERROR: Undefined property: App\Ticket::$status (View: C:\wamp\www\abj_dev\files\resources\views\realtor\tickets.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: App\\Ticket::$status (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\tickets.blade.php) at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12, ErrorException(code: 0): Undefined property: App\\Ticket::$status at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12)
+[2019-09-22 08:49:02] laravel.ERROR: Undefined property: App\Ticket::$status (View: C:\wamp\www\abj_dev\files\resources\views\realtor\tickets.blade.php) {"userId":5,"email":"derekhalims@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: App\\Ticket::$status (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\tickets.blade.php) at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12, ErrorException(code: 0): Undefined property: App\\Ticket::$status at C:\\wamp\\www\\abj_dev\\files\\app\\Ticket.php:12)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6133,7 +6158,8 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-10-12 16:31:38] laravel.ERROR: Undefined variable: page (View: C:\wamp\www\abj_dev\files\resources\views\contact.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: page (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\contact.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\8e2cca0d02089cea94bc01609343d0488fb377e8.php:5, ErrorException(code: 0): Undefined variable: page at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\8e2cca0d02089cea94bc01609343d0488fb377e8.php:5)
+[2019-10-12 16:31:38] laravel.ERROR: Undefined variable: page (View: C:\wamp\www\abj_dev\files\resources\views\contact.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: page (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\contact.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\8e2cca0d02089cea94bc01609343d0488fb377e8.php:5, ErrorException(code: 0): Undefined variable: page at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\8e2cca0d02089cea94bc01609343d0488fb377e8.php:5)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6241,7 +6267,8 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2019-10-12 16:45:25] laravel.ERROR: Action App\Http\Controllers\PageController@update not defined. (View: C:\wamp\www\abj_dev\files\resources\views\contact.blade.php) {"exception":"[object] (ErrorException(code: 0): Action App\\Http\\Controllers\\PageController@update not defined. (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\contact.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405, InvalidArgumentException(code: 0): Action App\\Http\\Controllers\\PageController@update not defined. at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405)
+[2019-10-12 16:45:25] laravel.ERROR: Action App\Http\Controllers\PageController@update not defined. (View: C:\wamp\www\abj_dev\files\resources\views\contact.blade.php) {"exception":"[object] (ErrorException(code: 0): Action App\\Http\\Controllers\\PageController@update not defined. (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\contact.blade.php) at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405, InvalidArgumentException(code: 0): Action App\\Http\\Controllers\\PageController@update not defined. at C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:405)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(InvalidArgumentException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6457,7 +6484,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-22 14:42:08] laravel.ERROR: Use of undefined constant realtor - assumed 'realtor' (View: C:\wamp\www\abj_dev\files\resources\views\realtor\login.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant realtor - assumed 'realtor' (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor\\login.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\21e6ed1a979dbac96a47d2499714f80dc16c3a38.php:50, ErrorException(code: 0): Use of undefined constant realtor - assumed 'realtor' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\21e6ed1a979dbac96a47d2499714f80dc16c3a38.php:50)
+[2019-10-22 14:42:08] laravel.ERROR: Use of undefined constant realtor - assumed 'realtor' (View: C:\wamp\www\abj_dev\files\resources\views\realtor\login.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant realtor - assumed 'realtor' (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor\\login.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\21e6ed1a979dbac96a47d2499714f80dc16c3a38.php:50, ErrorException(code: 0): Use of undefined constant realtor - assumed 'realtor' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\21e6ed1a979dbac96a47d2499714f80dc16c3a38.php:50)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6571,7 +6600,8 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-22 14:48:27] laravel.ERROR: Undefined variable: question (View: C:\wamp\www\abj_dev\files\resources\views\password_recovery_secret.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: question (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\password_recovery_secret.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21, ErrorException(code: 0): Undefined variable: question at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21)
+[2019-10-22 14:48:27] laravel.ERROR: Undefined variable: question (View: C:\wamp\www\abj_dev\files\resources\views\password_recovery_secret.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: question (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\password_recovery_secret.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21, ErrorException(code: 0): Undefined variable: question at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6685,7 +6715,8 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-22 14:53:49] laravel.ERROR: Undefined variable: question (View: C:\wamp\www\abj_dev\files\resources\views\password_recovery_secret.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: question (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\password_recovery_secret.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21, ErrorException(code: 0): Undefined variable: question at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21)
+[2019-10-22 14:53:49] laravel.ERROR: Undefined variable: question (View: C:\wamp\www\abj_dev\files\resources\views\password_recovery_secret.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: question (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\password_recovery_secret.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21, ErrorException(code: 0): Undefined variable: question at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6799,7 +6830,8 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-22 14:53:57] laravel.ERROR: Undefined variable: question (View: C:\wamp\www\abj_dev\files\resources\views\password_recovery_secret.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: question (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\password_recovery_secret.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21, ErrorException(code: 0): Undefined variable: question at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21)
+[2019-10-22 14:53:57] laravel.ERROR: Undefined variable: question (View: C:\wamp\www\abj_dev\files\resources\views\password_recovery_secret.blade.php) {"exception":"[object] (ErrorException(code: 0): Undefined variable: question (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\password_recovery_secret.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21, ErrorException(code: 0): Undefined variable: question at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\0bf1a727f63b99ebbd3cdd33f83d907334dc1e26.php:21)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -6913,7 +6945,8 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-22 15:14:38] laravel.ERROR: Use of undefined constant email - assumed 'email' (View: C:\wamp\www\abj_dev\files\resources\views\forgot_password.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant email - assumed 'email' (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\\forgot_password.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f96807af164806e294e8939eb118e4db50a757ed.php:5, ErrorException(code: 0): Use of undefined constant email - assumed 'email' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f96807af164806e294e8939eb118e4db50a757ed.php:5)
+[2019-10-22 15:14:38] laravel.ERROR: Use of undefined constant email - assumed 'email' (View: C:\wamp\www\abj_dev\files\resources\views\forgot_password.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant email - assumed 'email' (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\\forgot_password.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f96807af164806e294e8939eb118e4db50a757ed.php:5, ErrorException(code: 0): Use of undefined constant email - assumed 'email' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\f96807af164806e294e8939eb118e4db50a757ed.php:5)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -8201,7 +8234,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-23 00:09:14] laravel.ERROR: syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) (View: C:\wamp\www\abj_dev\files\resources\views\reset_password.blade.php) {"exception":"[object] (ErrorException(code: 0): syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\eset_password.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:77, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:77)
+[2019-10-23 00:09:14] laravel.ERROR: syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) (View: C:\wamp\www\abj_dev\files\resources\views\reset_password.blade.php) {"exception":"[object] (ErrorException(code: 0): syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+eset_password.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:77, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected end of file, expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:77)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(47): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
@@ -8315,7 +8350,9 @@ error:14090086:SSL routines:ssl3_get_server_certificate:certificate verify faile
 #50 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #51 {main}
 "} 
-[2019-10-23 00:58:52] laravel.ERROR: Use of undefined constant errorMsg - assumed 'errorMsg' (View: C:\wamp\www\abj_dev\files\resources\views\reset_password.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant errorMsg - assumed 'errorMsg' (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\eset_password.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:26, ErrorException(code: 0): Use of undefined constant errorMsg - assumed 'errorMsg' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:26)
+[2019-10-23 00:58:52] laravel.ERROR: Use of undefined constant errorMsg - assumed 'errorMsg' (View: C:\wamp\www\abj_dev\files\resources\views\reset_password.blade.php) {"exception":"[object] (ErrorException(code: 0): Use of undefined constant errorMsg - assumed 'errorMsg' (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+eset_password.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:26, ErrorException(code: 0): Use of undefined constant errorMsg - assumed 'errorMsg' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\cfff5e3a181880c0a2977dacf8d86e16fc24218c.php:26)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)
