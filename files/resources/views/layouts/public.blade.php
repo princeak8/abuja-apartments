@@ -16,6 +16,24 @@
 
 
 {{-- @include('inc.public.footer') --}}
+
+</body>
+
 @include('inc.public.frontpage.footer')
+
+<script type="application/javascript" src="{{asset('js/jquery.js') }}"></script>
+<script type="application/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+<script type="application/javascript" src="{{ asset('js/popper.js')}}"></script>
+{{-- <script type="application/javascript" src="{{ asset('js/ionicon.js')}}"></script> --}}
+
+
+<script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+<script type="application/javascript" src="{{asset('js/constants.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/scroll_top.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/toggle_filters.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/vue.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/axios.min.js')}}"></script>
+
+@yield('js')
 
 </html>

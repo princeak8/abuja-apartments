@@ -7,7 +7,7 @@
                 @if(!empty(Auth::user()->profile_photo)) 
                     <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
                 @else
-                    <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+                    <img src="{{asset('images/profile_pic2.png')}}" class="img-responsive" />
                 @endif
             </div>
             <div class="overlay__container__content__details">
@@ -109,7 +109,7 @@
                                     @if(!empty(Auth::user()->profile_photo)) 
                                         <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
                                     @else
-                                        <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+                                        <img src="{{asset('images/profile_pic2.png')}}" class="img-responsive" />
                                     @endif
                                 </div>
                             @endif
@@ -179,7 +179,7 @@
                     @if(!empty(Auth::user()->profile_photo)) 
                         <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
                     @else
-                        <img src="{{env('APP_STORAGE')}}images/profile_photos/no_photo.jpg" class="img-responsive" />
+                        <img src="{{asset('images/profile_pic2.png')}}" class="img-responsive" />
                     @endif
                 </div>
             @endif

@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Realtor;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Notifications\Registered;
 use App\Repositories\MyFunction;
 
 use Illuminate\Http\Request;
 use Storage;
 //use Auth;
-
+use App\Mail\Registration;
+use App\Mail\Registered;
 use App\Realtor;
 use App\Realtor_phone;
 
@@ -63,6 +64,11 @@ class RegisterController extends Controller
                 'phone' => $request->input('phone'),
                 'realtor_id' => $realtor->id
             ]);
+            //Send Email to newly registered Realtor
+            Mail::to($realtor->email)->send(new Registration($realtor));
+
+            //Send Email to Admin
+            Mail::to("akalodave@gmail.com")->send(new Registered($realtor));
 
             //attempt to login
             //dd(Auth::attempt($user));
@@ -72,7 +78,7 @@ class RegisterController extends Controller
                 $realtor->toggle_login_at = date('Y-m-d H:i:s');
                 $realtor->save();
                 
-                return redirect('/index');
+                return redirect('/realtor/home');
             }else{
                 return redirect('realtor/login');
             }
@@ -109,6 +115,11 @@ class RegisterController extends Controller
                 'phone' => $request->input('phone'),
                 'realtor_id' => $realtor->id
             ]);
+            //Send Email to newly registered Realtor
+            Mail::to($realtor->email)->send(new Registration($realtor));
+            
+            //Send Email to Admin
+            Mail::to("akalodave@gmail.com")->send(new Registered($realtor));
 
             //attempt to login
             //dd(Auth::attempt($user));

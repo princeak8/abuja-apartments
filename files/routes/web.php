@@ -22,6 +22,10 @@ Route::post('/load_houses', 'HouseController@load_houses');
 Route::post('/filter_houses', 'HouseController@filter');
 Route::post('/filter_houses2', 'HouseController@filter2');
 
+Route::get('about', 'PageController@about');
+Route::get('contact', 'PageController@contact');
+Route::post('/send_contact_message', 'PageController@send');
+
 Route::get('/house/{id}', 'HouseController@house');
 
 Route::post('/search_realtor', 'RealtorController@search');
@@ -38,6 +42,17 @@ Route::get('/test', function(){
 Route::get('realtor/login', ['middleware' => 'guest', function() {
     return view('realtor/login');
 }])->name('login');
+
+Route::get('forgot_password', ['middleware' => 'guest', function() {
+    return view('forgot_password');
+}])->name('password_recovery');
+Route::post('password_recovery/verify_email', 'PasswordRecoveryController@verify_email');
+Route::post('password_recovery/send_recovery_mail', 'PasswordRecoveryController@send_mail');
+Route::get('reset_password/{token}', 'PasswordRecoveryController@reset_password');
+Route::post('reset_password', 'PasswordRecoveryController@change_password');
+Route::get('code', ['middleware' => 'guest', function() {
+    echo urlencode('$2y$10$d7RAP2ORpuTa/nt1qaFHbOvx6O/5jRvjBQf.dyw5O1tW0qav0HQcS');
+}]);
 
 Route::post('realtor/login', 'Realtor\LoginController@login');
 

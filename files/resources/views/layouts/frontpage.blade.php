@@ -6,6 +6,9 @@
 
 @include('inc.public.frontpage.header')
 
+<input type="hidden" name="APP_URL" value="{{env('APP_URL')}}" />
+<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
 {{-- @include('inc.public.navbar') --}}
 <div class="container-fluid" style="position: relative; overflow: hidden;">
     <div class="search_realtor hideSearch" id="searchRealtor">
@@ -35,8 +38,11 @@
 
 
 <script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+<script type="application/javascript" src="{{asset('js/constants.js')}}"></script>
 <script type="application/javascript" src="{{asset('js/scroll_top.js')}}"></script>
 <script type="application/javascript" src="{{asset('js/toggle_filters.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/vue.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/axios.min.js')}}"></script>
 <script type='text/javascript'>
 tinymce.init({
     selector:  '.tinymce',
