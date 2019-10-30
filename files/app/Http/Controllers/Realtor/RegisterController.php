@@ -98,12 +98,14 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:realtors',
             'password' => 'required|min:3',
             'phone' => 'string|min:10|max:13',
+            'rc_number' => 'int|required',
         ]);
             // Create the realtor
         $realtor = Realtor::create([
             'firstname' => $request->input('firstname'),
             'profile_name' => $request->input('profile_name'),
             'email' => $request->input('email'),
+            'rc_number' => $request->input('rc_number'),
             'password' => bcrypt($request->input('password')),
             'activated' => 1
         ]);

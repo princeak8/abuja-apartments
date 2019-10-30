@@ -5,7 +5,9 @@
 {{-- @include('inc.public.header') --}}
 
 @include('inc.public.frontpage.header')
-
+<input type="hidden" name="APP_URL" value="{{env('APP_URL')}}" />
+<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+<input type="hidden" name="APP_STORAGE" value="{{ env('APP_STORAGE') }}" />
 
 {{-- @include('inc.public.navbar') --}}
 <div class="container-fluid mt-4"> 

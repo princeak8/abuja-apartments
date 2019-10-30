@@ -1,6 +1,10 @@
 @include('inc.realtor.header')
 	<link rel="stylesheet" type="text/css" href="{{asset('css/styles_frontpage.css')}}"/>
 
+    <input type="hidden" name="APP_URL" value="{{env('APP_URL')}}" />
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <input type="hidden" name="APP_STORAGE" value="{{ env('APP_STORAGE') }}" />
+    
 @include('inc.realtor.top_menu')
 
     <div id="search-results" class="col-md-12" style="background-color: #FFF;">
@@ -26,6 +30,9 @@
 
 <script type="application/javascript" src="{{asset('js/app.js')}}"></script>
 <script type="application/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/constants.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/vue.js')}}"></script>
+<script type="application/javascript" src="{{asset('js/axios.min.js')}}"></script>
 
 <script type="application/javascript">
 $(document).ready(function(e) {

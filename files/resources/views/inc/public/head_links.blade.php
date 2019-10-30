@@ -20,6 +20,10 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_frontpage.css')}}"/>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/share.css')}}"/>
 
-
+<style type="text/css">
+    [v-cloak] {
+        display: none;
+    }
+</style>
 </head>
   

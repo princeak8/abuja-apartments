@@ -33,6 +33,13 @@
         <p>Click <a href="{{url('forgot_password')}}">Here</a> to Get Another Link</p>
     </div>
 
+    <div v-cloak v-if="linkInvalid">
+        <h4 class="login__container__title" style="margin-top: 80px;">
+            <span><i class="fas fa-signin"></i>RESET PASSWORD</span>
+        </h4>
+        <p class="alert alert-danger">The Reset Link is No Longer Valid.. Check to make sure that you coied the correct link sent to your email</p>
+    </div>
+
 
     <div v-if="!resetted && !expired && linkExists" class="login__container col-lg-5 col-12">   	
         <h4 class="login__container__title">
@@ -40,8 +47,12 @@
         </h4>
 
         @if(!$reset)
-            <p class="alert alert-danger"> RESET LINK NO LONGER EXIST </p>
-            <p>Click <a href="{{url('forgot_password')}}">Here</a> to generate another reset link</p>
+            @if($invalid)
+                <p class="alert alert-danger">The link is invalid, confirm that you entered the correct link sent to your email
+            @else
+                <p class="alert alert-danger"> RESET LINK NO LONGER EXIST </p>
+                <p>Click <a href="{{url('forgot_password')}}">Here</a> to generate another reset link</p>
+            @endif
         @else
             @if($expired)
                 <p class="alert alert-danger"> THIS RESET LINK HAS EXPIRED</p>
@@ -72,14 +83,15 @@
                         </div>
                         <div class="login__container__body__form__input">
                             <input id="password2" class="form-control form-control-sm" type="password" v-model="password_confirm" required @keyup="compare" />
-                            <label for="password2">Password</label>
+                            <label for="password2">New Password Confirmation</label>
                             @if ($errors->has('password_confirmation'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('password_confirmation') }}</strong>
                                 </span>
                             @endif    
                         </div>
-                        <div class="">    
+                        <div class=""> 
+                            <input type="hidden" name="email" value="{{$email}}" />  
                             {{-- <input class="form-control btn btn-info" type="submit" name="submit" value="LOGIN" /> --}}
                             <button type="submit" name="submit" class="btn btn-primary" :disabled="!match && !submitting">Submit</button>
                         </div>
@@ -99,12 +111,14 @@
             el: '#app',
             data: {
                 password: '',
+                email: $('input[name=email]').val(),
                 password_confirm: '',
                 token: '{{$token}}',
                 match: false,
                 submitting: false,
                 errorMsg: '',
                 linkExists: true,
+                linkInvalid: false,
                 expired: false,
                 resetted: false
             },
@@ -121,8 +135,9 @@
                 submit: function() {
                     this.errorMsg = '';
                     this.submitting = true;
-                    var url = APP_URL+'reset_password';
+                    var url = APP_URL+'password_recovery/change_password';
                     var formData =  {
+                        'email' : this.email,
                         'token' : this.token,
                         'password' : this.password
                     };
@@ -142,6 +157,8 @@
                             }else{
                                 self.expired = true;
                             }
+                        }else if(res.data.invalid == 1) {
+                            self.linkInvalid = true;
                         }else{
                             self.linkExists = false;
                         }

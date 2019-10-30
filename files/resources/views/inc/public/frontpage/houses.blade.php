@@ -94,7 +94,7 @@ function showLoading() {
         }
 
         loadingDone = true;
-        CSRF_TOKEN = $('input[name=_token]').val();
+        //const CSRF_TOKEN = $('input[name=_token]').val();
         $(window).scroll(function() {
             
             //if($(window).scrollTop() == $(document).height() - $(window).height()) {

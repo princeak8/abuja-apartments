@@ -109,19 +109,12 @@
 
                 <div id="content">
                     <div id="body">
-                        <h2>RESET PASSWORD LINK</h2>
+                        <h2>PASSWORD CHANGED</h2>
                         <p>
-                            Click on the link Below or copy and paste on your browser to Reset/Change your password<br/><br/>
-                            Please be advised that this Link will expire in 1hrs Time.. So if you do not use it within one Hour of this mail, 
-                            it will no longer be valid and you will have to go through the password reset process again
+                            Your Password has been changed<br/><br/>
                         </p>
                         <p>
-                            <a href="{{env('APP_URL')}}reset_password/{{$email}}/{{$token}}">
-                                https://abujaapartments.com.ng/reset_password/{{$email}}/{{$token}}
-                            </a>
-                        </p>
-                        <p>
-                            If You did not initiate the request to reset your password, please ignore this message and contact us 
+                            If You were not responsible for the password change, contact us 
                             <a href="https://abujaapartments.com.ng/contact">HERE</a>
                         </p>
                     </div>

@@ -41,7 +41,7 @@ class HouseController extends Controller
 		//var_dump($availableHouses)
 		$requests = $realtor->sent_share_requests->count() + $realtor->share_requests->count() + $realtor->sent_requests()->count() + $realtor->circle_requests()->count();
 		if(Auth::user()->type=='company') {
-			return view('realtor/index_company', compact('realtor','locations','house_types'));
+			return view('realtor/company_houses', compact('realtor','locations','house_types'));
 		}else{
 			return view('realtor/index_agent', compact('realtor','locations','house_types'));
 		}

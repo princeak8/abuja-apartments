@@ -8,7 +8,7 @@
             <span><i class="fas fa-signin"></i> Forgot Password</span>
         </h4>
 
-        <p class="alert alert-success col-md-12">@{{message}} </p>
+        <p class="alert alert-success col-md-12" v-cloak>@{{message}} </p>
     </div>
 
     <div v-if="!mailSent" class="login__container col-lg-5 col-12">   	
@@ -20,13 +20,13 @@
                 
 
             <div style="margin-top:50px;">
-                <div v-if="verifiedEmail">
+                <div v-if="verifiedEmail" v-cloak>
                     <form class="login__container__body__form mt-4" @submit.prevent="submit_sec_ans">
                         <span v-if="errorMsg != ''" class="alert-danger help-block">
-                            <strong>@{{errorMsg}}</strong>
+                            <strong v-cloak>@{{errorMsg}}</strong>
                         </span>
                         <div class="login__container__body__form__input">
-                            <p><strong>Security Question:</strong> @{{secQuestion}} ?</p>
+                            <p v-cloak><strong>Security Question:</strong> @{{secQuestion}} ?</p>
                             <input id="sec-ans-input" class="form-control form-control-sm" type="text" v-model="answer" placeholder="Answer" :required="ansRequired" />
                         </div>
                         <div class="">    
@@ -34,10 +34,10 @@
                         </div>
                     </form>
                 </div>
-                <div v-else>
+                <div v-else v-cloak>
                     <form class="login__container__body__form" @submit.prevent="submit_email">
                         <span v-if="errorMsg != ''" class="alert-danger help-block">
-                            <strong>@{{errorMsg}}</strong>
+                            <strong v-cloak>@{{errorMsg}}</strong>
                         </span>
                         <div class="login__container__body__form__input">
                             
@@ -90,21 +90,25 @@
                         
                         axios.post(url, formData)
                         .then(function (res) {
-                            //console.log(res.data);
+                            console.log(res.data);
                             var data = res.data.data;
                             self.submitting = false;
-                            if(res.data.verified==1) {
-                                if(res.data.secQuestion_set == 1) {
-                                    self.verifiedEmail = true;
-                                    self.secQuestion = res.data.sec_question;
-                                    self.secAnswer = res.data.sec_answer
-                                    $('#sec-ans-input').attr('required');
+                            if(res.data.tokenExists == 0) {
+                                if(res.data.verified==1) {
+                                    if(res.data.secQuestion_set == 1) {
+                                        self.verifiedEmail = true;
+                                        self.secQuestion = res.data.sec_question;
+                                        self.secAnswer = res.data.sec_answer
+                                        $('#sec-ans-input').attr('required');
+                                    }else{
+                                        self.mailSent = true;
+                                        self.message = "An Email has been sent to the email that you entered with a link to reset your password";
+                                    }
                                 }else{
-                                    self.mailSent = true;
-                                    self.message = "An Email has been sent to the email that you entered with a link to reset your password";
+                                    self.errorMsg = 'The email You entered was not found in our database.. Please click on the Register button to register'
                                 }
                             }else{
-                                self.errorMsg = 'The email You entered was not found in our database.. Please click on the Register button to register'
+                                self.errorMsg = 'There is already a valid reset token set. Go to your email and follow the link there'
                             }
                         })
                         .catch(function(error) {

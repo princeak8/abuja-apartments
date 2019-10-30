@@ -53,6 +53,16 @@
                             </div>
                         @endif
 
+                        @if($type=='company')
+                            <div class="form-group col-sm-4 nopad-xs">
+                                <b class="red">* </b><label for="rc_number">RC NUMBER:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">RN</span>
+                                    <input id="rc_number" class="form-control input-sm" type="text" name="rc_number" placeholder="RC NUMBER OF THE COMPANY" required value="{!! old('rc_number') !!}" />
+                                </div>  
+                            </div>
+                        @endif
+
                         <div class="form-group col-sm-4 nopad-xs">
                             <b class="red">* </b><label for="profile_name">Profile Name(This will be used to form your personal Page):</label>
                             <div class="input-group">

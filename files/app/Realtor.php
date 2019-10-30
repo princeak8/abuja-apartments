@@ -12,7 +12,7 @@ class Realtor extends Authenticatable implements JWTSubject
 {
     use Notifiable;
     
-    protected $fillable = ['firstname', 'lastname', 'profile_name', 'email', 'password'];
+    protected $fillable = ['firstname', 'lastname', 'profile_name', 'email', 'password', 'rc_number'];
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

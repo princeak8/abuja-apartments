@@ -9,12 +9,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\Realtor;
 
-class Reset_password extends Mailable
+class Changed_password extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $token;
-    public $email;
 
     /**
      * Create a new message instance.
@@ -22,10 +20,9 @@ class Reset_password extends Mailable
      * @return void
      */
     
-    public function __construct($email, $token)
+    public function __construct()
     {
-        $this->token = $token;
-        $this->email = $email;
+        //
     }
 
     /**
@@ -36,7 +33,7 @@ class Reset_password extends Mailable
     public function build()
     {
         return  $this->from('contact@zizix6.com')
-                        ->view('emails.reset_password')
-                        ->subject("PASSWORD RESET");
+                        ->view('emails.changed_password')
+                        ->subject("PASSWORD CHANGED");
     }
 }

@@ -94,8 +94,8 @@
                                             Register
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
-                                            <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                                            <a class="dropdown-item" href="{{ url('register') }}">Individual</a>
+                                            <a class="dropdown-item" href="{{ url('register/company')}}">Company</a>
                                         </div>
                                     </li>
                                 @else
@@ -167,8 +167,8 @@
                         </a>
                     </li>
                     <div class="collapse text-center" id="collapseExample" style="width: 100%;">
-                        <a class="dropdown-item" href="{{ url('realtor/register') }}">Individual</a>
-                        <a class="dropdown-item" href="{{ url('realtor/company_register')}}">Company</a>
+                        <a class="dropdown-item" href="{{ url('register') }}">Individual</a>
+                        <a class="dropdown-item" href="{{ url('register/company')}}">Company</a>
                     </div>
                 @else
                     <li class="nav-item">

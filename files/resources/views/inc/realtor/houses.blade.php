@@ -36,7 +36,7 @@
 	<p class="alert-success">{{session('success')}} </p>
 @endif
 
-@if($realtor->type=='company') { ?>
+@if($realtor->type=='company')
 	<ul class="nav nav-pills">
         <li class="filter" data-filter="all">
             <a href="javascript:void(0)">All Houses</a>

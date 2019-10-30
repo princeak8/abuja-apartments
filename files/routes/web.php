@@ -43,13 +43,15 @@ Route::get('realtor/login', ['middleware' => 'guest', function() {
     return view('realtor/login');
 }])->name('login');
 
+Route::get('password_recovery/test', 'PasswordRecoveryController@test');
 Route::get('forgot_password', ['middleware' => 'guest', function() {
     return view('forgot_password');
 }])->name('password_recovery');
+Route::post('password_recovery/change_password', 'PasswordRecoveryController@change_password');
 Route::post('password_recovery/verify_email', 'PasswordRecoveryController@verify_email');
 Route::post('password_recovery/send_recovery_mail', 'PasswordRecoveryController@send_mail');
-Route::get('reset_password/{token}', 'PasswordRecoveryController@reset_password');
-Route::post('reset_password', 'PasswordRecoveryController@change_password');
+Route::get('reset_password/{email}/{token}', 'PasswordRecoveryController@reset_password');
+
 Route::get('code', ['middleware' => 'guest', function() {
     echo urlencode('$2y$10$d7RAP2ORpuTa/nt1qaFHbOvx6O/5jRvjBQf.dyw5O1tW0qav0HQcS');
 }]);
@@ -58,8 +60,8 @@ Route::post('realtor/login', 'Realtor\LoginController@login');
 
 Route::get('realtor/logout', 'Realtor\LoginController@logout');
 
-Route::get('realtor/register', 'Realtor\RegisterController@individual');
-Route::get('realtor/register/company', 'Realtor\RegisterController@company');
+Route::get('register', 'Realtor\RegisterController@individual');
+Route::get('register/company', 'Realtor\RegisterController@company');
 Route::post('realtor/reg', 'Realtor\RegisterController@register');
 Route::post('realtor/register/company', 'Realtor\RegisterController@register_company');
 

@@ -38,12 +38,15 @@
 	border-top-right-radius: 10px 10px;
 	border-bottom-right-radius: 10px 10px;
 } */
-#realtor-details table td {
-	padding-bottom: 1em;
-}
-#filtering {
-	display: none;
-}
+	#realtor-details table td {
+		padding-bottom: 1em;
+	}
+	#filtering {
+		display: none;
+	}
+    [v-cloak] {
+        display: none;
+    }
 </style>
 
 </head>
