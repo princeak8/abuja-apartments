@@ -35,7 +35,7 @@ class Reset_password extends Mailable
      */
     public function build()
     {
-        return  $this->from('contact@zizix6.com')
+        return  $this->from('contact@abujaapartments.com.ng')
                         ->view('emails.reset_password')
                         ->subject("PASSWORD RESET");
     }
