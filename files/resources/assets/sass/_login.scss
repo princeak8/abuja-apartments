@@ -1,6 +1,9 @@
 .login{
-    display: flex; justify-content: center;
-    padding: 0% 2% 1.5% 2%;
+    display: flex; justify-content: center; min-height: 60vh;
+    padding: 0% 2% 1.5% 2%;margin-top: 90px;
+    @include MQ-MAX(M) {
+        margin-top: 60px;
+    }
     &__container {
         box-shadow: $shadow; padding: 2%; border-radius: $border-radius-big;
         &__title{

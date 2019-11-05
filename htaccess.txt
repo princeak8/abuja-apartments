@@ -1,0 +1,31 @@
+#Redirection code starts
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#Redirection code Ends
+
+
+RewriteOptions inherit
+<filesMatch "\.(html|htm|js|css|jpg|jpeg|gif|png)$">
+	FileETag None
+	<ifModule mod_headers.c>
+		Header set Cache-Control "max-age=86400, public, must-revalidate"
+	</ifModule>
+</filesMatch>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+RewriteCond %{HTTPS} !on
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^abujaapartments\.com\.ng$ "https\:\/\/abujaapartments\.com\.ng\/" [R=301,L]
+
+</IfModule>
