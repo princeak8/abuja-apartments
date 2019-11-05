@@ -4,7 +4,7 @@
 <div class="container-fluid login">
     <div class="login__container col-lg-5 col-12">   	
         <h4 class="login__container__title">
-            <span><i class="fas fa-signin"></i> LOGIN</span>
+            <span> Login </span>
         </h4>
 
         <div class="login__container__body">
@@ -15,12 +15,12 @@
             <p>
                 @include('inc.errors')
             </p>
-            <form action="{{url('realtor/login')}}" method="POST" accept-charset="utf-8" class="login__container__body__form">
+            <form action="{{url('realtor/login')}}" autocomplete="false" method="POST" accept-charset="utf-8" class="login__container__body__form">
                 {{ csrf_field() }}
                 
                 <div class="login__container__body__form__input">
                     
-                    <input id="email" class="form-control form-control-sm" type="text" name="email" value="{{ old('email') }}" required />
+                    <input id="email" class="form-control form-control-sm" autocomplete="false" type="text" name="email" value="{{ old('email') }}" required />
                     <label for="email">Email/Profile Name</label>
                     @if ($errors->has('email'))
                         <span class="help-block">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="login__container__body__form__input">
                     
-                    <input id="password" class="form-control form-control-sm" type="password" name="password" required />
+                    <input id="password" class="form-control form-control-sm" autocomplete="false" type="password" name="password" required />
                     <label for="password">Password</label>
                     @if ($errors->has('password'))
                         <span class="help-block">
