@@ -39,7 +39,7 @@ $(document).ready(function(e) {
 	            //alert(xhr.responseText);
 	        },
 			success: function(data) { 
-				console.log(data);
+				console.log(data.title);
 				//data = JSON.parse(data); 
 				/*try {
 					data = JSON.parse(data); 
@@ -50,6 +50,7 @@ $(document).ready(function(e) {
 				if(data.title != '') {
 					output += '<div class="col-md-12">';
 					output += '<h4 class="h5">FILTERS ON ';
+					
 					$.each(data.title, function(key, title) { 
 						output += `<b>${key} :</b>`;
 						$.each(title, function(key, title) {
