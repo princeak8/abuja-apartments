@@ -1,6 +1,6 @@
 // JavaScript Document
 function showFiltering() {
-	$('#filtering').css('display', 'block');
+	$('#filtering').css('display', 'flex');
 }
 function hideFiltering() {
 	$('#filtering').css('display', 'none');
@@ -48,12 +48,12 @@ $(document).ready(function(e) {
 				}*/
 				var output = '';
 				if(data.title != '') {
-					output += '<div class="col-md-12 sub no-padding">';
-					output += '<h4 class="h5">FILTERS ON <i class="fa fa-angle-right"></i> ';
+					output += '<div class="col-md-12">';
+					output += '<h4 class="h5">FILTERS ON ';
 					$.each(data.title, function(key, title) { 
-						output += '<b>'+key+':</b> ';
+						output += `<b>${key} :</b>`;
 						$.each(title, function(key, title) {
-							output += '<span>'+title+'</span>, ';
+							output += `<span>${title}</span>, `;
 						});
 						output += ' | ';
 					});
@@ -62,7 +62,7 @@ $(document).ready(function(e) {
 
 				}
 				if(data.house == '') {
-					output += '<h4><b class="h4 h4-xs">No Results for the Selected Filter</b></h4>';
+					output += '<h4><b class="h4">No Results for the Selected Filter</b></h4>';
 				}else{
 					$.each(data.house, function(key, val) {
 						output +=  `<div class="col-lg-3 col-sm-6 px-3">

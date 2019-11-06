@@ -41,9 +41,6 @@
 	#realtor-details table td {
 		padding-bottom: 1em;
 	}
-	#filtering {
-		display: none;
-	}
     [v-cloak] {
         display: none;
     }

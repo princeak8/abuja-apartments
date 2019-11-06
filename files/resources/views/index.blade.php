@@ -2,7 +2,7 @@
 
 
 @section('content') 
-
+    {{-- @include('inc.public.frontpage.houses_components.filtering') --}}
 {{-- <div class="h_e">
     <div class="col-sm-2 h_e1">
         <p>
