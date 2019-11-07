@@ -1,6 +1,13 @@
 .cont_xs2 {
     padding: 0px 10px;
 }
+
+.filterTags {
+    span {
+        @include background-color(); padding: 2px 12px; border-radius: 30px; color: white;
+    }
+    
+}
 .house {
     box-shadow: $shadow; color: $text-color;
     position: relative; border-radius: $border-radius-big;margin-bottom: 20px;
@@ -36,9 +43,9 @@
             font-size: $font-size-li;
             font-family: $oswald; font-weight: 300;
             ul {
-                display: flex;flex-direction: row;margin: 0px;padding:1% 0px;justify-content: center;
+                display: flex;flex-direction: row;margin: 0px;padding:5px 0px;justify-content: center;
                 li {
-                    list-style: none; padding: 0px 2%;
+                    list-style: none; padding: 0px 5px;
                 }
             }
         }

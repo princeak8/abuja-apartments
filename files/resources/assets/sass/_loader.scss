@@ -1,0 +1,62 @@
+#filtering {
+    display: none;
+}
+.filterOverlay {
+    position: absolute; background: rgba(255, 255, 255, 0.7); width: 100%; min-height: 100%; 
+    z-index: 2; display: flex; padding-top: 150px;align-items: center;
+    flex-direction: column;
+    p{
+        font-weight: 700; font-size: 20px; color: $brand-color-darker; margin-top: 20px;
+    }
+}
+
+.load {
+    height: 80px;
+    width: 80px;
+    position: relative;
+    animation: style5-rotate 2.0s infinite linear;
+}
+
+.load .dot1,
+.load .dot2 {
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+    background: rgb(4, 94, 197);
+    border-top: 2px solid rgba(65, 145, 250, 0.9);
+    border-bottom: 2px solid rgba(119, 178, 255, 0.9);
+    border-left: 2px solid rgba(65, 145, 250, 0.9);
+    border-right: 2px solid rgba(119, 178, 255, 0.9);
+    position: absolute;
+    display: inline-block;
+    animation: style5-bounce 2.0s infinite ease-in-out;
+}
+
+.load .dot1 {
+    top: 0px;
+}
+
+.load .dot2 {
+    background: rgb(4, 105, 221);
+    animation-delay: 1s;
+    bottom: 0px;
+}
+
+@keyframes style5-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes style5-bounce {
+
+    0%,
+    100% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.0);
+    }
+}

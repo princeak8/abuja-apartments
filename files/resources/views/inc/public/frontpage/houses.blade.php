@@ -1,6 +1,11 @@
+@include('inc.public.frontpage.houses_components.filtering')
 <div class="col-lg-10">    
     <div class="" id="content">
-        @include('inc.public.frontpage.houses_components.filtering')
+        {{-- @include('inc.public.frontpage.houses_components.filtering') --}}
+        {{-- <div class="filterTags">
+            
+            <span>tags</span>
+        </div> --}}
         
         <div id="db-content" class="row">
             @foreach($houses as $house)  
