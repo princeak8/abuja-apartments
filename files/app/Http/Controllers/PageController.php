@@ -13,6 +13,7 @@ use Storage;
 
 use App\Page;
 use App\Contact_message;
+use App\Realtor_phone;
 use App\Mail\ContactMsg;
 use App\Mail\ContactMsgSender;
 
@@ -63,6 +64,14 @@ class PageController extends Controller
         }
         request()->session()->flash('msg', 'Your Message has been sent successfully.. Thank You for contacting us');
         return back();
+    }
+
+    public function realtor_phones()
+    {
+        $phones = Realtor_phone::all();
+        foreach($phones as $phone) {
+            echo $phone->phone." ";
+        }
     }
 
 }

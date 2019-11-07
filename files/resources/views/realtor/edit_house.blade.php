@@ -103,6 +103,7 @@
 
 				<div class="form-group row">
 					<div class="col-lg-3">
+							<b class="burgundy">* </b>
 							{!! Form::label('bedrooms', 'No of bedrooms') !!}
 							<div class="input-group">
 								<div class="input-group-prepend">
@@ -113,6 +114,7 @@
 					</div>
 
 					<div class="col-lg-3">
+							<b class="burgundy">* </b>
 							{!! Form::label('bathrooms', 'No of bathrooms') !!}
 							<div class="input-group">
 								<div class="input-group-prepend">
@@ -123,6 +125,7 @@
 					</div>
 
 					<div class="col-lg-3">
+							<b class="burgundy">* </b>
 							{!! Form::label('toilets', 'No of toilets') !!}
 							<div class="input-group">
 								<div class="input-group-prepend">
@@ -139,7 +142,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-bed"></i></span>
 								</div>
-								{!! Form::number('rooms', null, ['id'=>'rooms', 'class'=>'form-control form-control-sm', 'required', 'size'=>'2', 'maxlength'=>'2']) !!}
+								{!! Form::number('rooms', null, ['id'=>'rooms', 'class'=>'form-control form-control-sm', 'size'=>'2', 'maxlength'=>'2']) !!}
 							</div>  
 					</div>
 				</div>  
@@ -182,13 +185,13 @@
 		
 				<div class="form-group row px-3">
 					<span class="custom-control custom-radio mr-4"> 
-						{!! Form::label('residential', 'Residential ', ['class'=>'custom-control-label']) !!}
-						<input id="residential" type="radio" class="custom-control-input" name="purpose" value="residential" required 
+						{!! Form::label('residential', 'Residential ') !!}
+						<input id="residential" type="radio" name="purpose" value="residential" required 
 						@if(old('purpose')!='commercial'|| $house->purpose=='residential') checked @endif />	
 					</span>&nbsp;&nbsp;&nbsp;
-					<span class="custom-control custom-radio">
-						{!! Form::label('commercial', 'Commercial', ['class'=>'custom-control-label']) !!}
-						<input id="commercial" type="radio" class="custom-control-input" name="purpose" value="commercial" required
+					<span>
+						{!! Form::label('commercial', 'Commercial') !!}
+						<input id="commercial" type="radio" name="purpose" value="commercial" required
 						@if(old('purpose')=='commercial' || $house->purpose=='commercial') checked @endif/>
 					</span>
 				</div>
@@ -196,26 +199,26 @@
 				<div class="form-group row px-3">  
 					<span class="burgundy">* </span>{!! Form::label(' water_source', '  Water Source:', ['class' => 'mr-4']) !!}
 					<span class="custom-control custom-radio mr-4">
-						<label class="custom-control-label">Water Board</label> 
-						<input id="water_source" class="custom-control-input" type="radio" name="water_source" value="Water Board" required
+						<label>Water Board</label> 
+						<input id="water_source" type="radio" name="water_source" value="Water Board" required
 						@if(old('water_source')=='Water Board' || $house->purpose=='Water Board') checked @endif/>
 					</span>  
 					
 					<span class="custom-control custom-radio mr-4">
-						<label class="custom-control-label">Bore Hole</label> 
-						<input id="water_source" class="custom-control-input" type="radio" name="water_source" value="Bore Hole" required
+						<label>Bore Hole</label> 
+						<input id="water_source" type="radio" name="water_source" value="Bore Hole" required
 							@if(old('water_source')=='Bore Hole' || $house->purpose=='Bore Hole') checked @endif/> 
 					</span>
 
 					<span class="custom-control custom-radio mr-4">
-						<label class="custom-control-label">Well</label> 
-						<input id="water_source" class="custom-control-input" type="radio" name="water_source" value="Well" required
+						<label>Well</label> 
+						<input id="water_source" type="radio" name="water_source" value="Well" required
 							@if(old('water_source')=='Well' || $house->purpose=='Well') checked @endif/>
 					</span>
 					
 					<span class="custom-control custom-radio">
-						<label class="custom-control-label">N/A</label> 
-						<input id="water_source" class="custom-control-input" type="radio" name="water_source" value="N/A" required
+						<label>N/A</label> 
+						<input id="water_source" type="radio" name="water_source" value="N/A" required
 							@if(old('water_source')=='N/A' || $house->purpose=='N/A') checked @endif/>
 					</span>
 				</div>
