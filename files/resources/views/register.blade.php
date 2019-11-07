@@ -25,6 +25,9 @@
                         {{-- All Fields marked with red Asterix are compulsory<br/> --}}
                         Spaces are not allowed in Profile name e.g instead of &nbsp;<span class=""> "James Bond(Not allowed)"</span> &nbsp;&nbsp;Use <span class=""> "JamesBond(allowed)"</span>
                         </p>
+
+                        @include('inc.errors')
+                        
                         @if($type=='company')
                             {!! Form::open(['action' => ['Realtor\RegisterController@register_company'], 'method'=>'POST', 'class'=>'login__container__body__form', 'autocomplete'=>'off']) !!}
                         @else

@@ -43,10 +43,14 @@ class RegisterController extends Controller
         $validatedData = $request->validate([
             'firstname' => 'required|min:2',
             'lastname' => 'string',
-            'profile_name' => 'required|min:3',
+            'profile_name' => 'required|min:3|unique:realtors',
             'email' => 'required|string|email|max:255|unique:realtors',
             'password' => 'required|min:3',
             'phone' => 'string|min:10|max:13',
+        ],
+        [
+            'email.unique' => 'This email exists.. Try login in with the email.. Use forgotten password link to generate a new password if you have forgotten your password',
+            'profile_name.unique' => 'The profile name that you entered is not available.. If you have registered before Try login in with the profile name.. Use forgotten password link to generate a new password if you have forgotten your password'
         ]);
             // Create the realtor
         $realtor = Realtor::create([
@@ -94,11 +98,15 @@ class RegisterController extends Controller
         //Validate the form inputs
         $validatedData = $request->validate([
             'firstname' => 'required|min:2',
-            'profile_name' => 'required|min:3',
+            'profile_name' => 'required|min:3|unique:realtors',
             'email' => 'required|string|email|max:255|unique:realtors',
             'password' => 'required|min:3',
             'phone' => 'string|min:10|max:13',
             'rc_number' => 'int|required',
+        ],
+        [
+            'email.unique' => 'This email exists.. Try login in with the email.. Use forgotten password link to generate a new password if you have forgotten your password',
+            'profile_name.unique' => 'The profile name that you entered is not available.. If you have registered before Try login in with the profile name.. Use forgotten password link to generate a new password if you have forgotten your password'
         ]);
             // Create the realtor
         $realtor = Realtor::create([
