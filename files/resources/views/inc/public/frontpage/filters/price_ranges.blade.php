@@ -1,5 +1,5 @@
 <div class="filter__body__price-ranges">
-    <div class="filter-header" id="price-ranges">
+    <div class="filter-header" id="price-ranges" style="cursor: pointer">
         <h4>Price Ranges <span class="fa fa-angle-down hi"></span>
             {{-- <button type="button" class="navbar-toggle" data-toggle="" data-target="">
                 <span class="sr-only">Toggle navigation</span>

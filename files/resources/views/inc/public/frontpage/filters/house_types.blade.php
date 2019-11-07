@@ -1,6 +1,6 @@
 <div class="filter__body__house-types">
     
-    <div class="filter__body__house-types__header filter-header" id="house-types">
+    <div class="filter__body__house-types__header filter-header" id="house-types" style="cursor: pointer">
        <h4>House Types <span class="fa fa-angle-down hi"></span>
             {{-- <button type="button" class="navbar-toggle" data-toggle="" data-target="">
                 <span class="navbar-toggler-icon"></span>

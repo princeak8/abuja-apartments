@@ -133,15 +133,16 @@ class HouseController extends Controller
 				}else{
 					$myEstate = '';
 				}
-				
+
 				if(empty($main_photo) || empty($main_photo->photo)) { 
-					$photo = "no_img.png";
+					$photo = env('APP_STORAGE')."images/no_image.png";
 				}else{ 
-					$photo = $main_photo->photo;
+					$photo = env('APP_STORAGE')."images/houses/".$myhouse->id."/thumbnails/".$main_photo->photo;
 				}
 							
 				$house_array['house'][] = array(
 					"house_id"=>$myhouse->id,
+					"estate_id"=>$myhouse->estate_id,
 					"location"=>$myhouse->location->name,
 					"location_id"=>$myhouse->location_id,
 					"house_type"=>$myhouse->house_type->type,
@@ -157,9 +158,8 @@ class HouseController extends Controller
 					"house_likes"=>count($myhouse->house_likes),
 					"comments"=>count($myhouse->house_comments),
 					"photo"=>$photo
-					
-					);
-			
+				);
+
 			}
 		}
 		echo json_encode($house_array);
@@ -337,13 +337,14 @@ class HouseController extends Controller
 				}
 					
 				if(empty($main_photo) || empty($main_photo->photo)) { 
-					$photo = "no_img.png";
+					$photo = env('APP_STORAGE')."images/no_image.png";
 				}else{ 
-					$photo = $main_photo->photo;
+					$photo = env('APP_STORAGE')."images/houses/".$myhouse->id."/thumbnails/".$main_photo->photo;
 				}
 							
 				$house_array['house'][] = array(
 					"house_id"=>$myhouse->id,
+					"estate_id"=>$myhouse->estate_id,
 					"location"=>$myhouse->location->name,
 					"location_id"=>$myhouse->location_id,
 					"house_type"=>$myhouse->house_type->type,

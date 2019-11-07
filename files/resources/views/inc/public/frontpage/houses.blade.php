@@ -141,96 +141,66 @@ function showLoading() {
                                     if(val.toilets == undefined){
                                         val.toilets = '';
                                     }
-                                    output += '<div class="col-xs-6 col-md-3 col-sm-4 cont_xs2">';
-                                        output += '<div class="house_cont cont_xs1">';
-                                            //Location On Top of the pictures
-                                            output += '<div class="locat">';
-                                                output += '<span class="fa fa-map-marker"></span> '+val.location;
-                                                if(val.estate != '') { 
-                                                    output += ' <span>('+val.estate+' Estate</span>)';
-                                                } 
-                                            output += '</div>';
-                                            //The image div
-                                            output += '<div class="col-sm-12 col-xs-12 no-padding">';
-                                                output += '<a href="index.php?page=view house&house_id='+val.house_id+'">';
-                                                    output += '<div class="img">';
-                                                        output += '<img src="{{env('APP_STORAGE')}}images/houses/'+val.house_id+'/thumbnails/'+val.photo+'" />';
-                                                    output += '</div>';
-                                                output += '</a>'; 
-                                            output += '</div>';
-                                            
-                                            //The Price tag
-                                            output += '<div class="price">';
-                                                output += 'N '+val.price;
-                                            output += '</div>';
+                                    output += `<div class="col-lg-3 col-sm-6 px-3">
+								   		<div class="house mouseoverHouse">  
+											<div class="cover"></div>
+											<div class="house__upper"> 
+												<div class="house__upper__location">
+													<span class="fa fa-map-marker-alt"></span>${val.location}
+													${val.estate_id > 0 ? '(<span>'+ val.estate+ '</span>)' : ''}
+												</div>
+												<div class="house__upper__img_price">
+													<a href="house/${val.house_id}">
+														<div class="house__upper__img_price__img ">
+															<img src="${val.photo}" />
+														</div>
+													</a>
+	
+													<div class="house__upper__img_price__price">
+														₦${val.price} 
+													</div>
+												</div>
+												<div class="house__upper__bath">
+													<ul>
+														<li><span class="fa fa-bed"></span> ${val.bedrooms} 
+															${val.bedrooms <= 1 ? 'bedroom' : 'bedrooms'}
+														</li>
+														<li><span class="fa fa-shower"></span> ${val.bathrooms} 
+															${val.bathrooms <= 1 ? 'bathroom' : 'bathrooms'}
+														</li>
+														<li><span class="fa fa-bath"></span> ${val.toilets} 
+															${val.toilets <= 1 ? 'toilet' : 'toilets'}
+														</li>
+													</ul>
+												</div>
+											</div>
+							
+											<div class="house__details mouseoverDetails">
+												<a href="house/${val.house_id}">
+													<div class="house__details__upper">
+														<ul>
+															<li><i class="fa fa-tag"></i> ${val.title}</li>
+															<li><i class="fa fa-clone"></i> ${val.house_type}</li>
+															${val.estate_id > 0 ? '<li><i class="fa fa-list-ul"></i>'+ val.estate+
+																	'(<span>'+ val.units+ 'Units</span>)</li>'        
+															: ''}
+														</ul>
+													</div>
+												</a>
+												<hr>
+												<div class="house__details__lower">
+													<div class="house__details__lower__rs text-capitalize">
+														For ${val.status}
+													</div>
+													<div class="house__details__lower__cl">
+														<span><i class="far fa-heart"></i>  ${val.house_likes}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>`;
 
-                                            // The div below the Pictures
-                                            output += '<div class="no-padding bath">';
-                                                output += '<ul class="no-margin no-padding">';
-                                                    output += '<li><span class="fa fa-bed"></span> ';
-                                                        output += val.bedrooms;
-                                                            if(val.bedrooms <= 1){
-                                                                output += ' bedroom';
-                                                            }else{
-                                                                output += ' bedrooms';
-                                                            }
-                                                    output += '</li>';
-                                                    output += '<li><span class="fa fa-shower"></span> '+val.bathrooms;
-                                                            if(val.bathrooms <= 1){
-                                                                output += ' bathroom';
-                                                            }else{
-                                                                output += ' bathrooms';
-                                                            }
-                                                    output += '</li>';
-                                                    output += '<li><span class="fa fa-shower"></span> '+val.toilets;
-                                                            if(val.toilets <= 1){
-                                                                output += ' toilet';
-                                                            }else{
-                                                                output += ' toilets';
-                                                            }
-                                                    output += '</li>';
-                                                    output += '<div class="clear"></div>';
-                                                output += '</ul>';
-                                            output += '</div>';
-
-                                            //Description of the house starts here 
-                                            output += '<div class="col-md-12 col-xs-12 cont_descript">';
-                                                output += '<div class="descript">';
-                                                    
-                                                    output += '<ul class="no-padding">';
-                                                        output += '<li><span class="fa fa-tag"></span> '+val.title+'</li>';
-                                                        output += '<li><span class="fa fa-clone"></span> '+val.house_type+'</li>';
-                                                        if(val.estate != '') { 
-                                                            output += '<li><span class="fa fa-list-ul"></span> '+val.estate+' Estate';
-                                                            output += '<span>('+val.units+' Units)</span>';
-                                                            output += '</li>';
-                                                        } 
-                                                        
-                                                    output += '</ul>';
-
-                                                    output += '<a href="index.php?page=view house&house_id='+val.house_id+'"><span class="fa fa-external-link"></span> View details <span class="fa fa-angle-double-right"></span> </a>';
-                                                output += '</div>';//end of Descript
-
-                                                //Cont_lik starts
-                                                output += '<div class="cont_lik col-sm-12 col-xs-12">';
-                                                    output += '<hr/>';
-                                                    output += '<p class="pull-left">';  
-                                                        output += 'For '+val.status;
-                                                    output += '</p>';
-            
-                                                    output += '<div class="pull-right">';
-                                                        output += '<i><span class="fa fa-thumbs-up"></span> Likes['+val.house_likes+']</i> ';
-                                                        output += ' <i><span class="fa fa-comments"></span> Comments['+val.comments+']</i>';
-                                                    output += '</div>';
-                                                output += '</div>';//end of cont_lik
-
-                                            output += '</div>';//end of cont_descript
-        
-                                            output += '<div class="clear"></div>';
-        
-                                        output += '</div>';//End of house_cont
-        
-                                    output += '</div>'; //End of cont_xs2
+                                    
                                 })
         
                             }

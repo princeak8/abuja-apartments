@@ -1,5 +1,5 @@
 <div class="filter__body__location-types">
-    <div class="filter-header" id="location-types">
+    <div class="filter-header" id="location-types" style="cursor: pointer">
         <h4>Locations <span class="fa fa-angle-down hi"></span>
             {{-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="">
                 <span class="sr-only">Toggle navigation</span>
