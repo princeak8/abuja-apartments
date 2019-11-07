@@ -53,9 +53,11 @@ $(document).ready(function(e) {
 					
 					$.each(data.title, function(key, title) { 
 						output += `<b>${key} :</b>`;
+						
 						$.each(title, function(key, title) {
 							output += `<span>${title}</span>, `;
 						});
+						
 						output += ' | ';
 					});
 					output += '</h4>';
