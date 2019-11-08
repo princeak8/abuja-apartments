@@ -4,6 +4,9 @@
     // border: 3px solid red;
     &__left {
         width: 20%;@include background-color(); color: white; position: fixed;z-index: 1;top:100px;
+        @include MQ-MAX(M) {
+            width: 60%; left: 0px;top: 85px;
+        }
         a { color: white; }
         &__profile {
             padding: 4% 4% 1%;
@@ -43,13 +46,23 @@
     }
     &__right {
         width: 80%;margin-left: 20%;margin-top: 110px;
+        @include MQ-MAX(M) {
+            width: 100%;margin-left: 0px;margin-top: 85px;
+        }
         // border: 3px dotted green;
         &__main {
             font-family: $archivo; 
             &__head {
                 text-align: center; padding: 0 1%;
+                @include MQ-MAX(M) {
+                    
+                }
                 &__title { }
                 &__p {
+                    @include MQ-MAX(M) {
+                        font-size: 0.8em;border-radius: 0px; padding: 4px 5px;
+                        margin-bottom: 10px;
+                    }
                     @include background-color(); padding: .5% 1%; color: white;
                     margin-bottom: 0;border-radius: 0px 60px 0px 60px;
                 }
@@ -129,5 +142,19 @@
             }
         }
         
+    }
+}
+
+.hideMenu {
+    @include MQ-MAX(M) {
+        transition: all .5s ease;
+        transform: translateX(-100%);
+    }
+    
+}
+.showMenu {
+    @include MQ-MAX(M) {
+        transition: all .8s ease-out;
+        transform: translateX(0%);
     }
 }

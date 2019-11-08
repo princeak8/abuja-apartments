@@ -1,4 +1,4 @@
-<div style="overflow-y:scroll; max-height: 100vh;">
+<div style="overflow-y:scroll; max-height: 100vh;" >
     <div class="content__left__profile">
         <div class="content__left__profile__img">
             @if(!empty(Auth::user()->profile_photo))
