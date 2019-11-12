@@ -1,3 +1,3 @@
-username: zerothw1_AbjApartmentsApiUser
+username: abujaapa
 password: =Xn9?0#B&f0q
-database: zerothw1_abuja_apartments_api
+database: abujaapa_db
