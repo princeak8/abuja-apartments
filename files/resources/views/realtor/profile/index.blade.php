@@ -1,9 +1,3 @@
-@if(Auth::user()->type=='company')
-	@include('inc.realtor.company_head_links')
-@else
-	@include('inc.realtor.agent_head_links')
-@endif
-
 @extends('layouts.realtor_profile', ['page'=>'profile'])
 
 @section('content')
@@ -77,7 +71,7 @@
     <script type="application/javascript">
 	    $(document).ready(function(e) { //alert('working');
             $(document).on('click', '.edit', function(e) {
-                CSRF_TOKEN = $('input[name=_token]').val();
+				console.log('edit');
 
                 var id = e.target.id;
                 var edited = $('#edit-'+id).data('id');
@@ -122,6 +116,46 @@
                     }
                 }
             });
+			$(document).on('click', '.editphone', function(e) { //alert('working');
+				var id = e.target.id;
+				var edited = $('#edit-'+id).data('id');
+				var value = jQuery.trim($('#edit-'+id).html());
+				if(edited==1) {
+					$('#edit-'+id).html('<input type="text" value="'+value+'"  />');
+					$('#edit-'+id).data('id', 0);
+					$(this).html('Save');
+				}
+				if(edited==0) {
+					var edited_value = $('#edit-'+id+' input').val();
+					if(edited_value == '' || edited_value.length < 11) {
+						$('#error-'+id).html('Enter a valid Phone Number');
+					}else{
+						var phone_id = $(this).data('title');
+						$(this).html('Edit');
+						$.ajax({
+								url: '../processes/edit_realtor_phone.php',
+								data: {phone_id: phone_id, value: edited_value},
+								type: 'post',
+								async: false,
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+								console.log(errorThrown);
+								$('#edit-'+id).html(value);
+								$('#edit-'+id).data('id', 1);
+								},
+								success: function(data){
+									if(data==1) { 
+										$('#edit-'+id).html(edited_value);
+										$('#edit-'+id).data('id', 1);
+									}else{
+										$('#edit-'+id).html(value);
+										$('#edit-'+id).data('id', 1);
+									}
+								}
+						});
+					}
+					
+				}
+        	});
         });
     </script>
 

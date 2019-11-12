@@ -33,7 +33,7 @@ class Registration extends Mailable
      */
     public function build()
     {
-        return  $this->from('contact@zizix6.com')
+        return  $this->from('contact@abujaapartments.com.ng')
                         ->view('emails.new_registration')
                         ->subject("Successfull Abuja Apartments Registration");
     }

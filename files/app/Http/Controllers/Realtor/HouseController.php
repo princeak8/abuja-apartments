@@ -73,6 +73,7 @@ class HouseController extends Controller
 		$realtorHouseObj = new Realtor_house; // instantite the realtor_house class
 
 		//Instantiate House properties
+		$houseObj->realtor_id = Auth::user()->id;
 		$houseObj->title 	  		= $post['title'];
 		$houseObj->location_id 		= $post['location_id'];
 		$houseObj->house_type_id 	= $post['house_type_id'];

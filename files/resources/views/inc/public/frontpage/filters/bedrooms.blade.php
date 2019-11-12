@@ -1,5 +1,5 @@
 <div class="filter__body__bedrooms">
-    <div class="filter-header" id="bedrooms">
+    <div class="filter-header" id="bedrooms" style="cursor: pointer">
         <h4>No Of Bedrooms <span class="fa fa-angle-down hi"></span>
             {{-- <button type="button" class="navbar-toggle" data-toggle="" data-target="">
                 <span class="sr-only">Toggle navigation</span>

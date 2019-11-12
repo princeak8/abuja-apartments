@@ -1,6 +1,9 @@
 .houses__container {
     margin-top: 20px;
     &__available {
+        @include MQ-MAX(M) {
+           padding: 0px 20px;
+        }
         &__house {
             border-radius: $border-radius-big; box-shadow:$shadow;margin-bottom: 16px;
             overflow: hidden; position: relative;

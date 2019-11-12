@@ -11,7 +11,7 @@
 <meta property="og:description" content="Abuja Apartments is an online Real Estate platform that aims to make it easy for anybody within Abuja environs to easily have access to houses either for rent or for sale. " />
 <title>Abuja Apartments</title>
 
-<link rel="icon" href="{{env('APP_STORAGE')}}images/abuja_apa_log.png" />
+<link rel="icon" href="{{asset('images/symbol.png')}}" />
 
 <script type="application/javascript" async src="{{asset('js/jquery.min.js')}}"></script>
 <script type="application/javascript" async src="{{asset('js/bootstrap.min.js')}}"></script>

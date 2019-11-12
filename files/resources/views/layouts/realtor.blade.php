@@ -35,7 +35,7 @@
     
     @include('inc.realtor.header')
     <div class="content">
-        <div class="content__left">
+        <div class="content__left menuContainer hideMenu">
             @include('inc.realtor.top_menu')
         </div>
         <div class="content__right">
@@ -89,6 +89,15 @@
 @yield('js')
 
 <script type="application/javascript">
+    $('#toggleMenu').click(function() {
+        if($('.menuContainer').hasClass('hideMenu')) {
+            $('.menuContainer').removeClass('hideMenu')
+            $('.menuContainer').addClass('showMenu')
+        } else {
+            $('.menuContainer').removeClass('showMenu')
+            $('.menuContainer').addClass('hideMenu')
+        }
+    })
     // $(document).ready(function(e) {
     //     // alert('working');
     //     $('.houses').css('display', 'none');

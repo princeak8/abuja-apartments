@@ -15,6 +15,7 @@ Route::get('/email', function() {
 });
 
 Route::get('/test_mail', 'TestMailController@index');
+Route::get('/realtor_phones', 'PageController@realtor_phones');
 
 Route::get('/', 'HomeController@index');
 Route::get('/index', 'HomeController@index');

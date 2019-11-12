@@ -13,6 +13,7 @@ use Storage;
 
 use App\Page;
 use App\Contact_message;
+use App\Realtor_phone;
 use App\Mail\ContactMsg;
 use App\Mail\ContactMsgSender;
 
@@ -54,11 +55,23 @@ class PageController extends Controller
             Mail::to("akalodave@gmail.com")->send(new ContactMsg($msgObj));
             if(!empty($post['email'])) {
                 // Send Email to Sender
-                Mail::to($post['email'])->send(new ContactMsgSender($msgObj->name));
+                try{
+                    Mail::to($post['email'])->send(new ContactMsgSender($msgObj->name));
+                }catch(exception $e) {
+                    //
+                }
             }
         }
         request()->session()->flash('msg', 'Your Message has been sent successfully.. Thank You for contacting us');
         return back();
+    }
+
+    public function realtor_phones()
+    {
+        $phones = Realtor_phone::all();
+        foreach($phones as $phone) {
+            echo $phone->phone." ";
+        }
     }
 
 }

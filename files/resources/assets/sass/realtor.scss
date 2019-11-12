@@ -1,8 +1,11 @@
+@import "mixins";
 @import "variables";
 
 @import "realtor_dashboard/index";
 
 @import "footer_realtor";
+
+@import "loader";
 
 .burgundy {
     color: rgba(156,4,7,1.00);

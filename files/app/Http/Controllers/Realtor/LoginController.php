@@ -30,8 +30,13 @@ class LoginController extends Controller
 
    public function login()
    {
+       $post = Request::only('email', 'password');
+       $email = $post['email'];
+       $password = $post['password'];
+       //dd($password);
        // Attempt to authenticate the user
-        if( !auth()->attempt(request(['email', 'password']))) {
+        //if(!auth()->attempt(request(['email', 'password']))) {
+        if(!auth()->attempt(['email'=>$email, 'password'=>$password]) && !auth()->attempt(['profile_name'=>$email, 'password'=>$password])) {
             // If not, redirect back
             return back()->withErrors([
                 'message' => 'Please chek your credentials and try again.'

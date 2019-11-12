@@ -6,7 +6,7 @@
             <li><i class="fa fa-tag"></i> {!! check_string_length($house->title) !!}</li>
             <li><i class="fa fa-clone"></i> {{check_string_length($house->house_type->type)}}</li>
             @if($house->estate_id > 0) 
-                <li><i class="fa fa-list-ul"></i> {{check_string_length($house->estate->name)}}
+                <li><i class="fa fa-list-ul"></i> <?php echo check_string_length($house->estate->name); ?>
                     (<span>{{$house->units}} Units</span>)
                 </li>        
             @endif
