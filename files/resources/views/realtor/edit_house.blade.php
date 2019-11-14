@@ -158,8 +158,7 @@
 							</div>  
 							<p class="form-text burgundy">E.g: 50000 (correct) not 50,000 (incorrect)</p>
 					</div>
-		
-					<div class="col-lg-4">
+					<div class="col-lg-4" id="agent-fee">
 							<label for="agent_fee"><b class="burgundy">* </b>Agent Fee:</label>
 							{!! Form::label('agent_fee', 'Agent Fee') !!}
 							<div class="input-group">
@@ -171,7 +170,7 @@
 							<p class="form-text burgundy">E.g: 10000 (correct) not 10,000 (incorrect)</p>
 					</div>
 		
-					<div class="col-lg-4">
+					<div class="col-lg-4" id="service-charge">
 							{!! Form::label('service_charge', 'Service Charge') !!}
 							<div class="input-group">
 								<div class="input-group-prepend">
@@ -254,17 +253,23 @@
 			var init_status = $('input[name=status]:checked').val();
 			if(init_status == 'sale') {
 				$('#s-plan').css('display', 'block');
-		    $('#per-anum').css('display', 'none');
+		    	$('#per-anum').css('display', 'none');
+				$('#agent-fee').css('display', 'none');
+				$('#service-charge').css('display', 'none');
 			}
 			$(document).on('click','input[name=status]',function(e) {
 				var status = $(this).val();
 			   //alert(status);
 			   if(status=='sale') {
-				   $('#s-plan').css('display', 'block');
-		       $('#per-anum').css('display', 'none');
+				   	$('#s-plan').css('display', 'block');
+		       		$('#per-anum').css('display', 'none');
+					$('#agent-fee').css('display', 'none');
+					$('#service-charge').css('display', 'none');
 			   }else{
-				   $('#s-plan').css('display', 'none');
-		       $('#per-anum').css('display', 'inline-block');
+				   	$('#s-plan').css('display', 'none');
+			       	$('#per-anum').css('display', 'inline-block');
+				   	$('#agent-fee').css('display', 'block');
+					$('#service-charge').css('display', 'block');
 			   }
 			})
 		})
