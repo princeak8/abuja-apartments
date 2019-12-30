@@ -53,7 +53,6 @@
 
 <script type="application/javascript">
   $(document).ready(function() { 
-    CSRF_TOKEN = $('input[name=_token]').val();
     search_val = ''
     $('input[name=search_realtor]').keyup(function() { //alert('working');
       search_val =  $(this).val();

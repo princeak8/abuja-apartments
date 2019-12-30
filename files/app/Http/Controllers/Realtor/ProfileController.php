@@ -262,7 +262,11 @@ class ProfileController extends Controller
             $img = $Intervention_img->make($photoInput->getRealPath());//re-create the image using the Image manager object
                 
             if($img->save($filePath.$filename, 100)) {
-                unlink($filePath.$current_photo);
+                if(!empty($current_photo) && file_exists($filePath.$current_photo)) {
+                    dd($filePath.$current_photo);
+                    chmod($filePath.$current_photo,0775);
+                    unlink($filePath.$current_photo);
+                }
                 $realtorObj->profile_photo = $filename;
                 if($realtorObj->save()) {
                     request()->session()->flash('status', 'success');

@@ -2,6 +2,11 @@
 
 
 @section('content') 
+<style type="style/css">
+    .red-border {
+        border: red solid thin;
+    }
+</style>
     <div class="container-fluid login">
         <div class="login__container col-lg-12 col-12">
             
@@ -29,9 +34,9 @@
                         @include('inc.errors')
                         
                         @if($type=='company')
-                            {!! Form::open(['action' => ['Realtor\RegisterController@register_company'], 'method'=>'POST', 'class'=>'login__container__body__form', 'autocomplete'=>'off']) !!}
+                            {!! Form::open(['action' => ['Realtor\RegisterController@register_company'], 'method'=>'POST', 'class'=>'login__container__body__form', 'autocomplete'=>'off' , 'onsubmit'=>'return submit_form(event)']) !!}
                         @else
-                            {!! Form::open(['action' => ['Realtor\RegisterController@register'], 'method'=>'POST', 'class'=>'login__container__body__form', 'autocomplete'=>'off']) !!}
+                            {!! Form::open(['action' => ['Realtor\RegisterController@register'], 'method'=>'POST', 'class'=>'login__container__body__form', 'autocomplete'=>'off', 'onsubmit'=>'return submit_form(event)']) !!}
                         @endif
                         <input autocomplete="off" type="text" style="display:none" />
                         <input type="text" style="display:none">
@@ -74,9 +79,12 @@
                                 </div>
                             @endif
                             <div class="form-group col-sm-4">
+                                <sub id="profile-name-msg" class="mb-1" style="color:red; display:none">
+                                    Profile name should be one word without any spaces
+                                </sub>
                                 <div class="login__container__body__form__input">
-                                    <input id="profile_name" class="form-control input-sm" type="text" name="profile_name" required value="{!! old('profile_name') !!}" data-error="0" />
-                                    <label for="profile_name"><span class="text-danger">* </span>Profile Name (To used for your personal Page)</label>
+                                    <input id="profile_name" class="form-control input-sm" type="text" name="profile_name" required value="{!! old('profile_name') !!}" data-error="0" placeholder="" />
+                                    <label for="profile_name" style="margin-top:0px;"><span class="text-danger">* </span>Profile Name: (To be used for your personal Page)</label>
                                 </div>
                             </div>
                         </div>
@@ -125,4 +133,51 @@
             
     </div>
 
+@endsection
+
+@section('js')
+    <script type="application/javascript">
+        $('document').ready(function() {
+            $('input[name=profile_name]').blur(function() {
+                var val = $(this).val();
+                console.log(val);
+                if (/\s/.test(val)) {
+                    // It has any kind of whitespace
+                    $(this).css('border', 'red solid thin');
+                    $('#profile-name-msg').css('display', 'block');
+                    $('button[name=submit]').attr('disabled', 'true');
+                }else{
+                    $(this).css('border', '0');
+                    $('#profile-name-msg').css('display', 'none');
+                    $('button[name=submit]').removeAttr('disabled');
+                }
+                
+            })
+        })
+        function correct_profile_name($val)
+        {
+            console.log(val);
+            if (/\s/.test(val)) {
+                // It has any kind of whitespace
+                $('input[name=profile_name]').css('border', 'red solid thin');
+                $('#profile-name-msg').css('display', 'block');
+                $('button[name=submit]').attr('disabled', 'true');
+                return false;
+            }else{
+                $('input[name=profile_name]').css('border', '0');
+                $('#profile-name-msg').css('display', 'none');
+                $('button[name=submit]').removeAttr('disabled');
+                return true;
+            }
+        }
+        function submit_form()
+        {
+            var val = $('input[name=profile_name]').val();
+            if(correct_profile_name(val)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
 @endsection

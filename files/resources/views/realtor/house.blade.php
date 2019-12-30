@@ -71,7 +71,7 @@
 <script type="application/javascript">
 $(document).ready(function(e) {
     //alert('working');
-    CSRF_TOKEN = $('input[name=_token]').val();
+    //CSRF_TOKEN = $('input[name=_token]').val();
 
     $('#add-photo-btn').click(function(){
     	var open = $(this).data('open');

@@ -1,28 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--<meta http-equiv="refresh" content="60">-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="msvalidate.01" content="F40836B3AF0D6B7161FFA103ED54CA38" />
+<meta name="yandex-verification" content="7873f4221c789b35" />
+<meta name="keywords" content="Abuja, Real Estate Platform, Houses, rent, sale, houses for rent, houses for sale, affordable price, apartments" />
+<meta property="og:description" content="Abuja Apartments is an online Real Estate platform that aims to make it easy for anybody within Abuja environs to easily have access to houses either for rent or for sale. " />
+<title>Abuja Apartments</title>
+
+<link rel="icon" href="{{ asset('images/symbol.png') }}" />
+
+<link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css')}}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome-all.min.css')}}"/>
+
+
+
+{{-- <link rel="stylesheet" type="text/css" href="{{asset('css/styles_agent.css')}}"/> --}}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/realtor/realtor.css')}}"/>
+<style type="text/css">
+    [v-cloak] .v-cloak--hidden {
+        display: none !important;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
 @include('inc.realtor.header')
-	<link rel="stylesheet" type="text/css" href="{{asset('css/styles_frontpage.css')}}"/>
-
-    <input type="hidden" name="APP_URL" value="{{env('APP_URL')}}" />
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    <input type="hidden" name="APP_STORAGE" value="{{ env('APP_STORAGE') }}" />
-    
-@include('inc.realtor.top_menu')
-
-    <div id="search-results" class="col-md-12" style="background-color: #FFF;">
+<div class="content">
+    <div class="content__left menuContainer hideMenu">
+        @include('inc.realtor.top_menu')
     </div>
 
+    <div class="row content__right">
 
-<div id="content" class="col-xs-12 col-md-12 no-padding">
-    <div class="cont_of_profile col-sm-11">
-
-	    @include('inc.realtor.profile_left_menu', ['page'=>$page])
-	        
-		<div class="col-sm-9 right-content_p" >
+        @include('inc.realtor.profile_left_menu', ['page'=>$page])
+		<div class="col-md-8 right-content_p" style="border: solid thin #000">
 
             @yield('content')
 
         </div><!--End of right-content_p -->
 	
-    <div class="clear"></div>
+        <div class="clear"></div>
 
     </div><!-- end of cont_of_profile -->
 	        
