@@ -1,6 +1,6 @@
 <div class="col-lg-3 left_details">
-    <div class="profile">
-        <div class="profile__heading">
+    <div class="profile mb-3 ">
+        <div class="profile__heading" id="house-info" style="cursor:pointer">
     	   <h5 class="profile__heading__title">Realtor Details <span class="fa fa-angle-down hi"></span>
                 {{-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#view_hs">
                     <span class="sr-only">Toggle navigation</span>
@@ -10,7 +10,7 @@
            </h5>
         </div>
 
-        <div id="view_hs" class="profile__body">
+        <div id="view_fold" class="profile__body">
             
             @foreach($house->realtors as $realtorHouse)
                 <div class="row">

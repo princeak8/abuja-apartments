@@ -25,7 +25,7 @@ function hoverEffect() {
 function checkStringLength(string, estate = false) {
 	let stringLength;
 	if (estate) {
-		stringLength = 20;
+		stringLength = 15;
 	} else {
 		stringLength = 35;
 	}
@@ -121,7 +121,7 @@ $(document).ready(function(e) {
 											<div class="house__upper"> 
 												<div class="house__upper__location">
 													<span class="fa fa-map-marker-alt"></span> ${val.location}
-													${val.estate_id > 0 ? '(<span>'+ val.estate+ '</span>)' : ''}
+													${val.estate_id > 0 ? '(<span>'+ checkStringLength(val.estate, true)+ '</span>)' : ''}
 												</div>
 												<div class="house__upper__img_price">
 													<a href="house/${val.house_id}">
@@ -155,8 +155,8 @@ $(document).ready(function(e) {
 														<ul>
 															<li> <i class="fa fa-tag"> </i> ${checkStringLength(val.title)}</li>
 															<li> <i class="fa fa-clone"> </i> ${checkStringLength(val.house_type)}</li>
-															${val.estate_id > 0 ? '<li><i class="fa fa-list-ul"></i>'+ checkStringLength(val.estate)+
-																	'(<span>'+ val.units+ 'Units</span>)</li>'        
+															${val.estate_id > 0 ? '<li><i class="fa fa-list-ul"></i>'+ checkStringLength(val.estate, true)+
+																	'(<span>'+ val.units+ ' Units</span>)</li>'        
 															: ''}
 														</ul>
 													</div>
@@ -167,8 +167,8 @@ $(document).ready(function(e) {
 														For ${val.status}
 													</div>
 													<div class="house__details__lower__cl">
-														<span><i class="far fa-heart"></i>  ${val.house_likes}</span>
-													</div>
+            
+                                                    </div>
 												</div>
 											</div>
 										</div>

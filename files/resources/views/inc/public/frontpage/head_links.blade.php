@@ -16,6 +16,7 @@
 
 
 <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/bootstrap.min.css')}}"/>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.6/css/lightgallery.min.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/font-awesome-all.min.css')}}"/>
 <link rel="stylesheet" type="text/css" media="all" href="{{asset('css/ionicon.css')}}"/>
 

@@ -10,7 +10,7 @@
                     </h3>
                 @endif
 
-                <h4 class="vhouse_details__house_title">House - {{$house->title}} </h4>
+                <h4 class="vhouse_details__house_title">{{$house->title}} </h4>
             </div>
 
             <div class="vhouse_details__second_header">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-lg-6 col-6" >
                     <span> 
-                        ₦{{number_format($house->price)}}
+                        ₦ {{number_format($house->price)}}
                         @if($house->status=='rent')
                             (Per Annum)
                         @endif
@@ -60,7 +60,9 @@
 						<img src="images/no_image.png" />
 					@else
 						@foreach($house->house_photos as $housePhoto) 
-							<img id="{{$housePhoto->id}}" class="house-img" src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/{{$housePhoto->photo}}" @if($housePhoto->main == 1) style="z-index:1;" @endif /><br/>
+							<div class="grid-item" data-src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/{{$housePhoto->photo}}" style="cursor:pointer;">
+								<img id="{{$housePhoto->id}}" class="house-img" src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/{{$housePhoto->photo}}" @if($housePhoto->main == 1) style="z-index:1;" @endif /><br/>
+							</div>
 						@endforeach
 					@endif
 				</div>
@@ -70,13 +72,10 @@
 						@foreach($house->house_photos as $housePhoto)
 							<li>
 								<div class="thumb">
-									<!--<a data-lightbox="example-1" data-lightbox="example-1" href="images/houses/<?php //echo $house->house_id.'/'.$photo; ?>" data-title="">-->
 									<img class="house-timthumb" data-id="{{$housePhoto->id}}" src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{$housePhoto->photo}}"  />
-									<!--</a>-->
 								</div>
 							</li>
 						@endforeach
-						<script src="js/lightbox.js"></script>
 					</ul> 
 				</div>    
 			</div>
@@ -160,10 +159,12 @@
 				@endif
 
 				<section class="sect">
-					<h5 id="comment-count"><span class="fa fa-comments"></span> Comments {{$house->house_comments->count()}}</h5>
+					<h5 id="comment-count">
+						<span class="fa fa-comments"></span> Comments {{$house->house_comments->count()}}
+					</h5>
 					<div id="comments">
 						@foreach($house->house_comments as $comment) { 
-							<div class="comment col-sm-12 col-md-12">
+							<div class="comment col-12">
 								<i class="pull-right">{{date('jS M Y', $comment->created_at)}}</i>
 								<h4><span class="fa fa-user"></span> {{$comment->realtor->fullname}} </h4>
 								<p>
@@ -183,32 +184,32 @@
 					               
 				</section>
 
-				<div class="clear"></div>
-					@if((Auth::user()) && (Auth::user()->type!='company') && (Auth::user()->id != $house->realtor_id) && (Auth::user()->connected_house($house->id)))
-						<section class="sect1">
-								<h3>LEAVE A COMMENT</h3>
-							
-							<p id="comment-msg"></p>
-							
-							<div class="form-group">
-								<textarea class="form-control" name="comment" rows="8"> </textarea>
-							</div>
-							<div class="form-group">
+				
+				@if((Auth::user()) && (Auth::user()->type!='company') && (Auth::user()->id != $house->realtor_id) && (Auth::user()->connected_house($house->id)))
+					<section class="sect1">
+							<h3>Leave a comment</h3>
+						
+						<p id="comment-msg"></p>
+						
+						<div class="form-group">
+							<textarea class="form-control" name="comment" rows="8"> </textarea>
+						</div>
+						<div class="form-group">
 							<img id="imgcaptcha" src="processes/captchaimg.php" /><br/>
 							Enter the Value of the captcha image above<br/>
 							<input class="form-control" type="text" name="captcha" required  />
-							</div>
-							
-							<input type="hidden" class="form-control" id="captcha_check" />
-							<input type="hidden" name="count" value="{{$house->house_comments->count()}}" />
-							<input type="hidden" name="house_id" value="{{$house->id}}" />
-							<input type="hidden" name="realtor_id" value="{{Auth::user()->id}}" />
-							<input type="hidden" name="realtor_name" value="{{Auth::user()->fullname}}" />
-							<div class="form-group">
+						</div>
+						
+						<input type="hidden" class="form-control" id="captcha_check" />
+						<input type="hidden" name="count" value="{{$house->house_comments->count()}}" />
+						<input type="hidden" name="house_id" value="{{$house->id}}" />
+						<input type="hidden" name="realtor_id" value="{{Auth::user()->id}}" />
+						<input type="hidden" name="realtor_name" value="{{Auth::user()->fullname}}" />
+						<div class="form-group">
 							<input type="submit" class="form-control btn-info" name="submit-comment" value="Comment" />
-							</div> 
-						</section>
-					@endif
+						</div> 
+					</section>
+				@endif
 
 			</div>
 

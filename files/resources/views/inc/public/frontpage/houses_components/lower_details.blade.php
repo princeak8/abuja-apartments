@@ -24,8 +24,8 @@
         </div>
         <div class="house__details__lower__cl">
             
-            <span><i class="far fa-heart"></i>  {{count($house->house_likes)}}</span>
-            <span><i class="ion-md-chatboxes"></i>  {{count($house->house_comments)}}</span>
+            {{-- <span><i class="far fa-heart"></i>  {{count($house->house_likes)}}</span>
+            <span><i class="ion-md-chatboxes"></i>  {{count($house->house_comments)}}</span> --}}
         </div>
     </div>
 </div>
