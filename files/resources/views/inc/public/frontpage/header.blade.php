@@ -53,9 +53,9 @@
         <div class="row header">
             <div class="col-3 d-flex d-sm-none justify-content-center align-items-center">
                 <button type="button" class="collapseBtn" id="toggleFilter">
-                    <div class="longBar my-2"></div>
+                    <div class="longBar my-1"></div>
                     <div class="shortBar"></div>
-                    <div class="longBar my-2"></div>
+                    <div class="longBar my-1"></div>
                 </button>
             </div>
             <div class="col-6 col-lg-3 header__img">
@@ -66,9 +66,9 @@
                     <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-0">
                         <button class="navbar-toggler collapseBtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             {{-- <span class="navbar-toggler-icon"></span> --}}
-                            <div class="longBar my-2"></div>
+                            <div class="longBar my-1"></div>
                             <div class="longBar"></div>
-                            <div class="longBar my-2"></div>
+                            <div class="longBar my-1"></div>
                         </button>
 
                         <div class="collapse navbar-collapse header__content__navbar__list mb-2 d-none d-sm-block" id="navbarSupportedContent">

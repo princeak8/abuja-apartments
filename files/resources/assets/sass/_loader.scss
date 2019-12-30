@@ -60,3 +60,16 @@
         transform: scale(1.0);
     }
 }
+
+.spinnerContainer {
+    width: 100%; padding: 10px; display: none; justify-content: center; align-items: center;
+    margin-top: 10px; margin-bottom: 10px; height: 40px;box-shadow: $shadow; border-radius: 8px;
+    .spinner {
+        height: 30px; width: 30px; border-radius: 40px;
+        border-top: 4px solid rgba(65, 145, 250, 0.9);
+        border-bottom: 4px solid rgba(119, 178, 255, 0.9);
+        border-left: 4px solid rgba(65, 145, 250, 0.9);
+        border-right: 4px solid rgba(119, 178, 255, 0.9);
+        animation: style5-rotate 2.0s infinite linear;
+    }
+}

@@ -116,6 +116,10 @@ tinymce.init({
             }
         })
         // alert('got here')
+
+        
+
+        
     })
 </script>
 @yield('js')

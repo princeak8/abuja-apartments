@@ -3,10 +3,25 @@
 }
 
 .filterTags {
-    span {
-        @include background-color(); padding: 2px 12px; border-radius: 30px; color: white;
+    display: flex; flex-direction: row; 
+    flex-wrap: wrap;
+    align-items: center; 
+    .title{
+        margin-right: 10px; margin-top: 0px; margin-bottom: 10px;
     }
-    
+    div {
+        @include background-color(); padding: 0px 10px; border-radius: 5px; color: white;
+        margin-right: 10px; font-size: .9em; margin-bottom: 10px;
+    }
+}
+.emptyContainer{
+    display: flex; width: 100%; flex-direction: column; align-items: center;
+    .svgStyles{
+        height: 200px; width: 200px; margin-top: 10px;
+    }
+    p{
+        font-size: 1.4em;
+    }
 }
 .house {
     box-shadow: $shadow; color: $text-color;
