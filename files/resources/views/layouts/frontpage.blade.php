@@ -37,6 +37,8 @@
 <script type="application/javascript" src="{{ asset('js/popper.js')}}"></script>
 {{-- <script type="application/javascript" src="{{ asset('js/ionicon.js')}}"></script> --}}
 
+<script type="application/javascript" src="{{ asset('js/lightgallery-all.js') }}"></script>
+
 
 <script type="application/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 <script type="application/javascript" src="{{asset('js/constants.js')}}"></script>
@@ -116,6 +118,10 @@ tinymce.init({
             }
         })
         // alert('got here')
+
+        
+
+        
     })
 </script>
 @yield('js')

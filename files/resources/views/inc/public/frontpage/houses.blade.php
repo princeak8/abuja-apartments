@@ -1,15 +1,11 @@
-@include('inc.public.frontpage.houses_components.filtering')
+{{-- @include('inc.public.frontpage.houses_components.filtering') --}}
 <div class="col-lg-10">    
     <div class="" id="content">
         {{-- @include('inc.public.frontpage.houses_components.filtering') --}}
-        {{-- <div class="filterTags">
-            
-            <span>tags</span>
-        </div> --}}
         
         <div id="db-content" class="row">
             @foreach($houses as $house)  
-      
+        
                 <!-- The House Pix and description starts here -->
                 <div class="col-lg-3 col-sm-6 px-3">
                     {{-- <a href="house/{{$house->id}}"> --}}
@@ -17,9 +13,10 @@
                         <div class="cover"></div>
                         <div class="house__upper"> 
                             <div class="house__upper__location">
-                                <span class="fa fa-map-marker-alt"></span> {{$house->location->name}}
+                                <span class="fa fa-map-marker-alt"></span> 
+                                {{$house->location->name}}
                                 @if($house->estate_id > 0)
-                                    (<span> {{$house->estate->name}} </span>)
+                                    (<span> {{shorten_location_name($house->estate->name)}} </span>)
                                 @endif
                             </div>
 
@@ -39,60 +36,79 @@
                     </div>
                     {{-- </a> --}}
                 </div>
-        @endforeach
-                
-        <div id="loading" style="text-align:center; display:none">
-            ...LOADING...
-            <img src="{{env('APP_STORAGE')}}images/ajax-loader.gif" width="32" height="32" />
+            @endforeach
+                  
         </div>
+        <div class="spinnerContainer" id="loading">
+            <div class="spinner"></div>
+        </div> 
+ 
     </div>
 
-       
-</div>
+    
 
 </div>
     
-    <!-- Ajax Control Variables -->
-           <input id="total-houses" type="hidden" value="{{count(App\House::all())}}" />
-           <input id="displayed-houses" type="hidden" value="{{count($houses)}}" />
-           <input id="limit" type="hidden" value="{{$limit}}" />
-        <!-- Ajax Control Variables ends here  -->
+<!-- Ajax Control Variables -->
+    <input id="total-houses" type="hidden" value="{{count(App\House::all())}}" />
+    <input id="displayed-houses" type="hidden" value="{{count($houses)}}" />
+    <input id="limit" type="hidden" value="{{$limit}}" />
+<!-- Ajax Control Variables ends here  -->
 
 @section('js')
-
 <script>
-	$(document).ready(function(){ 
-		$('.mouseoverHouse').each(function(){
-			var cover = $(this);
-			$(this).find('a').not('a.delete').mouseover(function() {
-				cover.find('.cover').css({
-					'height': '98%'
-				});
-				cover.find('.mouseoverDetails a').css({
-					'color': 'white'
-				})
-			})
-			$(this).mouseleave(function() {
-				$(this).find('.cover').css('height', '0')
-				$(this).find('.mouseoverDetails a').css({
-					'color': '#636b6f'
-				})
-				$(this).find('.mouseoverDetails a.delete').css({
-					'color': 'rgb(235, 65, 65)'
-				})
-			})
-		})
-		
-	})
-</script>
-		
+
+    function hoverEffect() {
+        $('.mouseoverHouse').each(function(){
+            var cover = $(this);
+            $(this).find('a').not('a.delete').mouseover(function() {
+                cover.find('.cover').css({
+                    'height': '98%'
+                });
+                cover.find('.mouseoverDetails a').css({
+                    'color': 'white'
+                })
+            })
+            $(this).mouseleave(function() {
+                $(this).find('.cover').css('height', '0')
+                $(this).find('.mouseoverDetails a').css({
+                    'color': '#636b6f'
+                })
+                $(this).find('.mouseoverDetails a.delete').css({
+                    'color': 'rgb(235, 65, 65)'
+                })
+            })
+        })
+    }
+
+    function checkStringLength(string, estate=false) {
+        let stringLength;
+        if (estate) {
+            stringLength = 15;
+        } else {
+            stringLength = 35;
+        }
+        const str = string.length;
+        if (str >= stringLength) {
+            // $substring = substr($string,0,$stringLength);
+            // $space = strrpos($substring,' ');
+            // return substr($string,0,$space)." <strong> ...</strong>";
+
+            return `${string.slice(0, stringLength)}..`
+        } else {
+            return string;
+        }
+    }
+
+</script>		
 
 
 <script type="application/javascript" src="{{asset('js/filter_houses.js')}}"></script>
 
 <script type="application/javascript">
-function showLoading() {
-            $('#loading').css('display', 'block');
+        hoverEffect();
+        function showLoading() {
+            $('#loading').css('display', 'flex');
         }
         function hideLoading() {
             $('#loading').css('display', 'none');
@@ -151,8 +167,8 @@ function showLoading() {
 											<div class="cover"></div>
 											<div class="house__upper"> 
 												<div class="house__upper__location">
-													<span class="fa fa-map-marker-alt"></span>${val.location}
-													${val.estate_id > 0 ? '(<span>'+ val.estate+ '</span>)' : ''}
+													<span class="fa fa-map-marker-alt"></span> ${val.location}
+													${val.estate_id > 0 ? '(<span>'+ checkStringLength(val.estate, true)+ '</span>)' : ''}
 												</div>
 												<div class="house__upper__img_price">
 													<a href="house/${val.house_id}">
@@ -184,10 +200,10 @@ function showLoading() {
 												<a href="house/${val.house_id}">
 													<div class="house__details__upper">
 														<ul>
-															<li><i class="fa fa-tag"></i> ${val.title}</li>
-															<li><i class="fa fa-clone"></i> ${val.house_type}</li>
-															${val.estate_id > 0 ? '<li><i class="fa fa-list-ul"></i>'+ val.estate+
-																	'(<span>'+ val.units+ 'Units</span>)</li>'        
+															<li><i class="fa fa-tag"></i> ${checkStringLength(val.title)}</li>
+															<li><i class="fa fa-clone"></i> ${checkStringLength(val.house_type)}</li>
+															${val.estate_id > 0 ? '<li><i class="fa fa-list-ul"></i>'+ checkStringLength(val.estate, true)+
+																	'(<span>'+ val.units+ ' Units</span>)</li>'        
 															: ''}
 														</ul>
 													</div>
@@ -198,8 +214,8 @@ function showLoading() {
 														For ${val.status}
 													</div>
 													<div class="house__details__lower__cl">
-														<span><i class="far fa-heart"></i>  ${val.house_likes}</span>
-													</div>
+            
+                                                    </div>
 												</div>
 											</div>
 										</div>
@@ -219,6 +235,7 @@ function showLoading() {
                             $('#displayed-houses').val(displayed);
                             loadingDone = true;
                             //alert(displayed);
+                            hoverEffect();
                         }
                     });
                 }
@@ -226,4 +243,7 @@ function showLoading() {
             }
         });
     </script>
+
+
+
 @endsection

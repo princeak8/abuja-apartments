@@ -1,4 +1,4 @@
-<div class="col-lg-3">
+<div class="col-lg-3 similarContainer">
     <div class="similar">
         <div class="similar__heading">
     	   <h5 class="similar__heading__title">Similar Houses</h5>
@@ -19,14 +19,14 @@
 										@elseif(App\House_photo::GetHousePhotos($house->id)->count())
 											<img src="{{env('APP_STORAGE')}}images/houses/{{$house->id}}/thumbnails/{{App\House_photo::GetHousePhotos($house->id)->first()->photo}}" />
 										@else
-											<img src="{{env('APP_STORAGE')}}images/no_image.png" width="200" height="200" />
+											<img src="{{env('APP_STORAGE')}}images/no_image.png" />
 										@endif
 									</div>
 								
 							</div>
 							<div class="col-8 pr-0">
 								<ul class="similar__body__house__details m-0 pl-0 pr-2 mouseoverDetails">
-									<li> - {{$house->title}}</li>
+									<li> {{$house->title}}</li>
 									<li> - {{$house->house_type->type}}</li>
 									<li> - {{$house->location->name}}</li>
 									<li class="notli">₦ {{number_format($house->price)}}

@@ -29,8 +29,13 @@
 <script type="application/javascript">
 
 $(document).ready(function(e) {
+
+	$('#full-images').lightGallery({
+		selector: '.grid-item'
+	});
     // alert('working');
-    CSRF_TOKEN = $('input[name=_token]').val();
+	const CSRF_TOKEN = $('input[name=_token]').val();
+	
     $('.house-timthumb').click(function(e) {
         var photo_id = $(this).data('id');
     
@@ -143,12 +148,12 @@ messageClass = new Message();
 <script type="application/javascript">
 $(document).ready(function(e) {
     //alert('working');
-    $('#house-info h4').click(function(){
+    $('#house-info h5').click(function(){
         $('#view_fold').slideToggle(function(){
                 if($(this).is(":hidden")){
-                    $('#house-info h4 i').removeClass('fa fa-caret-up').addClass('fa fa-caret-down');
+                    $('#house-info h5 span').removeClass('fa fa-angle-up').addClass('fa fa-angle-down');
                 }else{
-                    $('#house-info h4 i').removeClass('fa fa-caret-down').addClass('fa fa-caret-up');
+                    $('#house-info h5 span').removeClass('fa fa-angle-down').addClass('fa fa-angle-up');
                 }
             });
 

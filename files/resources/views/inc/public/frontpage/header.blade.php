@@ -51,13 +51,17 @@
 	<div id="header" class="container-fluid">
         
         <div class="row header">
-            <div class="col-3 d-flex d-sm-none justify-content-center align-items-center">
-                <button type="button" class="collapseBtn" id="toggleFilter">
-                    <div class="longBar my-2"></div>
-                    <div class="shortBar"></div>
-                    <div class="longBar my-2"></div>
-                </button>
-            </div>
+            
+            @if (!Request::is('house/*')) 
+                <div class="col-3 d-flex d-sm-none justify-content-center align-items-center">
+                    <button type="button" class="collapseBtn" id="toggleFilter">
+                        <div class="longBar my-1"></div>
+                        <div class="shortBar"></div>
+                        <div class="longBar my-1"></div>
+                    </button>
+                </div>  
+            @endif
+            
             <div class="col-6 col-lg-3 header__img">
                 <img class="img-responsive" src="{{ asset('images/logo1.png') }}" /> 
             </div>
@@ -66,9 +70,9 @@
                     <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-0">
                         <button class="navbar-toggler collapseBtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             {{-- <span class="navbar-toggler-icon"></span> --}}
-                            <div class="longBar my-2"></div>
+                            <div class="longBar my-1"></div>
                             <div class="longBar"></div>
-                            <div class="longBar my-2"></div>
+                            <div class="longBar my-1"></div>
                         </button>
 
                         <div class="collapse navbar-collapse header__content__navbar__list mb-2 d-none d-sm-block" id="navbarSupportedContent">
@@ -106,10 +110,10 @@
                                         <span class="far fa-sign-out"></span> Log Out</a>
                                 </li>
                                 @endif
-                                <li>
+                                {{-- <li>
                                     <button class="btn btn-outline-primary roundedSearch" id="displaySearch">
                                         <i class="fa fa-search"></i></button>
-                                </li>
+                                </li> --}}
                             </ul>
                             {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
                                 <input type="hidden" name="active" value="0" />
@@ -178,10 +182,10 @@
                             <span class="far fa-sign-out"></span> Log Out</a>
                     </li>
                 @endif
-                <li>
+                {{-- <li>
                     <button class="btn btn-outline-primary roundedSearch" id="phoneDisplaySearch">
                         <i class="fa fa-search"></i></button>
-                </li>
+                </li> --}}
             </ul>
             {{-- <form action="processes/search_realtor.php" method="post" class="form-inline my-2 my-lg-0">
                 <input type="hidden" name="active" value="0" />
