@@ -76,9 +76,11 @@
                                 <li class="nav-item active">
                                     <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                                 </li>
+                                <!--
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('partner') }}">Partner us</a>
                                 </li>
+                                -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('about') }}">About us</a>
                                 </li>

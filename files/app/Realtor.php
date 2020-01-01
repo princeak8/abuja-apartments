@@ -26,7 +26,7 @@ class Realtor extends Authenticatable implements JWTSubject
 
     
 
-    protected $fillable = ['firstname', 'lastname', 'profile_name', 'email', 'password', 'rc_number'];
+    protected $fillable = ['firstname', 'lastname', 'profile_name', 'type', 'email', 'password', 'rc_number', 'activated'];
 
 
 
@@ -103,8 +103,11 @@ class Realtor extends Authenticatable implements JWTSubject
     public function getNameAttribute()
 
     {
-
-    	return $this->firstname.' '.$this->lastname;
+        if(!empty($this->firstname) || !empty($this->lastname)) {
+            return $this->firstname.' '.$this->lastname;
+        }else{
+            return $this->biz_name;
+        }
 
     }
 
@@ -130,7 +133,7 @@ class Realtor extends Authenticatable implements JWTSubject
     public function AllAvailableHouses(){
 
         return $this->Allhouses()->where('available', '1');
-        
+
     }
 
     //All the houses that I own and the ones shared with me that are available

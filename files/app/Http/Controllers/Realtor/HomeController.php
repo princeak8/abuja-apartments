@@ -75,7 +75,7 @@ class HomeController extends Controller
 		$requests = $realtor->sent_share_requests->count() + $realtor->share_requests->count() + \App\Circle::SentRequests(Auth::user()->id)->count() + \App\Circle::CircleRequests(Auth::user()->id)->count();
 
 		$houses = Realtor_house::where('realtor_houses.realtor_id', Auth::user()->id)->where('realtor_houses.available', '1')->leftJoin('houses', 'realtor_houses.house_id', '=', 'houses.id')->get();
-
+		/*
 		if(Auth::user()->type=='company') {
 
 			return view('realtor/index_company', compact('realtor', 'houses','locations', 'house_types'));
@@ -84,9 +84,8 @@ class HomeController extends Controller
 
 			return view('realtor/index_agent', compact('realtor', 'houses','locations', 'house_types'));
 
-		}
-
-		
+		}*/
+		return view('realtor/index_agent', compact('realtor', 'houses','locations', 'house_types'));
 
 	}
 
