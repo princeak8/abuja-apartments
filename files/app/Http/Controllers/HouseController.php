@@ -170,128 +170,52 @@ class HouseController extends Controller
 		$limit = env('HOUSES_LIMIT');
 		$post = $request->all();
 		$house_array = array();
-		//Use the switch statement to determine the string to be displayed as the filter name to the public
-		switch($post['filter']) {
-			case 	'house_type_id' : 
-					$filter = 'House Type'; 
-					break;
-			case    'location_id' : 
-					$filter = 'Location'; 
-					break;
-			case    'price_range_id' : 
-					$filter = 'Price Range'; 
-					break;
-			// Unset the filter and title so to disable multiple filtering for the status
-			case    'status' : 
-					$filter = 'Status'; 
-					if($request->session()->has('filters.status')) {
-						$request->session()->forget('filters.status');
-					}
-					if($request->session()->has('filter_title.status')) {
-						$request->session()->forget('filter_title.status');
-					}
-					break;
 
-			case    'bedrooms' : 
-					$filter = 'Bedrooms'; 
-					break;
-			default : 
-					$filter = 'Uknown';
-		}
+		$filters = $post['filters'];
 
-		if($request->session()->has('estate_id')) {
-			$request->session()->put('filters.estate_id.estate', $request->session()->get('estate_id'));
-		}
-		//dd($post['filter']);
-		//If the Filter checkbox is checked
-		if($post['checked'] == 1) { 
-			//If the checkbox checked is not the 'All' Checkbox
-			if($post['value'] != 'all') { 
-					//Add the value to the filter session and trim the values to avoid white spaces
-					$request->session()->put('filters.'.$post['filter'].'.'.trim($post['title']), $post['value']);
-					// The filter title is for displaying what is being filtered
-					$request->session()->push('filter_title.'.$filter, trim($post['title'])); 
-
-					foreach($request->session()->get('filter_title.'.$filter) as $key=>$val) {
-						if($val == 'all') { //If any of the filter values is 'all', remove it
-							$request->session()->forget('filter_title.'.$filter.'.'.$key);
-						}
-					}
-			}else{ //If the checkbox checked is the 'All' Checkbox
-				if($request->session()->has('filters')) {
-					//Unset the filter group, so to off filter for that group and display everything
-					$request->session()->forget('filters.'.$post['filter']);
-					$_SESSION['filter_title'][$filter] = array('all'); // Display 'all' as the only value displayed in the filter group
-					$request->session()->put('filter_title.'.$filter, array('all'));
-				}
-			}
-		}
-
-		//If the Filter checkbox is not checked
-		if($post['checked'] == 0) { 
-			//Remove the filter item from the paramenters being filtered
-			$request->session()->forget('filters.'.$post['filter'].'.'.trim($post['title']));
-			$filterTitleSess = $request->session()->get('filter_title.'.$filter); 
-			//dd($request->session()->get('filter_title'));
-			foreach($filterTitleSess as $key=>$title) {
-				if($title == trim($post['title'])) { 
-					//Remove the filter item from the values displayed in the filter group
-				   $request->session()->forget('filter_title.'.$filter.'.'.$key);
-				}
-			}
-			if(empty($request->session()->get('filters.'.$post['filter']))) { 
-				//If the filter group is empty, Delete that group, 
-				$request->session()->forget('filters.'.$post['filter']);  // to prevent it from being used as parameter for filter
-			}
-		}
-
-		$filters = $request->session()->get('filters');
-
-
+		//dd($filters);
 		if(empty($filters)) {
 			// If there are no filters set, retrieve all the houses
 			$houses = House::limit($limit)->orderBy('created_at', 'desc')->get();
 			$houses_count = count(House::all());
 			$request->session()->put('filter_title', array());
 		}else{
-			$filters['available'][] = 1;
+			$filters['available'] = 1;
 			//$houses = $houseClass->filter_houses($filters, $limit); //Retrieve houses based on the filter paraeters
 			$count = count($filters);
 			//dd($filters);
 			//$result = DB::table('houses');
 			//$result = House::query();
-			$result = new House();
-			//dd($filters);
-			foreach($filters as $filter=>$array)
+			DB::enableQueryLog();
+			$result = new House;
+			foreach($filters as $key=>$filter)
 			{
-				$count = $count - 1;
-				$count2 = count($array);
-				$count2Check = $count2;
-				foreach($array as $value)
-				{
-					if($count2Check == $count2) {
-						$result = $result->where($filter, $value);
-					}else{
-						$result = $result->orWhere($filter, $value);
-					}
-					$count2 = $count2 - 1;
-					
-						//$filter_array[$filter] = $value;
-				}
-						
+				if(!is_array($filter)) {
+					$result = $result->where($key, $filter);
+				}else{
+					$count = $count - 1;
+					$count2 = count($filter);
+					$count2Check = $count2;
+					//dd($filter);
+					$result = $result->where(function ($query) use($filter, $key, $count2, $result, $count2Check) {
+						// Everything within this closure will be grouped together
+						//dd($filter);
+						foreach($filter as $value) {
+							if($count2Check == $count2) {
+								$result = $query->where($key, $value);
+							}else{
+								$result = $query->orWhere($key, $value);
+							}
+							$count2 = $count2 - 1;
+						}
+					});
+				}		
 					//$filter_array[$filter] = $value;
 			}
 			//$houses = $result->orderBy('created_at', 'desc')->limit($limit)->toSql();
 			$houses_count = count($result->get());
 			$houses = $result->orderBy('created_at', 'desc')->limit($limit)->get();
 			//dd(DB::getQueryLog());
-			//dd($houses);
-			
-			foreach($request->session()->get('filter_title') as $filter_key=>$filter_title) {
-				if(empty($filter_title)) {
-					$request->session()->forget('filter_title.'.$filter_key);
-				}
-			}
 		}
 
 		 //var_dump($houses);
@@ -300,19 +224,12 @@ class HouseController extends Controller
 		 $n = count($houses); //getting the number of objects in the array
 		 
 		//header("content-Type: application/json");
-
-		if(empty($request->session()->get('filter_title'))) { // If there is no parmeter being filtered, clear the display string
-			$house_array['title'] = array();
-		}else{
-			$house_array['title'] = $request->session()->get('filter_title'); //If there are parameters to be filtered, add them to the display
-		}
 		$house_array['displayed_houses'] = $n;
 		$house_array['total_houses'] = $houses_count;
 
 		if(empty($houses)) {
 			$house_array['house'] = array();
 		}else{
-			
 			$i = 0; //initiating my counter
 			foreach($houses as $mykey=>$myhouse) { //Loop through the houses and add more informations
 				

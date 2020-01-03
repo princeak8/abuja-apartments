@@ -41,11 +41,11 @@
 <div class="tab-content houses__container" id="myTabContent">
 	            
     <div id="available" class="tab-pane fade show active houses__container__available" role="tabpanel" aria-labelledby="available-tab">
-    	@if($realtor->Allhouses->count()==0) 
+    	@if($realtor->AllAvailableHouses->count()==0) 
 					<p> No Houses yet under this portfolio </p>
 		@else
 			<div class="row">
-				@foreach($realtor->Allhouses as $realtorHouse) 
+				@foreach($realtor->AllAvailableHouses as $realtorHouse) 
 					<div class="col-lg-3 ">
 							
 						<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif mouseoverHouse">
@@ -96,6 +96,23 @@
 									</span>
 									@endif
 								</div>
+								@if($realtorHouse->sharer_id == 0)
+									<?php $available = ($realtorHouse->available==1) ? "0" : "1"; ?>
+									<div>
+										<button 
+											id="availability-btn" 
+											class="btn @if($available==0) btn-danger @else btn-success @endif" 
+											data-available="{{$available}}" 
+											data-id="{{$realtorHouse->house_id}}"
+										>
+											@if($available==0) 
+												Mark as Unavailable 
+											@else 
+												Mark as Available 
+											@endif
+										</button>
+									</div>
+								@endif
 							</div>
 							
 						</div>
@@ -165,6 +182,23 @@
 								</span>
 								@endif
 							</div>
+							@if($realtorHouse->sharer_id == 0)
+								<?php $available = ($realtorHouse->available==1) ? "0" : "1"; ?>
+								<div>
+									<button 
+										id="availability-btn" 
+										class="btn @if($available==0) btn-danger @else btn-success @endif" 
+										data-available="{{$available}}" 
+										data-id="{{$realtorHouse->house_id}}"
+									>
+										@if($available==0) 
+											Mark as Unavailable 
+										@else 
+											Mark as Available 
+										@endif
+									</button>
+								</div>
+							@endif
 						</div>
 					</div>
                     	
@@ -250,6 +284,27 @@
 				})
 			})
 		})
+
+		$(document).on('click', '#availability-btn', function(e) {
+			var available = $(this).data('available');
+			var make = (available == 1) ? 'Available?' : 'Unavailable?';
+			if(confirm('Are You Sure You want to make this house '+make)) {
+				var house_id = $(this).data('id');
+				var postFields = {house_id: house_id, available: available, _token: CSRF_TOKEN};
+				var postUrl = "{{url('realtor/change_house_availability')}}";
+				//alert(available);
+				$.ajax({
+					url:postUrl, 
+					data:postFields, 
+					type: "post", 
+					async: false, 
+					success: function(data) { 
+					//alert(data);
+						window.location.href = APP_URL+"realtor/home";
+					}
+				}) 
+			}
+    	});
 		
 	})
 </script>

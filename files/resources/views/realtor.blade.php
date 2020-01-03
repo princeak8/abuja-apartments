@@ -17,7 +17,7 @@
 
 	<!-- The content containing the houses starts here -->
 	<div class="" id="content">
-		@include('inc.public.frontpage.realtor_page.estate_houses')
+	{{--@include('inc.public.frontpage.realtor_page.estate_houses')--}}
 
 		<div id="filtering" style="width:100%; height:50px; text-align:center; display: none;">
 	    	<img src="images/ajax-loader.gif" width="32" height="32" />

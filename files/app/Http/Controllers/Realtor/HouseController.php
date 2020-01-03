@@ -33,7 +33,7 @@ class HouseController extends Controller
 
 	public function houses()
 	{
-		$locations = Location::all();
+		$locations = Location::orderBy('name')->get();
 		$house_types = House_type::all();
 
 		$realtor = Realtor::find(Auth::user()->id);
@@ -61,7 +61,7 @@ class HouseController extends Controller
 
 	public function add()
 	{
-		$locations = Location::all();
+		$locations = Location::orderBy('name')->get();
 		$house_types = House_type::all();
 		return view('realtor/add_house', compact('locations', 'house_types'));
 	}
@@ -250,7 +250,7 @@ class HouseController extends Controller
 	public function edit($id)
 	{
 		$house = House::find($id);
-		$locations = Location::all();
+		$locations = Location::orderBy('name')->get();
 		$house_types = House_type::all();
 		return view('realtor/edit_house', compact('house', 'locations', 'house_types'));
 	}

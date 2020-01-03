@@ -19,7 +19,7 @@
             @php $type = $realtor->type @endphp
             
             <h4 class="realtor_top__details__title">
-                {!! $type == 'company' ? $realtor->biz_name.' <span>Company Page</span>' : $realtor->name.' <span>Realtor Page</span>' !!}
+                {{$realtor->name}} Page
                 
             </h4>
             <div class="row">
