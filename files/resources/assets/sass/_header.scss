@@ -56,7 +56,7 @@
 .header {
     box-shadow: 0px 0px 5px 1px rgba(175, 174, 174, 0.2);padding-bottom: 0%; 
     @include MQ-MAX(M) {
-        padding-top: 8px;
+        padding-top: 5px;padding-bottom: 5px;
     }
     &__content {
         padding: 0px; margin-top: 20px;
@@ -106,6 +106,7 @@
                     
                     img {
                         width: 100%; height: 100%;
+                        
                         &:hover {
                             cursor: pointer; opacity: .8;
                         }
@@ -124,11 +125,16 @@
         // }
     }
     &__img {
-        padding: .7% 1.2%;height: 90px;
+        padding: 5px 10px;height: 90px;
+        // border: 1px solid red;
         @include MQ-MAX(M) {
             height: 50px;
+            padding: 0px 0px;
         }
-        img { width: 100%; height: 100%; }
+        img { width: 100%; height: 100%;
+        object-fit: contain;
+        // border: 1px solid red; 
+        }
     }
 }
 .search_realtor {
@@ -180,9 +186,84 @@
 .shortBar {
     height: 2px; width: 20px; background: $brand-color-darker;
 }
+.collapseFilter {
+    background: white;  border-radius: 5px;
+    height: 35px; width: 40px;
+    // border: 1px solid rgba(31, 61, 196, 0.2); 
+    display: flex;flex-direction: column; justify-content: center;
+    padding: 0px 5px; 
+    border: none;
+    .longBar {
+        width: 100%;
+        transition: all ease-out 0.2s; 
+    }
+    .shortBar {
+        margin-top: 5px; margin-bottom: 5px;
+    }
+}
+.collapseFilterActive {
+    background: white;  border-radius: 5px;
+    height: 35px; width: 35px;
+    // border: 1px solid rgba(31, 61, 196, 0.2);
+    border: none; 
+    position: relative;
+    .longBar {
+        position: absolute;top:45%; left: 0px;
+        width: 100%;
+        transition: all ease-out 0.7s;
+        &:nth-child(1) {
+            transform: rotate(35deg);
+        }
+        &:nth-child(3) {
+            // opacity: 0;
+            transform: rotate(-35deg);
+        }
+    }
+    .shortBar {
+        display: none;
+    }
+}
 .collapseBtn {
     background: white;  border-radius: 5px;
-    height: 35px;
+    height: 35px; width: 40px;
+    // border: 1px solid rgba(31, 61, 196, 0.2); 
+    display: flex;flex-direction: column; justify-content: center;
+    padding: 0px 5px;
+    border: none; 
+    .longBar {
+        width: 100%;
+        transition: all ease-out 0.2s; 
+        &:nth-child(1) {
+            
+        }
+        &:nth-child(2) {
+            margin-top: 5px; margin-bottom: 5px;
+        }
+        &:nth-child(3) {
+            
+        }
+    }
+}
+
+.collapseBtnActive {
+    background: white;  border-radius: 5px;
+    height: 35px; width: 35px;
     // border: 1px solid rgba(31, 61, 196, 0.2);
-    border: none;
+    border: none; 
+    position: relative;
+    .longBar {
+        position: absolute;top:45%; left: 0px;
+        width: 100%;
+        transition: all ease-out 0.7s;
+        &:nth-child(1) {
+            transform: rotate(35deg);
+        }
+        &:nth-child(2) {
+            // opacity: 0;
+            display: none;
+        }
+        &:nth-child(3) {
+            transform: rotate(-35deg);
+        }
+    }
 }
