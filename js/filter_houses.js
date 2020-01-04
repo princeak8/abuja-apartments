@@ -137,7 +137,7 @@ $(document).ready(function(e) {
 				}
 			}
 		}
-		console.log(titles);
+		
 		//console.log("Filter:"+filter+" Value:"+value+" Checked:"+checked);
 
 		var postUrl = APP_URL+"api/v1/filter_houses";
@@ -162,28 +162,26 @@ $(document).ready(function(e) {
 					console.log(e);
 				}*/
 				var output = '';
+				
 				if(data.title != '') {
 					output += '<div class="col-md-12">';
-					output += '<h4 class="h5">FILTERS ON ';
-					
-					$.each(titles, function(key, title) { 
-						output += `<b>${key} :</b>`;
-						
+					// output += '<h4 class="h5">FILTERS ON ';
 						output += `<div style="display:flex; flex-direction:row; flex-wrap: wrap">`
-							$.each(data.title, function(key, title) { 
+							$.each(titles, function(key, title) { 
+								
 								output += `<div class="filterTags">`
 									output += `<p class="title">${key} </p>`;
-									$.each(title, function(key, title) {
-										output += `<div>${title}</div> `;
+									$.each(title, function(key, tit) { 
+										
+										output += `<div>${tit} </div>`;
+										
 									});
 								output += `</div>`;
 								
 							});
 						output += `</div>`;
-						
-						output += '</div>';
-					});
-
+					output += '</div>';
+					// output += '</h4>'
 				}
 				if(data.house === '' || data.house === undefined) {
 					output += `<div class="emptyContainer">
@@ -198,7 +196,7 @@ $(document).ready(function(e) {
 					</div>`;
 				} else {
 					$.each(data.house, function(key, val) {
-						output +=  `<div class="col-lg-3 col-sm-6 px-3">
+						output += `<div class="col-xl-3 col-lg-4 col-sm-6 px-3">
 								   		<div class="house mouseoverHouse">  
 											<div class="cover"></div>
 											<div class="house__upper"> 

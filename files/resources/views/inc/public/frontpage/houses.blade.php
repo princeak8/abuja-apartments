@@ -162,7 +162,7 @@
                                     if(val.toilets == undefined){
                                         val.toilets = '';
                                     }
-                                    output += `<div class="col-lg-3 col-sm-6 px-3">
+                                    output += `<div class="col-xl-3 col-lg-4 col-sm-6 px-3">
 								   		<div class="house mouseoverHouse">  
 											<div class="cover"></div>
 											<div class="house__upper"> 
