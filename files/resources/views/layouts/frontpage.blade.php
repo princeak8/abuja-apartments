@@ -109,6 +109,13 @@ tinymce.init({
             }
         })
         $('#toggleFilter').click(function() {
+            if($(this).hasClass('collapseFilter')) {
+                $(this).removeClass('collapseFilter')
+                $(this).addClass('collapseFilterActive')
+            } else {
+                $(this).removeClass('collapseFilterActive')
+                $(this).addClass('collapseFilter')
+            }
             if($('.filter_container').hasClass('hideFilter')) {
                 $('.filter_container').removeClass('hideFilter')
                 $('.filter_container').addClass('showFilter')
@@ -118,7 +125,15 @@ tinymce.init({
             }
         })
         // alert('got here')
-
+        $('#collapseBtn').click(function(){
+            if($(this).hasClass('collapseBtn')) {
+                $(this).removeClass('collapseBtn')
+                $(this).addClass('collapseBtnActive')
+            } else {
+                $(this).removeClass('collapseBtnActive')
+                $(this).addClass('collapseBtn')
+            }
+        })
         
 
         

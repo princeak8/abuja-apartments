@@ -56,15 +56,15 @@
     }
 }
 .filter_container {
-    @include MQ-MAX(M) {
+    @include MQ-MAX(L) {
         position: fixed;  z-index: 100; top: 70px;
     }
 }
 .filter {
     box-shadow: $shadow;font-size: $font-size-li;border-radius: $border-radius-big;
     overflow: hidden;font-family: $oswald; font-weight: 300;
-    @include MQ-MAX(M) {
-        background: white;
+    @include MQ-MAX(L) {
+        background: white; width: 60%;
         // overflow-y: scroll;
     }
     &__header {
@@ -137,14 +137,14 @@
     }
 }
 .hideFilter {
-    @include MQ-MAX(M) {
+    @include MQ-MAX(L) {
         transition: all .5s ease;
         transform: translateX(-100%);
     }
     
 }
 .showFilter {
-    @include MQ-MAX(M) {
+    @include MQ-MAX(L) {
         transition: all .8s ease-out;
         transform: translateX(0%);
     }

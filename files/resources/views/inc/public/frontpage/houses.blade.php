@@ -7,7 +7,7 @@
             @foreach($houses as $house)  
         
                 <!-- The House Pix and description starts here -->
-                <div class="col-lg-3 col-sm-6 px-3">
+                <div class="col-xl-3 col-lg-4 col-sm-6 px-3">
                     {{-- <a href="house/{{$house->id}}"> --}}
                     <div class="house mouseoverHouse">  
                         <div class="cover"></div>
@@ -162,7 +162,7 @@
                                     if(val.toilets == undefined){
                                         val.toilets = '';
                                     }
-                                    output += `<div class="col-lg-3 col-sm-6 px-3">
+                                    output += `<div class="col-xl-3 col-lg-4 col-sm-6 px-3">
 								   		<div class="house mouseoverHouse">  
 											<div class="cover"></div>
 											<div class="house__upper"> 
@@ -178,7 +178,7 @@
 													</a>
 	
 													<div class="house__upper__img_price__price">
-														₦${val.price} 
+														₦ ${val.price} 
 													</div>
 												</div>
 												<div class="house__upper__bath">

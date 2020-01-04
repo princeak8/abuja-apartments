@@ -53,29 +53,30 @@
         <div class="row header">
             
             @if (!Request::is('house/*')) 
-                <div class="col-3 d-flex d-sm-none justify-content-center align-items-center">
-                    <button type="button" class="collapseBtn" id="toggleFilter">
-                        <div class="longBar my-1"></div>
+                <div class="col-3 d-flex d-lg-none justify-content-center align-items-center">
+                    <div class="collapseFilter" id="toggleFilter">
+                        <div class="longBar"></div>
                         <div class="shortBar"></div>
-                        <div class="longBar my-1"></div>
-                    </button>
+                        <div class="longBar"></div>
+                    </div>
                 </div>  
             @endif
             
             <div class="col-6 col-lg-3 header__img">
                 <img class="img-responsive" src="{{ asset('images/logo1.png') }}" /> 
             </div>
-            <div class="col-3 col-lg-9 header__content">
-                <div class="col-lg-12 p-0 header__content__sm">
+            <div class="@if(!Request::is('house/*')) col-3 @else col-6 @endif col-lg-9 header__content">
+                <div class="col-lg-12 p-0 header__content__sm d-sm-block d-flex justify-content-end">
                     <nav class="navbar navbar-expand-lg navbar-light header__content__navbar py-0">
-                        <button class="navbar-toggler collapseBtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="navbar-toggler collapseBtn" data-toggle="collapse" id="collapseBtn"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             {{-- <span class="navbar-toggler-icon"></span> --}}
-                            <div class="longBar my-1"></div>
                             <div class="longBar"></div>
-                            <div class="longBar my-1"></div>
-                        </button>
+                            <div class="longBar"></div>
+                            <div class="longBar"></div>
+                        </div>
 
-                        <div class="collapse navbar-collapse header__content__navbar__list mb-2 d-none d-sm-block" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse header__content__navbar__list mb-2 d-none d-lg-block" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
@@ -149,7 +150,7 @@
 
         <!-- Mobile header drop down -->
         <div class="collapse navbar-collapse header__content__navbar__list mb-2 " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto d-flex flex-row d-sm-none">
+            <ul class="navbar-nav mr-auto d-flex flex-row d-lg-none">
                 <li class="nav-item active">
                     <a class="nav-link make_active" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
