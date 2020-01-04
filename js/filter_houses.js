@@ -137,6 +137,7 @@ $(document).ready(function(e) {
 				}
 			}
 		}
+		console.log(filters);
 		console.log(titles);
 		//console.log("Filter:"+filter+" Value:"+value+" Checked:"+checked);
 

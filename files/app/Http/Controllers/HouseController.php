@@ -191,7 +191,9 @@ class HouseController extends Controller
 			foreach($filters as $key=>$filter)
 			{
 				if(!is_array($filter)) {
-					$result = $result->where($key, $filter);
+					if($filter != 'all') {
+						$result = $result->where($key, $filter);
+					}
 				}else{
 					$count = $count - 1;
 					$count2 = count($filter);
