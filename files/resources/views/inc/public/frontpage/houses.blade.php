@@ -178,7 +178,7 @@
 													</a>
 	
 													<div class="house__upper__img_price__price">
-														₦${val.price} 
+														₦ ${val.price} 
 													</div>
 												</div>
 												<div class="house__upper__bath">
