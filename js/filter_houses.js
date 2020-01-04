@@ -137,7 +137,8 @@ $(document).ready(function(e) {
 				}
 			}
 		}
-		
+		console.log(filters);
+		console.log(titles);
 		//console.log("Filter:"+filter+" Value:"+value+" Checked:"+checked);
 
 		var postUrl = APP_URL+"api/v1/filter_houses";
