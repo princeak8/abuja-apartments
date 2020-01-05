@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="{{asset('css/styles_frontpage.css')}}"/>
 
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="APP_URL" value="{{env('APP_URL')}}" />
