@@ -12,7 +12,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="header" class="container-fluid ">
-  <div class="row header d-none d-md-flex">      
+  <div class="row header d-none d-lg-flex">      
     <div class="col-lg-3 logo header__img px-0">
       <img class="img-responsive" src="{{ asset('images/logo.png') }}" />
     </div>
@@ -51,15 +51,15 @@
   </div>
   
   
-  <div class="row header d-flex d-md-none"> 
-    <div class="col-4 col-sm-6">
+  <div class="row header d-flex d-lg-none"> 
+    <div class="col-3">
       <button class="btn btn-default px-1 py-1" id="toggleMenu">
         <div class="longBar my-1"></div>
         <div class="shortBar"></div>
         <div class="longBar my-1"></div>
       </button>
     </div>     
-    <div class="col-8 col-sm-6 logo header__img px-0">
+    <div class="col-9 logo header__img px-0">
       <img class="img-responsive" src="{{ asset('images/logo.png') }}" />
     </div>
 

@@ -44,7 +44,6 @@
 
         </div><!--End of right-content_p -->
 	
-        <div class="clear"></div>
 
     </div><!-- end of cont_of_profile -->
 	        

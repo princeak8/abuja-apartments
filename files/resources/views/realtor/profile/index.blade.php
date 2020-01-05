@@ -1,64 +1,69 @@
-@extends('layouts.realtor_profile', ['page'=>'profile'])
+{{-- @extends('layouts.realtor_profile', ['page'=>'profile']) --}}
+@extends('layouts.realtor')
 
 @section('content')
-
-
-	        <h3>MY PROFILE <i class="fa fa-caret-down"></i></h3>
-	        <div class="col-sm-4">
-	        	<img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" width="150" height="100" />
-            </div>
-	        <div class="col-sm-12 table-responsive no_pad_prof">
-		        <table class="table table-responsive">
-		            <tr>
-                        <td class="col1"><i class="fa fa-pencil-square-o"></i> 
-                            @if(Auth::user()->type!='company') Firstname: @else Company/Business Name: @endif
-                        </td>
-                        <td id="edit-firstname" data-id="1" data-req="1">
-                            {{Auth::user()->firstname}}
-                        </td>
-                        <td><a id="firstname" class="edit" data-title="firstname" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
-                    </tr>
-                    @if(Auth::user()->type!='company')
-                        <tr>
-                            <td class="col1"><i class="fa fa-pencil-square-o"></i> Lastname:</td>
-                            <td id="edit-lastname" data-id="1" data-req="1">{{Auth::user()->lastname}}</td>
-                            <td><a id="lastname" class="edit" data-title="lastname" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
-                        </tr>
-		            @endif
-		            <tr>
-		            	<td class="col1"><i class="fa fa-pencil-square-o"></i>  Profile Name:</td>
-		                <td id="edit-profilename" data-id="1" data-req="1">{{Auth::user()->profile_name}}</td>
-	                    <td><a id="profilename" class="edit" data-title="profile_name" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
-	                </tr>
-		            <tr>
-		            	<td class="col1"><i class="fa fa-map-marker"></i> Address:</td>
-		                <td id="edit-address" data-id="1" data-req="0">{{Auth::user()->address}}</td>
-		                <td><a id="address" class="edit" data-title="address" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
-	                </tr>
-	                 <tr>
-		                <td class="col1"><i class="fa fa-map-marker"></i> Twitter Handle:</td>
-		                <td id="edit-twitter" data-id="1" data-req="0">{{Auth::user()->twitter}}</td>
-		                <td><a id="twitter" class="edit" data-title="twitter" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
-		            </tr>
-		            <tr>
-		                <td class="col1"><i class="fa fa-phone-square"></i> Phone Number(s):</td>
-		                <td>
-		                    @foreach(Auth::user()->phones as $realtorPhone) 
-		                        <i id="error-phone-{{$realtorPhone->id}}" class="red"></i>
-		                                
+	<div class="row">
+		@include('inc.realtor.profile_left_menu', ['page'=>'profile'])
+		<div class="col-9">
+			<h4>My profile</h4>
+			
+			<div class="col-sm-4">
+				<img class="img-responsive img-thumbnail" src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" width="150" height="100" />
+			</div>
+			<div class="col-sm-12 table-responsive no_pad_prof">
+				<table class="table table-responsive">
+					<tr>
+						<td class="col1"><i class="fa fa-pencil-square-o"></i> 
+							@if(Auth::user()->type!='company') Firstname: @else Company/Business Name: @endif
+						</td>
+						<td id="edit-firstname" data-id="1" data-req="1">
+							{{Auth::user()->firstname}}
+						</td>
+						<td><a id="firstname" class="edit" data-title="firstname" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
+					</tr>
+					@if(Auth::user()->type!='company')
+						<tr>
+							<td class="col1"><i class="fa fa-pencil-square-o"></i> Lastname:</td>
+							<td id="edit-lastname" data-id="1" data-req="1">{{Auth::user()->lastname}}</td>
+							<td><a id="lastname" class="edit" data-title="lastname" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
+						</tr>
+					@endif
+					<tr>
+						<td class="col1"><i class="fa fa-pencil-square-o"></i>  Profile Name:</td>
+						<td id="edit-profilename" data-id="1" data-req="1">{{Auth::user()->profile_name}}</td>
+						<td><a id="profilename" class="edit" data-title="profile_name" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
+					</tr>
+					<tr>
+						<td class="col1"><i class="fa fa-map-marker"></i> Address:</td>
+						<td id="edit-address" data-id="1" data-req="0">{{Auth::user()->address}}</td>
+						<td><a id="address" class="edit" data-title="address" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
+					</tr>
+						<tr>
+						<td class="col1"><i class="fa fa-map-marker"></i> Twitter Handle:</td>
+						<td id="edit-twitter" data-id="1" data-req="0">{{Auth::user()->twitter}}</td>
+						<td><a id="twitter" class="edit" data-title="twitter" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a></td>
+					</tr>
+					<tr>
+						<td class="col1"><i class="fa fa-phone-square"></i> Phone Number(s):</td>
+						<td>
+							@foreach(Auth::user()->phones as $realtorPhone) 
+								<i id="error-phone-{{$realtorPhone->id}}" class="red"></i>
+										
 								<span id="edit-phone-{{$realtorPhone->id}}" data-id="1">
 									{{$realtorPhone->phone}} 
-		                        </span>
-		                        <a id="phone-{{$realtorPhone->id}}" class="editphone" data-title="{{$realtorPhone->id}}" data-req="0"  href="javascript:void(0)" style="margin-left:0.2em;"><i class="fa fa-edit"></i> 
-		                 	        Edit
-		                        </a>&nbsp;&nbsp;&nbsp;
-		                            
-		                    @endforeach
-		                </td>
-		            </tr>
-		                
-		        </table>
-		    </div>
+								</span>
+								<a id="phone-{{$realtorPhone->id}}" class="editphone" data-title="{{$realtorPhone->id}}" data-req="0"  href="javascript:void(0)" style="margin-left:0.2em;"><i class="fa fa-edit"></i> 
+									Edit
+								</a>&nbsp;&nbsp;&nbsp;
+									
+							@endforeach
+						</td>
+					</tr>
+						
+				</table>
+			</div>
+		</div>
+	</div>
 	    
 
 @endsection

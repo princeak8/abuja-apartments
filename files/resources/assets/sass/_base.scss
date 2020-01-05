@@ -20,3 +20,24 @@ body {
     background: linear-gradient(124deg, rgba(6, 94, 153, 1) 0%, rgba(4, 113, 187, 1) 43%, rgba(15, 139, 221, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#065e99", endColorstr="#0f8bdd", GradientType=1);
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $brand-color-darker;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

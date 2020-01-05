@@ -1,5 +1,6 @@
 <div style="overflow-y:scroll; max-height: 100vh;" >
     <div class="content__left__profile">
+        <a href="{{url('realtor/profile')}}">
         <div class="content__left__profile__img">
             @if(!empty(Auth::user()->profile_photo))
                 <img src="{{env('APP_STORAGE')}}images/profile_photos/{{Auth::user()->profile_photo}}" class="img-responsive" />
@@ -7,6 +8,7 @@
                 <img src="{{env('APP_STORAGE')}}images/profile_photos/no_img.png" class=" img-responsive" />
             @endif
         </div>
+        </a>
         <div class="content__left__profile__details">
             <p class="my-1">
                 <a href="{{url('realtor/profile')}}">{{Auth::user()->biz_name === null ? Auth::user()->firstname : Auth::user()->biz_name}} 

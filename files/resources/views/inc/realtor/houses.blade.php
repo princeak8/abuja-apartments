@@ -46,7 +46,7 @@
 		@else
 			<div class="row">
 				@foreach($realtor->AllAvailableHouses as $realtorHouse) 
-					<div class="col-lg-3 ">
+					<div class="col-lg-4 col-xl-3 col-sm-6">
 							
 						<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif mouseoverHouse">
 							
@@ -98,10 +98,10 @@
 								</div>
 								@if($realtorHouse->sharer_id == 0)
 									<?php $available = ($realtorHouse->available==1) ? "0" : "1"; ?>
-									<div>
+									<div class="d-flex justify-content-center mb-2">
 										<button 
 											id="availability-btn" 
-											class="btn @if($available==0) btn-danger @else btn-success @endif" 
+											class="btn btn-sm rounded-corner col-12 @if($available==0) btn-danger @else btn-success @endif" 
 											data-available="{{$available}}" 
 											data-id="{{$realtorHouse->house_id}}"
 										>
@@ -144,7 +144,7 @@
     	@else
         <div class="row">
             @foreach($realtor->Unavailablehouses as $realtorHouse) 
-    			<div class="col-lg-3">
+    			<div class="col-lg-4 col-xl-3 col-sm-6">
 					<div class="houses__container__available__house @if($realtorHouse->house->estate_id>0) estate @else non-estate @endif mouseoverHouse" >
 						<a href="{{url('realtor/house/'.$realtorHouse->house_id)}}">
 							<div class="houses__container__available__house__img">
@@ -184,10 +184,10 @@
 							</div>
 							@if($realtorHouse->sharer_id == 0)
 								<?php $available = ($realtorHouse->available==1) ? "0" : "1"; ?>
-								<div>
+								<div class="mb-2 d-flex justify-content-center">
 									<button 
 										id="availability-btn" 
-										class="btn @if($available==0) btn-danger @else btn-success @endif" 
+										class="btn btn-sm col-12 rounded-corner @if($available==0) btn-danger @else btn-success @endif" 
 										data-available="{{$available}}" 
 										data-id="{{$realtorHouse->house_id}}"
 									>
