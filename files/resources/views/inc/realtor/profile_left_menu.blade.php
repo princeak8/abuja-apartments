@@ -1,5 +1,5 @@
-<div id="left-menu" class="col-3">
-	<ul class="">
+<div id="left-menu" class="col-12">
+	<ul class="profileHeading">
 		@if(Auth::user()->activated = 1) 
 			<li><a href="{{url('realtor/home')}}">Admin Home</a></li>
 		@else

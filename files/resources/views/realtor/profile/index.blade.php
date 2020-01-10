@@ -2,9 +2,10 @@
 @extends('layouts.realtor')
 
 @section('content')
+<div class="container-fluid">
 	<div class="row">
 		@include('inc.realtor.profile_left_menu', ['page'=>'profile'])
-		<div class="col-9">
+		<div class="col-12">
 			<h4>My profile</h4>
 			
 			<div class="col-sm-4">
@@ -64,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-	    
+</div>	    
 
 @endsection
 
