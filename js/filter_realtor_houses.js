@@ -5,28 +5,112 @@ function showFiltering() {
 function hideFiltering() {
 	$('#filtering').css('display', 'none');
 }
-$(document).ready(function(e) {
+function get_title_heading(filter) {
+	var titleHeading = "";
+	switch(filter) {
+		case 	'house_type_id' : 
+				titleHeading = 'House Type'; 
+				break;
+		case    'location_id' : 
+				titleHeading = 'Location'; 
+				break;
+		case    'price_range_id' : 
+				titleHeading = 'Price Range'; 
+				break;
+		// Unset the filter and title so to disable multiple filtering for the status
+		case    'status' : 
+				titleHeading = 'Status';
+				break;
+		case    'bedrooms' : 
+				titleHeading = 'Bedrooms'; 
+				break;
+		default : 
+				titleHeading = 'Uknown';
+	}
+	return titleHeading;
+}
+$(document).ready(function(e) { 
+	var filters = {}; 
+	var values = [];
+	var titleValues = [];
+	var titles = {};
+	var realtorId = $('#realtor-id').val();
+	filters['realtor_id'] = realtorId;
+	
         $('#left-side input').change(function(e) {
 			showFiltering();
             var value = $(this).val();
 			var filter = $(this).attr('name');
 			var title = $(this).data('id');
+
+			var titleHeading = get_title_heading(filter);
 			if($(this).is(":checked")) {
 				var checked = 1;
 				var name = $(this).prop('name');
 				if(name != 'status') { 
 					if(value != 'all') {
 						$('input[type=radio][name='+name+']').prop('checked', false);
-					}else{
+					}else{ 
 						$('input[type=checkbox][name='+name+']').prop('checked', false);
+					}	
+				}
+				if(filter == 'status' || value == 'all') {
+					filters[filter] = value;
+					delete titles[titleHeading];
+				}else{
+					if(filter in filters && filters[filter] != 'all') {
+						values = filters[filter];
+						values.push(value);
+						filters[filter] = values;
+					}else{
+						if(filters[filter] == 'all') {
+							delete filters[filter];
+						}
+						values = [];
+						values.push(value);
+						filters[filter] = values;
+					}
+				}
+	
+				if(titleHeading in titles && filters[filter] != 'all') {
+					titleValues = titles[titleHeading];
+					titleValues.push(title);
+					titles[titleHeading] = titleValues;
+				}else{
+					if(filters[filter] == 'all') {
+						delete titles[titleHeading];
+					} else {
+						titleValues = [];
+						titleValues.push(title);
+						titles[titleHeading] = titleValues;
 					}
 				}
 			}else{
 				var checked = 0;
+				var index = filters[filter].indexOf(value);
+				if (index !== -1) {
+					filters[filter].splice(index, 1);
+					if(filters[filter].length==0) {
+						delete filters[filter];
+					}
+				}
+	
+				var index = titles[titleHeading].indexOf(title);
+				if (index !== -1) {
+					titles[titleHeading].splice(index, 1);
+					if(titles[titleHeading].length==0) {
+						delete titles[titleHeading];
+					}
+				}
 			}
+			console.log(filters);
+			console.log(titles);
+
+			var postUrl = APP_URL+"api/v1/filter_houses";
+			var postFields = {filters: filters};
 			$.ajax({
-				url:"processes/filter_realtor_houses.php", 
-				data:{filter: filter, value: value, title: title, checked: checked}, 
+				url:postUrl, 
+				data:postFields, 
 				type: "post", 
 				async: false, 
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -34,20 +118,27 @@ $(document).ready(function(e) {
 				},
 				success: function(data) { 
 					var output = '';
-					if(data.title != '') {
-						output += '<div class="col-md-12 sub no-padding">';
-						output += '<h4 class="h5">FILTERS ON <i class="fa fa-angle-right"></i> ';
-						$.each(data.title, function(key, title) {
-							output += '<b>'+key+':</b> ';
-							$.each(title, function(key, title) {
-								output += '<i>'+title+'</i>, ';
-							});
-							output += ' | ';
-						});
-						output += '</h4>';
+					if(titles != '') {
+						output += '<div class="col-md-12">';
+						// output += '<h4 class="h5">FILTERS ON ';
+							output += `<div style="display:flex; flex-direction:row; flex-wrap: wrap">`
+								$.each(titles, function(key, title) { 
+									
+									output += `<div class="filterTags">`
+										output += `<p class="title">${key} </p>`;
+										$.each(title, function(key, tit) { 
+											
+											output += `<div>${tit} </div>`;
+											
+										});
+									output += `</div>`;
+									
+								});
+							output += `</div>`;
 						output += '</div>';
-
+						// output += '</h4>'
 					}
+					console.log(data.house);
 					if(data.house == '') {
 						output += '<h4><b class="h4 h4-xs">No Results for the Selected Filter</b></h4>';
 					}else{
@@ -64,9 +155,9 @@ $(document).ready(function(e) {
 									output += '</div>';
 									//The image div
 									output += '<div class="col-md-12 col-xs-12 no-padding">';
-										output += '<a href="index.php?page=view house&house_id='+val.house_id+'">';
+										output += '<a href="house/'+val.house_id+'">';
 											output += '<div class="img">';
-												output += '<img src="images/houses/'+val.house_id+'/thumbnails/'+val.photo+'" />';
+												output += '<img src="'+val.photo+'" />';
 											output += '</div>';
 										output += '</a>';
 									output += '</div>';

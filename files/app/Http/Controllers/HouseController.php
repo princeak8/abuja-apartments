@@ -203,10 +203,12 @@ class HouseController extends Controller
 						// Everything within this closure will be grouped together
 						//dd($filter);
 						foreach($filter as $value) {
-							if($count2Check == $count2) {
-								$result = $query->where($key, $value);
-							}else{
-								$result = $query->orWhere($key, $value);
+							if($value != 'all') {
+								if($count2Check == $count2) {
+									$result = $query->where($key, $value);
+								}else{
+									$result = $query->orWhere($key, $value);
+								}
 							}
 							$count2 = $count2 - 1;
 						}

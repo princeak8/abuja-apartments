@@ -164,7 +164,7 @@ $(document).ready(function(e) {
 				}*/
 				var output = '';
 				
-				if(data.title != '') {
+				if(titles != '') {
 					output += '<div class="col-md-12">';
 					// output += '<h4 class="h5">FILTERS ON ';
 						output += `<div style="display:flex; flex-direction:row; flex-wrap: wrap">`

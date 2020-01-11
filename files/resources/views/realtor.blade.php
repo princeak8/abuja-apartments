@@ -78,9 +78,12 @@
 				<input id="total-houses" type="hidden" value="{{$allRealtor_houses->count()}}" />
 				<input id="displayed-houses" type="hidden" value="{{$realtor_houses->count()}}" />
 				<input id="limit" type="hidden" value="{{$limit}}" />
+				<input id="realtor-id" type="hidden" value="{{$realtor->id}}" />
 <!-- Ajax Control Variables ends here  -->
 
+@endsection
 
+@section('js') 
 
 <script type="application/javascript" src="{{asset('js/filter_realtor_houses.js')}}"></script>
  
@@ -250,8 +253,6 @@
 		});
 	</script>
 
-@endsection
 
-@section('js') 
     @include('inc.public.circle_request_js')
 @endsection

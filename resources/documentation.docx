@@ -1,9 +1,0 @@
-SENDING, ACCEPTING AND DECLINING CIRCLE REQUESTS
-
-To perform any of the above action
-It has to be an ajax request
-The following parameters has to be set
-id : The Id of the realtor that u are sending/accepting/declining his request
-action : The action that you are performing i.e send/accept/decline/block
-The url to send the request will be 'process_circle_request'
-and it will be directed to circleController@process_request

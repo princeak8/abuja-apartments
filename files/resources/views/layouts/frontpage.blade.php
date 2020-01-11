@@ -63,7 +63,7 @@ tinymce.init({
 {{-- @yield('js') --}}
 </body>
 <script type="application/javascript">
-    $(document).ready(function(){
+    $(document).ready(function(){ 
         $('#clickOnPhoto img').click(function(){
             $('#profileOverlay').css({
                 display: 'flex'
@@ -135,7 +135,7 @@ tinymce.init({
             }
         })
         
-
+        
         
     })
 </script>
