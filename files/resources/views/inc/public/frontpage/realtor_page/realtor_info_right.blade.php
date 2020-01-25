@@ -16,22 +16,24 @@
 
             <div class="col-lg-5 col-6 realtor_top__img px-3">
                 @if(!empty($realtor->profile_photo)) 
-                    <a data-lightbox="example-1" data-lightbox="example-1" href="images/profile_photos/{{$realtor->profile_photo}}">
+                    <a href="images/profile_photos/{{$realtor->profile_photo}}" data-toggle="modal" data-target="#myModal">
                         {{-- <img src="images/profile_photos/{{$realtor->profile_photo}}" class="img-rounded img-responsive" /> --}}
                         <img src="{{ asset('images/profile_pic2.png') }}" class="img-rounded img-responsive" />
                     </a>
                 @else
-                    <a data-lightbox="example-1" data-lightbox="example-1" href="">
+                    <a href="#">
                         <img src="{{ asset('images/profile_pic2.png') }}" class="img-rounded img-responsive" />
                     </a>	
                 @endif
-                <script src="{{asset('js/lightbox.js')}}"></script>
+                
             </div>
         </div>
         <h6>Share page</h6>
         <div class="realtor_top__details__subtitle">
             @include('inc.public.share')
         </div>
+
+        
 
         <hr class="mb-1">
 
@@ -67,4 +69,32 @@
             </div>
         </div> 
     </div>
+</div>
+
+<div class="modal slide" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Profile image</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        @if(!empty($realtor->profile_photo)) 
+            <img src="images/profile_photos/{{$realtor->profile_photo}}" />
+        @else
+            <img src="{{ asset('images/profile_pic2.png') }}" class="img-rounded img-responsive" />	
+        @endif
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>

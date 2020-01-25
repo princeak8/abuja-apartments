@@ -3,6 +3,7 @@
 @extends('layouts.frontpage')
 
 @section('content')
+	@include('inc.public.frontpage.houses_components.filtering')
 
 <!-- The Left-side with the FILTERS starts here -->
 <div class="col-lg-2"> 
@@ -14,12 +15,6 @@
 	<!-- The content containing the houses starts here -->
 	<div class="" id="content">
 	{{--@include('inc.public.frontpage.realtor_page.estate_houses')--}}
-
-		<div id="filtering" style="width:100%; height:50px; text-align:center; display: none;">
-	    	<img src="images/ajax-loader.gif" width="32" height="32" />
-	        <br/>
-	        <b>.....Be Patient While Houses are filtered......</b>
-		</div>
 		
 		<h6 class="text-center">Houses</h6>
 	    <div class="row" id="db-content">
@@ -54,10 +49,9 @@
 				
 	    	@endforeach
 
-	    	<div id="loading" style="text-align:center; display:none;" class="clear">
-	            ...LOADING...
-	        	<img src="images/spinner4.gif" width="72" height="50" />
-	        </div>
+			<div class="spinnerContainer" id="loading">
+				<div class="spinner"></div>
+			</div>
 
 	    </div><!-- id='db-content' ends here -->
 
@@ -69,6 +63,8 @@
 	@include('inc.public.frontpage.realtor_page.realtor_info_right')
 
 </div>
+
+
 
 <!-- Ajax Control Variables -->
 				<input id="total-houses" type="hidden" value="{{$allRealtor_houses->count()}}" />
