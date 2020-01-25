@@ -22,10 +22,15 @@
                     <div class="col-8 pl-1 py-2 profile__body__heading">
                         @php $realtor_type = $realtorHouse->realtor->type @endphp
                         <p class="m-0 profile__body__heading__title">
+                            {{$realtorHouse->realtor->name}}
+                        </p>
+                        <!--
+                        <p class="m-0 profile__body__heading__title">
                             {{$realtor_type =='company' ? 
                                 $realtorHouse->realtor->biz_name : 
                                 $realtorHouse->realtor->full_name}}
                         </p>
+                        -->
                         
                         @if($realtor_type=='company')
                             <p class="m-0 profile__body__heading__subtitle">Real Estate Firm </p>
