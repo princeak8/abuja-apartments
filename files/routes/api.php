@@ -34,7 +34,7 @@ Route::group([
 Route::group(['middleware' => ['sessions'], 'prefix' => 'v1'], function () {
 
 Route::post('load_houses', 'HouseController@load_houses');
-Route::post('filter_houses', 'HouseController@filter');
+Route::post('filter_houses', 'API\HouseController@filter');
 
 Route::get('houses', 'API\HouseController@houses');
 
