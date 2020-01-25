@@ -4,11 +4,35 @@
         <h4 class="rinfo_public__cover__1st m-0">
             @if($realtor->type=='company') {{$realtor->biz_name}} @else {{$realtor->full_name}} @endif
         </h4>
-        <h5 class="rinfo_public__cover__2nd m-0">{!! $realtor->type == 'company' ? 'Real Estate Firm' : 'Agent' !!}</h5>
-        <h5 class="rinfo_public__cover__3rd m-0">{!! $realtor->verified == 1 ? 
-        '<span class="verified"><i class="fa fa-check"></i> Verified </span>' : 
-        '<span class="not_verified"><i class="fa fa-times"></i> Not Verified </span>' !!}
-        </h5>
+
+        <div class="row">
+            <div class="col-lg-7 col-6">
+                <h5 class="rinfo_public__cover__2nd m-0">{!! $realtor->type == 'company' ? 'Real Estate Firm' : 'Agent' !!}</h5>
+                <h5 class="rinfo_public__cover__3rd m-0">{!! $realtor->verified == 1 ? 
+                '<span class="verified"><i class="fa fa-check"></i> Verified </span>' : 
+                '<span class="not_verified"><i class="fa fa-times"></i> Not Verified </span>' !!}
+                </h5>
+            </div>
+
+            <div class="col-lg-5 col-6 realtor_top__img px-3">
+                @if(!empty($realtor->profile_photo)) 
+                    <a data-lightbox="example-1" data-lightbox="example-1" href="images/profile_photos/{{$realtor->profile_photo}}">
+                        {{-- <img src="images/profile_photos/{{$realtor->profile_photo}}" class="img-rounded img-responsive" /> --}}
+                        <img src="{{ asset('images/profile_pic2.png') }}" class="img-rounded img-responsive" />
+                    </a>
+                @else
+                    <a data-lightbox="example-1" data-lightbox="example-1" href="">
+                        <img src="{{ asset('images/profile_pic2.png') }}" class="img-rounded img-responsive" />
+                    </a>	
+                @endif
+                <script src="{{asset('js/lightbox.js')}}"></script>
+            </div>
+        </div>
+        <h6>Share page</h6>
+        <div class="realtor_top__details__subtitle">
+            @include('inc.public.share')
+        </div>
+
         <hr class="mb-1">
 
         <h5 class="rinfo_public__cover__4th m-0"><i class="fa fa-envelope"></i> {{$realtor->email}}</h5>

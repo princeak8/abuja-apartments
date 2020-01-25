@@ -10,10 +10,6 @@
 </div>
 
 <div class="col-lg-7">
-	<div class="row">
-		@include('inc.public.frontpage.realtor_page.realtor_top')
-	</div>
-	
 
 	<!-- The content containing the houses starts here -->
 	<div class="" id="content">

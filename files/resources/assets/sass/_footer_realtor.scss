@@ -48,8 +48,8 @@ footer {
         p{
             // flex: 1; 
             padding-left: 5%;
-             @include MQ-MAX(M) { width: 100%; }
-           a{
+            @include MQ-MAX(M) { width: 100%; }
+            a{
                 color:rgb(131, 193, 243);
                 &:hover{
                     color: white;
