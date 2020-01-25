@@ -19922,7 +19922,9 @@ ealtor_details.blade.php) at C:\\wamp\\www\\abj_dev\\files\\app\\Realtor.php:110
 #47 C:\\wamp\\www\\abj_dev\\index.php(53): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #48 {main}
 "} 
-[2020-01-11 22:37:36] laravel.ERROR: syntax error, unexpected '}', expecting ')' (View: C:\wamp\www\abj_dev\files\resources\views\realtor.blade.php) {"exception":"[object] (ErrorException(code: 0): syntax error, unexpected '}', expecting ')' (View: C:\\wamp\\www\\abj_dev\\files\esources\\views\ealtor.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\a0004aea0ab9ceea97deb7ad9d56be9512fe8ad5.php:79, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '}', expecting ')' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\a0004aea0ab9ceea97deb7ad9d56be9512fe8ad5.php:79)
+[2020-01-11 22:37:36] laravel.ERROR: syntax error, unexpected '}', expecting ')' (View: C:\wamp\www\abj_dev\files\resources\views\realtor.blade.php) {"exception":"[object] (ErrorException(code: 0): syntax error, unexpected '}', expecting ')' (View: C:\\wamp\\www\\abj_dev\\files\
+esources\\views\
+ealtor.blade.php) at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\a0004aea0ab9ceea97deb7ad9d56be9512fe8ad5.php:79, Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected '}', expecting ')' at C:\\wamp\\www\\abj_dev\\files\\storage\\framework\\views\\a0004aea0ab9ceea97deb7ad9d56be9512fe8ad5.php:79)
 [stacktrace]
 #0 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(47): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError), 1)
 #1 C:\\wamp\\www\\abj_dev\\files\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\wamp\\\\www\\\\abj...', Array)

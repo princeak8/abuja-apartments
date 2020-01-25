@@ -10,9 +10,9 @@
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms of Use</a>
         <a href="/about">About</a>
-        <a href="/partner">Partner us</a>
+        {{-- <a href="/partner">Partner us</a> --}}
       </div>
-      <div class="footer__middle">
+      <div class="footer__middle d-none d-md-flex">
         <div class="footer__middle__img">
           <img class="img-responsive" src="{{ asset('images/symbol.png') }}" /> 
         </div>

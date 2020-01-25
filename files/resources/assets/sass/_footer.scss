@@ -10,7 +10,7 @@ footer {
         &__left {
             flex: 1;
             @include MQ-MAX(M) {
-                flex: 3;
+                flex: 3;margin-bottom: 10px;
             }
             a{
                 color: white; padding: 0px 10px; 
@@ -49,6 +49,9 @@ footer {
             // flex: 1; 
             padding-left: 5%; width: 50%;
             @include MQ-MAX(M) { width: 100%; }
+            @include MQ-MAX(S) {
+                font-size: .9em; align-items: center;
+            }
             a{
                 color:rgb(131, 193, 243);
                 &:hover{
@@ -62,6 +65,11 @@ footer {
             width: 50%; padding-right: 3%; 
             @include MQ-MAX(M) {
                 padding: 0; font-size: .9em; width: 100%;
+                
+            }
+            @include MQ-MAX(S) {
+                flex-direction: column;
+                justify-content: 'center'; align-items: center;
             }
             li{ 
                 list-style: none; padding: 0px 15px;

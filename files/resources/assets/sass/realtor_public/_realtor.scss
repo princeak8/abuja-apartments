@@ -1,23 +1,22 @@
 .realtor_top {
     &__img {
+         width: 50px; height: 80px; _border: 1px solid red;
         a {
-            width: 100%; height: 100%;
            img{
                 width: 100%; height: 100%;_border-radius: 20px;_box-shadow: $shadow;
+                object-fit: contain; _border: 1px solid green;
             } 
         }
     }
     &__details {
         &__title {
             text-align: center;font-size: 1.4em; font-family: $archivo;line-height: 20px;
-            span {
-                color: grey; font-size: .9em; _padding-left: 5px;
-            }
+            color: $brand-color-darker;
         }
         &__subtitle {
-            padding: 0px;
+            // padding: 0px;
             .share {
-                margin-bottom: 0px;
+                margin-bottom: 0px;justify-content: flex-start;
             }
             a {color: white; margin:0px 2px;}   
         }
