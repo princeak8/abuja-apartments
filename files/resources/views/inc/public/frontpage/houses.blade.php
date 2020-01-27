@@ -153,13 +153,13 @@
                             }else{
                                 //alert(data.house);
                                 $.each(data.house, function(key, val) {
-                                    if(val.bathrooms == undefined){
+                                    if(val.bathrooms == undefined || val.bathrooms == null){
                                         val.bathrooms = '';
                                     }
-                                    if(val.bedrooms == undefined){
+                                    if(val.bedrooms == undefined || val.bathrooms == null){
                                         val.bedrooms = '';
                                     }
-                                    if(val.toilets == undefined){
+                                    if(val.toilets == undefined || val.bathrooms == null){
                                         val.toilets = '';
                                     }
                                     output += `<div class="col-xl-3 col-lg-4 col-sm-6 px-3">

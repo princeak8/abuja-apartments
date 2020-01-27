@@ -166,7 +166,6 @@ $(document).ready(function(e) {
 				
 				if(titles != '') {
 					output += '<div class="col-md-12">';
-					// output += '<h4 class="h5">FILTERS ON ';
 						output += `<div style="display:flex; flex-direction:row; flex-wrap: wrap">`
 							$.each(titles, function(key, title) { 
 								
@@ -182,7 +181,6 @@ $(document).ready(function(e) {
 							});
 						output += `</div>`;
 					output += '</div>';
-					// output += '</h4>'
 				}
 				if(data.house === '' || data.house === undefined) {
 					output += `<div class="emptyContainer">
@@ -197,6 +195,15 @@ $(document).ready(function(e) {
 					</div>`;
 				} else {
 					$.each(data.house, function(key, val) {
+						if (val.bathrooms == undefined || val.bathrooms == null) {
+							val.bathrooms = '';
+						}
+						if (val.bedrooms == undefined || val.bathrooms == null) {
+							val.bedrooms = '';
+						}
+						if (val.toilets == undefined || val.bathrooms == null) {
+							val.toilets = '';
+						}
 						output += `<div class="col-xl-3 col-lg-4 col-sm-6 px-3">
 								   		<div class="house mouseoverHouse">  
 											<div class="cover"></div>

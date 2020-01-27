@@ -5,7 +5,7 @@
 
             <li><span class="fa fa-clone"></span> {!! check_string_length($house->house_type->type) !!}</li>
             @if($house->estate_id > 0 && $house->estate)
-                <li><span class="fa fa-list-ul"></span> {!! check_string_length($house->estate->name) !!}
+                <li><span class="fa fa-list-ul"></span> <?php echo check_string_length($house->estate->name); ?>
                     (<span>{{$house->units}} Units</span>)
                 </li>  
             @endif
@@ -22,8 +22,8 @@
                 For {{$house->status}}
             </div>
             <div class="house__details__lower__cl">
-                <span><i class="far fa-heart"></i> {{$house->likes}}</span>
-                <span><i class="fa fa-comments"></i> {{$house->house_comments->count()}}</span>
+                {{-- <span><i class="far fa-heart"></i> {{$house->likes}}</span>
+                <span><i class="fa fa-comments"></i> {{$house->house_comments->count()}}</span> --}}
             </div>
     </div>
 
