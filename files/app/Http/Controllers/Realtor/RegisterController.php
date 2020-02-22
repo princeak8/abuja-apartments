@@ -62,6 +62,8 @@ class RegisterController extends Controller
                 'profile_name' => $request->input('profile_name'),
                 'email' => $request->input('email'),
                 'password' => bcrypt($request->input('password')),
+                'twitter' => $request->input('twitter'),
+                'instagram' => $request->input('instagram'),
                 'activated' => 1,
                 'type' => 'agent'
             ]);
@@ -76,13 +78,13 @@ class RegisterController extends Controller
                 
                 try{
                     //Send Email to newly registered Realtor
-                    //Mail::to($realtor->email)->send(new Registration($realtor));
+                    Mail::to($realtor->email)->send(new Registration($realtor));
                 }catch(exception $e) {
                     //
                 }
                 try{
                     //Send Email to Admin
-                    //Mail::to("akalodave@gmail.com")->send(new Registered($realtor));
+                    Mail::to("akalodave@gmail.com")->send(new Registered($realtor));
                 }catch(exception $e) {
                     //
                 }
@@ -136,6 +138,8 @@ class RegisterController extends Controller
                 'email' => $request->input('email'),
                 'rc_number' => $request->input('rc_number'),
                 'password' => bcrypt($request->input('password')),
+                'twitter' => $request->input('twitter'),
+                'instagram' => $request->input('instagram'),
                 'activated' => 1,
                 'type' => 'company'
             ]);
@@ -149,13 +153,13 @@ class RegisterController extends Controller
                 ]);
                 try{
                     //Send Email to newly registered Realtor
-                    //Mail::to($realtor->email)->send(new Registration($realtor));
+                    Mail::to($realtor->email)->send(new Registration($realtor));
                 }catch(exception $e) {
                     //
                 }
                 try{
                     //Send Email to Admin
-                    //Mail::to("akalodave@gmail.com")->send(new Registered($realtor));
+                    Mail::to("akalodave@gmail.com")->send(new Registered($realtor));
                 }catch(exception $e) {
                     //
                 }

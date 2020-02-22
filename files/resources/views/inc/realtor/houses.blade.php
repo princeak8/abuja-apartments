@@ -25,6 +25,7 @@
 @endif
 
 @if($realtor->type=='company')
+<!--
 	<ul class="nav nav-pills">
         <li class="filter" data-filter="all">
             <a href="javascript:void(0)">All Houses</a>
@@ -36,6 +37,7 @@
             <a href="javascript:void(0)">Non-Estate Houses</a>
         </li>
     </ul>
+	-->
 @endif
 
 <div class="tab-content houses__container" id="myTabContent">

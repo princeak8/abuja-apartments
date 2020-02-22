@@ -120,7 +120,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-bed"></i></span>
 								</div>
-								{!! Form::number('bathrooms', null, ['id'=>'bathrooms', 'class'=>'form-control form-control-sm', 'required', 'size'=>'2', 'maxlength'=>'2']) !!}
+								{!! Form::number('bathrooms', null, ['id'=>'bathrooms', 'class'=>'form-control form-control-sm', 'size'=>'2', 'maxlength'=>'2']) !!}
 							</div>  
 					</div>
 
@@ -131,7 +131,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-bed"></i></span>
 								</div>
-								{!! Form::number('toilets', null, ['id'=>'toilets', 'class'=>'form-control form-control-sm', 'required', 'size'=>'2', 'maxlength'=>'2']) !!}
+								{!! Form::number('toilets', null, ['id'=>'toilets', 'class'=>'form-control form-control-sm', 'size'=>'2', 'maxlength'=>'2']) !!}
 							</div>  
 					</div>
 

@@ -38,6 +38,8 @@ Route::post('filter_houses', 'API\HouseController@filter');
 
 Route::get('houses', 'API\HouseController@houses');
 
+Route::get('houses/{page}', 'API\HouseController@houses');
+
 Route::get('index', 'API\HomeController@index');
 
 Route::get('/house/{id}', 'API\HouseController@house');

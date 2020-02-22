@@ -48,7 +48,7 @@
                 </div>
             </form>
             <p class="">
-                <span>Sign Up <a href="{{'realtor/register'}}">Individual</a>  | <a href="{{'realtor/register/company'}}">Company</a> </span>
+                <span>Sign Up <a href="{{url('register')}}">Individual</a>  | <a href="{{url('register/company')}}">Company</a> </span>
                 <span>Lost Password? Get new one <a href="{{url('forgot_password')}}">Here</a></span>
             </p>
         </div>

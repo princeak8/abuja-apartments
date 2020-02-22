@@ -111,6 +111,20 @@
                                 </div>      
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <div class="login__container__body__form__input">
+                                    <input id="twitter" class="form-control input-sm" type="text" name="twitter" value="{!! old('twitter') !!}" />
+                                    <label for="twitter">Twitter Handle</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <div class="login__container__body__form__input">
+                                    <input id="instagram" class="form-control input-sm" type="text" name="instagram" value="{!! old('instagram') !!}" />
+                                    <label for="instagram">Instagram Handle</label>
+                                </div>
+                            </div>
+                        </div>
 
                         <input type="hidden" name="type" value="agent" />
                         <div class="">
